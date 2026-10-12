@@ -1,0 +1,57 @@
+package ir.brandimo.goshyar.ui.settings;
+
+import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+import ir.brandimo.goshyar.MainActivity;
+import ir.brandimo.goshyar.audio.AudioManagerHelper;
+import ir.brandimo.goshyar.databinding.FragmentSettingsBinding;
+import ir.brandimo.goshyar.ui.menu.MainMenuFragment;
+import ir.brandimo.goshyar.ui.offline.OfflineModeFragment;
+
+public class SettingsFragment extends Fragment {
+
+    private FragmentSettingsBinding binding;
+
+    @Nullable
+    @Override
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        binding = FragmentSettingsBinding.inflate(inflater, container, false);
+        return binding.getRoot();
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        binding.switchBgMusic.setOnCheckedChangeListener((btn, isChecked) -> {
+            AudioManagerHelper.getInstance().setMusicEnabled(isChecked);
+        });
+
+        binding.switchSfx.setOnCheckedChangeListener((btn, isChecked) -> {
+            AudioManagerHelper.getInstance().setSfxEnabled(isChecked);
+        });
+
+        binding.btnOfflineModeScreen.setOnClickListener(v -> {
+            if (getActivity() instanceof MainActivity) {
+                ((MainActivity) getActivity()).replaceFragment(new OfflineModeFragment());
+            }
+        });
+
+        binding.btnSettingsBack.setOnClickListener(v -> {
+            if (getActivity() instanceof MainActivity) {
+                ((MainActivity) getActivity()).replaceFragment(new MainMenuFragment());
+            }
+        });
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        binding = null;
+    }
+}

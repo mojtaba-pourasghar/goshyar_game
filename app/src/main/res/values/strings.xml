@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- App Information -->
+    <string name="app_name">گوش یار</string>
+    <string name="app_tagline">بازی کن، گوش بده، کشف کن!</string>
+    <string name="app_slogan">اولین بازی آموزشی شنیداری برای کودکان</string>
+
+    <!-- General Actions -->
+    <string name="start">شروع</string>
+    <string name="start_game">شروع بازی</string>
+    <string name="let_us_go">بزن بریم!</string>
+    <string name="continue_text">ادامه</string>
+    <string name="next_level">مرحله بعد</string>
+    <string name="try_again">دوباره تلاش کن</string>
+    <string name="view_score">مشاهده امتیاز</string>
+    <string name="settings">تنظیمات</string>
+    <string name="about_us">درباره ما</string>
+    <string name="download_content">دانلود محتوا</string>
+    <string name="back">بازگشت</string>
+    <string name="confirm">تأیید</string>
+
+    <!-- Navigation Bar -->
+    <string name="nav_home">خانه</string>
+    <string name="nav_achievements">دستاوردها</string>
+    <string name="nav_profile">پروفایل</string>
+
+    <!-- Welcome & Intro Screens -->
+    <string name="intro_title">سلام دوست عزیز!</string>
+    <string name="intro_body">من گوش‌یار هستم، یک خرس مهربان و کنجکاو که عاشق صداهاست. بیایید با هم دنیای شنیداری را کشف کنیم!</string>
+
+    <!-- Main Menu Screen -->
+    <string name="welcome_user">سلام، دوست خوبم!</string>
+    <string name="what_to_play_today">امروز چه بازی بکنیم؟</string>
+    <string name="level_label">سطح %1$d</string>
+    <string name="points_label">%1$d امتیاز</string>
+
+    <!-- Main Game Modes -->
+    <string name="mode_find_source">پیدا کردن منبع صدا</string>
+    <string name="mode_who_made_sound">این صدا مال کیه؟</string>
+    <string name="mode_sound_sequence">ترتیب صداها</string>
+    <string name="mode_audio_mission">مأموریت شنیداری</string>
+
+    <!-- Categories -->
+    <string name="category_animals">حیوانات</string>
+    <string name="category_home_items">وسایل خانه</string>
+    <string name="category_nature">طبیعت</string>
+    <string name="category_music">موسیقی</string>
+    <string name="category_professions">حرفه‌ها</string>
+    <string name="category_science">فضا و علم</string>
+    <string name="all_games">همه بازی‌ها</string>
+
+    <!-- Game Prompts -->
+    <string name="game_find_source_instruction">به صدای روبرو گوش کن و منبع آن را پیدا کن!</string>
+    <string name="game_who_made_sound_question">این صدا مال کدام حیوان یا وسیله است؟</string>
+
+    <string name="game_sequence_instruction">به ترتیب صداها گوش کن و آن‌ها را بازسازی کن:</string>
+    <string name="game_audio_mission_instruction">چشم‌هایت را ببند و به جنگل گوش کن... چند صدای مختلف می‌شنوی؟</string>
+    <string name="game_progress">مرحله %1$d از %2$d</string>
+
+    <!-- Feedback & Rewards -->
+    <string name="feedback_correct_title">آفرین!</string>
+    <string name="feedback_correct_subtitle">پاسخ درست است! خیلی خوب جواب دادی!</string>
+    <string name="feedback_reward_points">+۲۰ امتیاز</string>
+    <string name="feedback_incorrect_title">اشکالی نداره!</string>
+    <string name="feedback_incorrect_subtitle">دوباره گوش بده و یک بار دیگه امتحان کن.</string>
+
+    <!-- Profile & Achievements -->
+    <string name="profile_child_title">پروفایل کودک</string>
+    <string name="child_name_default">آرین</string>
+    <string name="games_completed_count">بازی‌های انجام شده: %1$d</string>
+    <string name="medals_earned_count">مدال‌ها: %1$d مدال</string>
+
+    <!-- Badge Names -->
+    <string name="badge_sound_workshop">کارگاه صداها</string>
+    <string name="badge_sound_workshop_desc">۵ مرحله موفق</string>
+    <string name="badge_nature_friend">دوست طبیعت</string>
+    <string name="badge_nature_friend_desc">۳ مرحله موفق</string>
+    <string name="badge_audio_hero">قهرمان شنیداری</string>
+    <string name="badge_audio_hero_desc">تمام مراحل</string>
+
+    <!-- Settings & Offline -->
+    <string name="settings_bg_music">موسیقی پس‌زمینه</string>
+    <string name="settings_sound_effects">افکت‌های صوتی</string>
+    <string name="settings_download_offline">دانلود برای آفلاین</string>
+    <string name="settings_language">زبان: فارسی</string>
+
+    <string name="offline_mode_title">حالت آفلاین</string>
+    <string name="offline_mode_desc">بازی‌ها را بدون اینترنت هم می‌توانی ادامه دهی!</string>
+
+    <!-- Parent Dashboard -->
+    <string name="parent_panel_title">پنل والدین</string>
+    <string name="parent_progress_report">گزارش پیشرفت کودک</string>
+    <string name="skill_listening_focus">تمرکز شنیداری</string>
+    <string name="skill_audio_memory">حافظه صوتی</string>
+    <string name="skill_sound_recognition">تشخیص صدا</string>
+
+    <!-- Parent Gate -->
+    <string name="parent_gate_title">تأیید والدین</string>
+    <string name="parent_gate_question">حاصل %1$d + %2$d چند می‌شود؟</string>
+</resources>

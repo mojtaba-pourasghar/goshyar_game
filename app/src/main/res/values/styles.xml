@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Base Application Theme -->
+    <style name="Theme.GoshyarGame" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Primary brand colors -->
+        <item name="colorPrimary">@color/purple_primary</item>
+        <item name="colorPrimaryVariant">@color/purple_medium</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <!-- Secondary brand colors -->
+        <item name="colorSecondary">@color/gooshi_orange</item>
+        <item name="colorSecondaryVariant">@color/gooshi_orange_dark</item>
+        <item name="colorOnSecondary">@color/white</item>
+        <!-- Background and window styling -->
+        <item name="android:windowBackground">@color/purple_background</item>
+        <item name="android:statusBarColor">@color/purple_primary</item>
+        <item name="android:windowLightStatusBar">false</item>
+    </style>
+
+    <!-- Round Button Style -->
+    <style name="Widget.Goshyar.Button.Green" parent="Widget.MaterialComponents.Button">
+        <item name="backgroundTint">@color/success_green</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="cornerRadius">24dp</item>
+        <item name="android:paddingTop">12dp</item>
+        <item name="android:paddingBottom">12dp</item>
+    </style>
+
+    <style name="Widget.Goshyar.Button.Orange" parent="Widget.MaterialComponents.Button">
+        <item name="backgroundTint">@color/gooshi_orange</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="cornerRadius">24dp</item>
+        <item name="android:paddingTop">12dp</item>
+        <item name="android:paddingBottom">12dp</item>
+    </style>
+
+    <style name="Widget.Goshyar.Button.Purple" parent="Widget.MaterialComponents.Button">
+        <item name="backgroundTint">@color/purple_medium</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="cornerRadius">24dp</item>
+    </style>
+</resources>

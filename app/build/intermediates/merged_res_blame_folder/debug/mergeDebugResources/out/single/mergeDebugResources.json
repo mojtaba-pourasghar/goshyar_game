@@ -1,0 +1,174 @@
+[
+    {
+        "merged": "ir.brandimo.goshyar.app-debug-4:/drawable_anim_cat.png.flat",
+        "source": "ir.brandimo.goshyar.app-main-6:/drawable/anim_cat.png"
+    },
+    {
+        "merged": "ir.brandimo.goshyar.app-debug-4:/layout_fragment_intro.xml.flat",
+        "source": "ir.brandimo.goshyar.app-main-6:/layout/fragment_intro.xml"
+    },
+    {
+        "merged": "ir.brandimo.goshyar.app-debug-4:/drawable_bg_category_card_green.xml.flat",
+        "source": "ir.brandimo.goshyar.app-main-6:/drawable/bg_category_card_green.xml"
+    },
+    {
+        "merged": "ir.brandimo.goshyar.app-debug-4:/drawable_bg_dialog_rounded.xml.flat",
+        "source": "ir.brandimo.goshyar.app-main-6:/drawable/bg_dialog_rounded.xml"
+    },
+    {
+        "merged": "ir.brandimo.goshyar.app-debug-4:/drawable_mascot_sleeping.png.flat",
+        "source": "ir.brandimo.goshyar.app-main-6:/drawable/mascot_sleeping.png"
+    },
+    {
+        "merged": "ir.brandimo.goshyar.app-debug-4:/drawable_mascot_listening.png.flat",
+        "source": "ir.brandimo.goshyar.app-main-6:/drawable/mascot_listening.png"
+    },
+    {
+        "merged": "ir.brandimo.goshyar.app-debug-4:/drawable_bg_category_card_orange.xml.flat",
+        "source": "ir.brandimo.goshyar.app-main-6:/drawable/bg_category_card_orange.xml"
+    },
+    {
+        "merged": "ir.brandimo.goshyar.app-debug-4:/drawable_bg_rounded_card_white.xml.flat",
+        "source": "ir.brandimo.goshyar.app-main-6:/drawable/bg_rounded_card_white.xml"
+    },
+    {
+        "merged": "ir.brandimo.goshyar.app-debug-4:/layout_fragment_game_find_source.xml.flat",
+        "source": "ir.brandimo.goshyar.app-main-6:/layout/fragment_game_find_source.xml"
+    },
+    {
+        "merged": "ir.brandimo.goshyar.app-debug-4:/drawable_anim_cow.png.flat",
+        "source": "ir.brandimo.goshyar.app-main-6:/drawable/anim_cow.png"
+    },
+    {
+        "merged": "ir.brandimo.goshyar.app-debug-4:/layout_dialog_reward_success.xml.flat",
+        "source": "ir.brandimo.goshyar.app-main-6:/layout/dialog_reward_success.xml"
+    },
+    {
+        "merged": "ir.brandimo.goshyar.app-debug-4:/layout_fragment_splash.xml.flat",
+        "source": "ir.brandimo.goshyar.app-main-6:/layout/fragment_splash.xml"
+    },
+    {
+        "merged": "ir.brandimo.goshyar.app-debug-4:/layout_fragment_parent_dashboard.xml.flat",
+        "source": "ir.brandimo.goshyar.app-main-6:/layout/fragment_parent_dashboard.xml"
+    },
+    {
+        "merged": "ir.brandimo.goshyar.app-debug-4:/layout_fragment_game_sequence.xml.flat",
+        "source": "ir.brandimo.goshyar.app-main-6:/layout/fragment_game_sequence.xml"
+    },
+    {
+        "merged": "ir.brandimo.goshyar.app-debug-4:/drawable_bg_category_card_pink.xml.flat",
+        "source": "ir.brandimo.goshyar.app-main-6:/drawable/bg_category_card_pink.xml"
+    },
+    {
+        "merged": "ir.brandimo.goshyar.app-debug-4:/drawable_mascot_surprised.png.flat",
+        "source": "ir.brandimo.goshyar.app-main-6:/drawable/mascot_surprised.png"
+    },
+    {
+        "merged": "ir.brandimo.goshyar.app-debug-4:/drawable_anim_bird.png.flat",
+        "source": "ir.brandimo.goshyar.app-main-6:/drawable/anim_bird.png"
+    },
+    {
+        "merged": "ir.brandimo.goshyar.app-debug-4:/layout_fragment_child_profile.xml.flat",
+        "source": "ir.brandimo.goshyar.app-main-6:/layout/fragment_child_profile.xml"
+    },
+    {
+        "merged": "ir.brandimo.goshyar.app-debug-4:/layout_activity_main.xml.flat",
+        "source": "ir.brandimo.goshyar.app-main-6:/layout/activity_main.xml"
+    },
+    {
+        "merged": "ir.brandimo.goshyar.app-debug-4:/drawable_ic_gold_star.png.flat",
+        "source": "ir.brandimo.goshyar.app-main-6:/drawable/ic_gold_star.png"
+    },
+    {
+        "merged": "ir.brandimo.goshyar.app-debug-4:/layout_fragment_category_select.xml.flat",
+        "source": "ir.brandimo.goshyar.app-main-6:/layout/fragment_category_select.xml"
+    },
+    {
+        "merged": "ir.brandimo.goshyar.app-debug-4:/layout_fragment_game_audio_mission.xml.flat",
+        "source": "ir.brandimo.goshyar.app-main-6:/layout/fragment_game_audio_mission.xml"
+    },
+    {
+        "merged": "ir.brandimo.goshyar.app-debug-4:/drawable_bg_purple_card.xml.flat",
+        "source": "ir.brandimo.goshyar.app-main-6:/drawable/bg_purple_card.xml"
+    },
+    {
+        "merged": "ir.brandimo.goshyar.app-debug-4:/drawable_bg_category_card_cyan.xml.flat",
+        "source": "ir.brandimo.goshyar.app-main-6:/drawable/bg_category_card_cyan.xml"
+    },
+    {
+        "merged": "ir.brandimo.goshyar.app-debug-4:/drawable_mascot_idle.png.flat",
+        "source": "ir.brandimo.goshyar.app-main-6:/drawable/mascot_idle.png"
+    },
+    {
+        "merged": "ir.brandimo.goshyar.app-debug-4:/layout_fragment_main_menu.xml.flat",
+        "source": "ir.brandimo.goshyar.app-main-6:/layout/fragment_main_menu.xml"
+    },
+    {
+        "merged": "ir.brandimo.goshyar.app-debug-4:/menu_bottom_nav_menu.xml.flat",
+        "source": "ir.brandimo.goshyar.app-main-6:/menu/bottom_nav_menu.xml"
+    },
+    {
+        "merged": "ir.brandimo.goshyar.app-debug-4:/drawable_anim_rabbit.png.flat",
+        "source": "ir.brandimo.goshyar.app-main-6:/drawable/anim_rabbit.png"
+    },
+    {
+        "merged": "ir.brandimo.goshyar.app-debug-4:/layout_dialog_feedback_try_again.xml.flat",
+        "source": "ir.brandimo.goshyar.app-main-6:/layout/dialog_feedback_try_again.xml"
+    },
+    {
+        "merged": "ir.brandimo.goshyar.app-debug-4:/drawable_mascot_happy.png.flat",
+        "source": "ir.brandimo.goshyar.app-main-6:/drawable/mascot_happy.png"
+    },
+    {
+        "merged": "ir.brandimo.goshyar.app-debug-4:/layout_fragment_offline_mode.xml.flat",
+        "source": "ir.brandimo.goshyar.app-main-6:/layout/fragment_offline_mode.xml"
+    },
+    {
+        "merged": "ir.brandimo.goshyar.app-debug-4:/drawable_bg_night_forest.png.flat",
+        "source": "ir.brandimo.goshyar.app-main-6:/drawable/bg_night_forest.png"
+    },
+    {
+        "merged": "ir.brandimo.goshyar.app-debug-4:/drawable_bg_sunny_forest.png.flat",
+        "source": "ir.brandimo.goshyar.app-main-6:/drawable/bg_sunny_forest.png"
+    },
+    {
+        "merged": "ir.brandimo.goshyar.app-debug-4:/drawable_mascot_celebrating.png.flat",
+        "source": "ir.brandimo.goshyar.app-main-6:/drawable/mascot_celebrating.png"
+    },
+    {
+        "merged": "ir.brandimo.goshyar.app-debug-4:/drawable_mascot_thinking.png.flat",
+        "source": "ir.brandimo.goshyar.app-main-6:/drawable/mascot_thinking.png"
+    },
+    {
+        "merged": "ir.brandimo.goshyar.app-debug-4:/drawable_anim_dog.png.flat",
+        "source": "ir.brandimo.goshyar.app-main-6:/drawable/anim_dog.png"
+    },
+    {
+        "merged": "ir.brandimo.goshyar.app-debug-4:/layout_fragment_achievements.xml.flat",
+        "source": "ir.brandimo.goshyar.app-main-6:/layout/fragment_achievements.xml"
+    },
+    {
+        "merged": "ir.brandimo.goshyar.app-debug-4:/mipmap-hdpi_ic_launcher.png.flat",
+        "source": "ir.brandimo.goshyar.app-main-6:/mipmap-hdpi/ic_launcher.png"
+    },
+    {
+        "merged": "ir.brandimo.goshyar.app-debug-4:/drawable_anim_lion.png.flat",
+        "source": "ir.brandimo.goshyar.app-main-6:/drawable/anim_lion.png"
+    },
+    {
+        "merged": "ir.brandimo.goshyar.app-debug-4:/layout_fragment_game_who_made_sound.xml.flat",
+        "source": "ir.brandimo.goshyar.app-main-6:/layout/fragment_game_who_made_sound.xml"
+    },
+    {
+        "merged": "ir.brandimo.goshyar.app-debug-4:/drawable_mascot_encouraging.png.flat",
+        "source": "ir.brandimo.goshyar.app-main-6:/drawable/mascot_encouraging.png"
+    },
+    {
+        "merged": "ir.brandimo.goshyar.app-debug-4:/layout_dialog_parent_gate.xml.flat",
+        "source": "ir.brandimo.goshyar.app-main-6:/layout/dialog_parent_gate.xml"
+    },
+    {
+        "merged": "ir.brandimo.goshyar.app-debug-4:/layout_fragment_settings.xml.flat",
+        "source": "ir.brandimo.goshyar.app-main-6:/layout/fragment_settings.xml"
+    }
+]
