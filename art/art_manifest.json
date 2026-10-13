@@ -1,0 +1,619 @@
+{
+  "styleGuide": "Soft glossy Pixar-style lighting, rounded soft shapes, bright saturated colors, full body, centered, isolated on a plain pure white background, no text, no letters, kids game card asset",
+  "note": "هر تصویر با همین prompt در Canva ساخته می‌شود تا کل گرافیک یکدست بماند. فایل نهایی PNG با نام target در app/src/main/res/drawable/ قرار می‌گیرد.",
+  "items": [
+    {
+      "target": "mascot_idle",
+      "kind": "mascot",
+      "size": "512x512",
+      "prompt": "Cute 3D rendered cartoon teddy bear mascot, chubby orange-brown bear cub wearing large blue over-ear headphones and a teal blue hoodie vest with a small white sound-wave logo on the chest. standing idle, smiling warmly, arms relaxed at sides, facing forward. Soft glossy Pixar-style lighting, rounded soft shapes, bright saturated colors, full body, centered, isolated on a plain pure white background, no text, no letters,",
+      "canvaMediaId": "MAHX3LOIwvY",
+      "status": "done"
+    },
+    {
+      "target": "mascot_listening",
+      "kind": "mascot",
+      "size": "512x512",
+      "prompt": "Cute 3D rendered cartoon teddy bear mascot, chubby orange-brown bear cub wearing large blue over-ear headphones and a teal blue hoodie vest with a small white sound-wave logo on the chest. head tilted, one paw cupped behind the headphone ear, eyes wide and curious. Soft glossy Pixar-style lighting, rounded soft shapes, bright saturated colors, full body, centered, isolated on a plain pure white background, no text, no letters,",
+      "canvaMediaId": "MAHX3COzYYo",
+      "status": "done"
+    },
+    {
+      "target": "mascot_thinking",
+      "kind": "mascot",
+      "size": "512x512",
+      "prompt": "Cute 3D rendered cartoon teddy bear mascot, chubby orange-brown bear cub wearing large blue over-ear headphones and a teal blue hoodie vest with a small white sound-wave logo on the chest. one paw on chin, looking upward thoughtfully, small question mark sparkle. Soft glossy Pixar-style lighting, rounded soft shapes, bright saturated colors, full body, centered, isolated on a plain pure white background, no text, no letters,",
+      "canvaMediaId": null,
+      "status": "pending"
+    },
+    {
+      "target": "mascot_happy",
+      "kind": "mascot",
+      "size": "512x512",
+      "prompt": "Cute 3D rendered cartoon teddy bear mascot, chubby orange-brown bear cub wearing large blue over-ear headphones and a teal blue hoodie vest with a small white sound-wave logo on the chest. smiling broadly with both paws clasped together, eyes bright. Soft glossy Pixar-style lighting, rounded soft shapes, bright saturated colors, full body, centered, isolated on a plain pure white background, no text, no letters,",
+      "canvaMediaId": null,
+      "status": "pending"
+    },
+    {
+      "target": "mascot_celebrating",
+      "kind": "mascot",
+      "size": "512x512",
+      "prompt": "Cute 3D rendered cartoon teddy bear mascot, chubby orange-brown bear cub wearing large blue over-ear headphones and a teal blue hoodie vest with a small white sound-wave logo on the chest. both arms raised high, eyes closed in joy, golden confetti and stars around. Soft glossy Pixar-style lighting, rounded soft shapes, bright saturated colors, full body, centered, isolated on a plain pure white background, no text, no letters,",
+      "canvaMediaId": "MAHX3KgHpU4",
+      "status": "done"
+    },
+    {
+      "target": "mascot_encouraging",
+      "kind": "mascot",
+      "size": "512x512",
+      "prompt": "Cute 3D rendered cartoon teddy bear mascot, chubby orange-brown bear cub wearing large blue over-ear headphones and a teal blue hoodie vest with a small white sound-wave logo on the chest. waving one paw hello and giving a thumbs up with the other. Soft glossy Pixar-style lighting, rounded soft shapes, bright saturated colors, full body, centered, isolated on a plain pure white background, no text, no letters,",
+      "canvaMediaId": "MAHX3D_wXw8",
+      "status": "done"
+    },
+    {
+      "target": "mascot_surprised",
+      "kind": "mascot",
+      "size": "512x512",
+      "prompt": "Cute 3D rendered cartoon teddy bear mascot, chubby orange-brown bear cub wearing large blue over-ear headphones and a teal blue hoodie vest with a small white sound-wave logo on the chest. eyes wide open, mouth in a small O, both paws raised in surprise. Soft glossy Pixar-style lighting, rounded soft shapes, bright saturated colors, full body, centered, isolated on a plain pure white background, no text, no letters,",
+      "canvaMediaId": null,
+      "status": "pending"
+    },
+    {
+      "target": "mascot_sleeping",
+      "kind": "mascot",
+      "size": "512x512",
+      "prompt": "Cute 3D rendered cartoon teddy bear mascot, chubby orange-brown bear cub wearing large blue over-ear headphones and a teal blue hoodie vest with a small white sound-wave logo on the chest. curled up asleep with closed eyes and small floating Z letters. Soft glossy Pixar-style lighting, rounded soft shapes, bright saturated colors, full body, centered, isolated on a plain pure white background, no text, no letters,",
+      "canvaMediaId": null,
+      "status": "pending"
+    },
+    {
+      "target": "img_lion",
+      "kind": "sound",
+      "fa": "شیر",
+      "size": "512x512",
+      "prompt": "Cute 3D rendered cartoon friendly smiling baby lion cub with a fluffy golden-orange mane, gentle playful roar, for a children's educational app. Soft glossy Pixar-style lighting, rounded soft shapes, bright saturated colors, full body, centered, isolated on a plain pure white background, no text, no letters, kids game card asset",
+      "canvaMediaId": "MAHX3FODUbg",
+      "status": "done"
+    },
+    {
+      "target": "img_cow",
+      "kind": "sound",
+      "fa": "گاو",
+      "size": "512x512",
+      "prompt": "Cute 3D rendered cartoon friendly smiling baby cow with white and black patches, pink muzzle and small horns, for a children's educational app. Soft glossy Pixar-style lighting, rounded soft shapes, bright saturated colors, full body, centered, isolated on a plain pure white background, no text, no letters, kids game card asset",
+      "canvaMediaId": "MAHX3MoeTT8",
+      "status": "done"
+    },
+    {
+      "target": "img_dog",
+      "kind": "sound",
+      "fa": "سگ",
+      "size": "512x512",
+      "prompt": "Cute 3D rendered cartoon friendly smiling golden-brown puppy with floppy ears and a small red collar, for a children's educational app. Soft glossy Pixar-style lighting, rounded soft shapes, bright saturated colors, full body, centered, isolated on a plain pure white background, no text, no letters, kids game card asset",
+      "canvaMediaId": "MAHX3DxLLRg",
+      "status": "done"
+    },
+    {
+      "target": "img_cat",
+      "kind": "sound",
+      "fa": "گربه",
+      "size": "512x512",
+      "prompt": "Cute 3D rendered cartoon friendly smiling grey tabby kitten with white chest and pink nose, tail curled, for a children's educational app. Soft glossy Pixar-style lighting, rounded soft shapes, bright saturated colors, full body, centered, isolated on a plain pure white background, no text, no letters, kids game card asset",
+      "canvaMediaId": "MAHX3F6Au_Q",
+      "status": "done"
+    },
+    {
+      "target": "img_rabbit",
+      "kind": "sound",
+      "fa": "خرگوش",
+      "size": "512x512",
+      "prompt": "Cute 3D rendered cartoon cheerful light grey bunny with long upright ears and a fluffy white tail, for a children's educational app. Soft glossy Pixar-style lighting, rounded soft shapes, bright saturated colors, full body, centered, isolated on a plain pure white background, no text, no letters, kids game card asset",
+      "canvaMediaId": null,
+      "status": "pending"
+    },
+    {
+      "target": "img_bird",
+      "kind": "sound",
+      "fa": "پرنده",
+      "size": "512x512",
+      "prompt": "Cute 3D rendered cartoon small round songbird with bright blue and yellow feathers, orange beak, singing, for a children's educational app. Soft glossy Pixar-style lighting, rounded soft shapes, bright saturated colors, full body, centered, isolated on a plain pure white background, no text, no letters, kids game card asset",
+      "canvaMediaId": null,
+      "status": "pending"
+    },
+    {
+      "target": "img_sheep",
+      "kind": "sound",
+      "fa": "گوسفند",
+      "size": "512x512",
+      "prompt": "Cute 3D rendered cartoon fluffy white sheep with a cream woolly coat and small black face, for a children's educational app. Soft glossy Pixar-style lighting, rounded soft shapes, bright saturated colors, full body, centered, isolated on a plain pure white background, no text, no letters, kids game card asset",
+      "canvaMediaId": null,
+      "status": "pending"
+    },
+    {
+      "target": "img_horse",
+      "kind": "sound",
+      "fa": "اسب",
+      "size": "512x512",
+      "prompt": "Cute 3D rendered cartoon friendly brown pony with a flowing cream mane, for a children's educational app. Soft glossy Pixar-style lighting, rounded soft shapes, bright saturated colors, full body, centered, isolated on a plain pure white background, no text, no letters, kids game card asset",
+      "canvaMediaId": null,
+      "status": "pending"
+    },
+    {
+      "target": "img_duck",
+      "kind": "sound",
+      "fa": "اردک",
+      "size": "512x512",
+      "prompt": "Cute 3D rendered cartoon cheerful yellow duckling with an orange beak and webbed feet, for a children's educational app. Soft glossy Pixar-style lighting, rounded soft shapes, bright saturated colors, full body, centered, isolated on a plain pure white background, no text, no letters, kids game card asset",
+      "canvaMediaId": null,
+      "status": "pending"
+    },
+    {
+      "target": "img_frog",
+      "kind": "sound",
+      "fa": "قورباغه",
+      "size": "512x512",
+      "prompt": "Cute 3D rendered cartoon cheerful green frog sitting on a lily pad, big round eyes, for a children's educational app. Soft glossy Pixar-style lighting, rounded soft shapes, bright saturated colors, full body, centered, isolated on a plain pure white background, no text, no letters, kids game card asset",
+      "canvaMediaId": null,
+      "status": "pending"
+    },
+    {
+      "target": "img_elephant",
+      "kind": "sound",
+      "fa": "فیل",
+      "size": "512x512",
+      "prompt": "Cute 3D rendered cartoon friendly grey baby elephant with big ears and a raised trunk, for a children's educational app. Soft glossy Pixar-style lighting, rounded soft shapes, bright saturated colors, full body, centered, isolated on a plain pure white background, no text, no letters, kids game card asset",
+      "canvaMediaId": null,
+      "status": "pending"
+    },
+    {
+      "target": "img_rooster",
+      "kind": "sound",
+      "fa": "خروس",
+      "size": "512x512",
+      "prompt": "Cute 3D rendered cartoon colourful rooster with a red comb, crowing, for a children's educational app. Soft glossy Pixar-style lighting, rounded soft shapes, bright saturated colors, full body, centered, isolated on a plain pure white background, no text, no letters, kids game card asset",
+      "canvaMediaId": null,
+      "status": "pending"
+    },
+    {
+      "target": "img_doorbell",
+      "kind": "sound",
+      "fa": "زنگ در",
+      "size": "512x512",
+      "prompt": "Cute 3D rendered cartoon round white wall doorbell button with a glowing ring, for a children's educational app. Soft glossy Pixar-style lighting, rounded soft shapes, bright saturated colors, full body, centered, isolated on a plain pure white background, no text, no letters, kids game card asset",
+      "canvaMediaId": null,
+      "status": "pending"
+    },
+    {
+      "target": "img_clock",
+      "kind": "sound",
+      "fa": "ساعت",
+      "size": "512x512",
+      "prompt": "Cute 3D rendered cartoon classic round wall clock with a white face and red second hand, for a children's educational app. Soft glossy Pixar-style lighting, rounded soft shapes, bright saturated colors, full body, centered, isolated on a plain pure white background, no text, no letters, kids game card asset",
+      "canvaMediaId": null,
+      "status": "pending"
+    },
+    {
+      "target": "img_phone",
+      "kind": "sound",
+      "fa": "تلفن",
+      "size": "512x512",
+      "prompt": "Cute 3D rendered cartoon retro red rotary telephone with a curly cord, for a children's educational app. Soft glossy Pixar-style lighting, rounded soft shapes, bright saturated colors, full body, centered, isolated on a plain pure white background, no text, no letters, kids game card asset",
+      "canvaMediaId": null,
+      "status": "pending"
+    },
+    {
+      "target": "img_vacuum",
+      "kind": "sound",
+      "fa": "جاروبرقی",
+      "size": "512x512",
+      "prompt": "Cute 3D rendered cartoon small blue canister vacuum cleaner with a hose, for a children's educational app. Soft glossy Pixar-style lighting, rounded soft shapes, bright saturated colors, full body, centered, isolated on a plain pure white background, no text, no letters, kids game card asset",
+      "canvaMediaId": null,
+      "status": "pending"
+    },
+    {
+      "target": "img_kettle",
+      "kind": "sound",
+      "fa": "کتری",
+      "size": "512x512",
+      "prompt": "Cute 3D rendered cartoon shiny stainless steel whistling kettle with steam puffs, for a children's educational app. Soft glossy Pixar-style lighting, rounded soft shapes, bright saturated colors, full body, centered, isolated on a plain pure white background, no text, no letters, kids game card asset",
+      "canvaMediaId": null,
+      "status": "pending"
+    },
+    {
+      "target": "img_washer",
+      "kind": "sound",
+      "fa": "ماشین لباسشویی",
+      "size": "512x512",
+      "prompt": "Cute 3D rendered cartoon white front-loading washing machine with a round glass door, for a children's educational app. Soft glossy Pixar-style lighting, rounded soft shapes, bright saturated colors, full body, centered, isolated on a plain pure white background, no text, no letters, kids game card asset",
+      "canvaMediaId": null,
+      "status": "pending"
+    },
+    {
+      "target": "img_tap",
+      "kind": "sound",
+      "fa": "شیر آب",
+      "size": "512x512",
+      "prompt": "Cute 3D rendered cartoon chrome kitchen water tap with a stream of water, for a children's educational app. Soft glossy Pixar-style lighting, rounded soft shapes, bright saturated colors, full body, centered, isolated on a plain pure white background, no text, no letters, kids game card asset",
+      "canvaMediaId": null,
+      "status": "pending"
+    },
+    {
+      "target": "img_door",
+      "kind": "sound",
+      "fa": "در",
+      "size": "512x512",
+      "prompt": "Cute 3D rendered cartoon wooden house door slightly open with a brass handle, for a children's educational app. Soft glossy Pixar-style lighting, rounded soft shapes, bright saturated colors, full body, centered, isolated on a plain pure white background, no text, no letters, kids game card asset",
+      "canvaMediaId": null,
+      "status": "pending"
+    },
+    {
+      "target": "img_rain",
+      "kind": "sound",
+      "fa": "باران",
+      "size": "512x512",
+      "prompt": "Cute 3D rendered cartoon blue rain cloud with falling raindrops, for a children's educational app. Soft glossy Pixar-style lighting, rounded soft shapes, bright saturated colors, full body, centered, isolated on a plain pure white background, no text, no letters, kids game card asset",
+      "canvaMediaId": null,
+      "status": "pending"
+    },
+    {
+      "target": "img_thunder",
+      "kind": "sound",
+      "fa": "رعد و برق",
+      "size": "512x512",
+      "prompt": "Cute 3D rendered cartoon dark storm cloud with a bright yellow lightning bolt, for a children's educational app. Soft glossy Pixar-style lighting, rounded soft shapes, bright saturated colors, full body, centered, isolated on a plain pure white background, no text, no letters, kids game card asset",
+      "canvaMediaId": null,
+      "status": "pending"
+    },
+    {
+      "target": "img_wind",
+      "kind": "sound",
+      "fa": "باد",
+      "size": "512x512",
+      "prompt": "Cute 3D rendered cartoon white swirling wind gust curls with small leaves, for a children's educational app. Soft glossy Pixar-style lighting, rounded soft shapes, bright saturated colors, full body, centered, isolated on a plain pure white background, no text, no letters, kids game card asset",
+      "canvaMediaId": null,
+      "status": "pending"
+    },
+    {
+      "target": "img_sea",
+      "kind": "sound",
+      "fa": "دریا",
+      "size": "512x512",
+      "prompt": "Cute 3D rendered cartoon rolling blue ocean wave with white foam, for a children's educational app. Soft glossy Pixar-style lighting, rounded soft shapes, bright saturated colors, full body, centered, isolated on a plain pure white background, no text, no letters, kids game card asset",
+      "canvaMediaId": null,
+      "status": "pending"
+    },
+    {
+      "target": "img_river",
+      "kind": "sound",
+      "fa": "رودخانه",
+      "size": "512x512",
+      "prompt": "Cute 3D rendered cartoon winding blue river stream with small rocks, for a children's educational app. Soft glossy Pixar-style lighting, rounded soft shapes, bright saturated colors, full body, centered, isolated on a plain pure white background, no text, no letters, kids game card asset",
+      "canvaMediaId": null,
+      "status": "pending"
+    },
+    {
+      "target": "img_fire",
+      "kind": "sound",
+      "fa": "آتش",
+      "size": "512x512",
+      "prompt": "Cute 3D rendered cartoon warm orange campfire with logs, for a children's educational app. Soft glossy Pixar-style lighting, rounded soft shapes, bright saturated colors, full body, centered, isolated on a plain pure white background, no text, no letters, kids game card asset",
+      "canvaMediaId": null,
+      "status": "pending"
+    },
+    {
+      "target": "img_waterfall",
+      "kind": "sound",
+      "fa": "آبشار",
+      "size": "512x512",
+      "prompt": "Cute 3D rendered cartoon small waterfall over grey rocks into a blue pool, for a children's educational app. Soft glossy Pixar-style lighting, rounded soft shapes, bright saturated colors, full body, centered, isolated on a plain pure white background, no text, no letters, kids game card asset",
+      "canvaMediaId": null,
+      "status": "pending"
+    },
+    {
+      "target": "img_drum",
+      "kind": "sound",
+      "fa": "طبل",
+      "size": "512x512",
+      "prompt": "Cute 3D rendered cartoon red and yellow toy drum with two wooden drumsticks, for a children's educational app. Soft glossy Pixar-style lighting, rounded soft shapes, bright saturated colors, full body, centered, isolated on a plain pure white background, no text, no letters, kids game card asset",
+      "canvaMediaId": null,
+      "status": "pending"
+    },
+    {
+      "target": "img_piano",
+      "kind": "sound",
+      "fa": "پیانو",
+      "size": "512x512",
+      "prompt": "Cute 3D rendered cartoon small grand piano with black and white keys, for a children's educational app. Soft glossy Pixar-style lighting, rounded soft shapes, bright saturated colors, full body, centered, isolated on a plain pure white background, no text, no letters, kids game card asset",
+      "canvaMediaId": null,
+      "status": "pending"
+    },
+    {
+      "target": "img_guitar",
+      "kind": "sound",
+      "fa": "گیتار",
+      "size": "512x512",
+      "prompt": "Cute 3D rendered cartoon warm brown acoustic guitar, for a children's educational app. Soft glossy Pixar-style lighting, rounded soft shapes, bright saturated colors, full body, centered, isolated on a plain pure white background, no text, no letters, kids game card asset",
+      "canvaMediaId": null,
+      "status": "pending"
+    },
+    {
+      "target": "img_violin",
+      "kind": "sound",
+      "fa": "ویولن",
+      "size": "512x512",
+      "prompt": "Cute 3D rendered cartoon polished brown violin with a bow, for a children's educational app. Soft glossy Pixar-style lighting, rounded soft shapes, bright saturated colors, full body, centered, isolated on a plain pure white background, no text, no letters, kids game card asset",
+      "canvaMediaId": null,
+      "status": "pending"
+    },
+    {
+      "target": "img_flute",
+      "kind": "sound",
+      "fa": "فلوت",
+      "size": "512x512",
+      "prompt": "Cute 3D rendered cartoon silver flute, for a children's educational app. Soft glossy Pixar-style lighting, rounded soft shapes, bright saturated colors, full body, centered, isolated on a plain pure white background, no text, no letters, kids game card asset",
+      "canvaMediaId": null,
+      "status": "pending"
+    },
+    {
+      "target": "img_bell",
+      "kind": "sound",
+      "fa": "زنگوله",
+      "size": "512x512",
+      "prompt": "Cute 3D rendered cartoon golden hand bell with a wooden handle, for a children's educational app. Soft glossy Pixar-style lighting, rounded soft shapes, bright saturated colors, full body, centered, isolated on a plain pure white background, no text, no letters, kids game card asset",
+      "canvaMediaId": null,
+      "status": "pending"
+    },
+    {
+      "target": "img_tambourine",
+      "kind": "sound",
+      "fa": "دف",
+      "size": "512x512",
+      "prompt": "Cute 3D rendered cartoon round wooden tambourine with jingles, for a children's educational app. Soft glossy Pixar-style lighting, rounded soft shapes, bright saturated colors, full body, centered, isolated on a plain pure white background, no text, no letters, kids game card asset",
+      "canvaMediaId": null,
+      "status": "pending"
+    },
+    {
+      "target": "img_hammer",
+      "kind": "sound",
+      "fa": "چکش",
+      "size": "512x512",
+      "prompt": "Cute 3D rendered cartoon carpenter hammer with a wooden handle and a nail, for a children's educational app. Soft glossy Pixar-style lighting, rounded soft shapes, bright saturated colors, full body, centered, isolated on a plain pure white background, no text, no letters, kids game card asset",
+      "canvaMediaId": null,
+      "status": "pending"
+    },
+    {
+      "target": "img_saw",
+      "kind": "sound",
+      "fa": "اره",
+      "size": "512x512",
+      "prompt": "Cute 3D rendered cartoon hand saw with a wooden handle, for a children's educational app. Soft glossy Pixar-style lighting, rounded soft shapes, bright saturated colors, full body, centered, isolated on a plain pure white background, no text, no letters, kids game card asset",
+      "canvaMediaId": null,
+      "status": "pending"
+    },
+    {
+      "target": "img_ambulance",
+      "kind": "sound",
+      "fa": "آمبولانس",
+      "size": "512x512",
+      "prompt": "Cute 3D rendered cartoon white ambulance van with red stripe and blue flashing lights, for a children's educational app. Soft glossy Pixar-style lighting, rounded soft shapes, bright saturated colors, full body, centered, isolated on a plain pure white background, no text, no letters, kids game card asset",
+      "canvaMediaId": null,
+      "status": "pending"
+    },
+    {
+      "target": "img_firetruck",
+      "kind": "sound",
+      "fa": "ماشین آتش‌نشانی",
+      "size": "512x512",
+      "prompt": "Cute 3D rendered cartoon red fire engine with a ladder on top, for a children's educational app. Soft glossy Pixar-style lighting, rounded soft shapes, bright saturated colors, full body, centered, isolated on a plain pure white background, no text, no letters, kids game card asset",
+      "canvaMediaId": null,
+      "status": "pending"
+    },
+    {
+      "target": "img_police",
+      "kind": "sound",
+      "fa": "ماشین پلیس",
+      "size": "512x512",
+      "prompt": "Cute 3D rendered cartoon blue and white police car with flashing lights, for a children's educational app. Soft glossy Pixar-style lighting, rounded soft shapes, bright saturated colors, full body, centered, isolated on a plain pure white background, no text, no letters, kids game card asset",
+      "canvaMediaId": null,
+      "status": "pending"
+    },
+    {
+      "target": "img_scissors",
+      "kind": "sound",
+      "fa": "قیچی",
+      "size": "512x512",
+      "prompt": "Cute 3D rendered cartoon pair of orange-handled scissors, for a children's educational app. Soft glossy Pixar-style lighting, rounded soft shapes, bright saturated colors, full body, centered, isolated on a plain pure white background, no text, no letters, kids game card asset",
+      "canvaMediaId": null,
+      "status": "pending"
+    },
+    {
+      "target": "img_typing",
+      "kind": "sound",
+      "fa": "تایپ کردن",
+      "size": "512x512",
+      "prompt": "Cute 3D rendered cartoon small laptop computer with glowing keys, for a children's educational app. Soft glossy Pixar-style lighting, rounded soft shapes, bright saturated colors, full body, centered, isolated on a plain pure white background, no text, no letters, kids game card asset",
+      "canvaMediaId": null,
+      "status": "pending"
+    },
+    {
+      "target": "img_rocket",
+      "kind": "sound",
+      "fa": "موشک",
+      "size": "512x512",
+      "prompt": "Cute 3D rendered cartoon white and red cartoon rocket with orange flames, for a children's educational app. Soft glossy Pixar-style lighting, rounded soft shapes, bright saturated colors, full body, centered, isolated on a plain pure white background, no text, no letters, kids game card asset",
+      "canvaMediaId": null,
+      "status": "pending"
+    },
+    {
+      "target": "img_robot",
+      "kind": "sound",
+      "fa": "ربات",
+      "size": "512x512",
+      "prompt": "Cute 3D rendered cartoon friendly round silver robot with glowing blue eyes and antenna, for a children's educational app. Soft glossy Pixar-style lighting, rounded soft shapes, bright saturated colors, full body, centered, isolated on a plain pure white background, no text, no letters, kids game card asset",
+      "canvaMediaId": null,
+      "status": "pending"
+    },
+    {
+      "target": "img_spaceship",
+      "kind": "sound",
+      "fa": "سفینه فضایی",
+      "size": "512x512",
+      "prompt": "Cute 3D rendered cartoon silver flying saucer spaceship with a glass dome, for a children's educational app. Soft glossy Pixar-style lighting, rounded soft shapes, bright saturated colors, full body, centered, isolated on a plain pure white background, no text, no letters, kids game card asset",
+      "canvaMediaId": null,
+      "status": "pending"
+    },
+    {
+      "target": "img_satellite",
+      "kind": "sound",
+      "fa": "ماهواره",
+      "size": "512x512",
+      "prompt": "Cute 3D rendered cartoon white space satellite with blue solar panels, for a children's educational app. Soft glossy Pixar-style lighting, rounded soft shapes, bright saturated colors, full body, centered, isolated on a plain pure white background, no text, no letters, kids game card asset",
+      "canvaMediaId": null,
+      "status": "pending"
+    },
+    {
+      "target": "img_laser",
+      "kind": "sound",
+      "fa": "لیزر",
+      "size": "512x512",
+      "prompt": "Cute 3D rendered cartoon glowing purple laser beam device, for a children's educational app. Soft glossy Pixar-style lighting, rounded soft shapes, bright saturated colors, full body, centered, isolated on a plain pure white background, no text, no letters, kids game card asset",
+      "canvaMediaId": null,
+      "status": "pending"
+    },
+    {
+      "target": "img_place_forest",
+      "kind": "place",
+      "fa": "جنگل",
+      "size": "512x512",
+      "prompt": "Cute 3D rendered cartoon illustration of a sunny green forest clearing with tall trees and dappled light, for a children's educational app. Soft glossy Pixar-style lighting, rounded soft shapes, bright saturated colors, full body, centered, isolated on a plain pure white background, no text, no letters, kids game card asset",
+      "canvaMediaId": null,
+      "status": "pending"
+    },
+    {
+      "target": "img_place_cave",
+      "kind": "place",
+      "fa": "غار",
+      "size": "512x512",
+      "prompt": "Cute 3D rendered cartoon illustration of a dim rocky cave entrance with stalactites, for a children's educational app. Soft glossy Pixar-style lighting, rounded soft shapes, bright saturated colors, full body, centered, isolated on a plain pure white background, no text, no letters, kids game card asset",
+      "canvaMediaId": null,
+      "status": "pending"
+    },
+    {
+      "target": "img_place_river",
+      "kind": "place",
+      "fa": "رودخانه",
+      "size": "512x512",
+      "prompt": "Cute 3D rendered cartoon illustration of a green riverbank with a winding blue stream, for a children's educational app. Soft glossy Pixar-style lighting, rounded soft shapes, bright saturated colors, full body, centered, isolated on a plain pure white background, no text, no letters, kids game card asset",
+      "canvaMediaId": null,
+      "status": "pending"
+    },
+    {
+      "target": "img_place_house",
+      "kind": "place",
+      "fa": "خانه",
+      "size": "512x512",
+      "prompt": "Cute 3D rendered cartoon illustration of a cozy cartoon family house with a red roof, for a children's educational app. Soft glossy Pixar-style lighting, rounded soft shapes, bright saturated colors, full body, centered, isolated on a plain pure white background, no text, no letters, kids game card asset",
+      "canvaMediaId": null,
+      "status": "pending"
+    },
+    {
+      "target": "img_place_farm",
+      "kind": "place",
+      "fa": "مزرعه",
+      "size": "512x512",
+      "prompt": "Cute 3D rendered cartoon illustration of a countryside farm with a red barn and green fields, for a children's educational app. Soft glossy Pixar-style lighting, rounded soft shapes, bright saturated colors, full body, centered, isolated on a plain pure white background, no text, no letters, kids game card asset",
+      "canvaMediaId": null,
+      "status": "pending"
+    },
+    {
+      "target": "img_place_sea",
+      "kind": "place",
+      "fa": "دریا",
+      "size": "512x512",
+      "prompt": "Cute 3D rendered cartoon illustration of a blue ocean shore with gentle waves and a sandy beach, for a children's educational app. Soft glossy Pixar-style lighting, rounded soft shapes, bright saturated colors, full body, centered, isolated on a plain pure white background, no text, no letters, kids game card asset",
+      "canvaMediaId": null,
+      "status": "pending"
+    },
+    {
+      "target": "img_place_city",
+      "kind": "place",
+      "fa": "شهر",
+      "size": "512x512",
+      "prompt": "Cute 3D rendered cartoon illustration of a colourful cartoon city street with buildings and a road, for a children's educational app. Soft glossy Pixar-style lighting, rounded soft shapes, bright saturated colors, full body, centered, isolated on a plain pure white background, no text, no letters, kids game card asset",
+      "canvaMediaId": null,
+      "status": "pending"
+    },
+    {
+      "target": "img_place_kitchen",
+      "kind": "place",
+      "fa": "آشپزخانه",
+      "size": "512x512",
+      "prompt": "Cute 3D rendered cartoon illustration of a bright tidy cartoon kitchen with counters and a stove, for a children's educational app. Soft glossy Pixar-style lighting, rounded soft shapes, bright saturated colors, full body, centered, isolated on a plain pure white background, no text, no letters, kids game card asset",
+      "canvaMediaId": null,
+      "status": "pending"
+    },
+    {
+      "target": "img_place_park",
+      "kind": "place",
+      "fa": "پارک",
+      "size": "512x512",
+      "prompt": "Cute 3D rendered cartoon illustration of a green park with a bench, pond and trees, for a children's educational app. Soft glossy Pixar-style lighting, rounded soft shapes, bright saturated colors, full body, centered, isolated on a plain pure white background, no text, no letters, kids game card asset",
+      "canvaMediaId": null,
+      "status": "pending"
+    },
+    {
+      "target": "img_place_space",
+      "kind": "place",
+      "fa": "فضا",
+      "size": "512x512",
+      "prompt": "Cute 3D rendered cartoon illustration of a deep purple outer space with stars and a planet, for a children's educational app. Soft glossy Pixar-style lighting, rounded soft shapes, bright saturated colors, full body, centered, isolated on a plain pure white background, no text, no letters, kids game card asset",
+      "canvaMediaId": null,
+      "status": "pending"
+    },
+    {
+      "target": "bg_sunny_forest",
+      "kind": "background",
+      "size": "1080x1620",
+      "aspect": "PORTRAIT_2_3",
+      "prompt": "wide sunny cartoon forest scene, tall green trees, blue sky, soft light rays, cute 3D rendered cartoon style, soft glossy Pixar-style lighting, bright saturated colors, no characters, no text, no letters, children's app background",
+      "canvaMediaId": null,
+      "status": "pending"
+    },
+    {
+      "target": "bg_night_forest",
+      "kind": "background",
+      "size": "1080x1620",
+      "aspect": "PORTRAIT_2_3",
+      "prompt": "wide night-time cartoon forest scene, deep blue tones, crescent moon, fireflies, cute 3D rendered cartoon style, soft glossy Pixar-style lighting, bright saturated colors, no characters, no text, no letters, children's app background",
+      "canvaMediaId": null,
+      "status": "pending"
+    },
+    {
+      "target": "bg_farm",
+      "kind": "background",
+      "size": "1080x1620",
+      "aspect": "PORTRAIT_2_3",
+      "prompt": "wide cartoon farm scene at sunrise, red barn, green fields, wooden fence, cute 3D rendered cartoon style, soft glossy Pixar-style lighting, bright saturated colors, no characters, no text, no letters, children's app background",
+      "canvaMediaId": null,
+      "status": "pending"
+    },
+    {
+      "target": "bg_home",
+      "kind": "background",
+      "size": "1080x1620",
+      "aspect": "PORTRAIT_2_3",
+      "prompt": "wide cozy cartoon living-room scene in the evening, warm lamp light, cute 3D rendered cartoon style, soft glossy Pixar-style lighting, bright saturated colors, no characters, no text, no letters, children's app background",
+      "canvaMediaId": null,
+      "status": "pending"
+    },
+    {
+      "target": "bg_city",
+      "kind": "background",
+      "size": "1080x1620",
+      "aspect": "PORTRAIT_2_3",
+      "prompt": "wide busy cartoon city street scene, colourful buildings, cars, daytime, cute 3D rendered cartoon style, soft glossy Pixar-style lighting, bright saturated colors, no characters, no text, no letters, children's app background",
+      "canvaMediaId": null,
+      "status": "pending"
+    }
+  ]
+}

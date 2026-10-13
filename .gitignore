@@ -1,0 +1,35 @@
+# Gradle / Android build output
+.gradle/
+build/
+app/build/
+captures/
+.externalNativeBuild/
+.cxx/
+
+# محلی و مخصوص هر دستگاه — نباید در گیت باشد
+local.properties
+
+# Android Studio / IntelliJ
+.idea/
+*.iml
+.DS_Store
+
+# کلیدهای امضا
+*.jks
+*.keystore
+keystore.properties
+
+# گویندهٔ فارسی با استودیوی صداگذاری ساخته می‌شود، پس در گیت نیست
+app/src/main/assets/voice/*.mp3
+app/src/main/assets/voice/voice_manifest.json
+
+# WAVهای میانی ساخت صدا
+build/sfx-wav/
+
+# کش پایتون
+__pycache__/
+*.pyc
+
+# کلیدها — هرگز نباید در گیت برود
+.env
+.env.local

@@ -97,4 +97,23 @@
     <!-- Parent Gate -->
     <string name="parent_gate_title">تأیید والدین</string>
     <string name="parent_gate_question">حاصل %1$d + %2$d چند می‌شود؟</string>
+
+    <!-- رشته‌های موتور بازی -->
+    <string name="play_sound">پخش صدا</string>
+    <string name="play_the_sequence">پخش ترتیب صداها</string>
+    <string name="your_order">ترتیبی که چیدی:</string>
+    <string name="pick_in_order">به همان ترتیب انتخاب کن:</string>
+    <string name="clear">پاک کردن</string>
+    <string name="points_gained">+%1$d امتیاز</string>
+    <string name="new_badge_earned">مدال جدید: %1$s</string>
+    <string name="finish_game">پایان بازی</string>
+    <string name="overall_progress">%1$d از %2$d مرحله</string>
+    <string name="offline_status">%1$d از %2$d فایل صوتی روی دستگاه موجود است</string>
+    <string name="check_offline_content">بررسی محتوای آفلاین</string>
+    <string name="settings_narrator">صدای گوینده</string>
+    <string name="reset_progress">شروع دوباره از اول</string>
+    <string name="progress_reset_done">پیشرفت پاک شد.</string>
+    <string name="parent_gate_wrong">پاسخ نادرست است. دوباره تلاش کنید.</string>
+    <string name="parent_skill_summary">%1$s: %2$d از %3$d</string>
+    <string name="hello_child">سلام، %1$s!</string>
 </resources>
