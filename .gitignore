@@ -29,3 +29,7 @@ build/sfx-wav/
 # کش پایتون
 __pycache__/
 *.pyc
+
+# کلیدها — هرگز نباید در گیت برود
+.env
+.env.local
