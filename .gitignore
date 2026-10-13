@@ -1,0 +1,24 @@
+# Gradle / Android build output
+.gradle/
+build/
+app/build/
+captures/
+.externalNativeBuild/
+.cxx/
+
+# محلی و مخصوص هر دستگاه — نباید در گیت باشد
+local.properties
+
+# Android Studio / IntelliJ
+.idea/
+*.iml
+.DS_Store
+
+# کلیدهای امضا
+*.jks
+*.keystore
+keystore.properties
+
+# خروجی ابزار صداگذاری (فایل‌های تولیدشده)
+app/src/main/assets/voice/*.mp3
+app/src/main/assets/voice/voice_manifest.json

@@ -1,20 +1,18 @@
 package ir.brandimo.goshyar.data;
 
 public class GameCategory {
-    private String id;
-    private String title;
-    private int iconResId;
-    private int bgDrawableResId;
+    public final String id;
+    public final String title;
+    public final String iconName;
+    public final String color;
 
-    public GameCategory(String id, String title, int iconResId, int bgDrawableResId) {
+    public GameCategory(String id, String title, String iconName, String color) {
         this.id = id;
         this.title = title;
-        this.iconResId = iconResId;
-        this.bgDrawableResId = bgDrawableResId;
+        this.iconName = iconName;
+        this.color = color;
     }
 
     public String getId() { return id; }
     public String getTitle() { return title; }
-    public int getIconResId() { return iconResId; }
-    public int getBgDrawableResId() { return bgDrawableResId; }
 }
