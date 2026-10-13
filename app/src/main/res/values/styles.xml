@@ -46,7 +46,7 @@
     </style>
 
     <!-- کاشی رنگی منو: مربع گرد با آیکون سفید و برچسب زیرش -->
-    <style name="Widget.Goshyar.Tile">
+    <style name="Widget.Goshyar.Tile" parent="">
         <item name="android:layout_width">0dp</item>
         <item name="android:layout_height">118dp</item>
         <item name="android:layout_weight">1</item>
@@ -58,13 +58,13 @@
         <item name="android:padding">10dp</item>
     </style>
 
-    <style name="Widget.Goshyar.Tile.Icon">
+    <style name="Widget.Goshyar.Tile.Icon" parent="">
         <item name="android:layout_width">38dp</item>
         <item name="android:layout_height">38dp</item>
         <item name="android:contentDescription">@null</item>
     </style>
 
-    <style name="Widget.Goshyar.Tile.Label">
+    <style name="Widget.Goshyar.Tile.Label" parent="">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_marginTop">8dp</item>
