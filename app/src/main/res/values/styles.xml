@@ -44,4 +44,34 @@
         <item name="android:textStyle">bold</item>
         <item name="cornerRadius">24dp</item>
     </style>
+
+    <!-- کاشی رنگی منو: مربع گرد با آیکون سفید و برچسب زیرش -->
+    <style name="Widget.Goshyar.Tile">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">118dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:gravity">center</item>
+        <item name="android:elevation">3dp</item>
+        <item name="android:clickable">true</item>
+        <item name="android:focusable">true</item>
+        <item name="android:padding">10dp</item>
+    </style>
+
+    <style name="Widget.Goshyar.Tile.Icon">
+        <item name="android:layout_width">38dp</item>
+        <item name="android:layout_height">38dp</item>
+        <item name="android:contentDescription">@null</item>
+    </style>
+
+    <style name="Widget.Goshyar.Tile.Label">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">8dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:maxLines">2</item>
+    </style>
 </resources>

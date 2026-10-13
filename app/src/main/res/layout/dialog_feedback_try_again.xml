@@ -1,41 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- بازخورد اشتباه: لحن دلگرم‌کننده، نه قرمزِ ترساننده -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="300dp"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="@drawable/bg_card_white_lg"
+    android:gravity="center_horizontal"
     android:orientation="vertical"
-    android:padding="24dp"
-    android:gravity="center"
-    android:background="@drawable/bg_dialog_rounded">
-
-    <ImageView
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:src="@drawable/mascot_thinking" />
+    android:padding="22dp">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:background="@drawable/btn_pill_orange"
+        android:elevation="3dp"
+        android:paddingHorizontal="30dp"
+        android:paddingVertical="10dp"
         android:text="@string/feedback_incorrect_title"
-        android:textColor="@color/gooshi_orange"
-        android:textSize="22sp"
+        android:textColor="@color/white"
+        android:textSize="23sp"
         android:textStyle="bold" />
 
+    <ir.brandimo.goshyar.ui.views.MascotView
+        android:layout_width="140dp"
+        android:layout_height="140dp"
+        android:layout_marginTop="14dp"
+        android:contentDescription="@string/app_name" />
+
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="6dp"
+        android:gravity="center"
         android:text="@string/feedback_incorrect_subtitle"
         android:textColor="@color/text_dark"
-        android:textSize="16sp"
-        android:gravity="center" />
+        android:textSize="16sp" />
 
-    <Button
+    <TextView
         android:id="@+id/btn_retry"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
+        android:background="@drawable/btn_pill_green"
+        android:elevation="3dp"
+        android:gravity="center"
+        android:paddingVertical="15dp"
         android:text="@string/try_again"
-        android:backgroundTint="@color/gooshi_orange" />
-
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:textStyle="bold" />
 </LinearLayout>

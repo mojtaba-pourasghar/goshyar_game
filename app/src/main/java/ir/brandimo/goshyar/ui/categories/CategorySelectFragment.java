@@ -1,6 +1,5 @@
 package ir.brandimo.goshyar.ui.categories;
 
-import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,7 +9,6 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -64,7 +62,7 @@ public class CategorySelectFragment extends Fragment {
         @Override
         public VH onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
             View v = LayoutInflater.from(parent.getContext())
-                    .inflate(R.layout.item_option_card, parent, false);
+                    .inflate(R.layout.item_category_tile, parent, false);
             return new VH(v);
         }
 
@@ -73,15 +71,12 @@ public class CategorySelectFragment extends Fragment {
             GameCategory c = items.get(position);
             h.label.setText(c.title);
             h.icon.setImageResource(GameContent.drawableId(h.itemView.getContext(),
-                    c.iconName, R.drawable.ic_gold_star));
-            h.mark.setVisibility(View.GONE);
+                    c.iconName, R.drawable.ic_grid));
 
-            try {
-                ((CardView) h.itemView).setCardBackgroundColor(Color.parseColor(c.color));
-                h.label.setTextColor(Color.WHITE);
-            } catch (IllegalArgumentException ignored) {
-                // رنگ نامعتبر در فایل محتوا: رنگ پیش‌فرض کارت می‌ماند
-            }
+            // هر دسته کاشی رنگی خودش را می‌گیرد، به ترتیب همان رنگ‌های طرح
+            int[] tiles = { R.drawable.tile_orange, R.drawable.tile_green, R.drawable.tile_cyan,
+                            R.drawable.tile_pink, R.drawable.tile_purple, R.drawable.tile_blue };
+            h.itemView.setBackgroundResource(tiles[position % tiles.length]);
 
             h.itemView.setOnClickListener(v -> {
                 AudioManagerHelper.getInstance().playTapSound();
@@ -95,13 +90,11 @@ public class CategorySelectFragment extends Fragment {
         static class VH extends RecyclerView.ViewHolder {
             final ImageView icon;
             final TextView label;
-            final ImageView mark;
 
             VH(View v) {
                 super(v);
-                icon = v.findViewById(R.id.img_option);
-                label = v.findViewById(R.id.tv_option);
-                mark = v.findViewById(R.id.img_option_mark);
+                icon = v.findViewById(R.id.img_cat_icon);
+                label = v.findViewById(R.id.tv_cat_title);
             }
         }
     }

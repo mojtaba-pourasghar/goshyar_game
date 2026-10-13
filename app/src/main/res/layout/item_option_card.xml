@@ -1,28 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<!-- کارت گزینه: تصویر بزرگ، نام زیرش، تیک یا ضربدر گوشه -->
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/card_option"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="6dp"
+    android:background="@drawable/bg_card_option"
     android:clickable="true"
-    android:focusable="true"
-    android:foreground="?android:attr/selectableItemBackground"
-    app:cardBackgroundColor="@color/white"
-    app:cardCornerRadius="18dp"
-    app:cardElevation="2dp">
+    android:elevation="3dp"
+    android:focusable="true">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
         android:orientation="vertical"
-        android:padding="10dp">
+        android:padding="12dp">
 
         <ImageView
             android:id="@+id/img_option"
             android:layout_width="match_parent"
-            android:layout_height="96dp"
+            android:layout_height="104dp"
             android:adjustViewBounds="true"
             android:contentDescription="@null"
             android:scaleType="fitCenter" />
@@ -31,19 +29,20 @@
             android:id="@+id/tv_option"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="6dp"
+            android:layout_marginTop="8dp"
             android:gravity="center"
             android:maxLines="2"
             android:textColor="@color/text_dark"
             android:textSize="15sp"
             android:textStyle="bold" />
-
-        <ImageView
-            android:id="@+id/img_option_mark"
-            android:layout_width="26dp"
-            android:layout_height="26dp"
-            android:layout_marginTop="4dp"
-            android:contentDescription="@null"
-            android:visibility="invisible" />
     </LinearLayout>
-</androidx.cardview.widget.CardView>
+
+    <ImageView
+        android:id="@+id/img_option_mark"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_gravity="top|end"
+        android:layout_margin="8dp"
+        android:contentDescription="@null"
+        android:visibility="invisible" />
+</FrameLayout>

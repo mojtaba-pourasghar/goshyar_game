@@ -1,30 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- انتخاب دسته: پس‌زمینه بنفش ملایم، شش کاشی رنگی -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/bg_screen_lavender"
     android:orientation="vertical"
-    android:padding="16dp"
-    android:background="@color/purple_background">
+    android:padding="18dp">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="دسته‌بندی صداها"
-        android:textColor="@color/purple_primary"
-        android:textSize="22sp"
-        android:textStyle="bold" />
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:id="@+id/btn_category_back"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/circle_white"
+            android:contentDescription="@string/back"
+            android:padding="9dp"
+            android:src="@drawable/ic_back"
+            android:tint="@color/purple_primary" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/all_games"
+            android:textColor="@color/purple_primary"
+            android:textSize="21sp"
+            android:textStyle="bold" />
+
+        <Space
+            android:layout_width="40dp"
+            android:layout_height="1dp" />
+    </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_categories"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:layout_marginTop="16dp"
         android:layout_weight="1"
-        android:layout_marginTop="16dp" />
-
-    <Button
-        android:id="@+id/btn_category_back"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:text="@string/back"
-        android:backgroundTint="@color/purple_medium" />
+        android:clipToPadding="false" />
 </LinearLayout>

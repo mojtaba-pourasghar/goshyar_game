@@ -10,7 +10,6 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.cardview.widget.CardView;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -19,6 +18,7 @@ import java.util.List;
 import ir.brandimo.goshyar.R;
 import ir.brandimo.goshyar.data.GameContent;
 import ir.brandimo.goshyar.data.GameLevel;
+import ir.brandimo.goshyar.data.GameMode;
 import ir.brandimo.goshyar.data.SoundItem;
 import ir.brandimo.goshyar.databinding.FragmentGameChoiceBinding;
 import ir.brandimo.goshyar.ui.views.MascotView;
@@ -55,6 +55,12 @@ public abstract class ChoiceGameFragment extends BaseGameFragment {
         binding.tvLevelCounter.setText(getString(R.string.game_progress, level.number, mode.levelCount()));
         binding.stepProgress.setProgress(levelIndex, mode.levelCount());
         binding.mascotGame.setPose(MascotView.Pose.LISTENING);
+
+        // پس‌زمینه‌ی صحنه: در «پیدا کردن منبع صدا» تصویر مکان درست، وگرنه جنگل روز
+        String scene = GameMode.FIND_SOURCE.equals(mode.id)
+                ? content.optionImage(mode.id, level.answerId) : null;
+        binding.imgScene.setImageResource(GameContent.drawableId(requireContext(),
+                scene, R.drawable.bg_sunny_forest));
 
         buildOptions(level);
 
@@ -102,10 +108,8 @@ public abstract class ChoiceGameFragment extends BaseGameFragment {
         boolean correct = optionId.equals(level.answerId);
         mark.setVisibility(View.VISIBLE);
         mark.setImageResource(correct ? R.drawable.ic_check_green : R.drawable.ic_close_red);
-        if (card instanceof CardView) {
-            ((CardView) card).setCardBackgroundColor(
-                    getResources().getColor(correct ? R.color.success_green_soft : R.color.error_red_soft));
-        }
+        card.setBackgroundResource(correct
+                ? R.drawable.bg_card_option_right : R.drawable.bg_card_option_wrong);
 
         if (correct) {
             binding.mascotGame.setPose(MascotView.Pose.CELEBRATING);

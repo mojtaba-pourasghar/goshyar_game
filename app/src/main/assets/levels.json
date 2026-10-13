@@ -1,81 +1,419 @@
 {
   "version": 1,
   "categories": [
-    { "id": "animals",     "title": "حیوانات",      "icon": "ic_cat_animals",     "color": "#FF9800" },
-    { "id": "home",        "title": "وسایل خانه",   "icon": "ic_cat_home",        "color": "#4CAF50" },
-    { "id": "nature",      "title": "طبیعت",        "icon": "ic_cat_nature",      "color": "#00BCD4" },
-    { "id": "music",       "title": "موسیقی",       "icon": "ic_cat_music",       "color": "#E91E63" },
-    { "id": "professions", "title": "حرفه‌ها",      "icon": "ic_cat_professions", "color": "#7E22CE" },
-    { "id": "science",     "title": "فضا و علم",    "icon": "ic_cat_science",     "color": "#3B82F6" }
+    {
+      "id": "animals",
+      "title": "حیوانات",
+      "icon": "ic_paw",
+      "color": "#FF9800"
+    },
+    {
+      "id": "home",
+      "title": "وسایل خانه",
+      "icon": "ic_home",
+      "color": "#4CAF50"
+    },
+    {
+      "id": "nature",
+      "title": "طبیعت",
+      "icon": "ic_leaf",
+      "color": "#00BCD4"
+    },
+    {
+      "id": "music",
+      "title": "موسیقی",
+      "icon": "ic_music",
+      "color": "#E91E63"
+    },
+    {
+      "id": "professions",
+      "title": "حرفه‌ها",
+      "icon": "ic_case",
+      "color": "#7E22CE"
+    },
+    {
+      "id": "science",
+      "title": "فضا و علم",
+      "icon": "ic_rocket",
+      "color": "#3B82F6"
+    }
   ],
-
   "sounds": [
-    { "id": "lion",      "title": "شیر",            "category": "animals",     "image": "img_lion",      "audio": "sfx/animals_lion.mp3" },
-    { "id": "cow",       "title": "گاو",            "category": "animals",     "image": "img_cow",       "audio": "sfx/animals_cow.mp3" },
-    { "id": "dog",       "title": "سگ",             "category": "animals",     "image": "img_dog",       "audio": "sfx/animals_dog.mp3" },
-    { "id": "cat",       "title": "گربه",           "category": "animals",     "image": "img_cat",       "audio": "sfx/animals_cat.mp3" },
-    { "id": "rabbit",    "title": "خرگوش",          "category": "animals",     "image": "img_rabbit",    "audio": "sfx/animals_rabbit.mp3" },
-    { "id": "bird",      "title": "پرنده",          "category": "animals",     "image": "img_bird",      "audio": "sfx/animals_bird.mp3" },
-    { "id": "sheep",     "title": "گوسفند",         "category": "animals",     "image": "img_sheep",     "audio": "sfx/animals_sheep.mp3" },
-    { "id": "horse",     "title": "اسب",            "category": "animals",     "image": "img_horse",     "audio": "sfx/animals_horse.mp3" },
-    { "id": "duck",      "title": "اردک",           "category": "animals",     "image": "img_duck",      "audio": "sfx/animals_duck.mp3" },
-    { "id": "frog",      "title": "قورباغه",        "category": "animals",     "image": "img_frog",      "audio": "sfx/animals_frog.mp3" },
-    { "id": "elephant",  "title": "فیل",            "category": "animals",     "image": "img_elephant",  "audio": "sfx/animals_elephant.mp3" },
-    { "id": "rooster",   "title": "خروس",           "category": "animals",     "image": "img_rooster",   "audio": "sfx/animals_rooster.mp3" },
-
-    { "id": "doorbell",  "title": "زنگ در",         "category": "home",        "image": "img_doorbell",  "audio": "sfx/home_doorbell.mp3" },
-    { "id": "clock",     "title": "ساعت",           "category": "home",        "image": "img_clock",     "audio": "sfx/home_clock.mp3" },
-    { "id": "phone",     "title": "تلفن",           "category": "home",        "image": "img_phone",     "audio": "sfx/home_phone.mp3" },
-    { "id": "vacuum",    "title": "جاروبرقی",       "category": "home",        "image": "img_vacuum",    "audio": "sfx/home_vacuum.mp3" },
-    { "id": "kettle",    "title": "کتری",           "category": "home",        "image": "img_kettle",    "audio": "sfx/home_kettle.mp3" },
-    { "id": "washer",    "title": "ماشین لباسشویی", "category": "home",        "image": "img_washer",    "audio": "sfx/home_washer.mp3" },
-    { "id": "tap",       "title": "شیر آب",         "category": "home",        "image": "img_tap",       "audio": "sfx/home_tap.mp3" },
-    { "id": "door",      "title": "در",             "category": "home",        "image": "img_door",      "audio": "sfx/home_door.mp3" },
-
-    { "id": "rain",      "title": "باران",          "category": "nature",      "image": "img_rain",      "audio": "sfx/nature_rain.mp3" },
-    { "id": "thunder",   "title": "رعد و برق",      "category": "nature",      "image": "img_thunder",   "audio": "sfx/nature_thunder.mp3" },
-    { "id": "wind",      "title": "باد",            "category": "nature",      "image": "img_wind",      "audio": "sfx/nature_wind.mp3" },
-    { "id": "sea",       "title": "دریا",           "category": "nature",      "image": "img_sea",       "audio": "sfx/nature_sea.mp3" },
-    { "id": "river",     "title": "رودخانه",        "category": "nature",      "image": "img_river",     "audio": "sfx/nature_river.mp3" },
-    { "id": "fire",      "title": "آتش",            "category": "nature",      "image": "img_fire",      "audio": "sfx/nature_fire.mp3" },
-    { "id": "waterfall", "title": "آبشار",          "category": "nature",      "image": "img_waterfall", "audio": "sfx/nature_waterfall.mp3" },
-
-    { "id": "drum",      "title": "طبل",            "category": "music",       "image": "img_drum",      "audio": "sfx/music_drum.mp3" },
-    { "id": "piano",     "title": "پیانو",          "category": "music",       "image": "img_piano",     "audio": "sfx/music_piano.mp3" },
-    { "id": "guitar",    "title": "گیتار",          "category": "music",       "image": "img_guitar",    "audio": "sfx/music_guitar.mp3" },
-    { "id": "violin",    "title": "ویولن",          "category": "music",       "image": "img_violin",    "audio": "sfx/music_violin.mp3" },
-    { "id": "flute",     "title": "فلوت",           "category": "music",       "image": "img_flute",     "audio": "sfx/music_flute.mp3" },
-    { "id": "bell",      "title": "زنگوله",         "category": "music",       "image": "img_bell",      "audio": "sfx/music_bell.mp3" },
-    { "id": "tambourine","title": "دف",             "category": "music",       "image": "img_tambourine","audio": "sfx/music_tambourine.mp3" },
-
-    { "id": "hammer",    "title": "چکش",            "category": "professions", "image": "img_hammer",    "audio": "sfx/prof_hammer.mp3" },
-    { "id": "saw",       "title": "اره",            "category": "professions", "image": "img_saw",       "audio": "sfx/prof_saw.mp3" },
-    { "id": "ambulance", "title": "آمبولانس",       "category": "professions", "image": "img_ambulance", "audio": "sfx/prof_ambulance.mp3" },
-    { "id": "firetruck", "title": "ماشین آتش‌نشانی","category": "professions", "image": "img_firetruck", "audio": "sfx/prof_firetruck.mp3" },
-    { "id": "police",    "title": "ماشین پلیس",     "category": "professions", "image": "img_police",    "audio": "sfx/prof_police.mp3" },
-    { "id": "scissors",  "title": "قیچی",           "category": "professions", "image": "img_scissors",  "audio": "sfx/prof_scissors.mp3" },
-    { "id": "typing",    "title": "تایپ کردن",      "category": "professions", "image": "img_typing",    "audio": "sfx/prof_typing.mp3" },
-
-    { "id": "rocket",    "title": "موشک",           "category": "science",     "image": "img_rocket",    "audio": "sfx/sci_rocket.mp3" },
-    { "id": "robot",     "title": "ربات",           "category": "science",     "image": "img_robot",     "audio": "sfx/sci_robot.mp3" },
-    { "id": "spaceship", "title": "سفینه فضایی",    "category": "science",     "image": "img_spaceship", "audio": "sfx/sci_spaceship.mp3" },
-    { "id": "satellite", "title": "ماهواره",        "category": "science",     "image": "img_satellite", "audio": "sfx/sci_satellite.mp3" },
-    { "id": "laser",     "title": "لیزر",           "category": "science",     "image": "img_laser",     "audio": "sfx/sci_laser.mp3" }
+    {
+      "id": "lion",
+      "title": "شیر",
+      "category": "animals",
+      "image": "img_lion",
+      "audio": "sfx/animals_lion.mp3"
+    },
+    {
+      "id": "cow",
+      "title": "گاو",
+      "category": "animals",
+      "image": "img_cow",
+      "audio": "sfx/animals_cow.mp3"
+    },
+    {
+      "id": "dog",
+      "title": "سگ",
+      "category": "animals",
+      "image": "img_dog",
+      "audio": "sfx/animals_dog.mp3"
+    },
+    {
+      "id": "cat",
+      "title": "گربه",
+      "category": "animals",
+      "image": "img_cat",
+      "audio": "sfx/animals_cat.mp3"
+    },
+    {
+      "id": "rabbit",
+      "title": "خرگوش",
+      "category": "animals",
+      "image": "img_rabbit",
+      "audio": "sfx/animals_rabbit.mp3"
+    },
+    {
+      "id": "bird",
+      "title": "پرنده",
+      "category": "animals",
+      "image": "img_bird",
+      "audio": "sfx/animals_bird.mp3"
+    },
+    {
+      "id": "sheep",
+      "title": "گوسفند",
+      "category": "animals",
+      "image": "img_sheep",
+      "audio": "sfx/animals_sheep.mp3"
+    },
+    {
+      "id": "horse",
+      "title": "اسب",
+      "category": "animals",
+      "image": "img_horse",
+      "audio": "sfx/animals_horse.mp3"
+    },
+    {
+      "id": "duck",
+      "title": "اردک",
+      "category": "animals",
+      "image": "img_duck",
+      "audio": "sfx/animals_duck.mp3"
+    },
+    {
+      "id": "frog",
+      "title": "قورباغه",
+      "category": "animals",
+      "image": "img_frog",
+      "audio": "sfx/animals_frog.mp3"
+    },
+    {
+      "id": "elephant",
+      "title": "فیل",
+      "category": "animals",
+      "image": "img_elephant",
+      "audio": "sfx/animals_elephant.mp3"
+    },
+    {
+      "id": "rooster",
+      "title": "خروس",
+      "category": "animals",
+      "image": "img_rooster",
+      "audio": "sfx/animals_rooster.mp3"
+    },
+    {
+      "id": "doorbell",
+      "title": "زنگ در",
+      "category": "home",
+      "image": "img_doorbell",
+      "audio": "sfx/home_doorbell.mp3"
+    },
+    {
+      "id": "clock",
+      "title": "ساعت",
+      "category": "home",
+      "image": "img_clock",
+      "audio": "sfx/home_clock.mp3"
+    },
+    {
+      "id": "phone",
+      "title": "تلفن",
+      "category": "home",
+      "image": "img_phone",
+      "audio": "sfx/home_phone.mp3"
+    },
+    {
+      "id": "vacuum",
+      "title": "جاروبرقی",
+      "category": "home",
+      "image": "img_vacuum",
+      "audio": "sfx/home_vacuum.mp3"
+    },
+    {
+      "id": "kettle",
+      "title": "کتری",
+      "category": "home",
+      "image": "img_kettle",
+      "audio": "sfx/home_kettle.mp3"
+    },
+    {
+      "id": "washer",
+      "title": "ماشین لباسشویی",
+      "category": "home",
+      "image": "img_washer",
+      "audio": "sfx/home_washer.mp3"
+    },
+    {
+      "id": "tap",
+      "title": "شیر آب",
+      "category": "home",
+      "image": "img_tap",
+      "audio": "sfx/home_tap.mp3"
+    },
+    {
+      "id": "door",
+      "title": "در",
+      "category": "home",
+      "image": "img_door",
+      "audio": "sfx/home_door.mp3"
+    },
+    {
+      "id": "rain",
+      "title": "باران",
+      "category": "nature",
+      "image": "img_rain",
+      "audio": "sfx/nature_rain.mp3"
+    },
+    {
+      "id": "thunder",
+      "title": "رعد و برق",
+      "category": "nature",
+      "image": "img_thunder",
+      "audio": "sfx/nature_thunder.mp3"
+    },
+    {
+      "id": "wind",
+      "title": "باد",
+      "category": "nature",
+      "image": "img_wind",
+      "audio": "sfx/nature_wind.mp3"
+    },
+    {
+      "id": "sea",
+      "title": "دریا",
+      "category": "nature",
+      "image": "img_sea",
+      "audio": "sfx/nature_sea.mp3"
+    },
+    {
+      "id": "river",
+      "title": "رودخانه",
+      "category": "nature",
+      "image": "img_river",
+      "audio": "sfx/nature_river.mp3"
+    },
+    {
+      "id": "fire",
+      "title": "آتش",
+      "category": "nature",
+      "image": "img_fire",
+      "audio": "sfx/nature_fire.mp3"
+    },
+    {
+      "id": "waterfall",
+      "title": "آبشار",
+      "category": "nature",
+      "image": "img_waterfall",
+      "audio": "sfx/nature_waterfall.mp3"
+    },
+    {
+      "id": "drum",
+      "title": "طبل",
+      "category": "music",
+      "image": "img_drum",
+      "audio": "sfx/music_drum.mp3"
+    },
+    {
+      "id": "piano",
+      "title": "پیانو",
+      "category": "music",
+      "image": "img_piano",
+      "audio": "sfx/music_piano.mp3"
+    },
+    {
+      "id": "guitar",
+      "title": "گیتار",
+      "category": "music",
+      "image": "img_guitar",
+      "audio": "sfx/music_guitar.mp3"
+    },
+    {
+      "id": "violin",
+      "title": "ویولن",
+      "category": "music",
+      "image": "img_violin",
+      "audio": "sfx/music_violin.mp3"
+    },
+    {
+      "id": "flute",
+      "title": "فلوت",
+      "category": "music",
+      "image": "img_flute",
+      "audio": "sfx/music_flute.mp3"
+    },
+    {
+      "id": "bell",
+      "title": "زنگوله",
+      "category": "music",
+      "image": "img_bell",
+      "audio": "sfx/music_bell.mp3"
+    },
+    {
+      "id": "tambourine",
+      "title": "دف",
+      "category": "music",
+      "image": "img_tambourine",
+      "audio": "sfx/music_tambourine.mp3"
+    },
+    {
+      "id": "hammer",
+      "title": "چکش",
+      "category": "professions",
+      "image": "img_hammer",
+      "audio": "sfx/prof_hammer.mp3"
+    },
+    {
+      "id": "saw",
+      "title": "اره",
+      "category": "professions",
+      "image": "img_saw",
+      "audio": "sfx/prof_saw.mp3"
+    },
+    {
+      "id": "ambulance",
+      "title": "آمبولانس",
+      "category": "professions",
+      "image": "img_ambulance",
+      "audio": "sfx/prof_ambulance.mp3"
+    },
+    {
+      "id": "firetruck",
+      "title": "ماشین آتش‌نشانی",
+      "category": "professions",
+      "image": "img_firetruck",
+      "audio": "sfx/prof_firetruck.mp3"
+    },
+    {
+      "id": "police",
+      "title": "ماشین پلیس",
+      "category": "professions",
+      "image": "img_police",
+      "audio": "sfx/prof_police.mp3"
+    },
+    {
+      "id": "scissors",
+      "title": "قیچی",
+      "category": "professions",
+      "image": "img_scissors",
+      "audio": "sfx/prof_scissors.mp3"
+    },
+    {
+      "id": "typing",
+      "title": "تایپ کردن",
+      "category": "professions",
+      "image": "img_typing",
+      "audio": "sfx/prof_typing.mp3"
+    },
+    {
+      "id": "rocket",
+      "title": "موشک",
+      "category": "science",
+      "image": "img_rocket",
+      "audio": "sfx/sci_rocket.mp3"
+    },
+    {
+      "id": "robot",
+      "title": "ربات",
+      "category": "science",
+      "image": "img_robot",
+      "audio": "sfx/sci_robot.mp3"
+    },
+    {
+      "id": "spaceship",
+      "title": "سفینه فضایی",
+      "category": "science",
+      "image": "img_spaceship",
+      "audio": "sfx/sci_spaceship.mp3"
+    },
+    {
+      "id": "satellite",
+      "title": "ماهواره",
+      "category": "science",
+      "image": "img_satellite",
+      "audio": "sfx/sci_satellite.mp3"
+    },
+    {
+      "id": "laser",
+      "title": "لیزر",
+      "category": "science",
+      "image": "img_laser",
+      "audio": "sfx/sci_laser.mp3"
+    }
   ],
-
   "places": [
-    { "id": "forest",  "title": "جنگل",     "image": "img_place_forest" },
-    { "id": "cave",    "title": "غار",      "image": "img_place_cave" },
-    { "id": "river",   "title": "رودخانه",  "image": "img_place_river" },
-    { "id": "house",   "title": "خانه",     "image": "img_place_house" },
-    { "id": "farm",    "title": "مزرعه",    "image": "img_place_farm" },
-    { "id": "sea",     "title": "دریا",     "image": "img_place_sea" },
-    { "id": "city",    "title": "شهر",      "image": "img_place_city" },
-    { "id": "kitchen", "title": "آشپزخانه", "image": "img_place_kitchen" },
-    { "id": "park",    "title": "پارک",     "image": "img_place_park" },
-    { "id": "space",   "title": "فضا",      "image": "img_place_space" }
+    {
+      "id": "forest",
+      "title": "جنگل",
+      "image": "img_place_forest"
+    },
+    {
+      "id": "cave",
+      "title": "غار",
+      "image": "img_place_cave"
+    },
+    {
+      "id": "river",
+      "title": "رودخانه",
+      "image": "img_place_river"
+    },
+    {
+      "id": "house",
+      "title": "خانه",
+      "image": "img_place_house"
+    },
+    {
+      "id": "farm",
+      "title": "مزرعه",
+      "image": "img_place_farm"
+    },
+    {
+      "id": "sea",
+      "title": "دریا",
+      "image": "img_place_sea"
+    },
+    {
+      "id": "city",
+      "title": "شهر",
+      "image": "img_place_city"
+    },
+    {
+      "id": "kitchen",
+      "title": "آشپزخانه",
+      "image": "img_place_kitchen"
+    },
+    {
+      "id": "park",
+      "title": "پارک",
+      "image": "img_place_park"
+    },
+    {
+      "id": "space",
+      "title": "فضا",
+      "image": "img_place_space"
+    }
   ],
-
   "modes": [
     {
       "id": "find_source",
@@ -84,16 +422,126 @@
       "icon": "ic_mode_find_source",
       "color": "#7E22CE",
       "levels": [
-        { "n": 1,  "sound": "bird",      "answer": "forest",  "options": ["forest", "cave", "river", "house"],     "voice": "v_fs_01" },
-        { "n": 2,  "sound": "cow",       "answer": "farm",    "options": ["farm", "sea", "city", "cave"],          "voice": "v_fs_02" },
-        { "n": 3,  "sound": "doorbell",  "answer": "house",   "options": ["house", "forest", "farm", "park"],      "voice": "v_fs_03" },
-        { "n": 4,  "sound": "sea",       "answer": "sea",     "options": ["sea", "kitchen", "cave", "city"],       "voice": "v_fs_04" },
-        { "n": 5,  "sound": "kettle",    "answer": "kitchen", "options": ["kitchen", "park", "forest", "sea"],     "voice": "v_fs_05" },
-        { "n": 6,  "sound": "waterfall", "answer": "river",   "options": ["river", "house", "city", "space"],      "voice": "v_fs_06" },
-        { "n": 7,  "sound": "ambulance", "answer": "city",    "options": ["city", "farm", "cave", "river"],        "voice": "v_fs_07" },
-        { "n": 8,  "sound": "rocket",    "answer": "space",   "options": ["space", "sea", "park", "kitchen"],      "voice": "v_fs_08" },
-        { "n": 9,  "sound": "wind",      "answer": "cave",    "options": ["cave", "kitchen", "house", "farm"],     "voice": "v_fs_09" },
-        { "n": 10, "sound": "frog",      "answer": "park",    "options": ["park", "space", "city", "cave"],        "voice": "v_fs_10" }
+        {
+          "n": 1,
+          "sound": "bird",
+          "answer": "forest",
+          "options": [
+            "forest",
+            "cave",
+            "river",
+            "house"
+          ],
+          "voice": "v_fs_01"
+        },
+        {
+          "n": 2,
+          "sound": "cow",
+          "answer": "farm",
+          "options": [
+            "farm",
+            "sea",
+            "city",
+            "cave"
+          ],
+          "voice": "v_fs_02"
+        },
+        {
+          "n": 3,
+          "sound": "doorbell",
+          "answer": "house",
+          "options": [
+            "house",
+            "forest",
+            "farm",
+            "park"
+          ],
+          "voice": "v_fs_03"
+        },
+        {
+          "n": 4,
+          "sound": "sea",
+          "answer": "sea",
+          "options": [
+            "sea",
+            "kitchen",
+            "cave",
+            "city"
+          ],
+          "voice": "v_fs_04"
+        },
+        {
+          "n": 5,
+          "sound": "kettle",
+          "answer": "kitchen",
+          "options": [
+            "kitchen",
+            "park",
+            "forest",
+            "sea"
+          ],
+          "voice": "v_fs_05"
+        },
+        {
+          "n": 6,
+          "sound": "waterfall",
+          "answer": "river",
+          "options": [
+            "river",
+            "house",
+            "city",
+            "space"
+          ],
+          "voice": "v_fs_06"
+        },
+        {
+          "n": 7,
+          "sound": "ambulance",
+          "answer": "city",
+          "options": [
+            "city",
+            "farm",
+            "cave",
+            "river"
+          ],
+          "voice": "v_fs_07"
+        },
+        {
+          "n": 8,
+          "sound": "rocket",
+          "answer": "space",
+          "options": [
+            "space",
+            "sea",
+            "park",
+            "kitchen"
+          ],
+          "voice": "v_fs_08"
+        },
+        {
+          "n": 9,
+          "sound": "wind",
+          "answer": "cave",
+          "options": [
+            "cave",
+            "kitchen",
+            "house",
+            "farm"
+          ],
+          "voice": "v_fs_09"
+        },
+        {
+          "n": 10,
+          "sound": "frog",
+          "answer": "park",
+          "options": [
+            "park",
+            "space",
+            "city",
+            "cave"
+          ],
+          "voice": "v_fs_10"
+        }
       ]
     },
     {
@@ -103,16 +551,116 @@
       "icon": "ic_mode_who",
       "color": "#FF7A00",
       "levels": [
-        { "n": 1,  "sound": "cat",       "options": ["cat", "dog", "bird", "cow"],                  "voice": "v_wm_01" },
-        { "n": 2,  "sound": "lion",      "options": ["lion", "rabbit", "cow", "duck"],              "voice": "v_wm_02" },
-        { "n": 3,  "sound": "duck",      "options": ["duck", "rooster", "sheep", "horse"],          "voice": "v_wm_03" },
-        { "n": 4,  "sound": "phone",     "options": ["phone", "doorbell", "clock", "tap"],          "voice": "v_wm_04" },
-        { "n": 5,  "sound": "elephant",  "options": ["elephant", "horse", "lion", "frog"],          "voice": "v_wm_05" },
-        { "n": 6,  "sound": "rain",      "options": ["rain", "fire", "wind", "river"],              "voice": "v_wm_06" },
-        { "n": 7,  "sound": "guitar",    "options": ["guitar", "piano", "drum", "flute"],           "voice": "v_wm_07" },
-        { "n": 8,  "sound": "vacuum",    "options": ["vacuum", "washer", "kettle", "saw"],          "voice": "v_wm_08" },
-        { "n": 9,  "sound": "firetruck", "options": ["firetruck", "police", "ambulance", "robot"],  "voice": "v_wm_09" },
-        { "n": 10, "sound": "robot",     "options": ["robot", "laser", "satellite", "typing"],      "voice": "v_wm_10" }
+        {
+          "n": 1,
+          "sound": "cat",
+          "options": [
+            "cat",
+            "dog",
+            "bird",
+            "cow"
+          ],
+          "voice": "v_wm_01"
+        },
+        {
+          "n": 2,
+          "sound": "lion",
+          "options": [
+            "lion",
+            "rabbit",
+            "cow",
+            "duck"
+          ],
+          "voice": "v_wm_02"
+        },
+        {
+          "n": 3,
+          "sound": "duck",
+          "options": [
+            "duck",
+            "rooster",
+            "sheep",
+            "horse"
+          ],
+          "voice": "v_wm_03"
+        },
+        {
+          "n": 4,
+          "sound": "phone",
+          "options": [
+            "phone",
+            "doorbell",
+            "clock",
+            "tap"
+          ],
+          "voice": "v_wm_04"
+        },
+        {
+          "n": 5,
+          "sound": "elephant",
+          "options": [
+            "elephant",
+            "horse",
+            "lion",
+            "frog"
+          ],
+          "voice": "v_wm_05"
+        },
+        {
+          "n": 6,
+          "sound": "rain",
+          "options": [
+            "rain",
+            "fire",
+            "wind",
+            "river"
+          ],
+          "voice": "v_wm_06"
+        },
+        {
+          "n": 7,
+          "sound": "guitar",
+          "options": [
+            "guitar",
+            "piano",
+            "drum",
+            "flute"
+          ],
+          "voice": "v_wm_07"
+        },
+        {
+          "n": 8,
+          "sound": "vacuum",
+          "options": [
+            "vacuum",
+            "washer",
+            "kettle",
+            "saw"
+          ],
+          "voice": "v_wm_08"
+        },
+        {
+          "n": 9,
+          "sound": "firetruck",
+          "options": [
+            "firetruck",
+            "police",
+            "ambulance",
+            "robot"
+          ],
+          "voice": "v_wm_09"
+        },
+        {
+          "n": 10,
+          "sound": "robot",
+          "options": [
+            "robot",
+            "laser",
+            "satellite",
+            "typing"
+          ],
+          "voice": "v_wm_10"
+        }
       ]
     },
     {
@@ -122,14 +670,85 @@
       "icon": "ic_mode_sequence",
       "color": "#0D9488",
       "levels": [
-        { "n": 1, "sequence": ["bell", "bird", "drum"],                               "voice": "v_sq_01" },
-        { "n": 2, "sequence": ["drum", "cat", "doorbell"],                            "voice": "v_sq_02" },
-        { "n": 3, "sequence": ["piano", "duck", "clock"],                             "voice": "v_sq_03" },
-        { "n": 4, "sequence": ["rain", "thunder", "wind", "bell"],                    "voice": "v_sq_04" },
-        { "n": 5, "sequence": ["horse", "rooster", "sheep", "cow"],                   "voice": "v_sq_05" },
-        { "n": 6, "sequence": ["flute", "guitar", "tambourine", "violin"],            "voice": "v_sq_06" },
-        { "n": 7, "sequence": ["phone", "kettle", "washer", "tap", "door"],           "voice": "v_sq_07" },
-        { "n": 8, "sequence": ["rocket", "robot", "laser", "satellite", "spaceship"], "voice": "v_sq_08" }
+        {
+          "n": 1,
+          "sequence": [
+            "bell",
+            "bird",
+            "drum"
+          ],
+          "voice": "v_sq_01"
+        },
+        {
+          "n": 2,
+          "sequence": [
+            "drum",
+            "cat",
+            "doorbell"
+          ],
+          "voice": "v_sq_02"
+        },
+        {
+          "n": 3,
+          "sequence": [
+            "piano",
+            "duck",
+            "clock"
+          ],
+          "voice": "v_sq_03"
+        },
+        {
+          "n": 4,
+          "sequence": [
+            "rain",
+            "thunder",
+            "wind",
+            "bell"
+          ],
+          "voice": "v_sq_04"
+        },
+        {
+          "n": 5,
+          "sequence": [
+            "horse",
+            "rooster",
+            "sheep",
+            "cow"
+          ],
+          "voice": "v_sq_05"
+        },
+        {
+          "n": 6,
+          "sequence": [
+            "flute",
+            "guitar",
+            "tambourine",
+            "violin"
+          ],
+          "voice": "v_sq_06"
+        },
+        {
+          "n": 7,
+          "sequence": [
+            "phone",
+            "kettle",
+            "washer",
+            "tap",
+            "door"
+          ],
+          "voice": "v_sq_07"
+        },
+        {
+          "n": 8,
+          "sequence": [
+            "rocket",
+            "robot",
+            "laser",
+            "satellite",
+            "spaceship"
+          ],
+          "voice": "v_sq_08"
+        }
       ]
     },
     {
@@ -139,24 +758,158 @@
       "icon": "ic_mode_mission",
       "color": "#502B85",
       "levels": [
-        { "n": 1, "scene": "جنگل در روز",   "background": "bg_sunny_forest",  "layers": ["bird", "wind", "river"],                      "answer": 3, "options": [2, 3, 4, 5], "voice": "v_am_01" },
-        { "n": 2, "scene": "مزرعه صبح",     "background": "bg_farm",          "layers": ["rooster", "cow", "sheep", "horse"],           "answer": 4, "options": [2, 3, 4, 5], "voice": "v_am_02" },
-        { "n": 3, "scene": "خانه عصر",      "background": "bg_home",          "layers": ["clock", "kettle", "phone"],                   "answer": 3, "options": [2, 3, 4, 5], "voice": "v_am_03" },
-        { "n": 4, "scene": "شهر شلوغ",      "background": "bg_city",          "layers": ["ambulance", "police", "typing", "doorbell", "door"], "answer": 5, "options": [3, 4, 5, 6], "voice": "v_am_04" },
-        { "n": 5, "scene": "جنگل شب",       "background": "bg_night_forest",  "layers": ["frog", "wind", "river", "thunder", "rain"],    "answer": 5, "options": [3, 4, 5, 6], "voice": "v_am_05" }
+        {
+          "n": 1,
+          "scene": "جنگل در روز",
+          "background": "bg_sunny_forest",
+          "layers": [
+            "bird",
+            "wind",
+            "river"
+          ],
+          "answer": 3,
+          "options": [
+            2,
+            3,
+            4,
+            5
+          ],
+          "voice": "v_am_01"
+        },
+        {
+          "n": 2,
+          "scene": "مزرعه صبح",
+          "background": "bg_farm",
+          "layers": [
+            "rooster",
+            "cow",
+            "sheep",
+            "horse"
+          ],
+          "answer": 4,
+          "options": [
+            2,
+            3,
+            4,
+            5
+          ],
+          "voice": "v_am_02"
+        },
+        {
+          "n": 3,
+          "scene": "خانه عصر",
+          "background": "bg_home",
+          "layers": [
+            "clock",
+            "kettle",
+            "phone"
+          ],
+          "answer": 3,
+          "options": [
+            2,
+            3,
+            4,
+            5
+          ],
+          "voice": "v_am_03"
+        },
+        {
+          "n": 4,
+          "scene": "شهر شلوغ",
+          "background": "bg_city",
+          "layers": [
+            "ambulance",
+            "police",
+            "typing",
+            "doorbell",
+            "door"
+          ],
+          "answer": 5,
+          "options": [
+            3,
+            4,
+            5,
+            6
+          ],
+          "voice": "v_am_04"
+        },
+        {
+          "n": 5,
+          "scene": "جنگل شب",
+          "background": "bg_night_forest",
+          "layers": [
+            "frog",
+            "wind",
+            "river",
+            "thunder",
+            "rain"
+          ],
+          "answer": 5,
+          "options": [
+            3,
+            4,
+            5,
+            6
+          ],
+          "voice": "v_am_05"
+        }
       ]
     }
   ],
-
   "achievements": [
-    { "id": "first_step",   "title": "اولین قدم",       "desc": "اولین مرحله را کامل کن",            "icon": "ic_badge_first",   "rule": "levels>=1" },
-    { "id": "sound_shop",   "title": "کارگاه صداها",    "desc": "۵ مرحله را موفق تمام کن",           "icon": "ic_badge_shop",    "rule": "levels>=5" },
-    { "id": "nature_friend","title": "دوست طبیعت",      "desc": "۳ مرحله از دسته طبیعت را ببر",      "icon": "ic_badge_nature",  "rule": "cat:nature>=3" },
-    { "id": "animal_expert","title": "کارشناس حیوانات", "desc": "۸ مرحله از دسته حیوانات را ببر",    "icon": "ic_badge_animal",  "rule": "cat:animals>=8" },
-    { "id": "memory_master","title": "استاد حافظه",     "desc": "۴ مرحله ترتیب صداها را ببر",        "icon": "ic_badge_memory",  "rule": "mode:sequence>=4" },
-    { "id": "sharp_ear",    "title": "گوش تیزبین",      "desc": "۱۰ پاسخ درست پشت سر هم",            "icon": "ic_badge_ear",     "rule": "streak>=10" },
-    { "id": "audio_hero",   "title": "قهرمان شنیداری",  "desc": "تمام مراحل را کامل کن",             "icon": "ic_badge_hero",    "rule": "levels>=33" }
+    {
+      "id": "first_step",
+      "title": "اولین قدم",
+      "desc": "اولین مرحله را کامل کن",
+      "icon": "ic_badge_first",
+      "rule": "levels>=1"
+    },
+    {
+      "id": "sound_shop",
+      "title": "کارگاه صداها",
+      "desc": "۵ مرحله را موفق تمام کن",
+      "icon": "ic_badge_shop",
+      "rule": "levels>=5"
+    },
+    {
+      "id": "nature_friend",
+      "title": "دوست طبیعت",
+      "desc": "۳ مرحله از دسته طبیعت را ببر",
+      "icon": "ic_badge_nature",
+      "rule": "cat:nature>=3"
+    },
+    {
+      "id": "animal_expert",
+      "title": "کارشناس حیوانات",
+      "desc": "۸ مرحله از دسته حیوانات را ببر",
+      "icon": "ic_badge_animal",
+      "rule": "cat:animals>=8"
+    },
+    {
+      "id": "memory_master",
+      "title": "استاد حافظه",
+      "desc": "۴ مرحله ترتیب صداها را ببر",
+      "icon": "ic_badge_memory",
+      "rule": "mode:sequence>=4"
+    },
+    {
+      "id": "sharp_ear",
+      "title": "گوش تیزبین",
+      "desc": "۱۰ پاسخ درست پشت سر هم",
+      "icon": "ic_badge_ear",
+      "rule": "streak>=10"
+    },
+    {
+      "id": "audio_hero",
+      "title": "قهرمان شنیداری",
+      "desc": "تمام مراحل را کامل کن",
+      "icon": "ic_badge_hero",
+      "rule": "levels>=33"
+    }
   ],
-
-  "scoring": { "correctPoints": 20, "firstTryBonus": 5, "pointsPerLevel": 500 }
+  "scoring": {
+    "correctPoints": 20,
+    "firstTryBonus": 5,
+    "pointsPerLevel": 500
+  }
 }

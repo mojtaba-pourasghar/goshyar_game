@@ -1,72 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<!-- حین بازی: پس‌زمینه صحنه، بالا شماره مرحله، وسط دکمه پخش گرد، پایین کارت سؤال و گزینه‌ها -->
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/purple_background"
-    android:fillViewport="true">
+    android:background="@drawable/bg_screen_light">
 
-    <LinearLayout
+    <ImageView
+        android:id="@+id/img_scene"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="16dp">
+        android:layout_height="300dp"
+        android:contentDescription="@null"
+        android:scaleType="centerCrop"
+        android:src="@drawable/bg_sunny_forest" />
 
-        <!-- سربرگ: بازگشت، عنوان، شماره مرحله -->
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center_vertical"
-            android:orientation="horizontal">
+            android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/tv_level_counter"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/bg_purple_card"
-                android:paddingHorizontal="12dp"
-                android:paddingVertical="6dp"
-                android:textColor="@color/white"
-                android:textSize="14sp"
-                tools:text="مرحله ۱ از ۱۰" />
-
-            <TextView
-                android:id="@+id/tv_game_title"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:textColor="@color/purple_primary"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                tools:text="این صدا مال کیه؟" />
-
-            <ImageButton
-                android:id="@+id/btn_game_back"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:background="@drawable/bg_rounded_card_white"
-                android:contentDescription="@string/back"
-                android:src="@drawable/ic_back"
-                app:tint="@color/purple_primary" />
-        </LinearLayout>
-
-        <ir.brandimo.goshyar.ui.views.StepProgressView
-            android:id="@+id/step_progress"
-            android:layout_width="match_parent"
-            android:layout_height="10dp"
-            android:layout_marginTop="12dp" />
-
-        <!-- کارت پخش صدا -->
-        <androidx.cardview.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            app:cardBackgroundColor="@color/white"
-            app:cardCornerRadius="20dp"
-            app:cardElevation="2dp">
-
+            <!-- سربرگ روی تصویر -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -75,52 +33,107 @@
                 android:padding="16dp">
 
                 <ImageButton
+                    android:id="@+id/btn_game_back"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:background="@drawable/circle_white"
+                    android:contentDescription="@string/back"
+                    android:padding="9dp"
+                    android:src="@drawable/ic_back"
+                    android:tint="@color/purple_primary" />
+
+                <TextView
+                    android:id="@+id/tv_game_title"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:shadowColor="#80000000"
+                    android:shadowDy="2"
+                    android:shadowRadius="5"
+                    android:textColor="@color/white"
+                    android:textSize="19sp"
+                    android:textStyle="bold"
+                    tools:text="این صدا مال کیه؟" />
+
+                <TextView
+                    android:id="@+id/tv_level_counter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/chip_white"
+                    android:paddingHorizontal="12dp"
+                    android:paddingVertical="7dp"
+                    android:textColor="@color/purple_primary"
+                    android:textSize="13sp"
+                    android:textStyle="bold"
+                    tools:text="مرحله ۳ از ۵" />
+            </LinearLayout>
+
+            <!-- دکمه پخش صدا، وسط تصویر -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="34dp"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageButton
                     android:id="@+id/btn_play_sound"
-                    android:layout_width="64dp"
-                    android:layout_height="64dp"
-                    android:background="@drawable/bg_circle_purple"
+                    android:layout_width="96dp"
+                    android:layout_height="96dp"
+                    android:background="@drawable/circle_purple"
                     android:contentDescription="@string/play_sound"
-                    android:src="@drawable/ic_speaker"
-                    app:tint="@color/white" />
+                    android:elevation="8dp"
+                    android:padding="26dp"
+                    android:src="@drawable/ic_speaker" />
 
                 <ir.brandimo.goshyar.ui.views.SoundWaveView
                     android:id="@+id/sound_wave_view"
-                    android:layout_width="0dp"
-                    android:layout_height="48dp"
-                    android:layout_marginStart="12dp"
-                    android:layout_weight="1" />
-
-                <ir.brandimo.goshyar.ui.views.MascotView
-                    android:id="@+id/mascot_game"
-                    android:layout_width="56dp"
-                    android:layout_height="56dp"
-                    android:layout_marginStart="8dp"
-                    android:contentDescription="@string/app_name" />
+                    android:layout_width="150dp"
+                    android:layout_height="30dp"
+                    android:layout_marginTop="12dp" />
             </LinearLayout>
-        </androidx.cardview.widget.CardView>
 
-        <TextView
-            android:id="@+id/tv_instruction"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:gravity="center"
-            android:textColor="@color/text_dark"
-            android:textSize="17sp"
-            android:textStyle="bold"
-            tools:text="به صدای روبرو گوش کن و منبع آن را پیدا کن!" />
+            <!-- کارت سؤال -->
+            <TextView
+                android:id="@+id/tv_instruction"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginTop="34dp"
+                android:background="@drawable/bg_card_question"
+                android:elevation="4dp"
+                android:gravity="center"
+                android:paddingHorizontal="18dp"
+                android:paddingVertical="16dp"
+                android:textColor="@color/text_dark"
+                android:textSize="17sp"
+                android:textStyle="bold"
+                tools:text="این صدا مال کدام حیوان است؟" />
 
-        <!-- گزینه‌ها، از روی levels.json ساخته می‌شوند -->
-        <GridLayout
-            android:id="@+id/grid_options"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:columnCount="2" />
+            <!-- گزینه‌ها -->
+            <GridLayout
+                android:id="@+id/grid_options"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="10dp"
+                android:layout_marginTop="14dp"
+                android:columnCount="2" />
 
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1" />
-    </LinearLayout>
-</androidx.core.widget.NestedScrollView>
+            <!-- نوار پیشرفت مرحله -->
+            <ir.brandimo.goshyar.ui.views.StepProgressView
+                android:id="@+id/step_progress"
+                android:layout_width="match_parent"
+                android:layout_height="9dp"
+                android:layout_marginHorizontal="40dp"
+                android:layout_marginTop="18dp"
+                android:layout_marginBottom="20dp" />
+
+            <ir.brandimo.goshyar.ui.views.MascotView
+                android:id="@+id/mascot_game"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:contentDescription="@null" />
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</FrameLayout>
