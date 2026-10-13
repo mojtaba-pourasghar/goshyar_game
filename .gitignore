@@ -25,3 +25,7 @@ app/src/main/assets/voice/voice_manifest.json
 
 # WAVهای میانی ساخت صدا
 build/sfx-wav/
+
+# کش پایتون
+__pycache__/
+*.pyc
