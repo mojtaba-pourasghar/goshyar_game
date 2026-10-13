@@ -19,6 +19,9 @@ local.properties
 *.keystore
 keystore.properties
 
-# خروجی ابزار صداگذاری (فایل‌های تولیدشده)
+# گویندهٔ فارسی با استودیوی صداگذاری ساخته می‌شود، پس در گیت نیست
 app/src/main/assets/voice/*.mp3
 app/src/main/assets/voice/voice_manifest.json
+
+# WAVهای میانی ساخت صدا
+build/sfx-wav/
