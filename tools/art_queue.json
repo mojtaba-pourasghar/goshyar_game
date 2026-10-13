@@ -2,11 +2,6 @@
   "note": "صف تصویرهای باقی‌مانده. هر کدام ساخته شد از این فهرست حذف می‌شود.",
   "remaining": [
     {
-      "name": "img_door",
-      "aspect": "SQUARE_1_1",
-      "prompt": "Cute 3D rendered cartoon a wooden house door standing slightly open with a brass handle, for a children's educational app. Soft glossy Pixar-style lighting, rounded soft shapes, bright saturated colors, centered, isolated on a plain pure white background, no text, no letters, kids game card asset"
-    },
-    {
       "name": "img_fire",
       "aspect": "SQUARE_1_1",
       "prompt": "Cute 3D rendered cartoon a warm orange campfire with stacked logs and glowing embers, for a children's educational app. Soft glossy Pixar-style lighting, rounded soft shapes, bright saturated colors, centered, isolated on a plain pure white background, no text, no letters, kids game card asset"
