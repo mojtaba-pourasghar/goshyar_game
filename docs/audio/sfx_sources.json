@@ -1,6 +1,17 @@
 {
   "note": "صدای حیوان‌ها و وسایل که با فایل واقعی جایگزین شده‌اند. صدایی که اینجا نیست هنوز همان صدای سنتزیِ نسخه‌ی قبلی است.",
   "files": {
+    "bird": {
+      "file": "audio/sfx/animals_bird.mp3",
+      "commons": "File:Arremon abeillei - Black-capped Sparrow XC250490.mp3",
+      "source": "https://commons.wikimedia.org/wiki/File:Arremon_abeillei_-_Black-capped_Sparrow_XC250490.mp3",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "author": "Niels Krabbe",
+      "kept": "1.35s + 5.0s",
+      "via": "tools/sfx/fetch_sounds.py",
+      "at": "2026-10-14T09:42:38+00:00"
+    },
     "cat": {
       "file": "audio/sfx/animals_cat.mp3",
       "commons": "File:Felis silvestris catus meows.ogg",

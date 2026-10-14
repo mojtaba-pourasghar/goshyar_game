@@ -201,6 +201,32 @@ def main() -> int:
     return 1 if failed else 0
 
 
+def transcodes(url: str) -> list[str]:
+    """Commons' own converted copies of a file. When the original is held back from this
+    address (429 with a long Retry-After), these are often still served."""
+    base = url.split("?")[0]
+    if "/wikipedia/commons/" not in base:
+        return []
+    head, name = base.rsplit("/", 1)
+    folder = head.replace("/wikipedia/commons/", "/wikipedia/commons/transcoded/", 1)
+    return [f"{folder}/{name}/{name}.{ext}" for ext in ("ogg", "mp3", "opus")
+            if not name.lower().endswith("." + ext)]
+
+
+def download(url: str, patience: int) -> tuple[bytes, str]:
+    """The original if it comes, else a converted copy. Returns the bytes and the suffix."""
+    try:
+        return fetch(url, timeout=180, patience=patience), Path(urllib.parse.urlparse(url).path).suffix
+    except Deferred:
+        for alt in transcodes(url):
+            try:
+                print(f"   ↳ نسخه‌ی تبدیل‌شده: …{alt[-40:]}", flush=True)
+                return fetch(alt, timeout=180, patience=30), "." + alt.rsplit(".", 1)[1]
+            except Exception:  # noqa: BLE001 — try the next copy
+                continue
+        raise
+
+
 def apply(sid: str, pick: dict, sound: dict, m: dict, sources: dict, *, patience: int = 120) -> str:
     """Downloads, cleans and writes one sound. Returns "ok", "deferred" or "failed"."""
     print(f"• {sid} ({sound['title']}) ← {pick['file']}", flush=True)
@@ -212,10 +238,11 @@ def apply(sid: str, pick: dict, sound: dict, m: dict, sources: dict, *, patience
         return "failed"
     target = ROOT / "assets" / sound["audio"]
     with tempfile.TemporaryDirectory() as tmp:
-        src = Path(tmp) / ("in" + Path(urllib.parse.urlparse(m["url"]).path).suffix)
         out = Path(tmp) / "out.mp3"
         try:
-            src.write_bytes(fetch(m["url"], timeout=180, patience=patience))
+            data, suffix = download(m["url"], patience)
+            src = Path(tmp) / ("in" + suffix)
+            src.write_bytes(data)
             seconds = float(pick.get("seconds", 5))
             # a long recording keeps its loudest stretch unless the pick names a start
             start = pick.get("start")
