@@ -1,6 +1,28 @@
 {
   "note": "صدای حیوان‌ها و وسایل که با فایل واقعی جایگزین شده‌اند. صدایی که اینجا نیست هنوز همان صدای سنتزیِ نسخه‌ی قبلی است.",
   "files": {
+    "ambulance": {
+      "file": "audio/sfx/prof_ambulance.mp3",
+      "commons": "File:Het voorbijrijden van twee ambulances met sirenes - SoundCloud - Beeld en Geluid.ogg",
+      "source": "https://commons.wikimedia.org/wiki/File:Het_voorbijrijden_van_twee_ambulances_met_sirenes_-_SoundCloud_-_Beeld_en_Geluid.ogg",
+      "license": "CC BY-SA 3.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+      "author": "Beeld en Geluid",
+      "kept": "47.1s + 5.0s",
+      "via": "tools/sfx/fetch_sounds.py",
+      "at": "2026-10-14T10:00:47+00:00"
+    },
+    "bell": {
+      "file": "audio/sfx/music_bell.mp3",
+      "commons": "File:Sleigh bells.wav",
+      "source": "https://commons.wikimedia.org/wiki/File:Sleigh_bells.wav",
+      "license": "CC0",
+      "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "author": "The Midnite Wolf",
+      "kept": "2.6s + 4.0s",
+      "via": "tools/sfx/fetch_sounds.py",
+      "at": "2026-10-14T10:11:48+00:00"
+    },
     "bird": {
       "file": "audio/sfx/animals_bird.mp3",
       "commons": "File:Arremon abeillei - Black-capped Sparrow XC250490.mp3",
@@ -122,6 +144,17 @@
       "via": "tools/sfx/fetch_sounds.py",
       "at": "2026-10-14T09:41:30+00:00"
     },
+    "firetruck": {
+      "file": "audio/sfx/prof_firetruck.mp3",
+      "commons": "File:WWS Fireenginesiren.ogg",
+      "source": "https://commons.wikimedia.org/wiki/File:WWS_Fireenginesiren.ogg",
+      "license": "CC BY 4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0",
+      "author": "Work With Sounds / Konrad Gutkowski",
+      "kept": "18.85s + 5.0s",
+      "via": "tools/sfx/fetch_sounds.py",
+      "at": "2026-10-14T10:02:03+00:00"
+    },
     "flute": {
       "file": "audio/sfx/music_flute.mp3",
       "commons": "File:Bach - Partita For Solo Flute - Modern Flute - 4. Bouree.ogg",
@@ -155,6 +188,17 @@
       "via": "tools/sfx/fetch_sounds.py",
       "at": "2026-10-14T09:54:02+00:00"
     },
+    "hammer": {
+      "file": "audio/sfx/prof_hammer.mp3",
+      "commons": "File:Carpenter Work Sound.ogg",
+      "source": "https://commons.wikimedia.org/wiki/File:Carpenter_Work_Sound.ogg",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "author": "Ready Street",
+      "kept": "43.35s + 4.0s",
+      "via": "tools/sfx/fetch_sounds.py",
+      "at": "2026-10-14T10:11:52+00:00"
+    },
     "horse": {
       "file": "audio/sfx/animals_horse.mp3",
       "commons": "File:Wiehern.ogg",
@@ -176,6 +220,28 @@
       "kept": "11.1s + 5.0s",
       "via": "tools/sfx/fetch_sounds.py",
       "at": "2026-10-14T09:47:25+00:00"
+    },
+    "laser": {
+      "file": "audio/sfx/sci_laser.mp3",
+      "commons": "File:Laser (Gravity Sound).mp3",
+      "source": "https://commons.wikimedia.org/wiki/File:Laser_(Gravity_Sound).mp3",
+      "license": "CC BY 4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0",
+      "author": "Gravity Sound",
+      "kept": "0s + 4.0s",
+      "via": "tools/sfx/fetch_sounds.py",
+      "at": "2026-10-14T10:09:26+00:00"
+    },
+    "lion": {
+      "file": "audio/sfx/animals_lion.mp3",
+      "commons": "File:Lionroar.wav",
+      "source": "https://commons.wikimedia.org/wiki/File:Lionroar.wav",
+      "license": "CC BY 4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0",
+      "author": "Jonathan Growcott, Alex Lobora, Andrew Markham, Charlotte E. Searle, Johan Wahlström, Matthew Wijers, Benno I. Simmons",
+      "kept": "14.6s + 5.0s",
+      "via": "tools/sfx/fetch_sounds.py",
+      "at": "2026-10-14T10:09:40+00:00"
     },
     "phone": {
       "file": "audio/sfx/home_phone.mp3",
@@ -199,6 +265,28 @@
       "via": "tools/sfx/fetch_sounds.py",
       "at": "2026-10-14T09:52:57+00:00"
     },
+    "police": {
+      "file": "audio/sfx/prof_police.mp3",
+      "commons": "File:American police siren i.ogg",
+      "source": "https://commons.wikimedia.org/wiki/File:American_police_siren_i.ogg",
+      "license": "Public domain",
+      "license_url": "",
+      "author": "lezer",
+      "kept": "12.85s + 5.0s",
+      "via": "tools/sfx/fetch_sounds.py",
+      "at": "2026-10-14T10:02:05+00:00"
+    },
+    "rabbit": {
+      "file": "audio/sfx/animals_rabbit.mp3",
+      "commons": "File:Rabbit oinks and squeaks.wav",
+      "source": "https://commons.wikimedia.org/wiki/File:Rabbit_oinks_and_squeaks.wav",
+      "license": "CC0",
+      "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "author": "kessir",
+      "kept": "19.85s + 4.0s",
+      "via": "tools/sfx/fetch_sounds.py",
+      "at": "2026-10-14T10:10:07+00:00"
+    },
     "rain": {
       "file": "audio/sfx/nature_rain.mp3",
       "commons": "File:Heavy Rain in Summer.ogg",
@@ -221,6 +309,28 @@
       "via": "tools/sfx/fetch_sounds.py",
       "at": "2026-10-14T09:50:57+00:00"
     },
+    "robot": {
+      "file": "audio/sfx/sci_robot.mp3",
+      "commons": "File:Little robot buzzing.ogg",
+      "source": "https://commons.wikimedia.org/wiki/File:Little_robot_buzzing.ogg",
+      "license": "Public domain",
+      "license_url": "",
+      "author": "stephan",
+      "kept": "4.85s + 4.0s",
+      "via": "tools/sfx/fetch_sounds.py",
+      "at": "2026-10-14T10:07:35+00:00"
+    },
+    "rocket": {
+      "file": "audio/sfx/sci_rocket.mp3",
+      "commons": "File:Artemis II Live Launch Coverage - Pad Camera Site 4 (KSC-20260401-AU-LMM01-0001-Artemis II Live Launch Coverage Pad Camera Site 4).wav",
+      "source": "https://commons.wikimedia.org/wiki/File:Artemis_II_Live_Launch_Coverage_-_Pad_Camera_Site_4_(KSC-20260401-AU-LMM01-0001-Artemis_II_Live_Launch_Coverage_Pad_Camera_Site_4).wav",
+      "license": "Public domain",
+      "license_url": "",
+      "author": "NASA Kennedy Space Center",
+      "kept": "11.85s + 6.0s",
+      "via": "tools/sfx/fetch_sounds.py",
+      "at": "2026-10-14T10:04:15+00:00"
+    },
     "rooster": {
       "file": "audio/sfx/animals_rooster.mp3",
       "commons": "File:Rooster crowing.ogg",
@@ -231,6 +341,39 @@
       "kept": "0.0s + 5.0s",
       "via": "tools/sfx/fetch_sounds.py",
       "at": "2026-10-14T09:41:11+00:00"
+    },
+    "satellite": {
+      "file": "audio/sfx/sci_satellite.mp3",
+      "commons": "File:Sputnik beep.ogg",
+      "source": "https://commons.wikimedia.org/wiki/File:Sputnik_beep.ogg",
+      "license": "Public domain",
+      "license_url": "",
+      "author": "NASA",
+      "kept": "0.0s + 4.0s",
+      "via": "tools/sfx/fetch_sounds.py",
+      "at": "2026-10-14T10:14:24+00:00"
+    },
+    "saw": {
+      "file": "audio/sfx/prof_saw.mp3",
+      "commons": "File:WWS Wheelwrightwoodsaw.ogg",
+      "source": "https://commons.wikimedia.org/wiki/File:WWS_Wheelwrightwoodsaw.ogg",
+      "license": "CC BY 4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0",
+      "author": "Work With Sounds / Museum of Municipal Engineering",
+      "kept": "32.6s + 5.0s",
+      "via": "tools/sfx/fetch_sounds.py",
+      "at": "2026-10-14T10:12:56+00:00"
+    },
+    "scissors": {
+      "file": "audio/sfx/prof_scissors.mp3",
+      "commons": "File:WWS Paper-cuttingscissorsSloveniaPartisanPrintingShop.ogg",
+      "source": "https://commons.wikimedia.org/wiki/File:WWS_Paper-cuttingscissorsSloveniaPartisanPrintingShop.ogg",
+      "license": "CC BY 4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0",
+      "author": "Work With Sounds / Technical Museum of Slovenia",
+      "kept": "45.1s + 4.0s",
+      "via": "tools/sfx/fetch_sounds.py",
+      "at": "2026-10-14T10:02:20+00:00"
     },
     "sea": {
       "file": "audio/sfx/nature_sea.mp3",
@@ -253,6 +396,28 @@
       "kept": "3.35s + 4.0s",
       "via": "tools/sfx/fetch_sounds.py",
       "at": "2026-10-14T09:41:07+00:00"
+    },
+    "spaceship": {
+      "file": "audio/sfx/sci_spaceship.mp3",
+      "commons": "File:Kevin MacLeod - Alien Spaceship Atmosphere (cc0).ogg",
+      "source": "https://commons.wikimedia.org/wiki/File:Kevin_MacLeod_-_Alien_Spaceship_Atmosphere_(cc0).ogg",
+      "license": "CC0",
+      "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "author": "Kevin MacLeod",
+      "kept": "65.1s + 6.0s",
+      "via": "tools/sfx/fetch_sounds.py",
+      "at": "2026-10-14T10:08:34+00:00"
+    },
+    "tambourine": {
+      "file": "audio/sfx/music_tambourine.mp3",
+      "commons": "File:Tambourine.ogg",
+      "source": "https://commons.wikimedia.org/wiki/File:Tambourine.ogg",
+      "license": "Public domain",
+      "license_url": "",
+      "author": "Freddythehat at English Wikipedia",
+      "kept": "9.85s + 4.0s",
+      "via": "tools/sfx/fetch_sounds.py",
+      "at": "2026-10-14T10:00:44+00:00"
     },
     "tap": {
       "file": "audio/sfx/home_tap.mp3",
