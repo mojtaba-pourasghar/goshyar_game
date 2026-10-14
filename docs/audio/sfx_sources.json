@@ -12,6 +12,17 @@
       "via": "tools/sfx/fetch_sounds.py",
       "at": "2026-10-14T07:59:14+00:00"
     },
+    "clock": {
+      "file": "audio/sfx/home_clock.mp3",
+      "commons": "File:Clock ticking.ogg",
+      "source": "https://commons.wikimedia.org/wiki/File:Clock_ticking.ogg",
+      "license": "Public domain",
+      "license_url": "",
+      "author": "natalie",
+      "kept": "8.6s + 4.0s",
+      "via": "tools/sfx/fetch_sounds.py",
+      "at": "2026-10-14T09:41:15+00:00"
+    },
     "cow": {
       "file": "audio/sfx/animals_cow.mp3",
       "commons": "File:Single Cow Moo.ogg",
@@ -56,6 +67,17 @@
       "via": "tools/sfx/fetch_sounds.py",
       "at": "2026-10-14T09:41:09+00:00"
     },
+    "rain": {
+      "file": "audio/sfx/nature_rain.mp3",
+      "commons": "File:Heavy Rain in Summer.ogg",
+      "source": "https://commons.wikimedia.org/wiki/File:Heavy_Rain_in_Summer.ogg",
+      "license": "CC BY-SA 3.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+      "author": "Fiver, der Hellseher",
+      "kept": "3.1s + 5.0s",
+      "via": "tools/sfx/fetch_sounds.py",
+      "at": "2026-10-14T09:41:20+00:00"
+    },
     "rooster": {
       "file": "audio/sfx/animals_rooster.mp3",
       "commons": "File:Rooster crowing.ogg",
@@ -77,6 +99,39 @@
       "kept": "3.35s + 4.0s",
       "via": "tools/sfx/fetch_sounds.py",
       "at": "2026-10-14T09:41:07+00:00"
+    },
+    "thunder": {
+      "file": "audio/sfx/nature_thunder.mp3",
+      "commons": "File:Thunder 01.ogg",
+      "source": "https://commons.wikimedia.org/wiki/File:Thunder_01.ogg",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "author": "Amuzujoe",
+      "kept": "0.1s + 6.0s",
+      "via": "tools/sfx/fetch_sounds.py",
+      "at": "2026-10-14T09:41:22+00:00"
+    },
+    "typing": {
+      "file": "audio/sfx/prof_typing.mp3",
+      "commons": "File:Typing - Model M 1986.ogg",
+      "source": "https://commons.wikimedia.org/wiki/File:Typing_-_Model_M_1986.ogg",
+      "license": "CC0",
+      "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "author": "Raymangold22",
+      "kept": "0.1s + 4.0s",
+      "via": "tools/sfx/fetch_sounds.py",
+      "at": "2026-10-14T09:41:26+00:00"
+    },
+    "washer": {
+      "file": "audio/sfx/home_washer.mp3",
+      "commons": "File:Washing machine.ogg",
+      "source": "https://commons.wikimedia.org/wiki/File:Washing_machine.ogg",
+      "license": "Public domain",
+      "license_url": "",
+      "author": "chocoholic",
+      "kept": "0.6s + 5.0s",
+      "via": "tools/sfx/fetch_sounds.py",
+      "at": "2026-10-14T09:41:18+00:00"
     }
   }
 }
