@@ -33,6 +33,50 @@
       "kept": "0.0s + 4s",
       "via": "tools/sfx/fetch_sounds.py",
       "at": "2026-10-14T07:59:12+00:00"
+    },
+    "doorbell": {
+      "file": "audio/sfx/home_doorbell.mp3",
+      "commons": "File:Doorbell-classic-dingdong.ogg",
+      "source": "https://commons.wikimedia.org/wiki/File:Doorbell-classic-dingdong.ogg",
+      "license": "Public domain",
+      "license_url": "",
+      "author": "",
+      "kept": "0s + 4.0s",
+      "via": "tools/sfx/fetch_sounds.py",
+      "at": "2026-10-14T09:41:13+00:00"
+    },
+    "elephant": {
+      "file": "audio/sfx/animals_elephant.mp3",
+      "commons": "File:Elephant voice - trumpeting.ogg",
+      "source": "https://commons.wikimedia.org/wiki/File:Elephant_voice_-_trumpeting.ogg",
+      "license": "CC0",
+      "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "author": "தகவலுழவன்",
+      "kept": "0.0s + 4.0s",
+      "via": "tools/sfx/fetch_sounds.py",
+      "at": "2026-10-14T09:41:09+00:00"
+    },
+    "rooster": {
+      "file": "audio/sfx/animals_rooster.mp3",
+      "commons": "File:Rooster crowing.ogg",
+      "source": "https://commons.wikimedia.org/wiki/File:Rooster_crowing.ogg",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "author": "Filo gèn'",
+      "kept": "0.0s + 5.0s",
+      "via": "tools/sfx/fetch_sounds.py",
+      "at": "2026-10-14T09:41:11+00:00"
+    },
+    "sheep": {
+      "file": "audio/sfx/animals_sheep.mp3",
+      "commons": "File:Sheep bleating.ogg",
+      "source": "https://commons.wikimedia.org/wiki/File:Sheep_bleating.ogg",
+      "license": "Public domain",
+      "license_url": "",
+      "author": "earthcalling",
+      "kept": "3.35s + 4.0s",
+      "via": "tools/sfx/fetch_sounds.py",
+      "at": "2026-10-14T09:41:07+00:00"
     }
   }
 }
