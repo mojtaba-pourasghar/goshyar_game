@@ -1,7 +1,7 @@
 {
   "version": 1,
   "language": "fa-IR",
-  "speaker": "گوش‌یار — خرس مهربان؛ صدای گرم، شاد و آرام، مناسب کودک ۳ تا ۸ سال",
+  "speaker": "گوش‌یار — خرسِ دخترِ مهربان؛ صدای دخترانه/زنانه‌ی گرم، شاد و آرام، مناسب کودک ۳ تا ۸ سال",
   "format": {
     "container": "mp3",
     "sampleRate": 44100,
@@ -20,7 +20,8 @@
       "event": "splash.shown",
       "screen": "splash",
       "file": "voice/app_splash_welcome.mp3",
-      "delayMs": 500
+      "delayMs": 500,
+      "spoken": "سَلام! مَن گوش‌یار هَستَم. بازی کُن، گوش بِدِه، کَشف کُن!"
     },
     {
       "id": "app.intro.1",
@@ -28,7 +29,8 @@
       "event": "intro.page1",
       "screen": "intro",
       "file": "voice/app_intro_1.mp3",
-      "delayMs": 300
+      "delayMs": 300,
+      "spoken": "سَلام دوست کوچولوی مَن! مَن گوش‌یار هَستَم، یِک خِرس کوچولو کِه عاشِق صِداهاست."
     },
     {
       "id": "app.intro.2",
@@ -36,7 +38,8 @@
       "event": "intro.page2",
       "screen": "intro",
       "file": "voice/app_intro_2.mp3",
-      "delayMs": 300
+      "delayMs": 300,
+      "spoken": "اِمروز می‌خواهیم با گوش‌هایِمان صِداهای جالِب را پِیدا کُنیم."
     },
     {
       "id": "app.intro.3",
@@ -44,7 +47,8 @@
       "event": "intro.page3",
       "screen": "intro",
       "file": "voice/app_intro_3.mp3",
-      "delayMs": 300
+      "delayMs": 300,
+      "spoken": "اَوَّل خوب گوش بِدِه، بَعد عَکس دُرُست را لَمس کُن. آماده‌ای؟ پَس بِزَن بِریم!"
     },
     {
       "id": "app.home.greet.1",
@@ -53,7 +57,8 @@
       "screen": "home",
       "file": "voice/app_home_greet_1.mp3",
       "group": "home.greet",
-      "delayMs": 400
+      "delayMs": 400,
+      "spoken": "سَلام دوباره! اِمروز کُدام بازی را دوست داری؟"
     },
     {
       "id": "app.home.greet.2",
@@ -62,7 +67,8 @@
       "screen": "home",
       "file": "voice/app_home_greet_2.mp3",
       "group": "home.greet",
-      "delayMs": 400
+      "delayMs": 400,
+      "spoken": "خوش بَرگَشتی! یِک دَسته را اِنتِخاب کُن."
     },
     {
       "id": "app.home.greet.3",
@@ -71,7 +77,8 @@
       "screen": "home",
       "file": "voice/app_home_greet_3.mp3",
       "group": "home.greet",
-      "delayMs": 400
+      "delayMs": 400,
+      "spoken": "گوش‌هایَت آماده‌اَند؟ بیا یِک بازی اِنتِخاب کُنیم."
     },
     {
       "id": "app.games.hub",
@@ -79,7 +86,8 @@
       "event": "games.shown",
       "screen": "games",
       "file": "voice/app_games_hub.mp3",
-      "delayMs": 300
+      "delayMs": 300,
+      "spoken": "چَهار بازی داریم. هَر کُدام را دوست داری، لَمس کُن."
     },
     {
       "id": "app.library.hint",
@@ -87,7 +95,8 @@
       "event": "library.shown",
       "screen": "library",
       "file": "voice/app_library_hint.mp3",
-      "delayMs": 300
+      "delayMs": 300,
+      "spoken": "اینجا خانه‌ی صِداهاست. روی هَر عَکس بِزَن تا صِدایَش را بِشنَوی."
     },
     {
       "id": "app.progress.shown",
@@ -95,7 +104,8 @@
       "event": "progress.shown",
       "screen": "progress",
       "file": "voice/app_progress_shown.mp3",
-      "delayMs": 300
+      "delayMs": 300,
+      "spoken": "بِبین چِقَدر سِتاره جَمع کَرده‌ای! آفَرین بِه تو."
     },
     {
       "id": "app.badges.shown",
@@ -103,7 +113,8 @@
       "event": "badges.shown",
       "screen": "badges",
       "file": "voice/app_badges_shown.mp3",
-      "delayMs": 300
+      "delayMs": 300,
+      "spoken": "این‌ها مِدال‌های تو هَستَند. مِدال‌های کَم‌رَنگ هَنوز مُنتَظِر تو هَستَند!"
     },
     {
       "id": "app.settings.shown",
@@ -111,14 +122,16 @@
       "event": "settings.shown",
       "screen": "settings",
       "file": "voice/app_settings_shown.mp3",
-      "delayMs": 300
+      "delayMs": 300,
+      "spoken": "اینجا بُزُرگ‌تَرها صِدای مَن وَ موسیقی را تَنظیم می‌کُنَند."
     },
     {
       "id": "app.parent.gate",
       "text": "این بخش برای بزرگ‌ترهاست. لطفاً از یک بزرگ‌تر کمک بگیر.",
       "event": "parent_gate.shown",
       "screen": "parent_gate",
-      "file": "voice/app_parent_gate.mp3"
+      "file": "voice/app_parent_gate.mp3",
+      "spoken": "این بَخش بَرای بُزُرگ‌تَرهاست. لطفاً اَز یِک بُزُرگ‌تَر کُمَک بِگیر."
     },
     {
       "id": "app.downloads.shown",
@@ -126,119 +139,136 @@
       "event": "downloads.shown",
       "screen": "downloads",
       "file": "voice/app_downloads_shown.mp3",
-      "delayMs": 300
+      "delayMs": 300,
+      "spoken": "این‌ها صِداها وَ تَصویرهایی هَستَند کِه روی گوشی ذَخیره شُده‌اَند."
     },
     {
       "id": "cat.animals.intro",
       "text": "بیا به صدای حیوان‌ها گوش بدهیم!",
       "event": "category.opened",
       "screen": "category",
-      "file": "voice/cat_animals_intro.mp3"
+      "file": "voice/cat_animals_intro.mp3",
+      "spoken": "بیا بِه صِدای حِیوان‌ها گوش بِدَهیم!"
     },
     {
       "id": "cat.home.intro",
       "text": "بیا صداهای خانه را پیدا کنیم!",
       "event": "category.opened",
       "screen": "category",
-      "file": "voice/cat_home_intro.mp3"
+      "file": "voice/cat_home_intro.mp3",
+      "spoken": "بیا صِداهای خانه را پِیدا کُنیم!"
     },
     {
       "id": "cat.nature.intro",
       "text": "بیا به صدای طبیعت گوش بدهیم!",
       "event": "category.opened",
       "screen": "category",
-      "file": "voice/cat_nature_intro.mp3"
+      "file": "voice/cat_nature_intro.mp3",
+      "spoken": "بیا بِه صِدای طَبیعَت گوش بِدَهیم!"
     },
     {
       "id": "cat.music.intro",
       "text": "بیا سازها را از صدایشان بشناسیم!",
       "event": "category.opened",
       "screen": "category",
-      "file": "voice/cat_music_intro.mp3"
+      "file": "voice/cat_music_intro.mp3",
+      "spoken": "بیا سازها را اَز صِدایِشان بِشناسیم!"
     },
     {
       "id": "cat.professions.intro",
       "text": "بیا ببینیم این صداها مال چه کاری هستند!",
       "event": "category.opened",
       "screen": "category",
-      "file": "voice/cat_professions_intro.mp3"
+      "file": "voice/cat_professions_intro.mp3",
+      "spoken": "بیا بِبینیم این صِداها مالِ چِه کاری هَستَند!"
     },
     {
       "id": "cat.science.intro",
       "text": "بیا به صداهای فضا و علم گوش بدهیم!",
       "event": "category.opened",
       "screen": "category",
-      "file": "voice/cat_science_intro.mp3"
+      "file": "voice/cat_science_intro.mp3",
+      "spoken": "بیا بِه صِداهای فَضا وَ عِلم گوش بِدَهیم!"
     },
     {
       "id": "cat.mission",
       "text": "یک صدا پخش می‌شود. عکس صاحب صدا را لمس کن.",
       "event": "category.start",
       "screen": "category_game",
-      "file": "voice/cat_mission.mp3"
+      "file": "voice/cat_mission.mp3",
+      "spoken": "یِک صِدا پَخش می‌شَوَد. عَکس صاحِب صِدا را لَمس کُن."
     },
     {
       "id": "cat.complete",
       "text": "همه‌ی صداهای این دور را پیدا کردی! آفرین!",
       "event": "category.complete",
       "screen": "result",
-      "file": "voice/cat_complete.mp3"
+      "file": "voice/cat_complete.mp3",
+      "spoken": "هَمه‌ی صِداهای این دُور را پِیدا کَردی! آفَرین!"
     },
     {
       "id": "who.welcome",
       "text": "بازی «این صدا مال کیه؟» شروع شد!",
       "event": "mode.opened",
       "screen": "level_map",
-      "file": "voice/who_welcome.mp3"
+      "file": "voice/who_welcome.mp3",
+      "spoken": "بازی این صِدا مالِ کیه؟ شُروع شُد!"
     },
     {
       "id": "who.mission",
       "text": "یک صدا پخش می‌شود. خوب گوش بده و صاحب صدا را پیدا کن.",
       "event": "mode.first_level",
       "screen": "game",
-      "file": "voice/who_mission.mp3"
+      "file": "voice/who_mission.mp3",
+      "spoken": "یِک صِدا پَخش می‌شَوَد. خوب گوش بِدِه وَ صاحِب صِدا را پِیدا کُن."
     },
     {
       "id": "find.welcome",
       "text": "به بازی «صدای مخفی» خوش آمدی!",
       "event": "mode.opened",
       "screen": "level_map",
-      "file": "voice/find_welcome.mp3"
+      "file": "voice/find_welcome.mp3",
+      "spoken": "بِه بازی صِدای مَخفی خوش آمَدی!"
     },
     {
       "id": "find.mission",
       "text": "گوش بده و بگو این صدا از کدام جا می‌آید.",
       "event": "mode.first_level",
       "screen": "game",
-      "file": "voice/find_mission.mp3"
+      "file": "voice/find_mission.mp3",
+      "spoken": "گوش بِدِه وَ بِگو این صِدا اَز کُدام جا می‌آیَد."
     },
     {
       "id": "seq.welcome",
       "text": "بازی ترتیب صداها! حافظه‌ات را آماده کن.",
       "event": "mode.opened",
       "screen": "level_map",
-      "file": "voice/seq_welcome.mp3"
+      "file": "voice/seq_welcome.mp3",
+      "spoken": "بازی تَرتیب صِداها! حافِظه‌اَت را آماده کُن."
     },
     {
       "id": "seq.mission",
       "text": "چند صدا پشت سر هم می‌آید. همان ترتیب را با عکس‌ها بچین.",
       "event": "mode.first_level",
       "screen": "game",
-      "file": "voice/seq_mission.mp3"
+      "file": "voice/seq_mission.mp3",
+      "spoken": "چَند صِدا پُشت سَر هَم می‌آیَد. هَمان تَرتیب را با عَکس‌ها بِچین."
     },
     {
       "id": "mission.welcome",
       "text": "مأموریت شنیداری شروع شد!",
       "event": "mode.opened",
       "screen": "level_map",
-      "file": "voice/mission_welcome.mp3"
+      "file": "voice/mission_welcome.mp3",
+      "spoken": "مَأموریَّت شِنیداری شُروع شُد!"
     },
     {
       "id": "mission.mission",
       "text": "چشم‌هایت را ببند و خوب گوش کن. چند صدای مختلف می‌شنوی؟",
       "event": "mode.first_level",
       "screen": "game",
-      "file": "voice/mission_mission.mp3"
+      "file": "voice/mission_mission.mp3",
+      "spoken": "چِشم‌هایَت را بِبَند وَ خوب گوش کُن. چَند صِدای مُختَلِف می‌شنَوی؟"
     },
     {
       "id": "listen.invite.1",
@@ -247,7 +277,8 @@
       "screen": "game",
       "file": "voice/listen_invite_1.mp3",
       "group": "listen.invite",
-      "note": "قبل از پخش صدای اصلی؛ صدای بازی ۳۰۰ میلی‌ثانیه بعد از پایان این جمله پخش می‌شود"
+      "note": "قبل از پخش صدای اصلی؛ صدای بازی ۳۰۰ میلی‌ثانیه بعد از پایان این جمله پخش می‌شود",
+      "spoken": "هیس! خوب گوش بِدِه."
     },
     {
       "id": "listen.invite.2",
@@ -256,7 +287,8 @@
       "screen": "game",
       "file": "voice/listen_invite_2.mp3",
       "group": "listen.invite",
-      "note": "قبل از پخش صدای اصلی؛ صدای بازی ۳۰۰ میلی‌ثانیه بعد از پایان این جمله پخش می‌شود"
+      "note": "قبل از پخش صدای اصلی؛ صدای بازی ۳۰۰ میلی‌ثانیه بعد از پایان این جمله پخش می‌شود",
+      "spoken": "گوش‌هایَت را تیز کُن!"
     },
     {
       "id": "listen.invite.3",
@@ -265,7 +297,8 @@
       "screen": "game",
       "file": "voice/listen_invite_3.mp3",
       "group": "listen.invite",
-      "note": "قبل از پخش صدای اصلی؛ صدای بازی ۳۰۰ میلی‌ثانیه بعد از پایان این جمله پخش می‌شود"
+      "note": "قبل از پخش صدای اصلی؛ صدای بازی ۳۰۰ میلی‌ثانیه بعد از پایان این جمله پخش می‌شود",
+      "spoken": "آماده‌ای؟ صِدا می‌آیَد..."
     },
     {
       "id": "listen.invite.4",
@@ -274,7 +307,8 @@
       "screen": "game",
       "file": "voice/listen_invite_4.mp3",
       "group": "listen.invite",
-      "note": "قبل از پخش صدای اصلی؛ صدای بازی ۳۰۰ میلی‌ثانیه بعد از پایان این جمله پخش می‌شود"
+      "note": "قبل از پخش صدای اصلی؛ صدای بازی ۳۰۰ میلی‌ثانیه بعد از پایان این جمله پخش می‌شود",
+      "spoken": "گوش کُن... چِه صِدایی می‌شنَوی؟"
     },
     {
       "id": "question.who.1",
@@ -282,7 +316,8 @@
       "event": "game.after_sound",
       "screen": "category_game",
       "file": "voice/question_who_1.mp3",
-      "group": "question.who"
+      "group": "question.who",
+      "spoken": "این صِدا مالِ کیه؟"
     },
     {
       "id": "question.who.2",
@@ -290,7 +325,8 @@
       "event": "game.after_sound",
       "screen": "category_game",
       "file": "voice/question_who_2.mp3",
-      "group": "question.who"
+      "group": "question.who",
+      "spoken": "کی این صِدا را دَرآوَرد؟"
     },
     {
       "id": "question.who.3",
@@ -298,7 +334,8 @@
       "event": "game.after_sound",
       "screen": "category_game",
       "file": "voice/question_who_3.mp3",
-      "group": "question.who"
+      "group": "question.who",
+      "spoken": "صاحِب این صِدا را پِیدا کُن!"
     },
     {
       "id": "feedback.correct.1",
@@ -306,7 +343,8 @@
       "event": "game.correct",
       "screen": "feedback",
       "file": "voice/feedback_correct_1.mp3",
-      "group": "feedback.correct"
+      "group": "feedback.correct",
+      "spoken": "آفَرین! دُرُست بود!"
     },
     {
       "id": "feedback.correct.2",
@@ -314,7 +352,8 @@
       "event": "game.correct",
       "screen": "feedback",
       "file": "voice/feedback_correct_2.mp3",
-      "group": "feedback.correct"
+      "group": "feedback.correct",
+      "spoken": "عالی بود!"
     },
     {
       "id": "feedback.correct.3",
@@ -322,7 +361,8 @@
       "event": "game.correct",
       "screen": "feedback",
       "file": "voice/feedback_correct_3.mp3",
-      "group": "feedback.correct"
+      "group": "feedback.correct",
+      "spoken": "ای وَل! گوش‌هایَت خِیلی تیز اَست!"
     },
     {
       "id": "feedback.correct.4",
@@ -330,7 +370,8 @@
       "event": "game.correct",
       "screen": "feedback",
       "file": "voice/feedback_correct_4.mp3",
-      "group": "feedback.correct"
+      "group": "feedback.correct",
+      "spoken": "دُرُستِه! چِه خوب گوش دادی!"
     },
     {
       "id": "feedback.correct.5",
@@ -338,7 +379,8 @@
       "event": "game.correct",
       "screen": "feedback",
       "file": "voice/feedback_correct_5.mp3",
-      "group": "feedback.correct"
+      "group": "feedback.correct",
+      "spoken": "هَمین بود! باریکَلّا!"
     },
     {
       "id": "feedback.correct.6",
@@ -346,7 +388,8 @@
       "event": "game.correct",
       "screen": "feedback",
       "file": "voice/feedback_correct_6.mp3",
-      "group": "feedback.correct"
+      "group": "feedback.correct",
+      "spoken": "هورا! پِیدایَش کَردی!"
     },
     {
       "id": "feedback.wrong.1",
@@ -354,7 +397,8 @@
       "event": "game.wrong",
       "screen": "feedback",
       "file": "voice/feedback_wrong_1.mp3",
-      "group": "feedback.wrong"
+      "group": "feedback.wrong",
+      "spoken": "اِشکالی نَدارَد. یِک بار دیگَر گوش کُن."
     },
     {
       "id": "feedback.wrong.2",
@@ -362,7 +406,8 @@
       "event": "game.wrong",
       "screen": "feedback",
       "file": "voice/feedback_wrong_2.mp3",
-      "group": "feedback.wrong"
+      "group": "feedback.wrong",
+      "spoken": "نَزدیک بود! دوباره اِمتِحان کُن."
     },
     {
       "id": "feedback.wrong.3",
@@ -370,7 +415,8 @@
       "event": "game.wrong",
       "screen": "feedback",
       "file": "voice/feedback_wrong_3.mp3",
-      "group": "feedback.wrong"
+      "group": "feedback.wrong",
+      "spoken": "این یِکی نَبود. بیا دوباره گوش بِدَهیم."
     },
     {
       "id": "feedback.wrong.4",
@@ -378,7 +424,8 @@
       "event": "game.wrong",
       "screen": "feedback",
       "file": "voice/feedback_wrong_4.mp3",
-      "group": "feedback.wrong"
+      "group": "feedback.wrong",
+      "spoken": "نِگَران نَباش، با هَم پِیدایَش می‌کُنیم."
     },
     {
       "id": "replay.tip.1",
@@ -387,7 +434,8 @@
       "screen": "game",
       "file": "voice/replay_tip_1.mp3",
       "group": "replay.tip",
-      "note": "بعد از دومین پاسخ اشتباه پشت سر هم"
+      "note": "بعد از دومین پاسخ اشتباه پشت سر هم",
+      "spoken": "اَگَر صِدا را خوب نَشِنیدی، دُکمه‌ی آبی را بِزَن تا دوباره پَخش شَوَد."
     },
     {
       "id": "replay.tip.2",
@@ -396,7 +444,8 @@
       "screen": "game",
       "file": "voice/replay_tip_2.mp3",
       "group": "replay.tip",
-      "note": "بعد از دومین پاسخ اشتباه پشت سر هم"
+      "note": "بعد از دومین پاسخ اشتباه پشت سر هم",
+      "spoken": "می‌توانی صِدا را دوباره بِشنَوی. دُکمه‌ی گوش را لَمس کُن."
     },
     {
       "id": "idle.nudge.1",
@@ -405,7 +454,8 @@
       "screen": "game",
       "file": "voice/idle_nudge_1.mp3",
       "group": "idle.nudge",
-      "note": "۱۲ ثانیه بی‌پاسخ"
+      "note": "۱۲ ثانیه بی‌پاسخ",
+      "spoken": "هَنوز فِکر می‌کُنی؟ عَجَله نَکُن."
     },
     {
       "id": "idle.nudge.2",
@@ -414,7 +464,8 @@
       "screen": "game",
       "file": "voice/idle_nudge_2.mp3",
       "group": "idle.nudge",
-      "note": "۱۲ ثانیه بی‌پاسخ"
+      "note": "۱۲ ثانیه بی‌پاسخ",
+      "spoken": "یِکی اَز عَکس‌ها را لَمس کُن."
     },
     {
       "id": "level.complete.1",
@@ -422,7 +473,8 @@
       "event": "level.complete",
       "screen": "result",
       "file": "voice/level_complete_1.mp3",
-      "group": "level.complete"
+      "group": "level.complete",
+      "spoken": "مَرحَله تَمام شُد! سِتاره‌هایَت را بِبین."
     },
     {
       "id": "level.complete.2",
@@ -430,7 +482,8 @@
       "event": "level.complete",
       "screen": "result",
       "file": "voice/level_complete_2.mp3",
-      "group": "level.complete"
+      "group": "level.complete",
+      "spoken": "تَبریک! این مَرحَله را بُردی."
     },
     {
       "id": "level.complete.3",
@@ -438,7 +491,8 @@
       "event": "level.complete",
       "screen": "result",
       "file": "voice/level_complete_3.mp3",
-      "group": "level.complete"
+      "group": "level.complete",
+      "spoken": "عالی بود! اِمتیازهایَت را گِرِفتی."
     },
     {
       "id": "result.stars.3",
@@ -446,7 +500,8 @@
       "event": "result.stars3",
       "screen": "result",
       "file": "voice/result_stars_3.mp3",
-      "delayMs": 600
+      "delayMs": 600,
+      "spoken": "سِه سِتاره! فُوق‌اَلعاده بودی!"
     },
     {
       "id": "result.stars.2",
@@ -454,7 +509,8 @@
       "event": "result.stars2",
       "screen": "result",
       "file": "voice/result_stars_2.mp3",
-      "delayMs": 600
+      "delayMs": 600,
+      "spoken": "دو سِتاره! خِیلی خوب بود."
     },
     {
       "id": "result.stars.1",
@@ -462,7 +518,8 @@
       "event": "result.stars1",
       "screen": "result",
       "file": "voice/result_stars_1.mp3",
-      "delayMs": 600
+      "delayMs": 600,
+      "spoken": "یِک سِتاره! دَفعه‌ی بَعد بِهتَر هَم می‌شَوَد."
     },
     {
       "id": "level.next.1",
@@ -470,7 +527,8 @@
       "event": "level.next",
       "screen": "result",
       "file": "voice/level_next_1.mp3",
-      "group": "level.next"
+      "group": "level.next",
+      "spoken": "آماده‌ی مَرحَله‌ی بَعد هَستی؟"
     },
     {
       "id": "level.next.2",
@@ -478,7 +536,8 @@
       "event": "level.next",
       "screen": "result",
       "file": "voice/level_next_2.mp3",
-      "group": "level.next"
+      "group": "level.next",
+      "spoken": "بِرَویم سُراغ صِدای بَعدی!"
     },
     {
       "id": "level.next.3",
@@ -486,112 +545,128 @@
       "event": "level.next",
       "screen": "result",
       "file": "voice/level_next_3.mp3",
-      "group": "level.next"
+      "group": "level.next",
+      "spoken": "مَرحَله‌ی بَعد مُنتَظِر توست!"
     },
     {
       "id": "mode.done",
       "text": "همه‌ی مرحله‌های این بازی تمام شد! تو یک قهرمان شنیداری هستی.",
       "event": "mode.done",
       "screen": "result",
-      "file": "voice/mode_done.mp3"
+      "file": "voice/mode_done.mp3",
+      "spoken": "هَمه‌ی مَرحَله‌های این بازی تَمام شُد! تو یِک قَهرَمان شِنیداری هَستی."
     },
     {
       "id": "all.done",
       "text": "باورم نمی‌شود! همه‌ی مرحله‌ها را تمام کردی. گوش‌های تو حرف ندارد!",
       "event": "all.done",
       "screen": "result",
-      "file": "voice/all_done.mp3"
+      "file": "voice/all_done.mp3",
+      "spoken": "باوَرَم نِمی‌شَوَد! هَمه‌ی مَرحَله‌ها را تَمام کَردی. گوش‌های تو حَرف نَدارَد!"
     },
     {
       "id": "seq.your_turn",
       "text": "حالا نوبت توست! عکس‌ها را به ترتیب لمس کن.",
       "event": "sequence.played",
       "screen": "game",
-      "file": "voice/seq_your_turn.mp3"
+      "file": "voice/seq_your_turn.mp3",
+      "spoken": "حالا نُوبَت توست! عَکس‌ها را بِه تَرتیب لَمس کُن."
     },
     {
       "id": "session.pause",
       "text": "بازی را نگه داشتیم. هر وقت آماده بودی، ادامه بده.",
       "event": "game.paused",
       "screen": "pause",
-      "file": "voice/session_pause.mp3"
+      "file": "voice/session_pause.mp3",
+      "spoken": "بازی را نِگَه داشتیم. هَر وَقت آماده بودی، اِدامه بِدِه."
     },
     {
       "id": "session.resume",
       "text": "خوش برگشتی! بیا ادامه بدهیم.",
       "event": "game.resumed",
       "screen": "pause",
-      "file": "voice/session_resume.mp3"
+      "file": "voice/session_resume.mp3",
+      "spoken": "خوش بَرگَشتی! بیا اِدامه بِدَهیم."
     },
     {
       "id": "session.restart",
       "text": "از اول شروع می‌کنیم!",
       "event": "game.restart",
       "screen": "pause",
-      "file": "voice/session_restart.mp3"
+      "file": "voice/session_restart.mp3",
+      "spoken": "اَز اَوَّل شُروع می‌کُنیم!"
     },
     {
       "id": "session.exit_ask",
       "text": "می‌خواهی از بازی بیرون بروی؟",
       "event": "game.exit_ask",
       "screen": "pause",
-      "file": "voice/session_exit_ask.mp3"
+      "file": "voice/session_exit_ask.mp3",
+      "spoken": "می‌خواهی اَز بازی بیرون بِرَوی؟"
     },
     {
       "id": "session.bye",
       "text": "خداحافظ دوست من! زود برگرد.",
       "event": "game.exit",
       "screen": "pause",
-      "file": "voice/session_bye.mp3"
+      "file": "voice/session_bye.mp3",
+      "spoken": "خُداحافِظ دوست مَن! زود بَرگَرد."
     },
     {
       "id": "badge.first_step",
       "text": "مدال اولین قدم مال توست! اولین مرحله را تمام کردی.",
       "event": "badge.unlocked",
       "screen": "result",
-      "file": "voice/badge_first_step.mp3"
+      "file": "voice/badge_first_step.mp3",
+      "spoken": "مِدال اَوَّلین قَدَم مالِ توست! اَوَّلین مَرحَله را تَمام کَردی."
     },
     {
       "id": "badge.sound_shop",
       "text": "مدال کارگاه صداها را گرفتی! پنج مرحله را بردی.",
       "event": "badge.unlocked",
       "screen": "result",
-      "file": "voice/badge_sound_shop.mp3"
+      "file": "voice/badge_sound_shop.mp3",
+      "spoken": "مِدال کارگاه صِداها را گِرِفتی! پَنج مَرحَله را بُردی."
     },
     {
       "id": "badge.nature_friend",
       "text": "مدال دوست طبیعت مال توست! صدای طبیعت را خوب می‌شناسی.",
       "event": "badge.unlocked",
       "screen": "result",
-      "file": "voice/badge_nature_friend.mp3"
+      "file": "voice/badge_nature_friend.mp3",
+      "spoken": "مِدال دوست طَبیعَت مالِ توست! صِدای طَبیعَت را خوب می‌شِناسی."
     },
     {
       "id": "badge.animal_expert",
       "text": "مدال کارشناس حیوانات را گرفتی! صدای حیوان‌ها را عالی می‌شناسی.",
       "event": "badge.unlocked",
       "screen": "result",
-      "file": "voice/badge_animal_expert.mp3"
+      "file": "voice/badge_animal_expert.mp3",
+      "spoken": "مِدال کارشِناس حِیوانات را گِرِفتی! صِدای حِیوان‌ها را عالی می‌شِناسی."
     },
     {
       "id": "badge.memory_master",
       "text": "مدال استاد حافظه مال توست! ترتیب صداها را خوب یادت می‌ماند.",
       "event": "badge.unlocked",
       "screen": "result",
-      "file": "voice/badge_memory_master.mp3"
+      "file": "voice/badge_memory_master.mp3",
+      "spoken": "مِدال اُستاد حافِظه مالِ توست! تَرتیب صِداها را خوب یادَت می‌مانَد."
     },
     {
       "id": "badge.sharp_ear",
       "text": "مدال گوش تیز را گرفتی! ده جواب درست پشت سر هم!",
       "event": "badge.unlocked",
       "screen": "result",
-      "file": "voice/badge_sharp_ear.mp3"
+      "file": "voice/badge_sharp_ear.mp3",
+      "spoken": "مِدال گوش تیز را گِرِفتی! دَه جَواب دُرُست پُشت سَر هَم!"
     },
     {
       "id": "badge.audio_hero",
       "text": "مدال قهرمان شنیداری! بزرگ‌ترین مدال بازی مال توست.",
       "event": "badge.unlocked",
       "screen": "result",
-      "file": "voice/badge_audio_hero.mp3"
+      "file": "voice/badge_audio_hero.mp3",
+      "spoken": "مِدال قَهرَمان شِنیداری! بُزُرگ‌تَرین مِدال بازی مالِ توست."
     },
     {
       "id": "find.01.q",
@@ -599,7 +674,8 @@
       "event": "game.after_sound",
       "screen": "game",
       "file": "voice/find_01_q.mp3",
-      "note": "پاسخ را لو نمی‌دهد"
+      "note": "پاسخ را لو نمی‌دهد",
+      "spoken": "یِک صِدای قَشَنگ می‌آیَد. این صِدا اَز کُجا می‌آیَد؟"
     },
     {
       "id": "find.01.hint",
@@ -607,14 +683,16 @@
       "event": "game.wrong",
       "screen": "game",
       "file": "voice/find_01_hint.mp3",
-      "note": "بعد از بازخورد اشتباه"
+      "note": "بعد از بازخورد اشتباه",
+      "spoken": "جایی را پِیدا کُن کِه دِرَخت‌های زیادی دارَد."
     },
     {
       "id": "find.01.ok",
       "text": "آفرین! پرنده در جنگل آواز می‌خواند.",
       "event": "game.correct",
       "screen": "feedback",
-      "file": "voice/find_01_ok.mp3"
+      "file": "voice/find_01_ok.mp3",
+      "spoken": "آفَرین! پَرَنده دَر جَنگَل آواز می‌خوانَد."
     },
     {
       "id": "find.02.q",
@@ -622,7 +700,8 @@
       "event": "game.after_sound",
       "screen": "game",
       "file": "voice/find_02_q.mp3",
-      "note": "پاسخ را لو نمی‌دهد"
+      "note": "پاسخ را لو نمی‌دهد",
+      "spoken": "خوب گوش کُن! صاحِب این صِدا کُجا زِندِگی می‌کُنَد؟"
     },
     {
       "id": "find.02.hint",
@@ -630,14 +709,16 @@
       "event": "game.wrong",
       "screen": "game",
       "file": "voice/find_02_hint.mp3",
-      "note": "بعد از بازخورد اشتباه"
+      "note": "بعد از بازخورد اشتباه",
+      "spoken": "این حِیوان عَلَف می‌خورَد وَ بِه ما شیر می‌دَهَد. خانه‌اَش کُجاست؟"
     },
     {
       "id": "find.02.ok",
       "text": "درسته! گاو در مزرعه زندگی می‌کند.",
       "event": "game.correct",
       "screen": "feedback",
-      "file": "voice/find_02_ok.mp3"
+      "file": "voice/find_02_ok.mp3",
+      "spoken": "دُرُستِه! گاو دَر مَزرَعه زِندِگی می‌کُنَد."
     },
     {
       "id": "find.03.q",
@@ -645,7 +726,8 @@
       "event": "game.after_sound",
       "screen": "game",
       "file": "voice/find_03_q.mp3",
-      "note": "پاسخ را لو نمی‌دهد"
+      "note": "پاسخ را لو نمی‌دهد",
+      "spoken": "این صِدا را کُجا می‌شنَوی؟ خوب فِکر کُن."
     },
     {
       "id": "find.03.hint",
@@ -653,14 +735,16 @@
       "event": "game.wrong",
       "screen": "game",
       "file": "voice/find_03_hint.mp3",
-      "note": "بعد از بازخورد اشتباه"
+      "note": "بعد از بازخورد اشتباه",
+      "spoken": "وَقتی مِهمان می‌آیَد، این صِدا را می‌شِنَویم."
     },
     {
       "id": "find.03.ok",
       "text": "آفرین! زنگ در مال خانه است.",
       "event": "game.correct",
       "screen": "feedback",
-      "file": "voice/find_03_ok.mp3"
+      "file": "voice/find_03_ok.mp3",
+      "spoken": "آفَرین! زَنگ دَر مالِ خانه اَست."
     },
     {
       "id": "find.04.q",
@@ -668,7 +752,8 @@
       "event": "game.after_sound",
       "screen": "game",
       "file": "voice/find_04_q.mp3",
-      "note": "پاسخ را لو نمی‌دهد"
+      "note": "پاسخ را لو نمی‌دهد",
+      "spoken": "گوش کُن... این صِدا ما را بِه کُجا می‌بَرَد؟"
     },
     {
       "id": "find.04.hint",
@@ -676,14 +761,16 @@
       "event": "game.wrong",
       "screen": "game",
       "file": "voice/find_04_hint.mp3",
-      "note": "بعد از بازخورد اشتباه"
+      "note": "بعد از بازخورد اشتباه",
+      "spoken": "جایی با آب خِیلی زیاد وَ موج‌های بُزُرگ."
     },
     {
       "id": "find.04.ok",
       "text": "درسته! این صدای موج‌های دریا بود.",
       "event": "game.correct",
       "screen": "feedback",
-      "file": "voice/find_04_ok.mp3"
+      "file": "voice/find_04_ok.mp3",
+      "spoken": "دُرُستِه! این صِدای موج‌های دَریا بود."
     },
     {
       "id": "find.05.q",
@@ -691,7 +778,8 @@
       "event": "game.after_sound",
       "screen": "game",
       "file": "voice/find_05_q.mp3",
-      "note": "پاسخ را لو نمی‌دهد"
+      "note": "پاسخ را لو نمی‌دهد",
+      "spoken": "یِک چیزی سوت می‌زَنَد! این صِدا اَز کُدام اُتاق می‌آیَد؟"
     },
     {
       "id": "find.05.hint",
@@ -699,14 +787,16 @@
       "event": "game.wrong",
       "screen": "game",
       "file": "voice/find_05_hint.mp3",
-      "note": "بعد از بازخورد اشتباه"
+      "note": "بعد از بازخورد اشتباه",
+      "spoken": "جایی کِه غَذا می‌پَزیم وَ چای دُرُست می‌کُنیم."
     },
     {
       "id": "find.05.ok",
       "text": "عالی! کتری در آشپزخانه سوت می‌زند.",
       "event": "game.correct",
       "screen": "feedback",
-      "file": "voice/find_05_ok.mp3"
+      "file": "voice/find_05_ok.mp3",
+      "spoken": "عالی! کِتری دَر آشپَزخانه سوت می‌زَنَد."
     },
     {
       "id": "find.06.q",
@@ -714,7 +804,8 @@
       "event": "game.after_sound",
       "screen": "game",
       "file": "voice/find_06_q.mp3",
-      "note": "پاسخ را لو نمی‌دهد"
+      "note": "پاسخ را لو نمی‌دهد",
+      "spoken": "صِدای آب می‌آیَد! این آب کُجاست؟"
     },
     {
       "id": "find.06.hint",
@@ -722,14 +813,16 @@
       "event": "game.wrong",
       "screen": "game",
       "file": "voice/find_06_hint.mp3",
-      "note": "بعد از بازخورد اشتباه"
+      "note": "بعد از بازخورد اشتباه",
+      "spoken": "آبی کِه اَز روی سَنگ‌ها می‌گُذَرَد وَ جِلو می‌رَوَد."
     },
     {
       "id": "find.06.ok",
       "text": "آفرین! این صدای آب رودخانه بود.",
       "event": "game.correct",
       "screen": "feedback",
-      "file": "voice/find_06_ok.mp3"
+      "file": "voice/find_06_ok.mp3",
+      "spoken": "آفَرین! این صِدای آب رودخانه بود."
     },
     {
       "id": "find.07.q",
@@ -737,7 +830,8 @@
       "event": "game.after_sound",
       "screen": "game",
       "file": "voice/find_07_q.mp3",
-      "note": "پاسخ را لو نمی‌دهد"
+      "note": "پاسخ را لو نمی‌دهد",
+      "spoken": "آژیر می‌آیَد! این صِدا را بیشتَر کُجا می‌شِنَویم؟"
     },
     {
       "id": "find.07.hint",
@@ -745,14 +839,16 @@
       "event": "game.wrong",
       "screen": "game",
       "file": "voice/find_07_hint.mp3",
-      "note": "بعد از بازخورد اشتباه"
+      "note": "بعد از بازخورد اشتباه",
+      "spoken": "جایی با خیابان، ماشین وَ ساختِمان‌های بُلَند."
     },
     {
       "id": "find.07.ok",
       "text": "درسته! آمبولانس در شهر به کمک مردم می‌رود.",
       "event": "game.correct",
       "screen": "feedback",
-      "file": "voice/find_07_ok.mp3"
+      "file": "voice/find_07_ok.mp3",
+      "spoken": "دُرُستِه! آمبولانس دَر شَهر بِه کُمَک مَردُم می‌رَوَد."
     },
     {
       "id": "find.08.q",
@@ -760,7 +856,8 @@
       "event": "game.after_sound",
       "screen": "game",
       "file": "voice/find_08_q.mp3",
-      "note": "پاسخ را لو نمی‌دهد"
+      "note": "پاسخ را لو نمی‌دهد",
+      "spoken": "وای، چِه صِدای بُلَندی! این صِدا بِه کُجا می‌رَوَد؟"
     },
     {
       "id": "find.08.hint",
@@ -768,14 +865,16 @@
       "event": "game.wrong",
       "screen": "game",
       "file": "voice/find_08_hint.mp3",
-      "note": "بعد از بازخورد اشتباه"
+      "note": "بعد از بازخورد اشتباه",
+      "spoken": "خِیلی بالا، بالاتَر اَز اَبرها، پیش سِتاره‌ها."
     },
     {
       "id": "find.08.ok",
       "text": "آفرین! موشک به فضا پرواز می‌کند.",
       "event": "game.correct",
       "screen": "feedback",
-      "file": "voice/find_08_ok.mp3"
+      "file": "voice/find_08_ok.mp3",
+      "spoken": "آفَرین! موشَک بِه فَضا پَرواز می‌کُنَد."
     },
     {
       "id": "find.09.q",
@@ -783,7 +882,8 @@
       "event": "game.after_sound",
       "screen": "game",
       "file": "voice/find_09_q.mp3",
-      "note": "پاسخ را لو نمی‌دهد"
+      "note": "پاسخ را لو نمی‌دهد",
+      "spoken": "صِدای وَزِش می‌آیَد... این صِدا دَر کُدام جا می‌پیچَد؟"
     },
     {
       "id": "find.09.hint",
@@ -791,14 +891,16 @@
       "event": "game.wrong",
       "screen": "game",
       "file": "voice/find_09_hint.mp3",
-      "note": "بعد از بازخورد اشتباه"
+      "note": "بعد از بازخورد اشتباه",
+      "spoken": "جایی تاریک وَ سَنگی دَر دِل کوه."
     },
     {
       "id": "find.09.ok",
       "text": "عالی! باد در غار می‌پیچد و صدا می‌کند.",
       "event": "game.correct",
       "screen": "feedback",
-      "file": "voice/find_09_ok.mp3"
+      "file": "voice/find_09_ok.mp3",
+      "spoken": "عالی! باد دَر غار می‌پیچَد وَ صِدا می‌کُنَد."
     },
     {
       "id": "find.10.q",
@@ -806,7 +908,8 @@
       "event": "game.after_sound",
       "screen": "game",
       "file": "voice/find_10_q.mp3",
-      "note": "پاسخ را لو نمی‌دهد"
+      "note": "پاسخ را لو نمی‌دهد",
+      "spoken": "یِک دوست کوچولو صِدا می‌کُنَد. او کُجاست؟"
     },
     {
       "id": "find.10.hint",
@@ -814,14 +917,16 @@
       "event": "game.wrong",
       "screen": "game",
       "file": "voice/find_10_hint.mp3",
-      "note": "بعد از بازخورد اشتباه"
+      "note": "بعد از بازخورد اشتباه",
+      "spoken": "جایی سَبز با چَمَن، دِرَخت وَ یِک حُوض کوچَک."
     },
     {
       "id": "find.10.ok",
       "text": "درسته! قورباغه کنار حوض پارک بود.",
       "event": "game.correct",
       "screen": "feedback",
-      "file": "voice/find_10_ok.mp3"
+      "file": "voice/find_10_ok.mp3",
+      "spoken": "دُرُستِه! قورباغه کِنار حُوض پارک بود."
     },
     {
       "id": "who.01.q",
@@ -829,7 +934,8 @@
       "event": "game.after_sound",
       "screen": "game",
       "file": "voice/who_01_q.mp3",
-      "note": "پاسخ را لو نمی‌دهد"
+      "note": "پاسخ را لو نمی‌دهد",
+      "spoken": "خوب گوش کُن. این صِدا مالِ کُدام حِیوان اَست؟"
     },
     {
       "id": "who.01.hint",
@@ -837,14 +943,16 @@
       "event": "game.wrong",
       "screen": "game",
       "file": "voice/who_01_hint.mp3",
-      "note": "بعد از بازخورد اشتباه"
+      "note": "بعد از بازخورد اشتباه",
+      "spoken": "این حِیوان سِبیل دارَد وَ دوست دارَد با کاموا بازی کُنَد."
     },
     {
       "id": "who.01.ok",
       "text": "آفرین! این صدای گربه بود. میو!",
       "event": "game.correct",
       "screen": "feedback",
-      "file": "voice/who_01_ok.mp3"
+      "file": "voice/who_01_ok.mp3",
+      "spoken": "آفَرین! این صِدای گُربه بود. میو!"
     },
     {
       "id": "who.02.q",
@@ -852,7 +960,8 @@
       "event": "game.after_sound",
       "screen": "game",
       "file": "voice/who_02_q.mp3",
-      "note": "پاسخ را لو نمی‌دهد"
+      "note": "پاسخ را لو نمی‌دهد",
+      "spoken": "اوه، چِه صِدای بُلَندی! صاحِبَش کیست؟"
     },
     {
       "id": "who.02.hint",
@@ -860,14 +969,16 @@
       "event": "game.wrong",
       "screen": "game",
       "file": "voice/who_02_hint.mp3",
-      "note": "بعد از بازخورد اشتباه"
+      "note": "بعد از بازخورد اشتباه",
+      "spoken": "این حِیوان یال بُزُرگی دارَد وَ بِه او می‌گویَند سُلطان جَنگَل."
     },
     {
       "id": "who.02.ok",
       "text": "درسته! این غرش شیر بود.",
       "event": "game.correct",
       "screen": "feedback",
-      "file": "voice/who_02_ok.mp3"
+      "file": "voice/who_02_ok.mp3",
+      "spoken": "دُرُستِه! این غُرِّش شیر بود."
     },
     {
       "id": "who.03.q",
@@ -875,7 +986,8 @@
       "event": "game.after_sound",
       "screen": "game",
       "file": "voice/who_03_q.mp3",
-      "note": "پاسخ را لو نمی‌دهد"
+      "note": "پاسخ را لو نمی‌دهد",
+      "spoken": "این صِدا را می‌شِناسی؟ صاحِبَش را پِیدا کُن."
     },
     {
       "id": "who.03.hint",
@@ -883,14 +995,16 @@
       "event": "game.wrong",
       "screen": "game",
       "file": "voice/who_03_hint.mp3",
-      "note": "بعد از بازخورد اشتباه"
+      "note": "بعد از بازخورد اشتباه",
+      "spoken": "این پَرَنده کِنار آب زِندِگی می‌کُنَد وَ خوب شِنا می‌کُنَد."
     },
     {
       "id": "who.03.ok",
       "text": "عالی! این صدای اردک بود. کوآک کوآک!",
       "event": "game.correct",
       "screen": "feedback",
-      "file": "voice/who_03_ok.mp3"
+      "file": "voice/who_03_ok.mp3",
+      "spoken": "عالی! این صِدای اُردَک بود. کوآک کوآک!"
     },
     {
       "id": "who.04.q",
@@ -898,7 +1012,8 @@
       "event": "game.after_sound",
       "screen": "game",
       "file": "voice/who_04_q.mp3",
-      "note": "پاسخ را لو نمی‌دهد"
+      "note": "پاسخ را لو نمی‌دهد",
+      "spoken": "یِک وَسیله صِدا می‌دَهَد. کُدام اَست؟"
     },
     {
       "id": "who.04.hint",
@@ -906,14 +1021,16 @@
       "event": "game.wrong",
       "screen": "game",
       "file": "voice/who_04_hint.mp3",
-      "note": "بعد از بازخورد اشتباه"
+      "note": "بعد از بازخورد اشتباه",
+      "spoken": "با این وَسیله می‌توانی با مادَربُزُرگ حَرف بِزَنی."
     },
     {
       "id": "who.04.ok",
       "text": "آفرین! این صدای تلفن بود.",
       "event": "game.correct",
       "screen": "feedback",
-      "file": "voice/who_04_ok.mp3"
+      "file": "voice/who_04_ok.mp3",
+      "spoken": "آفَرین! این صِدای تِلِفُن بود."
     },
     {
       "id": "who.05.q",
@@ -921,7 +1038,8 @@
       "event": "game.after_sound",
       "screen": "game",
       "file": "voice/who_05_q.mp3",
-      "note": "پاسخ را لو نمی‌دهد"
+      "note": "پاسخ را لو نمی‌دهد",
+      "spoken": "صِدای یِک حِیوان خِیلی بُزُرگ! حَدس بِزَن کیست."
     },
     {
       "id": "who.05.hint",
@@ -929,14 +1047,16 @@
       "event": "game.wrong",
       "screen": "game",
       "file": "voice/who_05_hint.mp3",
-      "note": "بعد از بازخورد اشتباه"
+      "note": "بعد از بازخورد اشتباه",
+      "spoken": "این حِیوان خَرطوم دِراز وَ گوش‌های بُزُرگ دارَد."
     },
     {
       "id": "who.05.ok",
       "text": "درسته! این صدای فیل بود.",
       "event": "game.correct",
       "screen": "feedback",
-      "file": "voice/who_05_ok.mp3"
+      "file": "voice/who_05_ok.mp3",
+      "spoken": "دُرُستِه! این صِدای فیل بود."
     },
     {
       "id": "who.06.q",
@@ -944,7 +1064,8 @@
       "event": "game.after_sound",
       "screen": "game",
       "file": "voice/who_06_q.mp3",
-      "note": "پاسخ را لو نمی‌دهد"
+      "note": "پاسخ را لو نمی‌دهد",
+      "spoken": "این صِدای طَبیعَت اَست. فِکر می‌کُنی چیست؟"
     },
     {
       "id": "who.06.hint",
@@ -952,14 +1073,16 @@
       "event": "game.wrong",
       "screen": "game",
       "file": "voice/who_06_hint.mp3",
-      "note": "بعد از بازخورد اشتباه"
+      "note": "بعد از بازخورد اشتباه",
+      "spoken": "اَز اَبرها می‌آیَد وَ زَمین را خیس می‌کُنَد."
     },
     {
       "id": "who.06.ok",
       "text": "آفرین! این صدای باران بود.",
       "event": "game.correct",
       "screen": "feedback",
-      "file": "voice/who_06_ok.mp3"
+      "file": "voice/who_06_ok.mp3",
+      "spoken": "آفَرین! این صِدای باران بود."
     },
     {
       "id": "who.07.q",
@@ -967,7 +1090,8 @@
       "event": "game.after_sound",
       "screen": "game",
       "file": "voice/who_07_q.mp3",
-      "note": "پاسخ را لو نمی‌دهد"
+      "note": "پاسخ را لو نمی‌دهد",
+      "spoken": "یِک ساز می‌نَوازَد. کُدام ساز اَست؟"
     },
     {
       "id": "who.07.hint",
@@ -975,14 +1099,16 @@
       "event": "game.wrong",
       "screen": "game",
       "file": "voice/who_07_hint.mp3",
-      "note": "بعد از بازخورد اشتباه"
+      "note": "بعد از بازخورد اشتباه",
+      "spoken": "این ساز سیم دارَد وَ با اَنگُشت نَواخته می‌شَوَد."
     },
     {
       "id": "who.07.ok",
       "text": "عالی! این صدای گیتار بود.",
       "event": "game.correct",
       "screen": "feedback",
-      "file": "voice/who_07_ok.mp3"
+      "file": "voice/who_07_ok.mp3",
+      "spoken": "عالی! این صِدای گیتار بود."
     },
     {
       "id": "who.08.q",
@@ -990,7 +1116,8 @@
       "event": "game.after_sound",
       "screen": "game",
       "file": "voice/who_08_q.mp3",
-      "note": "پاسخ را لو نمی‌دهد"
+      "note": "پاسخ را لو نمی‌دهد",
+      "spoken": "یِک وَسیله‌ی خانه روشَن شُده. کُدام اَست؟"
     },
     {
       "id": "who.08.hint",
@@ -998,14 +1125,16 @@
       "event": "game.wrong",
       "screen": "game",
       "file": "voice/who_08_hint.mp3",
-      "note": "بعد از بازخورد اشتباه"
+      "note": "بعد از بازخورد اشتباه",
+      "spoken": "این وَسیله خاک فَرش را جَمع می‌کُنَد."
     },
     {
       "id": "who.08.ok",
       "text": "درسته! این صدای جاروبرقی بود.",
       "event": "game.correct",
       "screen": "feedback",
-      "file": "voice/who_08_ok.mp3"
+      "file": "voice/who_08_ok.mp3",
+      "spoken": "دُرُستِه! این صِدای جاروبَرقی بود."
     },
     {
       "id": "who.09.q",
@@ -1013,7 +1142,8 @@
       "event": "game.after_sound",
       "screen": "game",
       "file": "voice/who_09_q.mp3",
-      "note": "پاسخ را لو نمی‌دهد"
+      "note": "پاسخ را لو نمی‌دهد",
+      "spoken": "آژیر! کُدام ماشین دارَد می‌آیَد؟"
     },
     {
       "id": "who.09.hint",
@@ -1021,14 +1151,16 @@
       "event": "game.wrong",
       "screen": "game",
       "file": "voice/who_09_hint.mp3",
-      "note": "بعد از بازخورد اشتباه"
+      "note": "بعد از بازخورد اشتباه",
+      "spoken": "این ماشین قِرمِز اَست، نَردِبان دارَد وَ آتَش را خاموش می‌کُنَد."
     },
     {
       "id": "who.09.ok",
       "text": "آفرین! این ماشین آتش‌نشانی بود.",
       "event": "game.correct",
       "screen": "feedback",
-      "file": "voice/who_09_ok.mp3"
+      "file": "voice/who_09_ok.mp3",
+      "spoken": "آفَرین! این ماشین آتَش‌نِشانی بود."
     },
     {
       "id": "who.10.q",
@@ -1036,7 +1168,8 @@
       "event": "game.after_sound",
       "screen": "game",
       "file": "voice/who_10_q.mp3",
-      "note": "پاسخ را لو نمی‌دهد"
+      "note": "پاسخ را لو نمی‌دهد",
+      "spoken": "بیپ بوپ! این صِدای چیست؟"
     },
     {
       "id": "who.10.hint",
@@ -1044,14 +1177,16 @@
       "event": "game.wrong",
       "screen": "game",
       "file": "voice/who_10_hint.mp3",
-      "note": "بعد از بازخورد اشتباه"
+      "note": "بعد از بازخورد اشتباه",
+      "spoken": "این دوست فِلِزّی راه می‌رَوَد وَ چِراغ‌های رَنگی دارَد."
     },
     {
       "id": "who.10.ok",
       "text": "عالی! این صدای ربات بود.",
       "event": "game.correct",
       "screen": "feedback",
-      "file": "voice/who_10_ok.mp3"
+      "file": "voice/who_10_ok.mp3",
+      "spoken": "عالی! این صِدای رُبات بود."
     },
     {
       "id": "seq.01.q",
@@ -1059,7 +1194,8 @@
       "event": "game.level_start",
       "screen": "game",
       "file": "voice/seq_01_q.mp3",
-      "note": "پاسخ را لو نمی‌دهد"
+      "note": "پاسخ را لو نمی‌دهد",
+      "spoken": "سِه صِدا پُشت سَر هَم می‌آیَد. خوب گوش کُن وَ یادَت بِمانَد."
     },
     {
       "id": "seq.01.hint",
@@ -1067,14 +1203,16 @@
       "event": "game.wrong",
       "screen": "game",
       "file": "voice/seq_01_hint.mp3",
-      "note": "بعد از بازخورد اشتباه"
+      "note": "بعد از بازخورد اشتباه",
+      "spoken": "صِدای اَوَّل را یادَت باشَد، بَعد دُوُّمی، بَعد سِوُّمی. می‌توانی دوباره گوش کُنی."
     },
     {
       "id": "seq.01.ok",
       "text": "آفرین! ترتیب را درست چیدی.",
       "event": "game.correct",
       "screen": "feedback",
-      "file": "voice/seq_01_ok.mp3"
+      "file": "voice/seq_01_ok.mp3",
+      "spoken": "آفَرین! تَرتیب را دُرُست چیدی."
     },
     {
       "id": "seq.02.q",
@@ -1082,7 +1220,8 @@
       "event": "game.level_start",
       "screen": "game",
       "file": "voice/seq_02_q.mp3",
-      "note": "پاسخ را لو نمی‌دهد"
+      "note": "پاسخ را لو نمی‌دهد",
+      "spoken": "دوباره سِه صِدا! این بار چِه صِداهایی می‌آیَد؟"
     },
     {
       "id": "seq.02.hint",
@@ -1090,14 +1229,16 @@
       "event": "game.wrong",
       "screen": "game",
       "file": "voice/seq_02_hint.mp3",
-      "note": "بعد از بازخورد اشتباه"
+      "note": "بعد از بازخورد اشتباه",
+      "spoken": "با اَنگُشت‌هایَت بِشمار: یِک، دو، سِه."
     },
     {
       "id": "seq.02.ok",
       "text": "عالی! حافظه‌ات خیلی خوب است.",
       "event": "game.correct",
       "screen": "feedback",
-      "file": "voice/seq_02_ok.mp3"
+      "file": "voice/seq_02_ok.mp3",
+      "spoken": "عالی! حافِظه‌اَت خِیلی خوب اَست."
     },
     {
       "id": "seq.03.q",
@@ -1105,7 +1246,8 @@
       "event": "game.level_start",
       "screen": "game",
       "file": "voice/seq_03_q.mp3",
-      "note": "پاسخ را لو نمی‌دهد"
+      "note": "پاسخ را لو نمی‌دهد",
+      "spoken": "گوش کُن وَ تَرتیب صِداها را بِه خاطِر بِسپار."
     },
     {
       "id": "seq.03.hint",
@@ -1113,14 +1255,16 @@
       "event": "game.wrong",
       "screen": "game",
       "file": "voice/seq_03_hint.mp3",
-      "note": "بعد از بازخورد اشتباه"
+      "note": "بعد از بازخورد اشتباه",
+      "spoken": "دَر ذِهنَت بِگو: اَوَّل این، بَعد این، بَعد این."
     },
     {
       "id": "seq.03.ok",
       "text": "درسته! هر سه سر جایشان هستند.",
       "event": "game.correct",
       "screen": "feedback",
-      "file": "voice/seq_03_ok.mp3"
+      "file": "voice/seq_03_ok.mp3",
+      "spoken": "دُرُستِه! هَر سِه سَر جایِشان هَستَند."
     },
     {
       "id": "seq.04.q",
@@ -1128,7 +1272,8 @@
       "event": "game.level_start",
       "screen": "game",
       "file": "voice/seq_04_q.mp3",
-      "note": "پاسخ را لو نمی‌دهد"
+      "note": "پاسخ را لو نمی‌دهد",
+      "spoken": "این بار چَهار صِدا! کَمی سَخت‌تَر شُد."
     },
     {
       "id": "seq.04.hint",
@@ -1136,14 +1281,16 @@
       "event": "game.wrong",
       "screen": "game",
       "file": "voice/seq_04_hint.mp3",
-      "note": "بعد از بازخورد اشتباه"
+      "note": "بعد از بازخورد اشتباه",
+      "spoken": "دو صِدای اَوَّل را یادَت باشَد، بَعد دو صِدای بَعدی را."
     },
     {
       "id": "seq.04.ok",
       "text": "آفرین! چهار صدا را درست چیدی.",
       "event": "game.correct",
       "screen": "feedback",
-      "file": "voice/seq_04_ok.mp3"
+      "file": "voice/seq_04_ok.mp3",
+      "spoken": "آفَرین! چَهار صِدا را دُرُست چیدی."
     },
     {
       "id": "seq.05.q",
@@ -1151,7 +1298,8 @@
       "event": "game.level_start",
       "screen": "game",
       "file": "voice/seq_05_q.mp3",
-      "note": "پاسخ را لو نمی‌دهد"
+      "note": "پاسخ را لو نمی‌دهد",
+      "spoken": "چَهار صِدای مَزرَعه! تَرتیبِشان یادَت نَرَوَد."
     },
     {
       "id": "seq.05.hint",
@@ -1159,14 +1307,16 @@
       "event": "game.wrong",
       "screen": "game",
       "file": "voice/seq_05_hint.mp3",
-      "note": "بعد از بازخورد اشتباه"
+      "note": "بعد از بازخورد اشتباه",
+      "spoken": "فِکر کُن دَر مَزرَعه راه می‌رَوی وَ حِیوان‌ها را یِکی‌یِکی می‌بینی."
     },
     {
       "id": "seq.05.ok",
       "text": "عالی! مثل یک کشاورز دقیق گوش دادی.",
       "event": "game.correct",
       "screen": "feedback",
-      "file": "voice/seq_05_ok.mp3"
+      "file": "voice/seq_05_ok.mp3",
+      "spoken": "عالی! مِثل یِک کِشاوَرز دَقیق گوش دادی."
     },
     {
       "id": "seq.06.q",
@@ -1174,7 +1324,8 @@
       "event": "game.level_start",
       "screen": "game",
       "file": "voice/seq_06_q.mp3",
-      "note": "پاسخ را لو نمی‌دهد"
+      "note": "پاسخ را لو نمی‌دهد",
+      "spoken": "چَهار ساز موسیقی! با دِقَّت گوش کُن."
     },
     {
       "id": "seq.06.hint",
@@ -1182,14 +1333,16 @@
       "event": "game.wrong",
       "screen": "game",
       "file": "voice/seq_06_hint.mp3",
-      "note": "بعد از بازخورد اشتباه"
+      "note": "بعد از بازخورد اشتباه",
+      "spoken": "هَر ساز صِدای خودَش را دارَد: یِکی نازُک، یِکی بَم، یِکی ضَربی."
     },
     {
       "id": "seq.06.ok",
       "text": "درسته! گوش موسیقی تو عالی است.",
       "event": "game.correct",
       "screen": "feedback",
-      "file": "voice/seq_06_ok.mp3"
+      "file": "voice/seq_06_ok.mp3",
+      "spoken": "دُرُستِه! گوش موسیقی تو عالی اَست."
     },
     {
       "id": "seq.07.q",
@@ -1197,7 +1350,8 @@
       "event": "game.level_start",
       "screen": "game",
       "file": "voice/seq_07_q.mp3",
-      "note": "پاسخ را لو نمی‌دهد"
+      "note": "پاسخ را لو نمی‌دهد",
+      "spoken": "پَنج صِدا! یِک نَفَس عَمیق بِکِش وَ گوش کُن."
     },
     {
       "id": "seq.07.hint",
@@ -1205,14 +1359,16 @@
       "event": "game.wrong",
       "screen": "game",
       "file": "voice/seq_07_hint.mp3",
-      "note": "بعد از بازخورد اشتباه"
+      "note": "بعد از بازخورد اشتباه",
+      "spoken": "بَرای هَر صِدا یِک تَصویر دَر ذِهنَت بِساز."
     },
     {
       "id": "seq.07.ok",
       "text": "آفرین! پنج صدا کار سختی بود.",
       "event": "game.correct",
       "screen": "feedback",
-      "file": "voice/seq_07_ok.mp3"
+      "file": "voice/seq_07_ok.mp3",
+      "spoken": "آفَرین! پَنج صِدا کار سَختی بود."
     },
     {
       "id": "seq.08.q",
@@ -1220,7 +1376,8 @@
       "event": "game.level_start",
       "screen": "game",
       "file": "voice/seq_08_q.mp3",
-      "note": "پاسخ را لو نمی‌دهد"
+      "note": "پاسخ را لو نمی‌دهد",
+      "spoken": "آخَرین مَرحَله! پَنج صِدای فَضایی. تو می‌توانی!"
     },
     {
       "id": "seq.08.hint",
@@ -1228,14 +1385,16 @@
       "event": "game.wrong",
       "screen": "game",
       "file": "voice/seq_08_hint.mp3",
-      "note": "بعد از بازخورد اشتباه"
+      "note": "بعد از بازخورد اشتباه",
+      "spoken": "عَجَله نَکُن. دو بار گوش کُن وَ بَعد بِچین."
     },
     {
       "id": "seq.08.ok",
       "text": "باورم نمی‌شود! سخت‌ترین مرحله را بردی.",
       "event": "game.correct",
       "screen": "feedback",
-      "file": "voice/seq_08_ok.mp3"
+      "file": "voice/seq_08_ok.mp3",
+      "spoken": "باوَرَم نِمی‌شَوَد! سَخت‌تَرین مَرحَله را بُردی."
     },
     {
       "id": "mission.01.q",
@@ -1243,7 +1402,8 @@
       "event": "game.after_sound",
       "screen": "game",
       "file": "voice/mission_01_q.mp3",
-      "note": "پاسخ را لو نمی‌دهد"
+      "note": "پاسخ را لو نمی‌دهد",
+      "spoken": "بِه جَنگَل رَسیدیم! چِشم‌هایَت را بِبَند. چَند صِدای مُختَلِف می‌شنَوی؟"
     },
     {
       "id": "mission.01.hint",
@@ -1251,14 +1411,16 @@
       "event": "game.wrong",
       "screen": "game",
       "file": "voice/mission_01_hint.mp3",
-      "note": "بعد از بازخورد اشتباه"
+      "note": "بعد از بازخورد اشتباه",
+      "spoken": "صِداها روی هَم هَستَند. سَعی کُن یِکی‌یِکی جُدایِشان کُنی."
     },
     {
       "id": "mission.01.ok",
       "text": "آفرین! سه صدا بود: پرنده، باد و رودخانه.",
       "event": "game.correct",
       "screen": "feedback",
-      "file": "voice/mission_01_ok.mp3"
+      "file": "voice/mission_01_ok.mp3",
+      "spoken": "آفَرین! سِه صِدا بود: پَرَنده، باد وَ رودخانه."
     },
     {
       "id": "mission.02.q",
@@ -1266,7 +1428,8 @@
       "event": "game.after_sound",
       "screen": "game",
       "file": "voice/mission_02_q.mp3",
-      "note": "پاسخ را لو نمی‌دهد"
+      "note": "پاسخ را لو نمی‌دهد",
+      "spoken": "صُبح بِخِیر مَزرَعه! بِشمار چَند صِدا می‌شنَوی."
     },
     {
       "id": "mission.02.hint",
@@ -1274,14 +1437,16 @@
       "event": "game.wrong",
       "screen": "game",
       "file": "voice/mission_02_hint.mp3",
-      "note": "بعد از بازخورد اشتباه"
+      "note": "بعد از بازخورد اشتباه",
+      "spoken": "صُبح زود حِیوان‌های مَزرَعه بیدار می‌شَوَند. هَر کُدام صِدای خودَش را دارَد."
     },
     {
       "id": "mission.02.ok",
       "text": "درسته! چهار صدا بود.",
       "event": "game.correct",
       "screen": "feedback",
-      "file": "voice/mission_02_ok.mp3"
+      "file": "voice/mission_02_ok.mp3",
+      "spoken": "دُرُستِه! چَهار صِدا بود."
     },
     {
       "id": "mission.03.q",
@@ -1289,7 +1454,8 @@
       "event": "game.after_sound",
       "screen": "game",
       "file": "voice/mission_03_q.mp3",
-      "note": "پاسخ را لو نمی‌دهد"
+      "note": "پاسخ را لو نمی‌دهد",
+      "spoken": "عَصر اَست وَ ما دَر خانه‌ایم. چَند صِدای مُختَلِف می‌شنَوی؟"
     },
     {
       "id": "mission.03.hint",
@@ -1297,14 +1463,16 @@
       "event": "game.wrong",
       "screen": "game",
       "file": "voice/mission_03_hint.mp3",
-      "note": "بعد از بازخورد اشتباه"
+      "note": "بعد از بازخورد اشتباه",
+      "spoken": "بِه چیزهایی فِکر کُن کِه تیک‌تاک می‌کُنَند، سوت می‌زَنَند یا زَنگ می‌زَنَند."
     },
     {
       "id": "mission.03.ok",
       "text": "عالی! سه صدا بود.",
       "event": "game.correct",
       "screen": "feedback",
-      "file": "voice/mission_03_ok.mp3"
+      "file": "voice/mission_03_ok.mp3",
+      "spoken": "عالی! سِه صِدا بود."
     },
     {
       "id": "mission.04.q",
@@ -1312,7 +1480,8 @@
       "event": "game.after_sound",
       "screen": "game",
       "file": "voice/mission_04_q.mp3",
-      "note": "پاسخ را لو نمی‌دهد"
+      "note": "پاسخ را لو نمی‌دهد",
+      "spoken": "وَسَط شَهر شُلوغ! خوب گوش کُن وَ بِشمار."
     },
     {
       "id": "mission.04.hint",
@@ -1320,14 +1489,16 @@
       "event": "game.wrong",
       "screen": "game",
       "file": "voice/mission_04_hint.mp3",
-      "note": "بعد از بازخورد اشتباه"
+      "note": "بعد از بازخورد اشتباه",
+      "spoken": "شَهر صِداهای زیادی دارَد. دِقَّت کُن، دو آژیر با هَم فَرق دارَند."
     },
     {
       "id": "mission.04.ok",
       "text": "آفرین! پنج صدا بود. شهر چقدر شلوغ است!",
       "event": "game.correct",
       "screen": "feedback",
-      "file": "voice/mission_04_ok.mp3"
+      "file": "voice/mission_04_ok.mp3",
+      "spoken": "آفَرین! پَنج صِدا بود. شَهر چِقَدر شُلوغ اَست!"
     },
     {
       "id": "mission.05.q",
@@ -1335,7 +1506,8 @@
       "event": "game.after_sound",
       "screen": "game",
       "file": "voice/mission_05_q.mp3",
-      "note": "پاسخ را لو نمی‌دهد"
+      "note": "پاسخ را لو نمی‌دهد",
+      "spoken": "شَب شُده وَ جَنگَل آرام اَست. این سَخت‌تَرین مَأموریَّت اَست. چَند صِدا می‌شنَوی؟"
     },
     {
       "id": "mission.05.hint",
@@ -1343,14 +1515,16 @@
       "event": "game.wrong",
       "screen": "game",
       "file": "voice/mission_05_hint.mp3",
-      "note": "بعد از بازخورد اشتباه"
+      "note": "بعد از بازخورد اشتباه",
+      "spoken": "بَعضی صِداها خِیلی آرام‌اَند. با دِقَّت گوش کُن."
     },
     {
       "id": "mission.05.ok",
       "text": "فوق‌العاده بود! پنج صدا را شنیدی.",
       "event": "game.correct",
       "screen": "feedback",
-      "file": "voice/mission_05_ok.mp3"
+      "file": "voice/mission_05_ok.mp3",
+      "spoken": "فُوق‌اَلعاده بود! پَنج صِدا را شِنیدی."
     },
     {
       "id": "snd.lion",
@@ -1358,7 +1532,8 @@
       "event": "sound.named",
       "screen": "library",
       "file": "voice/snd_lion.mp3",
-      "note": "بعد از پخش صدا در کتابخانه، یا بعد از پاسخ درست در بازی دسته‌ها"
+      "note": "بعد از پخش صدا در کتابخانه، یا بعد از پاسخ درست در بازی دسته‌ها",
+      "spoken": "این صِدای شیر بود. شیر غُرِّش می‌کُنَد!"
     },
     {
       "id": "snd.cow",
@@ -1366,7 +1541,8 @@
       "event": "sound.named",
       "screen": "library",
       "file": "voice/snd_cow.mp3",
-      "note": "بعد از پخش صدا در کتابخانه، یا بعد از پاسخ درست در بازی دسته‌ها"
+      "note": "بعد از پخش صدا در کتابخانه، یا بعد از پاسخ درست در بازی دسته‌ها",
+      "spoken": "این صِدای گاو بود. گاو ماغ می‌کِشَد."
     },
     {
       "id": "snd.dog",
@@ -1374,7 +1550,8 @@
       "event": "sound.named",
       "screen": "library",
       "file": "voice/snd_dog.mp3",
-      "note": "بعد از پخش صدا در کتابخانه، یا بعد از پاسخ درست در بازی دسته‌ها"
+      "note": "بعد از پخش صدا در کتابخانه، یا بعد از پاسخ درست در بازی دسته‌ها",
+      "spoken": "این صِدای سَگ بود. سَگ هاپ‌هاپ می‌کُنَد."
     },
     {
       "id": "snd.cat",
@@ -1382,7 +1559,8 @@
       "event": "sound.named",
       "screen": "library",
       "file": "voice/snd_cat.mp3",
-      "note": "بعد از پخش صدا در کتابخانه، یا بعد از پاسخ درست در بازی دسته‌ها"
+      "note": "بعد از پخش صدا در کتابخانه، یا بعد از پاسخ درست در بازی دسته‌ها",
+      "spoken": "این صِدای گُربه بود. گُربه میو میو می‌کُنَد."
     },
     {
       "id": "snd.rabbit",
@@ -1390,7 +1568,8 @@
       "event": "sound.named",
       "screen": "library",
       "file": "voice/snd_rabbit.mp3",
-      "note": "بعد از پخش صدا در کتابخانه، یا بعد از پاسخ درست در بازی دسته‌ها"
+      "note": "بعد از پخش صدا در کتابخانه، یا بعد از پاسخ درست در بازی دسته‌ها",
+      "spoken": "این صِدای خَرگوش بود. خَرگوش خِیلی آرام اَست."
     },
     {
       "id": "snd.bird",
@@ -1398,7 +1577,8 @@
       "event": "sound.named",
       "screen": "library",
       "file": "voice/snd_bird.mp3",
-      "note": "بعد از پخش صدا در کتابخانه، یا بعد از پاسخ درست در بازی دسته‌ها"
+      "note": "بعد از پخش صدا در کتابخانه، یا بعد از پاسخ درست در بازی دسته‌ها",
+      "spoken": "این صِدای پَرَنده بود. پَرَنده‌ها صُبح‌ها آواز می‌خوانَند."
     },
     {
       "id": "snd.sheep",
@@ -1406,7 +1586,8 @@
       "event": "sound.named",
       "screen": "library",
       "file": "voice/snd_sheep.mp3",
-      "note": "بعد از پخش صدا در کتابخانه، یا بعد از پاسخ درست در بازی دسته‌ها"
+      "note": "بعد از پخش صدا در کتابخانه، یا بعد از پاسخ درست در بازی دسته‌ها",
+      "spoken": "این صِدای گوسفَند بود. گوسفَند بَع‌بَع می‌کُنَد."
     },
     {
       "id": "snd.horse",
@@ -1414,7 +1595,8 @@
       "event": "sound.named",
       "screen": "library",
       "file": "voice/snd_horse.mp3",
-      "note": "بعد از پخش صدا در کتابخانه، یا بعد از پاسخ درست در بازی دسته‌ها"
+      "note": "بعد از پخش صدا در کتابخانه، یا بعد از پاسخ درست در بازی دسته‌ها",
+      "spoken": "این صِدای اَسب بود. اَسب شیهه می‌کِشَد."
     },
     {
       "id": "snd.duck",
@@ -1422,7 +1604,8 @@
       "event": "sound.named",
       "screen": "library",
       "file": "voice/snd_duck.mp3",
-      "note": "بعد از پخش صدا در کتابخانه، یا بعد از پاسخ درست در بازی دسته‌ها"
+      "note": "بعد از پخش صدا در کتابخانه، یا بعد از پاسخ درست در بازی دسته‌ها",
+      "spoken": "این صِدای اُردَک بود. اُردَک کِنار آب زِندِگی می‌کُنَد."
     },
     {
       "id": "snd.frog",
@@ -1430,7 +1613,8 @@
       "event": "sound.named",
       "screen": "library",
       "file": "voice/snd_frog.mp3",
-      "note": "بعد از پخش صدا در کتابخانه، یا بعد از پاسخ درست در بازی دسته‌ها"
+      "note": "بعد از پخش صدا در کتابخانه، یا بعد از پاسخ درست در بازی دسته‌ها",
+      "spoken": "این صِدای قورباغه بود. قورباغه قورقور می‌کُنَد."
     },
     {
       "id": "snd.elephant",
@@ -1438,7 +1622,8 @@
       "event": "sound.named",
       "screen": "library",
       "file": "voice/snd_elephant.mp3",
-      "note": "بعد از پخش صدا در کتابخانه، یا بعد از پاسخ درست در بازی دسته‌ها"
+      "note": "بعد از پخش صدا در کتابخانه، یا بعد از پاسخ درست در بازی دسته‌ها",
+      "spoken": "این صِدای فیل بود. فیل با خَرطومَش صِدا می‌کُنَد."
     },
     {
       "id": "snd.rooster",
@@ -1446,7 +1631,8 @@
       "event": "sound.named",
       "screen": "library",
       "file": "voice/snd_rooster.mp3",
-      "note": "بعد از پخش صدا در کتابخانه، یا بعد از پاسخ درست در بازی دسته‌ها"
+      "note": "بعد از پخش صدا در کتابخانه، یا بعد از پاسخ درست در بازی دسته‌ها",
+      "spoken": "این صِدای خُروس بود. خُروس صُبح زود هَمه را بیدار می‌کُنَد."
     },
     {
       "id": "snd.doorbell",
@@ -1454,7 +1640,8 @@
       "event": "sound.named",
       "screen": "library",
       "file": "voice/snd_doorbell.mp3",
-      "note": "بعد از پخش صدا در کتابخانه، یا بعد از پاسخ درست در بازی دسته‌ها"
+      "note": "بعد از پخش صدا در کتابخانه، یا بعد از پاسخ درست در بازی دسته‌ها",
+      "spoken": "این صِدای زَنگ دَر بود. یِک نَفَر پُشت دَر اَست!"
     },
     {
       "id": "snd.clock",
@@ -1462,7 +1649,8 @@
       "event": "sound.named",
       "screen": "library",
       "file": "voice/snd_clock.mp3",
-      "note": "بعد از پخش صدا در کتابخانه، یا بعد از پاسخ درست در بازی دسته‌ها"
+      "note": "بعد از پخش صدا در کتابخانه، یا بعد از پاسخ درست در بازی دسته‌ها",
+      "spoken": "این صِدای ساعَت بود. ساعَت تیک‌تاک می‌کُنَد."
     },
     {
       "id": "snd.phone",
@@ -1470,7 +1658,8 @@
       "event": "sound.named",
       "screen": "library",
       "file": "voice/snd_phone.mp3",
-      "note": "بعد از پخش صدا در کتابخانه، یا بعد از پاسخ درست در بازی دسته‌ها"
+      "note": "بعد از پخش صدا در کتابخانه، یا بعد از پاسخ درست در بازی دسته‌ها",
+      "spoken": "این صِدای تِلِفُن بود. یِک نَفَر زَنگ می‌زَنَد!"
     },
     {
       "id": "snd.vacuum",
@@ -1478,7 +1667,8 @@
       "event": "sound.named",
       "screen": "library",
       "file": "voice/snd_vacuum.mp3",
-      "note": "بعد از پخش صدا در کتابخانه، یا بعد از پاسخ درست در بازی دسته‌ها"
+      "note": "بعد از پخش صدا در کتابخانه، یا بعد از پاسخ درست در بازی دسته‌ها",
+      "spoken": "این صِدای جاروبَرقی بود. جاروبَرقی خانه را تَمیز می‌کُنَد."
     },
     {
       "id": "snd.kettle",
@@ -1486,7 +1676,8 @@
       "event": "sound.named",
       "screen": "library",
       "file": "voice/snd_kettle.mp3",
-      "note": "بعد از پخش صدا در کتابخانه، یا بعد از پاسخ درست در بازی دسته‌ها"
+      "note": "بعد از پخش صدا در کتابخانه، یا بعد از پاسخ درست در بازی دسته‌ها",
+      "spoken": "این صِدای کِتری بود. آب کِه جوش بیایَد، کِتری سوت می‌زَنَد."
     },
     {
       "id": "snd.washer",
@@ -1494,7 +1685,8 @@
       "event": "sound.named",
       "screen": "library",
       "file": "voice/snd_washer.mp3",
-      "note": "بعد از پخش صدا در کتابخانه، یا بعد از پاسخ درست در بازی دسته‌ها"
+      "note": "بعد از پخش صدا در کتابخانه، یا بعد از پاسخ درست در بازی دسته‌ها",
+      "spoken": "این صِدای ماشین لِباسشویی بود. لِباس‌ها را می‌چَرخانَد."
     },
     {
       "id": "snd.tap",
@@ -1502,7 +1694,8 @@
       "event": "sound.named",
       "screen": "library",
       "file": "voice/snd_tap.mp3",
-      "note": "بعد از پخش صدا در کتابخانه، یا بعد از پاسخ درست در بازی دسته‌ها"
+      "note": "بعد از پخش صدا در کتابخانه، یا بعد از پاسخ درست در بازی دسته‌ها",
+      "spoken": "این صِدای شیر آب بود. آب اَز شیر می‌ریزَد."
     },
     {
       "id": "snd.door",
@@ -1510,7 +1703,8 @@
       "event": "sound.named",
       "screen": "library",
       "file": "voice/snd_door.mp3",
-      "note": "بعد از پخش صدا در کتابخانه، یا بعد از پاسخ درست در بازی دسته‌ها"
+      "note": "بعد از پخش صدا در کتابخانه، یا بعد از پاسخ درست در بازی دسته‌ها",
+      "spoken": "این صِدای دَر بود. دَر باز وَ بَسته می‌شَوَد."
     },
     {
       "id": "snd.rain",
@@ -1518,7 +1712,8 @@
       "event": "sound.named",
       "screen": "library",
       "file": "voice/snd_rain.mp3",
-      "note": "بعد از پخش صدا در کتابخانه، یا بعد از پاسخ درست در بازی دسته‌ها"
+      "note": "بعد از پخش صدا در کتابخانه، یا بعد از پاسخ درست در بازی دسته‌ها",
+      "spoken": "این صِدای باران بود. قَطره‌ها روی زَمین می‌ریزَند."
     },
     {
       "id": "snd.thunder",
@@ -1526,7 +1721,8 @@
       "event": "sound.named",
       "screen": "library",
       "file": "voice/snd_thunder.mp3",
-      "note": "بعد از پخش صدا در کتابخانه، یا بعد از پاسخ درست در بازی دسته‌ها"
+      "note": "بعد از پخش صدا در کتابخانه، یا بعد از پاسخ درست در بازی دسته‌ها",
+      "spoken": "این صِدای رَعد بود. بَعد اَز بَرق آسِمان می‌آیَد."
     },
     {
       "id": "snd.wind",
@@ -1534,7 +1730,8 @@
       "event": "sound.named",
       "screen": "library",
       "file": "voice/snd_wind.mp3",
-      "note": "بعد از پخش صدا در کتابخانه، یا بعد از پاسخ درست در بازی دسته‌ها"
+      "note": "بعد از پخش صدا در کتابخانه، یا بعد از پاسخ درست در بازی دسته‌ها",
+      "spoken": "این صِدای باد بود. باد بِین دِرَخت‌ها می‌پیچَد."
     },
     {
       "id": "snd.sea",
@@ -1542,7 +1739,8 @@
       "event": "sound.named",
       "screen": "library",
       "file": "voice/snd_sea.mp3",
-      "note": "بعد از پخش صدا در کتابخانه، یا بعد از پاسخ درست در بازی دسته‌ها"
+      "note": "بعد از پخش صدا در کتابخانه، یا بعد از پاسخ درست در بازی دسته‌ها",
+      "spoken": "این صِدای دَریا بود. مُوج‌ها می‌آیَند وَ می‌رَوَند."
     },
     {
       "id": "snd.river",
@@ -1550,7 +1748,8 @@
       "event": "sound.named",
       "screen": "library",
       "file": "voice/snd_river.mp3",
-      "note": "بعد از پخش صدا در کتابخانه، یا بعد از پاسخ درست در بازی دسته‌ها"
+      "note": "بعد از پخش صدا در کتابخانه، یا بعد از پاسخ درست در بازی دسته‌ها",
+      "spoken": "این صِدای رودخانه بود. آب روی سَنگ‌ها می‌دَوَد."
     },
     {
       "id": "snd.fire",
@@ -1558,7 +1757,8 @@
       "event": "sound.named",
       "screen": "library",
       "file": "voice/snd_fire.mp3",
-      "note": "بعد از پخش صدا در کتابخانه، یا بعد از پاسخ درست در بازی دسته‌ها"
+      "note": "بعد از پخش صدا در کتابخانه، یا بعد از پاسخ درست در بازی دسته‌ها",
+      "spoken": "این صِدای آتَش بود. چوب‌ها تَرَق‌تَرَق می‌کُنَند."
     },
     {
       "id": "snd.waterfall",
@@ -1566,7 +1766,8 @@
       "event": "sound.named",
       "screen": "library",
       "file": "voice/snd_waterfall.mp3",
-      "note": "بعد از پخش صدا در کتابخانه، یا بعد از پاسخ درست در بازی دسته‌ها"
+      "note": "بعد از پخش صدا در کتابخانه، یا بعد از پاسخ درست در بازی دسته‌ها",
+      "spoken": "این صِدای آبشار بود. آب اَز بالا پایین می‌ریزَد."
     },
     {
       "id": "snd.drum",
@@ -1574,7 +1775,8 @@
       "event": "sound.named",
       "screen": "library",
       "file": "voice/snd_drum.mp3",
-      "note": "بعد از پخش صدا در کتابخانه، یا بعد از پاسخ درست در بازی دسته‌ها"
+      "note": "بعد از پخش صدا در کتابخانه، یا بعد از پاسخ درست در بازی دسته‌ها",
+      "spoken": "این صِدای طَبل بود. بوم بوم بوم!"
     },
     {
       "id": "snd.piano",
@@ -1582,7 +1784,8 @@
       "event": "sound.named",
       "screen": "library",
       "file": "voice/snd_piano.mp3",
-      "note": "بعد از پخش صدا در کتابخانه، یا بعد از پاسخ درست در بازی دسته‌ها"
+      "note": "بعد از پخش صدا در کتابخانه، یا بعد از پاسخ درست در بازی دسته‌ها",
+      "spoken": "این صِدای پیانو بود. پیانو کِلیدهای سیاه وَ سِفید دارَد."
     },
     {
       "id": "snd.guitar",
@@ -1590,7 +1793,8 @@
       "event": "sound.named",
       "screen": "library",
       "file": "voice/snd_guitar.mp3",
-      "note": "بعد از پخش صدا در کتابخانه، یا بعد از پاسخ درست در بازی دسته‌ها"
+      "note": "بعد از پخش صدا در کتابخانه، یا بعد از پاسخ درست در بازی دسته‌ها",
+      "spoken": "این صِدای گیتار بود. گیتار سیم دارَد."
     },
     {
       "id": "snd.violin",
@@ -1598,7 +1802,8 @@
       "event": "sound.named",
       "screen": "library",
       "file": "voice/snd_violin.mp3",
-      "note": "بعد از پخش صدا در کتابخانه، یا بعد از پاسخ درست در بازی دسته‌ها"
+      "note": "بعد از پخش صدا در کتابخانه، یا بعد از پاسخ درست در بازی دسته‌ها",
+      "spoken": "این صِدای ویولُن بود. ویولُن را با آرشه می‌نَوازَند."
     },
     {
       "id": "snd.flute",
@@ -1606,7 +1811,8 @@
       "event": "sound.named",
       "screen": "library",
       "file": "voice/snd_flute.mp3",
-      "note": "بعد از پخش صدا در کتابخانه، یا بعد از پاسخ درست در بازی دسته‌ها"
+      "note": "بعد از پخش صدا در کتابخانه، یا بعد از پاسخ درست در بازی دسته‌ها",
+      "spoken": "این صِدای فِلوت بود. فِلوت را با فوت می‌نَوازَند."
     },
     {
       "id": "snd.bell",
@@ -1614,7 +1820,8 @@
       "event": "sound.named",
       "screen": "library",
       "file": "voice/snd_bell.mp3",
-      "note": "بعد از پخش صدا در کتابخانه، یا بعد از پاسخ درست در بازی دسته‌ها"
+      "note": "بعد از پخش صدا در کتابخانه، یا بعد از پاسخ درست در بازی دسته‌ها",
+      "spoken": "این صِدای زَنگوله بود. جِرینگ جِرینگ!"
     },
     {
       "id": "snd.tambourine",
@@ -1622,7 +1829,8 @@
       "event": "sound.named",
       "screen": "library",
       "file": "voice/snd_tambourine.mp3",
-      "note": "بعد از پخش صدا در کتابخانه، یا بعد از پاسخ درست در بازی دسته‌ها"
+      "note": "بعد از پخش صدا در کتابخانه، یا بعد از پاسخ درست در بازی دسته‌ها",
+      "spoken": "این صِدای دَف بود. دَف یِک ساز گِرد ایرانی اَست."
     },
     {
       "id": "snd.hammer",
@@ -1630,7 +1838,8 @@
       "event": "sound.named",
       "screen": "library",
       "file": "voice/snd_hammer.mp3",
-      "note": "بعد از پخش صدا در کتابخانه، یا بعد از پاسخ درست در بازی دسته‌ها"
+      "note": "بعد از پخش صدا در کتابخانه، یا بعد از پاسخ درست در بازی دسته‌ها",
+      "spoken": "این صِدای چَکُّش بود. نَجّار با چَکُّش میخ می‌کوبَد."
     },
     {
       "id": "snd.saw",
@@ -1638,7 +1847,8 @@
       "event": "sound.named",
       "screen": "library",
       "file": "voice/snd_saw.mp3",
-      "note": "بعد از پخش صدا در کتابخانه، یا بعد از پاسخ درست در بازی دسته‌ها"
+      "note": "بعد از پخش صدا در کتابخانه، یا بعد از پاسخ درست در بازی دسته‌ها",
+      "spoken": "این صِدای اَرّه بود. با اَرّه چوب را می‌بَرَند."
     },
     {
       "id": "snd.ambulance",
@@ -1646,7 +1856,8 @@
       "event": "sound.named",
       "screen": "library",
       "file": "voice/snd_ambulance.mp3",
-      "note": "بعد از پخش صدا در کتابخانه، یا بعد از پاسخ درست در بازی دسته‌ها"
+      "note": "بعد از پخش صدا در کتابخانه، یا بعد از پاسخ درست در بازی دسته‌ها",
+      "spoken": "این صِدای آمبولانس بود. آمبولانس بِه بیمار کُمَک می‌کُنَد."
     },
     {
       "id": "snd.firetruck",
@@ -1654,7 +1865,8 @@
       "event": "sound.named",
       "screen": "library",
       "file": "voice/snd_firetruck.mp3",
-      "note": "بعد از پخش صدا در کتابخانه، یا بعد از پاسخ درست در بازی دسته‌ها"
+      "note": "بعد از پخش صدا در کتابخانه، یا بعد از پاسخ درست در بازی دسته‌ها",
+      "spoken": "این صِدای ماشین آتَش‌نِشانی بود. آتَش‌نِشان‌ها آتَش را خاموش می‌کُنَند."
     },
     {
       "id": "snd.police",
@@ -1662,7 +1874,8 @@
       "event": "sound.named",
       "screen": "library",
       "file": "voice/snd_police.mp3",
-      "note": "بعد از پخش صدا در کتابخانه، یا بعد از پاسخ درست در بازی دسته‌ها"
+      "note": "بعد از پخش صدا در کتابخانه، یا بعد از پاسخ درست در بازی دسته‌ها",
+      "spoken": "این صِدای ماشین پُلیس بود. پُلیس مُراقِب ماست."
     },
     {
       "id": "snd.scissors",
@@ -1670,7 +1883,8 @@
       "event": "sound.named",
       "screen": "library",
       "file": "voice/snd_scissors.mp3",
-      "note": "بعد از پخش صدا در کتابخانه، یا بعد از پاسخ درست در بازی دسته‌ها"
+      "note": "بعد از پخش صدا در کتابخانه، یا بعد از پاسخ درست در بازی دسته‌ها",
+      "spoken": "این صِدای قِیچی بود. قِیچی کاغَذ را می‌بَرَد."
     },
     {
       "id": "snd.typing",
@@ -1678,7 +1892,8 @@
       "event": "sound.named",
       "screen": "library",
       "file": "voice/snd_typing.mp3",
-      "note": "بعد از پخش صدا در کتابخانه، یا بعد از پاسخ درست در بازی دسته‌ها"
+      "note": "بعد از پخش صدا در کتابخانه، یا بعد از پاسخ درست در بازی دسته‌ها",
+      "spoken": "این صِدای تایپ کَردَن بود. اَنگُشت‌ها روی دُکمه‌ها می‌زَنَند."
     },
     {
       "id": "snd.rocket",
@@ -1686,7 +1901,8 @@
       "event": "sound.named",
       "screen": "library",
       "file": "voice/snd_rocket.mp3",
-      "note": "بعد از پخش صدا در کتابخانه، یا بعد از پاسخ درست در بازی دسته‌ها"
+      "note": "بعد از پخش صدا در کتابخانه، یا بعد از پاسخ درست در بازی دسته‌ها",
+      "spoken": "این صِدای موشَک بود. موشَک بِه آسِمان می‌رَوَد."
     },
     {
       "id": "snd.robot",
@@ -1694,7 +1910,8 @@
       "event": "sound.named",
       "screen": "library",
       "file": "voice/snd_robot.mp3",
-      "note": "بعد از پخش صدا در کتابخانه، یا بعد از پاسخ درست در بازی دسته‌ها"
+      "note": "بعد از پخش صدا در کتابخانه، یا بعد از پاسخ درست در بازی دسته‌ها",
+      "spoken": "این صِدای رُبات بود. رُبات بیپ بوپ می‌کُنَد."
     },
     {
       "id": "snd.spaceship",
@@ -1702,7 +1919,8 @@
       "event": "sound.named",
       "screen": "library",
       "file": "voice/snd_spaceship.mp3",
-      "note": "بعد از پخش صدا در کتابخانه، یا بعد از پاسخ درست در بازی دسته‌ها"
+      "note": "بعد از پخش صدا در کتابخانه، یا بعد از پاسخ درست در بازی دسته‌ها",
+      "spoken": "این صِدای سَفینه بود. سَفینه بِین سِتاره‌ها سَفَر می‌کُنَد."
     },
     {
       "id": "snd.satellite",
@@ -1710,7 +1928,8 @@
       "event": "sound.named",
       "screen": "library",
       "file": "voice/snd_satellite.mp3",
-      "note": "بعد از پخش صدا در کتابخانه، یا بعد از پاسخ درست در بازی دسته‌ها"
+      "note": "بعد از پخش صدا در کتابخانه، یا بعد از پاسخ درست در بازی دسته‌ها",
+      "spoken": "این صِدای ماهواره بود. ماهواره دُور زَمین می‌چَرخَد."
     },
     {
       "id": "snd.laser",
@@ -1718,7 +1937,8 @@
       "event": "sound.named",
       "screen": "library",
       "file": "voice/snd_laser.mp3",
-      "note": "بعد از پخش صدا در کتابخانه، یا بعد از پاسخ درست در بازی دسته‌ها"
+      "note": "بعد از پخش صدا در کتابخانه، یا بعد از پاسخ درست در بازی دسته‌ها",
+      "spoken": "این صِدای لیزِر بود. لیزِر یِک نور باریک اَست."
     }
   ]
 }

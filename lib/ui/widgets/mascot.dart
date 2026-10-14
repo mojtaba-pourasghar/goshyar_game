@@ -12,7 +12,7 @@ import '../../data/settings_store.dart';
 
 enum MascotPose { listening, wave, celebrate, think, cheer }
 
-/// گوش‌یار: خرس نارنجی با هدفون و هودی آبی. با حرکت آرام بالا و پایین «زنده» است؛
+/// گوش‌یار: خرسِ دخترِ نارنجی با پاپیون صورتی، هدفون و هودی آبی. با حرکت آرام بالا و پایین «زنده» است؛
 /// اگر کاربر کاهش حرکت را در گوشی روشن کرده باشد، ثابت می‌ماند.
 class Mascot extends StatefulWidget {
   const Mascot({super.key, this.pose = MascotPose.wave, this.size = 180, this.bounce = true});
