@@ -1,35 +1,35 @@
 #!/usr/bin/env python3
-"""Finds real recordings for the sounds in assets/content/levels.json.
+"""Real recordings for the sounds in assets/content/levels.json, from Wikimedia Commons.
 
-The 46 effects carried over from the Java version were synthesised. This replaces them with
-real recordings under a free licence, from two places:
+The 46 effects carried over from the Java version were synthesised. tools/sfx/picks.json names,
+for each sound, one Commons file chosen by hand (by its title, description, categories and
+length — search ranking alone brings up songs and word pronunciations), and optionally which
+part of it to keep ("start"/"seconds"; without a start, a long recording keeps its loudest
+stretch). This script downloads each pick, reads its licence and author from Commons,
+cleans it with the same ffmpeg chain the voice studio uses for effects (silence trimmed, a few
+seconds with a fade-out, mono, −14 LUFS, MP3), writes it over the file the app already plays,
+and records source, licence and author in docs/audio/sfx_sources.json.
 
-  1. Wikimedia Commons (API, licence read from each file's metadata)
-  2. Freesound, CC0 only (the search page; the preview MP3 on cdn.freesound.org)
+    python3 tools/sfx/fetch_sounds.py                  # every pick not yet applied
+    python3 tools/sfx/fetch_sounds.py cow dog --force  # these again
+    python3 tools/sfx/fetch_sounds.py --search "cow moo"   # look for candidates
 
-Each pick is cleaned with the same ffmpeg chain the voice studio uses for effects (silence
-trimmed, at most N seconds with a fade-out, mono, −14 LUFS, MP3) and written over the file the
-app already plays. Where it came from and under what licence goes into
-docs/audio/sfx_sources.json, which the studio reads too.
+Freesound is not used: it answers 403 to scripted requests. Commons asks for a slow pace
+(it answers 429 with Retry-After), which is honoured.
 
-    python3 tools/sfx/fetch_sounds.py --list            # candidates only, nothing written
-    python3 tools/sfx/fetch_sounds.py                   # every sound still synthetic
-    python3 tools/sfx/fetch_sounds.py cow dog --force   # these, even if already replaced
-
-Needs network access to commons.wikimedia.org, upload.wikimedia.org, freesound.org and
-cdn.freesound.org, and ffmpeg on PATH.
+Needs network access to commons.wikimedia.org and upload.wikimedia.org, and ffmpeg on PATH.
 """
 
 from __future__ import annotations
 
 import argparse
-import html
 import json
 import re
 import subprocess
 import sys
 import tempfile
 import time
+import urllib.error
 import urllib.parse
 import urllib.request
 from datetime import datetime, timezone
@@ -37,242 +37,201 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
 LEVELS = ROOT / "assets/content/levels.json"
+PICKS = Path(__file__).resolve().parent / "picks.json"
 SOURCES = ROOT / "docs/audio/sfx_sources.json"
-UA = "GoshyarSoundFetcher/1.0 (kids listening game; tools/sfx/fetch_sounds.py)"
-
-# What to search for, most specific first. Commons titles are English; the second list is for
-# Freesound. A word in `avoid` anywhere in the title or tags rules a candidate out (music
-# loops, remixes, people imitating animals…).
-QUERIES: dict[str, tuple[list[str], list[str]]] = {
-    "lion": (["lion roar"], ["lion roar"]),
-    "cow": (["cow moo", "cow mooing"], ["cow moo"]),
-    "dog": (["dog barking", "dog bark"], ["dog bark"]),
-    "cat": (["cat meow", "cat meowing"], ["cat meow"]),
-    "rabbit": (["rabbit sound", "rabbit eating"], ["rabbit eating carrot", "rabbit"]),
-    "bird": (["bird song", "songbird"], ["bird chirping"]),
-    "sheep": (["sheep bleat", "sheep"], ["sheep baa"]),
-    "horse": (["horse neigh", "horse whinny"], ["horse neigh"]),
-    "duck": (["duck quack", "mallard quack"], ["duck quack"]),
-    "frog": (["frog croak", "frog call"], ["frog croak"]),
-    "elephant": (["elephant trumpet", "elephant"], ["elephant trumpet"]),
-    "rooster": (["rooster crow", "rooster crowing"], ["rooster crow"]),
-    "doorbell": (["doorbell"], ["doorbell ding dong"]),
-    "clock": (["clock ticking", "clock tick"], ["clock ticking"]),
-    "phone": (["telephone ringing", "phone ring"], ["phone ringing"]),
-    "vacuum": (["vacuum cleaner"], ["vacuum cleaner"]),
-    "kettle": (["kettle whistle", "whistling kettle"], ["kettle whistle"]),
-    "washer": (["washing machine"], ["washing machine"]),
-    "tap": (["water tap running", "faucet"], ["water tap running", "faucet"]),
-    "door": (["door knock", "knocking on door"], ["door knock"]),
-    "rain": (["rain"], ["rain"]),
-    "thunder": (["thunder"], ["thunder"]),
-    "wind": (["wind"], ["wind howling"]),
-    "sea": (["sea waves", "ocean waves"], ["ocean waves"]),
-    "river": (["river stream", "creek"], ["stream water"]),
-    "fire": (["campfire", "fire crackling"], ["campfire crackling"]),
-    "waterfall": (["waterfall"], ["waterfall"]),
-    "drum": (["drum", "bass drum"], ["drum hit"]),
-    "piano": (["piano"], ["piano melody"]),
-    "guitar": (["acoustic guitar", "guitar strum"], ["acoustic guitar strum"]),
-    "violin": (["violin"], ["violin"]),
-    "flute": (["flute"], ["flute"]),
-    "bell": (["hand bell", "bell ringing"], ["small bell"]),
-    "tambourine": (["daf frame drum", "tambourine"], ["frame drum", "tambourine"]),
-    "hammer": (["hammering", "hammer nail"], ["hammer nail"]),
-    "saw": (["hand saw", "sawing wood"], ["sawing wood"]),
-    "ambulance": (["ambulance siren"], ["ambulance siren"]),
-    "firetruck": (["fire engine siren", "fire truck siren"], ["fire truck siren"]),
-    "police": (["police siren"], ["police siren"]),
-    "scissors": (["scissors cutting", "scissors"], ["scissors cutting paper"]),
-    "typing": (["typing keyboard", "typewriter"], ["keyboard typing"]),
-    "rocket": (["rocket launch"], ["rocket launch"]),
-    "robot": (["robot"], ["robot voice beep", "robot"]),
-    "spaceship": (["spaceship"], ["spaceship engine"]),
-    "satellite": (["satellite beep", "sputnik"], ["satellite beep"]),
-    "laser": (["laser"], ["laser shot"]),
-}
-AVOID = re.compile(r"\b(remix|loop|song by|imitation|imitating|speech|spoken|pronunciation|"
-                   r"music video|ringtone|parody|human)\b", re.I)
-FREE_LICENCES = re.compile(r"^(cc0|public domain|pd|cc[ -]by(-sa)?( \d\.\d)?)", re.I)
+UA = "GoshyarSoundFetcher/1.0 (kids listening game; https://github.com/mojtaba-pourasghar/goshyar_game)"
+FREE = re.compile(r"^(cc0|public domain|pd|cc[ -]by(-sa)?( \d\.\d)?)", re.I)
 
 
-def get(url: str, *, raw: bool = False, timeout: int = 40):
-    req = urllib.request.Request(url, headers={"User-Agent": UA})
-    with urllib.request.urlopen(req, timeout=timeout) as res:
-        body = res.read()
-    return body if raw else body.decode("utf-8", "replace")
+def fetch(url: str, *, timeout: int = 60) -> bytes:
+    for _ in range(40):
+        try:
+            req = urllib.request.Request(url, headers={"User-Agent": UA})
+            with urllib.request.urlopen(req, timeout=timeout) as res:
+                return res.read()
+        except urllib.error.HTTPError as err:
+            if err.code != 429:
+                raise
+            wait = int(err.headers.get("Retry-After") or 30) + 2
+            print(f"   (Commons asks to wait {wait}s)", file=sys.stderr, flush=True)
+            time.sleep(wait)
+    raise RuntimeError("Commons kept answering 429")
 
 
-# ── Wikimedia Commons ─────────────────────────────────────────────────────────
-def commons(query: str, limit: int = 12) -> list[dict]:
-    params = {
-        "action": "query", "format": "json", "generator": "search",
-        "gsrsearch": f"{query} filetype:audio", "gsrnamespace": "6", "gsrlimit": str(limit),
-        "prop": "imageinfo", "iiprop": "url|extmetadata|mime|size",
-        "iiextmetadatafilter": "LicenseShortName|Artist|ImageDescription|ObjectName",
-    }
-    data = json.loads(get("https://commons.wikimedia.org/w/api.php?" + urllib.parse.urlencode(params)))
-    found = []
-    for page in sorted((data.get("query") or {}).get("pages", {}).values(), key=lambda p: p.get("index", 99)):
-        info = (page.get("imageinfo") or [{}])[0]
-        meta = info.get("extmetadata") or {}
-        licence = (meta.get("LicenseShortName") or {}).get("value", "")
-        artist = re.sub(r"<[^>]+>", "", (meta.get("Artist") or {}).get("value", "")).strip()
-        found.append({
-            "from": "commons",
-            "title": page.get("title", ""),
-            "url": info.get("url", ""),
-            "page": info.get("descriptionurl", ""),
-            "licence": licence,
-            "author": html.unescape(artist),
-            "size": info.get("size", 0),
-        })
-    return found
+def api(**params) -> dict:
+    return json.loads(fetch("https://commons.wikimedia.org/w/api.php?"
+                            + urllib.parse.urlencode({**params, "format": "json"})))
 
 
-# ── Freesound (CC0 only, no API key: the search page and its preview MP3s) ──────
-def freesound(query: str) -> list[dict]:
-    url = ("https://freesound.org/search/?" + urllib.parse.urlencode({
-        "q": query, "f": 'license:"Creative Commons 0"', "s": "Rating descending"}))
-    page = get(url)
-    found = []
-    # each result carries its preview in a data attribute; the sound page link sits nearby
-    for m in re.finditer(r'data-mp3="(https://cdn\.freesound\.org/previews/[^"]+?)"', page):
-        mp3 = m.group(1).replace("-lq.mp3", "-hq.mp3")
-        near = page[max(0, m.start() - 3000): m.end() + 3000]
-        link = re.search(r'href="(/people/[^/"]+/sounds/(\d+)/)"', near)
-        title = re.search(r'data-title="([^"]+)"', near) or re.search(r'title="([^"]+)"', near)
-        found.append({
-            "from": "freesound",
-            "title": html.unescape(title.group(1)) if title else "",
-            "url": mp3,
-            "page": "https://freesound.org" + link.group(1) if link else "",
-            "licence": "CC0",
-            "author": link.group(1).split("/")[2] if link else "",
-            "size": 0,
-        })
-    return found
+def plain(meta: dict, key: str) -> str:
+    return re.sub(r"<[^>]+>", "", (meta.get(key) or {}).get("value", "")).strip()
 
 
-# ── cleaning ─────────────────────────────────────────────────────────────────
-def clean(src: Path, dst: Path, seconds: float) -> None:
+def info(titles: list[str]) -> dict[str, dict]:
+    """url, length, licence and author for Commons files, 40 at a time."""
+    out = {}
+    for i in range(0, len(titles), 40):
+        d = api(action="query", titles="|".join(titles[i:i + 40]), prop="videoinfo",
+                viprop="url|size|extmetadata",
+                viextmetadatafilter="LicenseShortName|LicenseUrl|Artist|ImageDescription")
+        norm = {n["to"]: n["from"] for n in d.get("query", {}).get("normalized", [])}
+        for page in d.get("query", {}).get("pages", {}).values():
+            vi = (page.get("videoinfo") or [{}])[0]
+            meta = vi.get("extmetadata") or {}
+            title = norm.get(page.get("title"), page.get("title"))
+            out[title] = {
+                "url": vi.get("url"),
+                "page": vi.get("descriptionurl"),
+                "duration": vi.get("duration"),
+                "licence": plain(meta, "LicenseShortName"),
+                "licence_url": plain(meta, "LicenseUrl"),
+                "author": plain(meta, "Artist"),
+                "missing": "missing" in page,
+            }
+        time.sleep(2)
+    return out
+
+
+def search(query: str) -> None:
+    d = api(action="query", generator="search", gsrsearch=f"{query} filetype:audio", gsrnamespace=6,
+            gsrlimit=30, prop="videoinfo", viprop="size|extmetadata",
+            viextmetadatafilter="LicenseShortName|ImageDescription")
+    pages = sorted(d.get("query", {}).get("pages", {}).values(), key=lambda p: p.get("index", 99))
+    for p in pages:
+        vi = (p.get("videoinfo") or [{}])[0]
+        meta = vi.get("extmetadata") or {}
+        print(f"{vi.get('duration') or 0:7.1f}s  {plain(meta, 'LicenseShortName'):14}  {p['title']}")
+        print(f"          {plain(meta, 'ImageDescription')[:120]}")
+
+
+def clean(src: Path, dst: Path, start: float, seconds: float) -> None:
     chain = ("silenceremove=start_periods=1:start_threshold=-50dB:start_silence=0.02,"
              "areverse,silenceremove=start_periods=1:start_threshold=-50dB:start_silence=0.05,areverse,"
              f"atrim=0:{seconds},afade=t=out:st={max(0, seconds - 0.4)}:d=0.4,"
              "apad=pad_dur=0.1,loudnorm=I=-14:TP=-1.5:LRA=11")
-    subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-t", "60", "-i", str(src), "-vn",
-                    "-ac", "1", "-ar", "44100", "-af", chain, "-c:a", "libmp3lame", "-b:a", "128k",
-                    str(dst)], check=True, stdin=subprocess.DEVNULL, timeout=120)
+    subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-ss", str(start), "-t", "60", "-i", str(src),
+                    "-vn", "-ac", "1", "-ar", "44100", "-af", chain, "-c:a", "libmp3lame", "-b:a", "128k",
+                    str(dst)], check=True, stdin=subprocess.DEVNULL, timeout=180)
+
+
+def loudest(path: Path, seconds: float) -> float:
+    """Start of the loudest `seconds`-long stretch: the whistle of a kettle, not the hiss before it."""
+    import array
+    rate, hop = 8000, 0.25
+    raw = subprocess.run(["ffmpeg", "-loglevel", "error", "-i", str(path), "-ac", "1", "-ar", str(rate),
+                          "-f", "s16le", "-"], capture_output=True, check=True, timeout=180,
+                         stdin=subprocess.DEVNULL).stdout
+    pcm = array.array("h", raw[: len(raw) // 2 * 2])
+    step = int(rate * hop)
+    energy = [sum(x * x for x in pcm[i:i + step]) / step for i in range(0, len(pcm) - step + 1, step)]
+    width = max(1, int(seconds / hop))
+    if len(energy) <= width:
+        return 0.0
+    window = sum(energy[:width])
+    best, best_at = window, 0
+    for i in range(width, len(energy)):
+        window += energy[i] - energy[i - width]
+        if window > best:
+            best, best_at = window, i - width + 1
+    return round(max(0.0, best_at * hop - 0.15), 2)
 
 
 def duration(path: Path) -> float:
-    out = subprocess.run(["ffprobe", "-v", "error", "-show_entries", "format=duration", "-of",
-                          "csv=p=0", str(path)], capture_output=True, text=True, timeout=30)
+    out = subprocess.run(["ffprobe", "-v", "error", "-show_entries", "format=duration", "-of", "csv=p=0",
+                          str(path)], capture_output=True, text=True, timeout=30)
     try:
         return float(out.stdout.strip())
     except ValueError:
         return 0.0
 
 
-def candidates(sound_id: str) -> list[dict]:
-    commons_q, freesound_q = QUERIES.get(sound_id, ([sound_id], [sound_id]))
-    found: list[dict] = []
-    for q in commons_q:
-        try:
-            found += commons(q)
-        except Exception as err:  # noqa: BLE001 — one source failing must not stop the other
-            print(f"   commons «{q}»: {err}", file=sys.stderr)
-        time.sleep(0.5)
-    for q in freesound_q:
-        try:
-            found += freesound(q)
-        except Exception as err:  # noqa: BLE001
-            print(f"   freesound «{q}»: {err}", file=sys.stderr)
-        time.sleep(1)
-    keep, seen = [], set()
-    for c in found:
-        if not c["url"] or c["url"] in seen:
-            continue
-        seen.add(c["url"])
-        if AVOID.search(c["title"]):
-            continue
-        if not FREE_LICENCES.match(c["licence"].strip()):
-            continue
-        if c["size"] and c["size"] > 40_000_000:
-            continue
-        keep.append(c)
-    return keep
-
-
 def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    ap.add_argument("ids", nargs="*", help="sound ids (default: every one still synthetic)")
-    ap.add_argument("--list", action="store_true", help="show candidates, write nothing")
-    ap.add_argument("--force", action="store_true", help="replace even sounds already replaced")
-    ap.add_argument("--pick", type=int, default=0, help="which candidate to use (0 = first that works)")
-    ap.add_argument("--seconds", type=float, default=5.0, help="longest clip kept (default 5)")
+    ap.add_argument("ids", nargs="*", help="sound ids (default: every pick not yet applied)")
+    ap.add_argument("--force", action="store_true", help="apply even picks already applied")
+    ap.add_argument("--search", metavar="QUERY", help="list Commons audio files for a query")
     args = ap.parse_args()
 
-    sounds = json.loads(LEVELS.read_text(encoding="utf-8"))["sounds"]
+    if args.search:
+        search(args.search)
+        return 0
+
+    sounds = {s["id"]: s for s in json.loads(LEVELS.read_text(encoding="utf-8"))["sounds"]}
+    picks = json.loads(PICKS.read_text(encoding="utf-8"))["picks"]
     sources = (json.loads(SOURCES.read_text(encoding="utf-8")) if SOURCES.exists() else
                {"note": "صدای حیوان‌ها و وسایل که با فایل واقعی جایگزین شده‌اند. صدایی که اینجا "
                         "نیست هنوز همان صدای سنتزیِ نسخه‌ی قبلی است.", "files": {}})
-    wanted = [s for s in sounds if (not args.ids or s["id"] in args.ids)
-              and (args.force or args.ids or s["id"] not in sources["files"])]
 
-    done, missed = 0, []
-    for sound in wanted:
-        sid = sound["id"]
-        print(f"• {sid} ({sound['title']})")
-        found = candidates(sid)
-        if args.list:
-            for i, c in enumerate(found[:8]):
-                print(f"   [{i}] {c['from']:9} {c['licence']:14} {c['title'][:70]}  {c['page']}")
-            if not found:
-                print("   — چیزی پیدا نشد")
+    todo = []
+    for sid, pick in picks.items():
+        if sid not in sounds:
+            print(f"! {sid}: در levels.json نیست — رد شد")
             continue
+        if args.ids and sid not in args.ids:
+            continue
+        applied = sources["files"].get(sid, {})
+        if not args.force and applied.get("commons") == pick["file"]:
+            continue
+        todo.append((sid, pick))
+    if not todo:
+        print("چیزی برای انجام نیست.")
+        return 0
 
+    meta = info([p["file"] for _, p in todo])
+    failed = []
+    for sid, pick in todo:
+        sound, m = sounds[sid], meta.get(pick["file"]) or {}
+        print(f"• {sid} ({sound['title']}) ← {pick['file']}")
+        if not m.get("url") or m.get("missing"):
+            print("   ✗ روی Commons پیدا نشد")
+            failed.append(sid)
+            continue
+        if not FREE.match(m["licence"]):
+            print(f"   ✗ مجوز آزاد نیست: {m['licence']}")
+            failed.append(sid)
+            continue
         target = ROOT / "assets" / sound["audio"]
-        ok = False
-        for c in found[args.pick:]:
-            with tempfile.TemporaryDirectory() as tmp:
-                src = Path(tmp) / ("in" + (Path(urllib.parse.urlparse(c["url"]).path).suffix or ".bin"))
-                out = Path(tmp) / "out.mp3"
-                try:
-                    src.write_bytes(get(c["url"], raw=True, timeout=120))
-                    clean(src, out, args.seconds)
-                except Exception as err:  # noqa: BLE001
-                    print(f"   ✗ {c['title'][:60]}: {err}")
-                    continue
-                length = duration(out)
-                if length < 0.4 or out.stat().st_size < 4000:
-                    print(f"   ✗ {c['title'][:60]}: خروجی خیلی کوتاه است ({length:.1f}s)")
-                    continue
-                target.write_bytes(out.read_bytes())
-            sources["files"][sid] = {
-                "file": sound["audio"],
-                "original": c["title"],
-                "source": c["page"] or c["url"],
-                "license": c["licence"],
-                "author": c["author"],
-                "via": "tools/sfx/fetch_sounds.py",
-                "at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
-            }
-            print(f"   ✓ {c['from']} · {c['licence']} · {c['title'][:60]} → {sound['audio']} ({length:.1f}s)")
-            ok = True
-            break
-        if ok:
-            done += 1
-            SOURCES.parent.mkdir(parents=True, exist_ok=True)
-            files = dict(sorted(sources["files"].items()))
-            SOURCES.write_text(json.dumps({**sources, "files": files}, ensure_ascii=False, indent=2) + "\n",
-                               encoding="utf-8")
-        else:
-            missed.append(sid)
+        with tempfile.TemporaryDirectory() as tmp:
+            src = Path(tmp) / ("in" + Path(urllib.parse.urlparse(m["url"]).path).suffix)
+            out = Path(tmp) / "out.mp3"
+            try:
+                src.write_bytes(fetch(m["url"], timeout=180))
+                seconds = float(pick.get("seconds", 5))
+                # a long recording keeps its loudest stretch unless the pick names a start
+                start = pick.get("start")
+                if start is None:
+                    start = loudest(src, seconds) if duration(src) > seconds + 1 else 0.0
+                pick = {**pick, "start": start}
+                clean(src, out, float(start), seconds)
+            except Exception as err:  # noqa: BLE001 — report it and go on with the next sound
+                print(f"   ✗ {err}")
+                failed.append(sid)
+                continue
+            length = duration(out)
+            if length < 0.4:
+                print(f"   ✗ خروجی خیلی کوتاه است ({length:.1f}s)")
+                failed.append(sid)
+                continue
+            target.write_bytes(out.read_bytes())
+        sources["files"][sid] = {
+            "file": sound["audio"],
+            "commons": pick["file"],
+            "source": m["page"],
+            "license": m["licence"],
+            "license_url": m["licence_url"],
+            "author": m["author"],
+            "kept": f"{pick.get('start', 0)}s + {pick.get('seconds', 5)}s",
+            "via": "tools/sfx/fetch_sounds.py",
+            "at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
+        }
+        SOURCES.parent.mkdir(parents=True, exist_ok=True)
+        SOURCES.write_text(json.dumps({**sources, "files": dict(sorted(sources["files"].items()))},
+                                      ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+        print(f"   ✓ {m['licence']} · {m['author'][:40]} → {sound['audio']} ({length:.1f}s)")
+        time.sleep(1)
 
-    if not args.list:
-        print(f"\n{done} صدا جایگزین شد." + (f" پیدا نشد: {', '.join(missed)}" if missed else ""))
-    return 0 if not missed else 1
+    print(f"\n{len(todo) - len(failed)} صدا جایگزین شد." + (f" نشد: {', '.join(failed)}" if failed else ""))
+    return 1 if failed else 0
 
 
 if __name__ == "__main__":
