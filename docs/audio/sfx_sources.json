@@ -56,6 +56,17 @@
       "via": "tools/sfx/fetch_sounds.py",
       "at": "2026-10-14T07:59:12+00:00"
     },
+    "door": {
+      "file": "audio/sfx/home_door.mp3",
+      "commons": "File:Knock on door.wav",
+      "source": "https://commons.wikimedia.org/wiki/File:Knock_on_door.wav",
+      "license": "CC0",
+      "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "author": "Asud12",
+      "kept": "0s + 4.0s",
+      "via": "tools/sfx/fetch_sounds.py",
+      "at": "2026-10-14T09:48:18+00:00"
+    },
     "doorbell": {
       "file": "audio/sfx/home_doorbell.mp3",
       "commons": "File:Doorbell-classic-dingdong.ogg",
@@ -66,6 +77,28 @@
       "kept": "0s + 4.0s",
       "via": "tools/sfx/fetch_sounds.py",
       "at": "2026-10-14T09:41:13+00:00"
+    },
+    "drum": {
+      "file": "audio/sfx/music_drum.mp3",
+      "commons": "File:Drum - Cadence A.ogg",
+      "source": "https://commons.wikimedia.org/wiki/File:Drum_-_Cadence_A.ogg",
+      "license": "Public domain",
+      "license_url": "",
+      "author": "Unknown authorUnknown author",
+      "kept": "0s + 5.0s",
+      "via": "tools/sfx/fetch_sounds.py",
+      "at": "2026-10-14T09:52:17+00:00"
+    },
+    "duck": {
+      "file": "audio/sfx/animals_duck.mp3",
+      "commons": "File:Domestic duck sound 01.wav",
+      "source": "https://commons.wikimedia.org/wiki/File:Domestic_duck_sound_01.wav",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "author": "Ganesh Mohan T",
+      "kept": "3.1s + 4.0s",
+      "via": "tools/sfx/fetch_sounds.py",
+      "at": "2026-10-14T09:43:32+00:00"
     },
     "elephant": {
       "file": "audio/sfx/animals_elephant.mp3",
@@ -89,6 +122,83 @@
       "via": "tools/sfx/fetch_sounds.py",
       "at": "2026-10-14T09:41:30+00:00"
     },
+    "flute": {
+      "file": "audio/sfx/music_flute.mp3",
+      "commons": "File:Bach - Partita For Solo Flute - Modern Flute - 4. Bouree.ogg",
+      "source": "https://commons.wikimedia.org/wiki/File:Bach_-_Partita_For_Solo_Flute_-_Modern_Flute_-_4._Bouree.ogg",
+      "license": "CC BY-SA 2.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/2.0",
+      "author": "Scott Goff (flute)",
+      "kept": "0s + 7.0s",
+      "via": "tools/sfx/fetch_sounds.py",
+      "at": "2026-10-14T09:57:00+00:00"
+    },
+    "frog": {
+      "file": "audio/sfx/animals_frog.mp3",
+      "commons": "File:Edible frogs, sounds. May. The Village of Krzemienica, Łódź Voivodeship, Poland.ogg",
+      "source": "https://commons.wikimedia.org/wiki/File:Edible_frogs,_sounds._May._The_Village_of_Krzemienica,_%C5%81%C3%B3d%C5%BA_Voivodeship,_Poland.ogg",
+      "license": "Public domain",
+      "license_url": "",
+      "author": "WrS.tm.pl",
+      "kept": "1.6s + 5.0s",
+      "via": "tools/sfx/fetch_sounds.py",
+      "at": "2026-10-14T09:44:24+00:00"
+    },
+    "guitar": {
+      "file": "audio/sfx/music_guitar.mp3",
+      "commons": "File:El Noi de la Mare (guitar).ogg",
+      "source": "https://commons.wikimedia.org/wiki/File:El_Noi_de_la_Mare_(guitar).ogg",
+      "license": "Public domain",
+      "license_url": "",
+      "author": "Jujutacular",
+      "kept": "0s + 7.0s",
+      "via": "tools/sfx/fetch_sounds.py",
+      "at": "2026-10-14T09:54:02+00:00"
+    },
+    "horse": {
+      "file": "audio/sfx/animals_horse.mp3",
+      "commons": "File:Wiehern.ogg",
+      "source": "https://commons.wikimedia.org/wiki/File:Wiehern.ogg",
+      "license": "Public domain",
+      "license_url": "",
+      "author": "Hü.",
+      "kept": "0.0s + 4.0s",
+      "via": "tools/sfx/fetch_sounds.py",
+      "at": "2026-10-14T09:43:05+00:00"
+    },
+    "kettle": {
+      "file": "audio/sfx/home_kettle.mp3",
+      "commons": "File:Kettle whistle.ogg",
+      "source": "https://commons.wikimedia.org/wiki/File:Kettle_whistle.ogg",
+      "license": "CC BY-SA 3.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+      "author": "Secretlondon",
+      "kept": "11.1s + 5.0s",
+      "via": "tools/sfx/fetch_sounds.py",
+      "at": "2026-10-14T09:47:25+00:00"
+    },
+    "phone": {
+      "file": "audio/sfx/home_phone.mp3",
+      "commons": "File:Model 500 Telephone British ring.ogg",
+      "source": "https://commons.wikimedia.org/wiki/File:Model_500_Telephone_British_ring.ogg",
+      "license": "CC BY-SA 3.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+      "author": "CianMcCann",
+      "kept": "0s + 5.0s",
+      "via": "tools/sfx/fetch_sounds.py",
+      "at": "2026-10-14T09:45:28+00:00"
+    },
+    "piano": {
+      "file": "audio/sfx/music_piano.mp3",
+      "commons": "File:Bach, JS - Minuet in G (Piano Performance by eldüendesüarez).wav",
+      "source": "https://commons.wikimedia.org/wiki/File:Bach,_JS_-_Minuet_in_G_(Piano_Performance_by_eld%C3%BCendes%C3%BCarez).wav",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "author": "Bach, JS",
+      "kept": "0s + 7.0s",
+      "via": "tools/sfx/fetch_sounds.py",
+      "at": "2026-10-14T09:52:57+00:00"
+    },
     "rain": {
       "file": "audio/sfx/nature_rain.mp3",
       "commons": "File:Heavy Rain in Summer.ogg",
@@ -99,6 +209,17 @@
       "kept": "3.1s + 5.0s",
       "via": "tools/sfx/fetch_sounds.py",
       "at": "2026-10-14T09:41:20+00:00"
+    },
+    "river": {
+      "file": "audio/sfx/nature_river.mp3",
+      "commons": "File:Hemlock stream.ogg",
+      "source": "https://commons.wikimedia.org/wiki/File:Hemlock_stream.ogg",
+      "license": "Public domain",
+      "license_url": "",
+      "author": "Dirtslayer",
+      "kept": "2.85s + 5.0s",
+      "via": "tools/sfx/fetch_sounds.py",
+      "at": "2026-10-14T09:50:57+00:00"
     },
     "rooster": {
       "file": "audio/sfx/animals_rooster.mp3",
@@ -111,6 +232,17 @@
       "via": "tools/sfx/fetch_sounds.py",
       "at": "2026-10-14T09:41:11+00:00"
     },
+    "sea": {
+      "file": "audio/sfx/nature_sea.mp3",
+      "commons": "File:Ocean Waves on a Tropical Beach.ogg",
+      "source": "https://commons.wikimedia.org/wiki/File:Ocean_Waves_on_a_Tropical_Beach.ogg",
+      "license": "CC0",
+      "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "author": "Jarrod stanley",
+      "kept": "349.35s + 6.0s",
+      "via": "tools/sfx/fetch_sounds.py",
+      "at": "2026-10-14T09:48:51+00:00"
+    },
     "sheep": {
       "file": "audio/sfx/animals_sheep.mp3",
       "commons": "File:Sheep bleating.ogg",
@@ -121,6 +253,17 @@
       "kept": "3.35s + 4.0s",
       "via": "tools/sfx/fetch_sounds.py",
       "at": "2026-10-14T09:41:07+00:00"
+    },
+    "tap": {
+      "file": "audio/sfx/home_tap.mp3",
+      "commons": "File:ZapSibAudio-Water from the tap.ogg",
+      "source": "https://commons.wikimedia.org/wiki/File:ZapSibAudio-Water_from_the_tap.ogg",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "author": "MaksimPinigin",
+      "kept": "0.85s + 5.0s",
+      "via": "tools/sfx/fetch_sounds.py",
+      "at": "2026-10-14T09:48:17+00:00"
     },
     "thunder": {
       "file": "audio/sfx/nature_thunder.mp3",
@@ -144,6 +287,28 @@
       "via": "tools/sfx/fetch_sounds.py",
       "at": "2026-10-14T09:41:26+00:00"
     },
+    "vacuum": {
+      "file": "audio/sfx/home_vacuum.mp3",
+      "commons": "File:Het aanstaan van een stofzuiger - SoundCloud - Beeld en Geluid.ogg",
+      "source": "https://commons.wikimedia.org/wiki/File:Het_aanstaan_van_een_stofzuiger_-_SoundCloud_-_Beeld_en_Geluid.ogg",
+      "license": "CC BY-SA 3.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+      "author": "Beeld en Geluid",
+      "kept": "112.35s + 5.0s",
+      "via": "tools/sfx/fetch_sounds.py",
+      "at": "2026-10-14T09:47:23+00:00"
+    },
+    "violin": {
+      "file": "audio/sfx/music_violin.mp3",
+      "commons": "File:Violin chords.ogg",
+      "source": "https://commons.wikimedia.org/wiki/File:Violin_chords.ogg",
+      "license": "CC BY-SA 3.0",
+      "license_url": "http://creativecommons.org/licenses/by-sa/3.0/",
+      "author": "Myself",
+      "kept": "0s + 6.0s",
+      "via": "tools/sfx/fetch_sounds.py",
+      "at": "2026-10-14T09:56:44+00:00"
+    },
     "washer": {
       "file": "audio/sfx/home_washer.mp3",
       "commons": "File:Washing machine.ogg",
@@ -154,6 +319,28 @@
       "kept": "0.6s + 5.0s",
       "via": "tools/sfx/fetch_sounds.py",
       "at": "2026-10-14T09:41:18+00:00"
+    },
+    "waterfall": {
+      "file": "audio/sfx/nature_waterfall.mp3",
+      "commons": "File:Water fall.ogg",
+      "source": "https://commons.wikimedia.org/wiki/File:Water_fall.ogg",
+      "license": "CC BY-SA 3.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+      "author": "Benzband",
+      "kept": "4.85s + 5.0s",
+      "via": "tools/sfx/fetch_sounds.py",
+      "at": "2026-10-14T09:51:37+00:00"
+    },
+    "wind": {
+      "file": "audio/sfx/nature_wind.mp3",
+      "commons": "File:Wind in Swedish pine forest at 25 mps.ogg",
+      "source": "https://commons.wikimedia.org/wiki/File:Wind_in_Swedish_pine_forest_at_25_mps.ogg",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "author": "W.carter",
+      "kept": "42.6s + 5.0s",
+      "via": "tools/sfx/fetch_sounds.py",
+      "at": "2026-10-14T09:48:21+00:00"
     }
   }
 }
