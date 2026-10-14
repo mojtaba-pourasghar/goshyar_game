@@ -43,7 +43,11 @@ UA = "GoshyarSoundFetcher/1.0 (kids listening game; https://github.com/mojtaba-p
 FREE = re.compile(r"^(cc0|public domain|pd|cc[ -]by(-sa)?( \d\.\d)?)", re.I)
 
 
-def fetch(url: str, *, timeout: int = 60) -> bytes:
+class Deferred(RuntimeError):
+    """Commons asked for a long pause on this one file; the others go on and it comes back last."""
+
+
+def fetch(url: str, *, timeout: int = 60, patience: int = 120) -> bytes:
     for _ in range(40):
         try:
             req = urllib.request.Request(url, headers={"User-Agent": UA})
@@ -53,6 +57,8 @@ def fetch(url: str, *, timeout: int = 60) -> bytes:
             if err.code != 429:
                 raise
             wait = int(err.headers.get("Retry-After") or 30) + 2
+            if wait > patience:
+                raise Deferred(f"Commons asks to wait {wait}s for this file") from err
             print(f"   (Commons asks to wait {wait}s)", file=sys.stderr, flush=True)
             time.sleep(wait)
     raise RuntimeError("Commons kept answering 429")
@@ -178,60 +184,72 @@ def main() -> int:
         return 0
 
     meta = info([p["file"] for _, p in todo])
-    failed = []
+    failed, deferred = [], []
     for sid, pick in todo:
-        sound, m = sounds[sid], meta.get(pick["file"]) or {}
-        print(f"• {sid} ({sound['title']}) ← {pick['file']}")
-        if not m.get("url") or m.get("missing"):
-            print("   ✗ روی Commons پیدا نشد")
+        outcome = apply(sid, pick, sounds[sid], meta.get(pick["file"]) or {}, sources)
+        if outcome == "deferred":
+            deferred.append((sid, pick))
+        elif outcome != "ok":
             failed.append(sid)
-            continue
-        if not FREE.match(m["licence"]):
-            print(f"   ✗ مجوز آزاد نیست: {m['licence']}")
+
+    # the files Commons held back get one more chance, with the full wait it asks for
+    for sid, pick in deferred:
+        if apply(sid, pick, sounds[sid], meta.get(pick["file"]) or {}, sources, patience=900) != "ok":
             failed.append(sid)
-            continue
-        target = ROOT / "assets" / sound["audio"]
-        with tempfile.TemporaryDirectory() as tmp:
-            src = Path(tmp) / ("in" + Path(urllib.parse.urlparse(m["url"]).path).suffix)
-            out = Path(tmp) / "out.mp3"
-            try:
-                src.write_bytes(fetch(m["url"], timeout=180))
-                seconds = float(pick.get("seconds", 5))
-                # a long recording keeps its loudest stretch unless the pick names a start
-                start = pick.get("start")
-                if start is None:
-                    start = loudest(src, seconds) if duration(src) > seconds + 1 else 0.0
-                pick = {**pick, "start": start}
-                clean(src, out, float(start), seconds)
-            except Exception as err:  # noqa: BLE001 — report it and go on with the next sound
-                print(f"   ✗ {err}")
-                failed.append(sid)
-                continue
-            length = duration(out)
-            if length < 0.4:
-                print(f"   ✗ خروجی خیلی کوتاه است ({length:.1f}s)")
-                failed.append(sid)
-                continue
-            target.write_bytes(out.read_bytes())
-        sources["files"][sid] = {
-            "file": sound["audio"],
-            "commons": pick["file"],
-            "source": m["page"],
-            "license": m["licence"],
-            "license_url": m["licence_url"],
-            "author": m["author"],
-            "kept": f"{pick.get('start', 0)}s + {pick.get('seconds', 5)}s",
-            "via": "tools/sfx/fetch_sounds.py",
-            "at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
-        }
-        SOURCES.parent.mkdir(parents=True, exist_ok=True)
-        SOURCES.write_text(json.dumps({**sources, "files": dict(sorted(sources["files"].items()))},
-                                      ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-        print(f"   ✓ {m['licence']} · {m['author'][:40]} → {sound['audio']} ({length:.1f}s)")
-        time.sleep(1)
 
     print(f"\n{len(todo) - len(failed)} صدا جایگزین شد." + (f" نشد: {', '.join(failed)}" if failed else ""))
     return 1 if failed else 0
+
+
+def apply(sid: str, pick: dict, sound: dict, m: dict, sources: dict, *, patience: int = 120) -> str:
+    """Downloads, cleans and writes one sound. Returns "ok", "deferred" or "failed"."""
+    print(f"• {sid} ({sound['title']}) ← {pick['file']}", flush=True)
+    if not m.get("url") or m.get("missing"):
+        print("   ✗ روی Commons پیدا نشد")
+        return "failed"
+    if not FREE.match(m["licence"]):
+        print(f"   ✗ مجوز آزاد نیست: {m['licence']}")
+        return "failed"
+    target = ROOT / "assets" / sound["audio"]
+    with tempfile.TemporaryDirectory() as tmp:
+        src = Path(tmp) / ("in" + Path(urllib.parse.urlparse(m["url"]).path).suffix)
+        out = Path(tmp) / "out.mp3"
+        try:
+            src.write_bytes(fetch(m["url"], timeout=180, patience=patience))
+            seconds = float(pick.get("seconds", 5))
+            # a long recording keeps its loudest stretch unless the pick names a start
+            start = pick.get("start")
+            if start is None:
+                start = loudest(src, seconds) if duration(src) > seconds + 1 else 0.0
+            clean(src, out, float(start), seconds)
+        except Deferred as err:
+            print(f"   … {err} — بعد از بقیه دوباره", flush=True)
+            return "deferred"
+        except Exception as err:  # noqa: BLE001 — report it and go on with the next sound
+            print(f"   ✗ {err}", flush=True)
+            return "failed"
+        length = duration(out)
+        if length < 0.4:
+            print(f"   ✗ خروجی خیلی کوتاه است ({length:.1f}s)")
+            return "failed"
+        target.write_bytes(out.read_bytes())
+    sources["files"][sid] = {
+        "file": sound["audio"],
+        "commons": pick["file"],
+        "source": m["page"],
+        "license": m["licence"],
+        "license_url": m["licence_url"],
+        "author": m["author"],
+        "kept": f"{start}s + {seconds}s",
+        "via": "tools/sfx/fetch_sounds.py",
+        "at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
+    }
+    SOURCES.parent.mkdir(parents=True, exist_ok=True)
+    SOURCES.write_text(json.dumps({**sources, "files": dict(sorted(sources["files"].items()))},
+                                  ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    print(f"   ✓ {m['licence']} · {m['author'][:40]} → {sound['audio']} ({length:.1f}s)", flush=True)
+    time.sleep(1)
+    return "ok"
 
 
 if __name__ == "__main__":
