@@ -3,8 +3,9 @@
 // A browser cannot write to a folder you name, and it cannot call the آواشو gateway without
 // being stopped by CORS. So the React page talks to this small Express server, which keeps the
 // token, reads the manifest, records one line at a time, and writes the files where you said.
-// Nothing is uploaded or pushed anywhere: the only things it writes are audio files in your
-// output folder and its own config beside this file.
+// Nothing is uploaded or pushed anywhere: the only things it writes are audio files inside the
+// project (assets/audio/voice, assets/audio/sfx), the lists beside them in docs/, and its own
+// config beside this file.
 
 import express from "express";
 import fs from "node:fs";
@@ -16,8 +17,7 @@ import { fileURLToPath } from "node:url";
 import { readManifest, existingKeys, setSpoken, GROUP_LABELS } from "./manifest.js";
 import { createRegistry } from "./tts-registry.js";
 import { speak, SPEAKERS, VOICES, RateLimited } from "./avasho.js";
-import { AUDIO_BASE, writeAudioIndex } from "./publish.js";
-import { probe, uploadFiles, audioFilesIn, ftpHint } from "./ftp.js";
+import { createSfx } from "./sfx.js";
 
 const HERE = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(HERE, "..");
@@ -27,8 +27,6 @@ const PORT = Number(process.env.PORT || 5174);
 const APP = path.resolve(ROOT, "../..");
 // Listening clips (_test-…, _diag-…, _sample-…) stay out of assets/audio/voice, which ships in the APK.
 const SAMPLES = path.join(ROOT, "samples");
-// The index.json the optional FTP upload sends.
-const PUBLISH = path.join(ROOT, "publish");
 // Which clips are TTS (temporary) and which are human recordings — see server/tts-registry.js.
 const registry = createRegistry(path.join(APP, "docs/voice/tts_generated.json"));
 
@@ -40,9 +38,6 @@ const DEFAULTS = {
   // The app plays audio/voice/<key>.mp3 from its bundled assets (or a downloaded voice-fa
   // pack), so clips are written straight there and travel with the project.
   outDir: path.join(APP, "assets/audio/voice"),
-  // CDN version folder used by «ساخت بسته‌ی Cloudflare» (cloudflare/scripts/build_packs.py).
-  assetVersion: "v1",
-  audioBase: AUDIO_BASE,
   speaker: "pune",         // پونه — a warm voice, right for a bear talking to a child
   // 1 is the service's own pace, which for a third-grader runs ahead of the animation on the
   // stage. A shade under it lets the words breathe and the sentence stay in one piece, which
@@ -62,19 +57,6 @@ const DEFAULTS = {
   // Needs ffmpeg on PATH. Without it the service's own file is kept.
   normalize: true,
   schedule: { enabled: false, everySeconds: 300, batchSize: 25 },
-
-  // where the finished files are sent. The paths are the real ones on the server, under
-  // /public_html — the same folders the app's URLs point at.
-  // Optional. گوش‌یار does not need it: the clips are already in the APK. It is kept for
-  // the day the narration is served from a host instead, and is empty until then.
-  ftp: {
-    host: "",
-    port: 21,
-    user: "",
-    password: "",
-    secure: false,
-    audioDir: "",
-  },
 };
 
 /**
@@ -116,7 +98,6 @@ try {
     config = {
       ...DEFAULTS, ...saved,
       schedule: { ...DEFAULTS.schedule, ...(saved.schedule || {}) },
-      ftp: { ...DEFAULTS.ftp, ...(saved.ftp || {}) },
     };
     if (normalizeEndpoint(config.endpoint) === "long") {
       migrated = `نقطه‌ی سرویس از avasho-large به متنِ کوتاه برگشت (جمله‌های بازی کوتاه‌اند)`;
@@ -137,7 +118,7 @@ config.speaker = normalizeSpeaker(config.speaker);
 let savedAt = fs.existsSync(CONFIG_FILE) ? fs.statSync(CONFIG_FILE).mtimeMs : 0;
 
 /**
- * Writes the settings — token and FTP password included — beside this file. Written to a
+ * Writes the settings — the token included — beside this file. Written to a
  * temporary name first and then moved, so a crash half-way cannot leave a truncated config
  * that would look on the next launch as though the token had vanished.
  */
@@ -209,6 +190,38 @@ function normalizeForApp(src, dst) {
     ff.on("close", (code) => resolve(code === 0));
   });
 }
+
+// Effects are louder and shorter than speech: silence trimmed at both ends, cut to a few seconds
+// with a soft fade-out so a long field recording does not run on under the next question, and
+// brought to −14 LUFS. Only the first minute of the input is read, and ffmpeg is stopped after
+// two minutes whatever happens, so a strange file cannot hang the page.
+function normalizeSfx(src, dst, maxSeconds) {
+  const seconds = Math.min(15, Math.max(1, Number(maxSeconds) || 6));
+  const filter = "silenceremove=start_periods=1:start_threshold=-50dB:start_silence=0.02,"
+    + "areverse,silenceremove=start_periods=1:start_threshold=-50dB:start_silence=0.05,areverse,"
+    + `atrim=0:${seconds},afade=t=out:st=${Math.max(0, seconds - 0.4)}:d=0.4,`
+    + "apad=pad_dur=0.1,loudnorm=I=-14:TP=-1.5:LRA=11";
+  return new Promise((resolve) => {
+    const ff = spawn("ffmpeg", ["-y", "-loglevel", "error", "-t", "60", "-i", src, "-vn", "-ac", "1",
+      "-ar", "44100", "-af", filter, "-c:a", "libmp3lame", "-b:a", "128k", dst],
+      { stdio: ["ignore", "ignore", "pipe"] });
+    const timer = setTimeout(() => ff.kill(), 120000);
+    let err = "";
+    ff.stderr.on("data", (d) => { err += d; });
+    ff.on("error", (e) => { clearTimeout(timer); resolve({ ok: false, error: e.message }); });
+    ff.on("close", (code) => {
+      clearTimeout(timer);
+      resolve(code === 0 ? { ok: true } : { ok: false, error: err.trim().slice(-300) || "ffmpeg ایستاد" });
+    });
+  });
+}
+
+let hasFfmpeg = false;
+spawn("ffmpeg", ["-version"]).on("error", () => { hasFfmpeg = false; })
+  .on("close", (code) => {
+    hasFfmpeg = code === 0;
+    if (!hasFfmpeg) say("warn", "ffmpeg پیدا نشد — یکسان‌سازی صدا و بخشِ «صدای حیوان‌ها و وسایل» کار نمی‌کند");
+  });
 
 /** Record one line and write it into the output folder. */
 async function recordOne(line, { force = false } = {}) {
@@ -405,7 +418,6 @@ app.use(express.json({ limit: "64mb" }));   // a worksheet PDF arrives as base64
 
 const publicConfig = () => ({
   ...config,
-  ftp: { ...config.ftp, password: undefined, passwordSet: Boolean(config.ftp.password) },
   token: undefined,
   tokenSet: Boolean(config.token),
   tokenHint: config.token ? `${config.token.slice(0, 6)}…${config.token.slice(-4)}` : "",
@@ -414,14 +426,14 @@ const publicConfig = () => ({
   speakers: SPEAKERS,
   voices: VOICES,
   groupLabels: GROUP_LABELS,
-  ffmpeg: true,
+  ffmpeg: hasFfmpeg,
 });
 
 app.get("/api/config", (_req, res) => res.json(publicConfig()));
 
 app.post("/api/config", (req, res) => {
   const body = req.body || {};
-  for (const key of ["manifestPath", "outDir", "audioBase", "assetVersion"]) {
+  for (const key of ["manifestPath", "outDir"]) {
     if (typeof body[key] === "string" && body[key].trim()) config[key] = body[key].trim();
   }
   if (typeof body.speaker === "string" && body.speaker.trim()) {
@@ -447,13 +459,6 @@ app.post("/api/config", (req, res) => {
   if (body.schedule) {
     config.schedule = { ...config.schedule, ...body.schedule };
     applySchedule();
-  }
-  if (body.ftp) {
-    const next = { ...config.ftp, ...body.ftp };
-    if (body.ftp.password === undefined) next.password = config.ftp.password;  // keep the old one
-    if (body.ftp.password === "") next.password = "";                          // unless cleared
-    config.ftp = next;
-    say("info", "تنظیماتِ FTP ذخیره شد" + (next.password ? "" : " (رمز خالی است)"));
   }
   saveConfig();
   res.json(publicConfig());
@@ -486,39 +491,6 @@ app.get("/api/manifest", (_req, res) => {
 });
 
 app.get("/api/status", (_req, res) => res.json({ ...snapshot(), log: log.slice(-120) }));
-
-// ── the voice-fa pack for Cloudflare ─────────────────────────────────────────
-// Runs cloudflare/scripts/build_packs.py, which copies the clips into cloudflare/dist with a
-// packs.json (size + sha256 per file) that the app's DownloadManager reads. Uploading is a
-// separate, deliberate step (cloudflare/scripts/upload.sh) that needs your wrangler login.
-app.post("/api/publish/audio", (_req, res) => {
-  const version = String(config.assetVersion || "v1").replace(/[^A-Za-z0-9._-]/g, "") || "v1";
-  const py = spawn("python3", ["cloudflare/scripts/build_packs.py", "--version", version,
-    "--voice-dir", config.outDir], { cwd: APP });
-  let out = "";
-  let answered = false;
-  py.stdout.on("data", (d) => { out += d; });
-  py.stderr.on("data", (d) => { out += d; });
-  py.on("error", (err) => {
-    answered = true;
-    res.status(400).json({ error: `python3 اجرا نشد: ${err.message}` });
-  });
-  py.on("close", (code) => {
-    if (answered) return;
-    if (code !== 0) {
-      say("error", `بسته ساخته نشد: ${out.trim().slice(-400)}`);
-      return res.status(400).json({ error: out.trim().slice(-400) || `کد خروج ${code}` });
-    }
-    const voice = out.match(/voice-fa\s+(\d+)/);
-    const count = voice ? Number(voice[1]) : 0;
-    const dir = path.join(APP, "cloudflare/dist/goshyar", version);
-    say("ok", `بسته‌ی voice-fa ساخته شد: ${count} کلیپ → ${dir}`);
-    res.json({ count, version, dir, log: out.trim() });
-  });
-});
-
-
-
 
 // ── «does the service work at all?» ──────────────────────────────────────────
 // One call, with every exchange written down: the address, the status, how long it took and
@@ -791,202 +763,6 @@ app.delete("/api/text/:key", (req, res) => {
   res.json({ ok: true });
 });
 
-// ── sending the finished files to the host ───────────────────────────────────
-const upload = { running: false, stopping: false, what: "", done: 0, total: 0,
-                 sent: 0, skipped: 0, failed: 0 };
-
-// Where the connection got to, and the handshake itself. The page shows both: an FTP that
-// says nothing is indistinguishable from an FTP that is broken.
-const link = { state: "", phase: "", note: "", lines: [], at: 0, info: null, error: "",
-               warning: "" };
-
-function uploadSnapshot() {
-  return { ...upload, link };
-}
-
-/** Records a phase, both in the log and in the panel. */
-function ftpPhase(name, note = "") {
-  const words = {
-    connect: "در حالِ اتصال به", login: "وارد شد با کاربرِ", pwd: "پوشه‌ی ورود:",
-    dir: "پوشه‌ی مقصد:", list: "فهرستِ پوشه:",
-  };
-  link.phase = name;
-  link.note = note;
-  link.state = name === "connect" ? "در حالِ اتصال" : "وصل است";
-  say("info", `FTP · ${words[name] || name} ${note}`);
-  push("upload", uploadSnapshot());
-}
-
-/** One line of the conversation on the wire. The password never reaches here. */
-function ftpLine(text) {
-  link.lines = [...link.lines.slice(-60), text];
-  push("upload", uploadSnapshot());
-}
-
-/**
- * The cPanel trap, in both shapes it takes.
- *
- * Some hosts log you in above public_html, some drop you straight inside it. A path that
- * starts with /public_html is right for the first and wrong for the second — and when it is
- * wrong nothing fails: the files go to a folder that really exists, just not the one the web
- * server serves, and the app never finds them. So the login folder is read and compared.
- */
-function pathTrap(info) {
-  const head = String(info.remoteDir || "").split("/").filter(Boolean)[0];
-  if (!head) return "";
-  const landed = String(info.loginDir || "").replace(/\/+$/, "");
-  const names = info.loginNames || [];
-
-  if (landed.endsWith(`/${head}`)) {
-    return `پوشه‌ی ورودِ تو خودش «${head}» است و مسیرِ مقصد هم با «${head}» شروع می‌شود — `
-      + `فایل‌ها در ${landed}/${head}/… می‌افتند. «${head}/» را از ابتدای مسیر بردار.`;
-  }
-  if (names.length && !names.some((n) => n.replace(/\/$/, "") === head)) {
-    return `در پوشه‌ی ورود چیزی به نامِ «${head}» نیست (اینجا هست: ${names.slice(0, 6).join("، ")})`
-      + ` — یعنی یا همین حالا داخلِ آن هستی یا نامش چیزِ دیگری است. این مسیر یک پوشه‌ی تازه`
-      + ` می‌سازد و اپ فایل‌ها را پیدا نمی‌کند.`;
-  }
-  return "";
-}
-
-function ftpFailed(err) {
-  const hint = ftpHint(err, config.ftp);
-  link.state = "وصل نشد";
-  link.error = hint ? `${err.message} — ${hint}` : err.message;
-  say("error", `FTP · ${link.error}`);
-  push("upload", uploadSnapshot());
-  return link.error;
-}
-
-function startLink(what) {
-  Object.assign(link, { state: "در حالِ اتصال", phase: "", note: "", lines: [],
-                        at: Date.now(), info: null, error: "", warning: "" });
-  const { host, port, user, secure, audioDir } = config.ftp;
-  say("info", `FTP · ${what} — ${host}:${port || 21}، کاربر ${user}`
-    + `${secure ? "، FTPS" : ""} → ${audioDir}`);
-  push("upload", uploadSnapshot());
-}
-
-/**
- * The settings have to be there before anything is attempted — and the refusal has to be
- * visible. It used to answer the request with an error and write nothing in the log, so from
- * the page it looked as though the button did nothing at all.
- */
-function requireFtp(res) {
-  const { host, user, password } = config.ftp;
-  const missing = [!host && "آدرسِ سرور", !user && "نام کاربری", !password && "رمز"].filter(Boolean);
-  if (missing.length) {
-    const message = `تنظیماتِ FTP کامل نیست: ${missing.join(" و ")} داده نشده`
-      + " — پُرش کن و «ذخیره‌ی تنظیماتِ FTP» را بزن";
-    link.state = "تنظیمات ناقص";
-    link.error = message;
-    say("error", `FTP · ${message}`);
-    push("upload", uploadSnapshot());
-    res.status(400).json({ error: message });
-    return false;
-  }
-  return true;
-}
-
-app.post("/api/ftp/test", async (req, res) => {
-  if (!requireFtp(res)) return;
-  const which = "audioDir";
-  const what = "تستِ اتصال (صداها)";
-
-  // the answer goes back now; the handshake arrives on the stream. A connect can take twenty
-  // seconds, and twenty seconds of a page saying nothing is what «کار نمی‌کند» looked like.
-  startLink(what);
-  res.json({ started: true });
-
-  try {
-    const info = await probe(config.ftp, config.ftp[which],
-                             { onLine: ftpLine, onPhase: ftpPhase });
-    link.state = "وصل است";
-    link.info = info;
-
-    link.warning = pathTrap(info);
-    if (link.warning) say("warn", `FTP · ${link.warning}`);
-    push("upload", uploadSnapshot());
-    say("ok", `FTP وصل شد · پوشه‌ی ورود ${info.loginDir} · ${info.remoteDir}: `
-      + (info.remoteExists ? `${info.remoteCount} فایل` : "هنوز ساخته نشده (موقع آپلود ساخته می‌شود)"));
-  } catch (err) {
-    ftpFailed(err);
-  }
-});
-
-app.post("/api/ftp/upload/audio", async (req, res) => {
-  if (!requireFtp(res)) return;
-  if (upload.running) return res.status(409).json({ error: "یک آپلود در حال اجراست" });
-
-  const skipExisting = req.body?.all !== true;      // «همه را دوباره بفرست» خاموشش می‌کند
-  const files = audioFilesIn(config.outDir);
-  if (!files.length) return res.status(400).json({ error: "در پوشه‌ی خروجی کلیپی نیست" });
-
-  // the index must describe what is actually there, so it is rebuilt and sent last
-  // index.json is built beside the studio, not in assets/audio/voice, so it never ships in the APK
-  const index = writeAudioIndex({
-    outDir: config.outDir, indexDir: PUBLISH, baseUrl: config.audioBase, speaker: config.speaker,
-  });
-
-  Object.assign(upload, { running: true, stopping: false, what: "صداها",
-                          done: 0, total: files.length + 1, sent: 0, skipped: 0, failed: 0 });
-  startLink("آپلودِ صداها");
-  res.json({ started: true, total: files.length });
-  say("info", `${files.length} فایل`
-    + (skipExisting ? " (آنچه روی سرور هست رد می‌شود)" : " (همه دوباره)"));
-
-  try {
-    const outcome = await uploadFiles({
-      settings: config.ftp, remoteDir: config.ftp.audioDir, files, skipExisting,
-      onLine: ftpLine, onPhase: ftpPhase,
-      shouldStop: () => upload.stopping,
-      onStep: (name, state) => {
-        upload.done += 1;
-        if (state === "sent") upload.sent += 1;
-        else if (state === "skipped") upload.skipped += 1;
-        else upload.failed += 1;
-        if (state !== "skipped" || upload.done % 50 === 0) {
-          say(state === "failed" ? "error" : "ok",
-              `${upload.done}/${upload.total} ${name} — ${state === "sent" ? "فرستاده شد"
-                : state === "skipped" ? "از قبل بود" : "نرفت"}`);
-        }
-        push("upload", uploadSnapshot());
-      },
-    });
-
-    if (!outcome.stopped) {
-      await uploadFiles({
-        settings: config.ftp, remoteDir: config.ftp.audioDir,
-        files: [path.join(PUBLISH, "index.json")], skipExisting: false,
-        onStep: () => { upload.done += 1; upload.sent += 1; push("upload", uploadSnapshot()); },
-      });
-    }
-
-    say("info", (outcome.stopped ? "آپلود متوقف شد — " : "آپلود تمام شد — ")
-      + `${outcome.sent} فرستاده، ${outcome.skipped} از قبل بود، ${outcome.failed} ناموفق.`
-      + (outcome.stopped ? " فهرست فرستاده نشد؛ دوباره که زدی از همان‌جا ادامه می‌دهد."
-                         : ` فهرست (${index.count} کلیپ) هم رفت.`));
-    for (const line of outcome.errors.slice(0, 10)) say("error", line);
-  } catch (err) {
-    ftpFailed(err);                          // the reason, and what to change, in one line
-  } finally {
-    upload.running = false;
-    push("upload", uploadSnapshot());
-  }
-});
-
-app.get("/api/ftp/status", (_req, res) => res.json(uploadSnapshot()));
-
-app.post("/api/ftp/stop", (_req, res) => {
-  if (upload.running) {
-    upload.stopping = true;
-    link.state = "در حالِ ایستادن";
-    say("warn", "درخواستِ توقفِ آپلود — فایلِ در جریان تمام می‌شود و بعد می‌ایستد");
-    push("upload", uploadSnapshot());
-  }
-  res.json(uploadSnapshot());
-});
-
 app.post("/api/generate", async (req, res) => {
   const keys = Array.isArray(req.body?.keys) ? req.body.keys : [];
   const picked = keys.length ? keys : missingKeys();
@@ -1056,6 +832,51 @@ app.get("/api/events", (req, res) => {
   res.write(`data: ${JSON.stringify({ type: "status", ...snapshot() })}\n\n`);
   listeners.add(res);
   req.on("close", () => listeners.delete(res));
+});
+
+// ── صدای حیوان‌ها و وسایل: real recordings dropped in by hand ────────────────
+// TTS cannot moo. These files are found by a person (Freesound, Pixabay, a recording of their
+// own), dropped on the page, cleaned up by ffmpeg and written over assets/audio/sfx/<name>.mp3 —
+// inside the project, so the next build carries them. Nothing is uploaded anywhere.
+const sfx = createSfx({ app: APP, normalize: normalizeSfx, say });
+
+app.get("/api/sfx", (_req, res) => {
+  try {
+    res.json(sfx.list());
+  } catch (err) {
+    res.status(400).json({ error: err.message });
+  }
+});
+
+app.get("/api/sfx/:id/audio", (req, res) => {
+  const file = sfx.fileOf(req.params.id);
+  if (!file || !fs.existsSync(file)) return res.status(404).end();
+  res.sendFile(file);
+});
+
+app.post("/api/sfx/:id", express.raw({ type: "*/*", limit: "40mb" }), async (req, res) => {
+  if (!hasFfmpeg) return res.status(400).json({ error: "ffmpeg پیدا نشد؛ اول نصبش کن (README)" });
+  if (!req.body?.length) return res.status(400).json({ error: "فایلی نرسید" });
+  try {
+    const outcome = await sfx.replace(req.params.id, req.body, {
+      name: String(req.query.name || ""),
+      source: String(req.query.source || ""),
+      license: String(req.query.license || ""),
+      maxSeconds: Number(req.query.max) || 6,
+    });
+    res.json(outcome);
+  } catch (err) {
+    say("error", `${req.params.id}: ${err.message}`);
+    res.status(400).json({ error: err.message });
+  }
+});
+
+app.post("/api/sfx/:id/meta", (req, res) => {
+  try {
+    res.json(sfx.setMeta(req.params.id, req.body || {}));
+  } catch (err) {
+    res.status(400).json({ error: err.message });
+  }
 });
 
 const dist = path.join(ROOT, "dist");

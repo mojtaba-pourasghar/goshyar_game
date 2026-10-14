@@ -131,3 +131,8 @@ optgroup option { font-weight: 400; color: var(--ink); }
 .state.ok { color: #1f6f66; }
 .state.warn { color: #9a6b12; }
 .state.bad { color: #9c2b46; }
+.file.sfx { grid-template-columns: 170px 1fr auto; align-items: start; }
+.file.sfx input[type="text"] { padding: 6px 8px; font-size: 12px; }
+label.pick { display: inline-block; margin: 0; padding: 8px 14px; border-radius: 99px; cursor: pointer;
+             background: var(--orange); color: #fff; font-weight: 700; font-size: 13px; white-space: nowrap; }
+label.pick.off { opacity: .5; cursor: not-allowed; }

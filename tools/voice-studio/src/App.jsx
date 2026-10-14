@@ -1,4 +1,5 @@
 import React, { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import SfxPanel from "./SfxPanel.jsx";
 
 const fa = (n) => Number(n || 0).toLocaleString("fa-IR");
 const api = async (path, options) => {
@@ -51,9 +52,6 @@ export default function App() {
   const [busy, setBusy] = useState(false);
   const [filter, setFilter] = useState({ group: "all", chapter: "all", state: "all", q: "" });
   const [showLog, setShowLog] = useState(true);
-  const [published, setPublished] = useState(null);
-  const [ftpPass, setFtpPass] = useState("");
-  const [uploading, setUploading] = useState({ running: false, done: 0, total: 0, sent: 0, skipped: 0, failed: 0, what: "" });
   const [editing, setEditing] = useState(null);      // { key, spoken }
   const [testStamp, setTestStamp] = useState(0);
   const [tab, setTab] = useState("studio");
@@ -78,7 +76,6 @@ export default function App() {
       const probeState = await api("/diag");
       setDiag({ running: probeState.running, steps: probeState.steps, outcome: probeState.outcome });
       setSample(await api("/diag/sample"));
-      setUploading(await api("/ftp/status"));
       setError("");
     } catch (err) {
       setError(err.message);
@@ -94,7 +91,6 @@ export default function App() {
       const data = JSON.parse(event.data);
       if (data.type === "log") setLog((old) => [...old.slice(-400), data.entry]);
       if (data.type === "status") setStatus((old) => ({ ...old, ...data }));
-      if (data.type === "upload") setUploading((old) => ({ ...old, ...data }));
       if (data.type === "diag") setDiag((old) => ({ ...old, ...data }));
       if (data.type === "sample") setSample((old) => ({ ...old, ...data }));
       // one clip finished: patch its row where it stands, so the list keeps up with the run
@@ -145,29 +141,6 @@ export default function App() {
       setForm((old) => ({ ...old, ...next }));
       setError("");
       if (patch.manifestPath || patch.outDir) load();
-    } catch (err) { setError(err.message); }
-    setBusy(false);
-  };
-
-  /** Saves the FTP box as it stands (password included) and hands back the fresh config. */
-  const saveFtp = async () => {
-    const next = await api("/config", { method: "POST", body: JSON.stringify({
-      ftp: { ...form.ftp, ...(ftpPass ? { password: ftpPass } : {}) },
-    }) });
-    setConfig(next);
-    setForm((old) => ({ ...old, ...next }));
-    setFtpPass("");
-    return next;
-  };
-
-  /** Nothing on the FTP side runs before the box it reads from is saved. */
-  const ftpDo = async (path, body = {}) => {
-    setBusy(true);
-    try {
-      const next = await saveFtp();
-      if (!next.ftp?.passwordSet) throw new Error("رمزِ FTP داده نشده");
-      await api(path, { method: "POST", body: JSON.stringify(body) });
-      setError("");
     } catch (err) { setError(err.message); }
     setBusy(false);
   };
@@ -249,6 +222,9 @@ export default function App() {
         <button className={tab === "studio" ? "chip sel" : "chip"} onClick={() => setTab("studio")}>
           استودیو
         </button>
+        <button className={tab === "sfx" ? "chip sel" : "chip"} onClick={() => setTab("sfx")}>
+          صدای حیوان‌ها و وسایل
+        </button>
         <button className={tab === "diag" ? "chip sel" : "chip"} onClick={() => setTab("diag")}>
           تستِ وب‌سرویس
         </button>
@@ -261,7 +237,7 @@ export default function App() {
       </div>
 
       {error && <div className="err">{error}</div>}
-      {!config.tokenSet && <div className="err">توکنِ آواشو را پایین وارد کن تا ساخت شروع شود.</div>}
+      {!config.tokenSet && tab === "studio" && <div className="err">توکنِ آواشو را پایین وارد کن تا ساخت شروع شود.</div>}
 
       {tab === "studio" && (<>
       <div className="stats">
@@ -376,10 +352,9 @@ export default function App() {
           </div>
         )}
         <p className="note">
-          توکن و رمزِ FTP در <code>{config.configFile}</code> ذخیره می‌شوند و با رفرش یا بالا
-          آمدنِ دوباره‌ی سرور از دست نمی‌روند. کادرها از روی عادت خالی نشان داده می‌شوند —
-          {config.tokenSet ? " ✓ توکن ذخیره شده است" : " توکن هنوز داده نشده"}
-          {config.ftp?.passwordSet ? " · ✓ رمزِ FTP ذخیره شده است" : " · رمزِ FTP داده نشده"}.
+          توکن در <code>{config.configFile}</code> ذخیره می‌شود و با رفرش یا بالا
+          آمدنِ دوباره‌ی سرور از دست نمی‌رود. کادر از روی عادت خالی نشان داده می‌شود —
+          {config.tokenSet ? " ✓ توکن ذخیره شده است." : " توکن هنوز داده نشده."}
           {config.savedAt ? " آخرین ذخیره: " + new Date(config.savedAt).toLocaleTimeString("fa-IR") : ""}
         </p>
         <p className="note">
@@ -453,176 +428,9 @@ export default function App() {
         </div>
       </div>
 
-      <div className="card">
-        <h2>📦 بسته‌ی Cloudflare <span className="hint">بسته‌ی voice-fa برای دانلود در برنامه؛ آپلود با cloudflare/scripts/upload.sh</span></h2>
-        <div className="grid">
-          <div>
-            <label>نسخه‌ی دارایی‌ها روی CDN</label>
-            <input type="text" value={form.assetVersion || "v1"}
-                   onChange={(e) => setForm({ ...form, assetVersion: e.target.value })} />
-          </div>
-        </div>
-        <div className="row" style={{ marginTop: 12 }}>
-          <button className="go" disabled={busy} onClick={async () => {
-            setBusy(true);
-            try {
-              await save({ assetVersion: form.assetVersion || "v1" });
-              setPublished(await api("/publish/audio", { method: "POST" }));
-              setError("");
-            } catch (err) { setError(err.message); }
-            setBusy(false);
-          }}>
-            ساختِ بسته‌ی voice-fa
-          </button>
-        </div>
-        {published && (
-          <p className="note">
-            ✓ {fa(published.count)} کلیپ در <code>{published.dir}</code> با <code>packs.json</code> آماده شد.
-            برای انتشار: <code>cloudflare/scripts/upload.sh {published.version}</code>
-          </p>
-        )}
-
-        <h2 style={{ marginTop: 20 }}>
-          🚀 آپلود با FTP (اختیاری)
-          <span className="hint">مسیرِ اصلیِ انتشار Cloudflare است ·{" "}
-            {config.ftp?.passwordSet ? "رمز ذخیره شده است" : "رمز هنوز داده نشده"}
-          </span>
-        </h2>
-        <div className="grid">
-          <div>
-            <label>آدرسِ سرورِ FTP</label>
-            <input type="text" value={form.ftp?.host || ""}
-                   onChange={(e) => setForm({ ...form, ftp: { ...form.ftp, host: e.target.value } })} />
-          </div>
-          <div>
-            <label>پورت</label>
-            <input type="number" value={form.ftp?.port ?? 21}
-                   onChange={(e) => setForm({ ...form, ftp: { ...form.ftp, port: Number(e.target.value) } })} />
-          </div>
-          <div>
-            <label>نام کاربری</label>
-            <input type="text" value={form.ftp?.user || ""}
-                   onChange={(e) => setForm({ ...form, ftp: { ...form.ftp, user: e.target.value } })} />
-          </div>
-          <div>
-            <label>رمز</label>
-            <input type="password" value={ftpPass}
-                   placeholder={config.ftp?.passwordSet ? "ذخیره شده — برای تغییر بنویس" : "رمزِ FTP"}
-                   onChange={(e) => setFtpPass(e.target.value)} />
-          </div>
-          <div>
-            <label>پوشه‌ی صداها روی سرور</label>
-            <input type="text" value={form.ftp?.audioDir || ""}
-                   onChange={(e) => setForm({ ...form, ftp: { ...form.ftp, audioDir: e.target.value } })} />
-          </div>
-          
-          <label className="check">
-            <input type="checkbox" checked={Boolean(form.ftp?.secure)}
-                   onChange={(e) => setForm({ ...form, ftp: { ...form.ftp, secure: e.target.checked } })} />
-            FTPS (explicit) — اگر هاست می‌خواهد
-          </label>
-        </div>
-
-        <div className="row" style={{ marginTop: 12 }}>
-          <button className="ghost" disabled={busy} onClick={async () => {
-            setBusy(true);
-            try { await saveFtp(); setError(""); } catch (err) { setError(err.message); }
-            setBusy(false);
-          }}>
-            ذخیره‌ی تنظیماتِ FTP
-          </button>
-          <button className="ghost" disabled={busy}
-                  onClick={() => ftpDo("/ftp/test", { which: "audio" })}>
-            تستِ اتصال
-          </button>
-          <button className="go" disabled={busy || uploading.running}
-                  onClick={() => ftpDo("/ftp/upload/audio")}>
-            آپلودِ صداها (فقط تازه‌ها)
-          </button>
-          <button disabled={busy || uploading.running}
-                  onClick={() => ftpDo("/ftp/upload/audio", { all: true })}>
-            آپلودِ همه دوباره
-          </button>
-          {uploading.running && (
-            <button className="warn" onClick={() => api("/ftp/stop", { method: "POST" })}>
-              توقفِ آپلود
-            </button>
-          )}
-        </div>
-
-        {uploading.link?.state && (
-          <div style={{ marginTop: 12 }}>
-            <div className="row" style={{ justifyContent: "space-between" }}>
-              <strong style={{ fontSize: 13 }}>
-                وضعیتِ اتصال:{" "}
-                <span className={uploading.link.error ? "state bad"
-                                 : uploading.link.state === "وصل است" ? "state ok" : "state warn"}>
-                  {uploading.link.state}
-                </span>
-                {uploading.link.note ? <span className="key"> · {uploading.link.note}</span> : null}
-              </strong>
-              <span className="tag">
-                {config.ftp?.host}:{fa(config.ftp?.port ?? 21)}
-                {config.ftp?.secure ? " · FTPS" : ""}
-              </span>
-            </div>
-            {uploading.link.error && <div className="err" style={{ marginTop: 8 }}>
-              {uploading.link.error}
-            </div>}
-            {uploading.link.warning && <div className="err" style={{ marginTop: 8 }}>
-              ⚠ {uploading.link.warning}
-            </div>}
-            {uploading.link.info && (
-              <p className="note">
-                پوشه‌ی ورود <code>{uploading.link.info.loginDir}</code> · مقصد{" "}
-                <code>{uploading.link.info.remoteDir}</code>{" "}
-                {uploading.link.info.remoteExists
-                  ? `— ${fa(uploading.link.info.remoteCount)} فایل آنجاست`
-                  : "— هنوز ساخته نشده؛ موقعِ آپلود ساخته می‌شود"}
-                {uploading.link.info.names?.length
-                  ? ` (${uploading.link.info.names.join("، ")}…)` : ""}
-              </p>
-            )}
-            {uploading.link.lines?.length > 0 && (
-              <details open={!uploading.link.info}>
-                <summary className="note" style={{ cursor: "pointer" }}>
-                  گفت‌وگو با سرور ({fa(uploading.link.lines.length)} خط)
-                </summary>
-                <pre style={{ direction: "ltr", textAlign: "left", whiteSpace: "pre-wrap",
-                              fontSize: 11, background: "#faf7f2", padding: 9, borderRadius: 8,
-                              maxHeight: 220, overflow: "auto" }}>
-                  {uploading.link.lines.join("\n")}
-                </pre>
-              </details>
-            )}
-          </div>
-        )}
-
-        {(uploading.running || uploading.done > 0) && (
-          <div style={{ marginTop: 12 }}>
-            <div className="bar">
-              <i style={{ width: `${uploading.total ? (uploading.done / uploading.total) * 100 : 0}%` }} />
-            </div>
-            <p className="note">
-              {uploading.running ? `در حال آپلودِ ${uploading.what}: ` : "آخرین آپلود: "}
-              {fa(uploading.done)} از {fa(uploading.total)} — {fa(uploading.sent)} فرستاده،
-              {" "}{fa(uploading.skipped)} از قبل بود، {fa(uploading.failed)} ناموفق
-            </p>
-          </div>
-        )}
-
-        <p className="note">
-          «فقط تازه‌ها» فایلی را که با همان نام و همان حجم روی سرور هست رد می‌کند، پس اجرای
-          دوباره فقط چیزهای جدید را می‌فرستد. <code>index.json</code> همیشه آخر از همه و از نو
-          ساخته می‌شود، تا هیچ‌وقت فهرستی از فایل‌هایی که هنوز نرفته‌اند روی سرور نباشد.
-        </p>
-        <p className="note">
-          آپلود فقط وقتی لازم است که صداها را روی هاست بگذاری؛ گوش‌یار آن‌ها را داخل خودِ
-          کرده باشی، آنجا هم پاک می‌شود.
-        </p>
-      </div>
-
       </>)}
+
+      {tab === "sfx" && <SfxPanel ffmpeg={config.ffmpeg} />}
 
       {tab === "diag" && (
         <div className="card">
