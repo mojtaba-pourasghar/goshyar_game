@@ -1,0 +1,170 @@
+{
+  "note": "یک فایل Wikimedia Commons برای هر صدا، دستی انتخاب‌شده از روی عنوان، توضیح و طول. بدون start بلندترین بخش نگه داشته می‌شود. اجرا: python3 tools/sfx/fetch_sounds.py",
+  "picks": {
+    "cow": {
+      "file": "File:Single Cow Moo.ogg",
+      "seconds": 4
+    },
+    "dog": {
+      "file": "File:Barking of a dog 2.ogg",
+      "seconds": 4
+    },
+    "cat": {
+      "file": "File:Felis silvestris catus meows.ogg",
+      "seconds": 4
+    },
+    "bird": {
+      "file": "File:Arremon abeillei - Black-capped Sparrow XC250490.mp3",
+      "seconds": 5
+    },
+    "sheep": {
+      "file": "File:Sheep bleating.ogg",
+      "seconds": 4
+    },
+    "horse": {
+      "file": "File:Wiehern.ogg",
+      "seconds": 4
+    },
+    "duck": {
+      "file": "File:Domestic duck sound 01.wav",
+      "seconds": 4
+    },
+    "frog": {
+      "file": "File:Edible frogs, sounds. May. The Village of Krzemienica, Łódź Voivodeship, Poland.ogg",
+      "seconds": 5
+    },
+    "elephant": {
+      "file": "File:Elephant voice - trumpeting.ogg",
+      "seconds": 4
+    },
+    "rooster": {
+      "file": "File:Rooster crowing.ogg",
+      "seconds": 5
+    },
+    "doorbell": {
+      "file": "File:Doorbell-classic-dingdong.ogg",
+      "seconds": 4,
+      "start": 0
+    },
+    "clock": {
+      "file": "File:Clock ticking.ogg",
+      "seconds": 4
+    },
+    "phone": {
+      "file": "File:Model 500 Telephone British ring.ogg",
+      "seconds": 5,
+      "start": 0
+    },
+    "vacuum": {
+      "file": "File:Het aanstaan van een stofzuiger - SoundCloud - Beeld en Geluid.ogg",
+      "seconds": 5
+    },
+    "kettle": {
+      "file": "File:Kettle whistle.ogg",
+      "seconds": 5
+    },
+    "washer": {
+      "file": "File:Washing machine.ogg",
+      "seconds": 5
+    },
+    "tap": {
+      "file": "File:ZapSibAudio-Water from the tap.ogg",
+      "seconds": 5
+    },
+    "door": {
+      "file": "File:Knock on door.wav",
+      "seconds": 4,
+      "start": 0
+    },
+    "rain": {
+      "file": "File:Heavy Rain in Summer.ogg",
+      "seconds": 5
+    },
+    "thunder": {
+      "file": "File:Thunder 01.ogg",
+      "seconds": 6
+    },
+    "wind": {
+      "file": "File:Wind in Swedish pine forest at 25 mps.ogg",
+      "seconds": 5
+    },
+    "sea": {
+      "file": "File:Ocean Waves on a Tropical Beach.ogg",
+      "seconds": 6
+    },
+    "river": {
+      "file": "File:Hemlock stream.ogg",
+      "seconds": 5
+    },
+    "waterfall": {
+      "file": "File:Water fall.ogg",
+      "seconds": 5
+    },
+    "drum": {
+      "file": "File:Drum - Cadence A.ogg",
+      "seconds": 5,
+      "start": 0
+    },
+    "piano": {
+      "file": "File:Bach, JS - Minuet in G (Piano Performance by eldüendesüarez).wav",
+      "seconds": 7,
+      "start": 0
+    },
+    "guitar": {
+      "file": "File:El Noi de la Mare (guitar).ogg",
+      "seconds": 7,
+      "start": 0
+    },
+    "violin": {
+      "file": "File:Violin chords.ogg",
+      "seconds": 6,
+      "start": 0
+    },
+    "flute": {
+      "file": "File:Bach - Partita For Solo Flute - Modern Flute - 4. Bouree.ogg",
+      "seconds": 7,
+      "start": 0
+    },
+    "tambourine": {
+      "file": "File:Tambourine.ogg",
+      "seconds": 4
+    },
+    "ambulance": {
+      "file": "File:Het voorbijrijden van twee ambulances met sirenes - SoundCloud - Beeld en Geluid.ogg",
+      "seconds": 5
+    },
+    "firetruck": {
+      "file": "File:WWS Fireenginesiren.ogg",
+      "seconds": 5
+    },
+    "police": {
+      "file": "File:American police siren i.ogg",
+      "seconds": 5
+    },
+    "scissors": {
+      "file": "File:WWS Paper-cuttingscissorsSloveniaPartisanPrintingShop.ogg",
+      "seconds": 4
+    },
+    "typing": {
+      "file": "File:Typing - Model M 1986.ogg",
+      "seconds": 4
+    },
+    "rocket": {
+      "file": "File:Artemis II Live Launch Coverage - Pad Camera Site 4 (KSC-20260401-AU-LMM01-0001-Artemis II Live Launch Coverage Pad Camera Site 4).wav",
+      "seconds": 6
+    },
+    "robot": {
+      "file": "File:Little robot buzzing.ogg",
+      "seconds": 4
+    },
+    "spaceship": {
+      "file": "File:Kevin MacLeod - Alien Spaceship Atmosphere (cc0).ogg",
+      "seconds": 6
+    },
+    "laser": {
+      "file": "File:Laser (Gravity Sound).mp3",
+      "seconds": 4,
+      "start": 0
+    }
+  }
+}
