@@ -67,6 +67,17 @@
       "via": "tools/sfx/fetch_sounds.py",
       "at": "2026-10-14T09:41:09+00:00"
     },
+    "fire": {
+      "file": "audio/sfx/nature_fire.mp3",
+      "commons": "File:Campfire sound ambience.ogg",
+      "source": "https://commons.wikimedia.org/wiki/File:Campfire_sound_ambience.ogg",
+      "license": "CC BY 3.0",
+      "license_url": "https://creativecommons.org/licenses/by/3.0",
+      "author": "Glaneur de sons",
+      "kept": "19.6s + 5.0s",
+      "via": "tools/sfx/fetch_sounds.py",
+      "at": "2026-10-14T09:41:30+00:00"
+    },
     "rain": {
       "file": "audio/sfx/nature_rain.mp3",
       "commons": "File:Heavy Rain in Summer.ogg",
