@@ -2,7 +2,7 @@
   "name": "goshyar-voice-studio",
   "version": "1.0.0",
   "private": true,
-  "description": "استودیوی صداگذاری گوش‌یار — متن را از audio_manifest.txt می‌خواند و با آواشو تکی ضبط می‌کند",
+  "description": "استودیوی صداگذاری موقت گوش‌یار — جمله‌ها را از assets/content/voice_lines.json می‌خواند و با آواشو صدای ماشینیِ موقت می‌سازد",
   "type": "module",
   "scripts": {
     "start": "vite build && node server/index.js",

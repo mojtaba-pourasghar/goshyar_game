@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- رنگ آسمان صفحه‌ی شروع، تا فاصله‌ی باز شدن برنامه تا اولین فریم Flutter یکدست باشد. -->
+    <color name="splash_sky">#FF7CC8FF</color>
+</resources>

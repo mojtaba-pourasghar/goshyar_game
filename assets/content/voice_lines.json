@@ -1,0 +1,1724 @@
+{
+  "version": 1,
+  "language": "fa-IR",
+  "speaker": "گوش‌یار — خرس مهربان؛ صدای گرم، شاد و آرام، مناسب کودک ۳ تا ۸ سال",
+  "format": {
+    "container": "mp3",
+    "sampleRate": 44100,
+    "channels": 1,
+    "bitrateKbps": 96,
+    "loudnessLufs": -16,
+    "silenceMs": {
+      "head": 80,
+      "tail": 150
+    }
+  },
+  "lines": [
+    {
+      "id": "app.splash.welcome",
+      "text": "سلام! من گوش‌یار هستم. بازی کن، گوش بده، کشف کن!",
+      "event": "splash.shown",
+      "screen": "splash",
+      "file": "voice/app_splash_welcome.mp3",
+      "delayMs": 500
+    },
+    {
+      "id": "app.intro.1",
+      "text": "سلام دوست کوچولوی من! من گوش‌یار هستم، یک خرس کوچولو که عاشق صداهاست.",
+      "event": "intro.page1",
+      "screen": "intro",
+      "file": "voice/app_intro_1.mp3",
+      "delayMs": 300
+    },
+    {
+      "id": "app.intro.2",
+      "text": "امروز می‌خواهیم با گوش‌هایمان صداهای جالب را پیدا کنیم.",
+      "event": "intro.page2",
+      "screen": "intro",
+      "file": "voice/app_intro_2.mp3",
+      "delayMs": 300
+    },
+    {
+      "id": "app.intro.3",
+      "text": "اول خوب گوش بده، بعد عکس درست را لمس کن. آماده‌ای؟ پس بزن بریم!",
+      "event": "intro.page3",
+      "screen": "intro",
+      "file": "voice/app_intro_3.mp3",
+      "delayMs": 300
+    },
+    {
+      "id": "app.home.greet.1",
+      "text": "سلام دوباره! امروز کدام بازی را دوست داری؟",
+      "event": "home.shown",
+      "screen": "home",
+      "file": "voice/app_home_greet_1.mp3",
+      "group": "home.greet",
+      "delayMs": 400
+    },
+    {
+      "id": "app.home.greet.2",
+      "text": "خوش برگشتی! یک دسته را انتخاب کن.",
+      "event": "home.shown",
+      "screen": "home",
+      "file": "voice/app_home_greet_2.mp3",
+      "group": "home.greet",
+      "delayMs": 400
+    },
+    {
+      "id": "app.home.greet.3",
+      "text": "گوش‌هایت آماده‌اند؟ بیا یک بازی انتخاب کنیم.",
+      "event": "home.shown",
+      "screen": "home",
+      "file": "voice/app_home_greet_3.mp3",
+      "group": "home.greet",
+      "delayMs": 400
+    },
+    {
+      "id": "app.games.hub",
+      "text": "چهار بازی داریم. هر کدام را دوست داری، لمس کن.",
+      "event": "games.shown",
+      "screen": "games",
+      "file": "voice/app_games_hub.mp3",
+      "delayMs": 300
+    },
+    {
+      "id": "app.library.hint",
+      "text": "اینجا خانه‌ی صداهاست. روی هر عکس بزن تا صدایش را بشنوی.",
+      "event": "library.shown",
+      "screen": "library",
+      "file": "voice/app_library_hint.mp3",
+      "delayMs": 300
+    },
+    {
+      "id": "app.progress.shown",
+      "text": "ببین چقدر ستاره جمع کرده‌ای! آفرین به تو.",
+      "event": "progress.shown",
+      "screen": "progress",
+      "file": "voice/app_progress_shown.mp3",
+      "delayMs": 300
+    },
+    {
+      "id": "app.badges.shown",
+      "text": "این‌ها مدال‌های تو هستند. مدال‌های کم‌رنگ هنوز منتظر تو هستند!",
+      "event": "badges.shown",
+      "screen": "badges",
+      "file": "voice/app_badges_shown.mp3",
+      "delayMs": 300
+    },
+    {
+      "id": "app.settings.shown",
+      "text": "اینجا بزرگ‌ترها صدای من و موسیقی را تنظیم می‌کنند.",
+      "event": "settings.shown",
+      "screen": "settings",
+      "file": "voice/app_settings_shown.mp3",
+      "delayMs": 300
+    },
+    {
+      "id": "app.parent.gate",
+      "text": "این بخش برای بزرگ‌ترهاست. لطفاً از یک بزرگ‌تر کمک بگیر.",
+      "event": "parent_gate.shown",
+      "screen": "parent_gate",
+      "file": "voice/app_parent_gate.mp3"
+    },
+    {
+      "id": "app.downloads.shown",
+      "text": "این‌ها صداها و تصویرهایی هستند که روی گوشی ذخیره شده‌اند.",
+      "event": "downloads.shown",
+      "screen": "downloads",
+      "file": "voice/app_downloads_shown.mp3",
+      "delayMs": 300
+    },
+    {
+      "id": "cat.animals.intro",
+      "text": "بیا به صدای حیوان‌ها گوش بدهیم!",
+      "event": "category.opened",
+      "screen": "category",
+      "file": "voice/cat_animals_intro.mp3"
+    },
+    {
+      "id": "cat.home.intro",
+      "text": "بیا صداهای خانه را پیدا کنیم!",
+      "event": "category.opened",
+      "screen": "category",
+      "file": "voice/cat_home_intro.mp3"
+    },
+    {
+      "id": "cat.nature.intro",
+      "text": "بیا به صدای طبیعت گوش بدهیم!",
+      "event": "category.opened",
+      "screen": "category",
+      "file": "voice/cat_nature_intro.mp3"
+    },
+    {
+      "id": "cat.music.intro",
+      "text": "بیا سازها را از صدایشان بشناسیم!",
+      "event": "category.opened",
+      "screen": "category",
+      "file": "voice/cat_music_intro.mp3"
+    },
+    {
+      "id": "cat.professions.intro",
+      "text": "بیا ببینیم این صداها مال چه کاری هستند!",
+      "event": "category.opened",
+      "screen": "category",
+      "file": "voice/cat_professions_intro.mp3"
+    },
+    {
+      "id": "cat.science.intro",
+      "text": "بیا به صداهای فضا و علم گوش بدهیم!",
+      "event": "category.opened",
+      "screen": "category",
+      "file": "voice/cat_science_intro.mp3"
+    },
+    {
+      "id": "cat.mission",
+      "text": "یک صدا پخش می‌شود. عکس صاحب صدا را لمس کن.",
+      "event": "category.start",
+      "screen": "category_game",
+      "file": "voice/cat_mission.mp3"
+    },
+    {
+      "id": "cat.complete",
+      "text": "همه‌ی صداهای این دور را پیدا کردی! آفرین!",
+      "event": "category.complete",
+      "screen": "result",
+      "file": "voice/cat_complete.mp3"
+    },
+    {
+      "id": "who.welcome",
+      "text": "بازی «این صدا مال کیه؟» شروع شد!",
+      "event": "mode.opened",
+      "screen": "level_map",
+      "file": "voice/who_welcome.mp3"
+    },
+    {
+      "id": "who.mission",
+      "text": "یک صدا پخش می‌شود. خوب گوش بده و صاحب صدا را پیدا کن.",
+      "event": "mode.first_level",
+      "screen": "game",
+      "file": "voice/who_mission.mp3"
+    },
+    {
+      "id": "find.welcome",
+      "text": "به بازی «صدای مخفی» خوش آمدی!",
+      "event": "mode.opened",
+      "screen": "level_map",
+      "file": "voice/find_welcome.mp3"
+    },
+    {
+      "id": "find.mission",
+      "text": "گوش بده و بگو این صدا از کدام جا می‌آید.",
+      "event": "mode.first_level",
+      "screen": "game",
+      "file": "voice/find_mission.mp3"
+    },
+    {
+      "id": "seq.welcome",
+      "text": "بازی ترتیب صداها! حافظه‌ات را آماده کن.",
+      "event": "mode.opened",
+      "screen": "level_map",
+      "file": "voice/seq_welcome.mp3"
+    },
+    {
+      "id": "seq.mission",
+      "text": "چند صدا پشت سر هم می‌آید. همان ترتیب را با عکس‌ها بچین.",
+      "event": "mode.first_level",
+      "screen": "game",
+      "file": "voice/seq_mission.mp3"
+    },
+    {
+      "id": "mission.welcome",
+      "text": "مأموریت شنیداری شروع شد!",
+      "event": "mode.opened",
+      "screen": "level_map",
+      "file": "voice/mission_welcome.mp3"
+    },
+    {
+      "id": "mission.mission",
+      "text": "چشم‌هایت را ببند و خوب گوش کن. چند صدای مختلف می‌شنوی؟",
+      "event": "mode.first_level",
+      "screen": "game",
+      "file": "voice/mission_mission.mp3"
+    },
+    {
+      "id": "listen.invite.1",
+      "text": "هیس! خوب گوش بده.",
+      "event": "game.before_sound",
+      "screen": "game",
+      "file": "voice/listen_invite_1.mp3",
+      "group": "listen.invite",
+      "note": "قبل از پخش صدای اصلی؛ صدای بازی ۳۰۰ میلی‌ثانیه بعد از پایان این جمله پخش می‌شود"
+    },
+    {
+      "id": "listen.invite.2",
+      "text": "گوش‌هایت را تیز کن!",
+      "event": "game.before_sound",
+      "screen": "game",
+      "file": "voice/listen_invite_2.mp3",
+      "group": "listen.invite",
+      "note": "قبل از پخش صدای اصلی؛ صدای بازی ۳۰۰ میلی‌ثانیه بعد از پایان این جمله پخش می‌شود"
+    },
+    {
+      "id": "listen.invite.3",
+      "text": "آماده‌ای؟ صدا می‌آید...",
+      "event": "game.before_sound",
+      "screen": "game",
+      "file": "voice/listen_invite_3.mp3",
+      "group": "listen.invite",
+      "note": "قبل از پخش صدای اصلی؛ صدای بازی ۳۰۰ میلی‌ثانیه بعد از پایان این جمله پخش می‌شود"
+    },
+    {
+      "id": "listen.invite.4",
+      "text": "گوش کن... چه صدایی می‌شنوی؟",
+      "event": "game.before_sound",
+      "screen": "game",
+      "file": "voice/listen_invite_4.mp3",
+      "group": "listen.invite",
+      "note": "قبل از پخش صدای اصلی؛ صدای بازی ۳۰۰ میلی‌ثانیه بعد از پایان این جمله پخش می‌شود"
+    },
+    {
+      "id": "question.who.1",
+      "text": "این صدا مال کیه؟",
+      "event": "game.after_sound",
+      "screen": "category_game",
+      "file": "voice/question_who_1.mp3",
+      "group": "question.who"
+    },
+    {
+      "id": "question.who.2",
+      "text": "کی این صدا را درآورد؟",
+      "event": "game.after_sound",
+      "screen": "category_game",
+      "file": "voice/question_who_2.mp3",
+      "group": "question.who"
+    },
+    {
+      "id": "question.who.3",
+      "text": "صاحب این صدا را پیدا کن!",
+      "event": "game.after_sound",
+      "screen": "category_game",
+      "file": "voice/question_who_3.mp3",
+      "group": "question.who"
+    },
+    {
+      "id": "feedback.correct.1",
+      "text": "آفرین! درست بود!",
+      "event": "game.correct",
+      "screen": "feedback",
+      "file": "voice/feedback_correct_1.mp3",
+      "group": "feedback.correct"
+    },
+    {
+      "id": "feedback.correct.2",
+      "text": "عالی بود!",
+      "event": "game.correct",
+      "screen": "feedback",
+      "file": "voice/feedback_correct_2.mp3",
+      "group": "feedback.correct"
+    },
+    {
+      "id": "feedback.correct.3",
+      "text": "ای ول! گوش‌هایت خیلی تیز است!",
+      "event": "game.correct",
+      "screen": "feedback",
+      "file": "voice/feedback_correct_3.mp3",
+      "group": "feedback.correct"
+    },
+    {
+      "id": "feedback.correct.4",
+      "text": "درسته! چه خوب گوش دادی!",
+      "event": "game.correct",
+      "screen": "feedback",
+      "file": "voice/feedback_correct_4.mp3",
+      "group": "feedback.correct"
+    },
+    {
+      "id": "feedback.correct.5",
+      "text": "همین بود! باریکلا!",
+      "event": "game.correct",
+      "screen": "feedback",
+      "file": "voice/feedback_correct_5.mp3",
+      "group": "feedback.correct"
+    },
+    {
+      "id": "feedback.correct.6",
+      "text": "هورا! پیدایش کردی!",
+      "event": "game.correct",
+      "screen": "feedback",
+      "file": "voice/feedback_correct_6.mp3",
+      "group": "feedback.correct"
+    },
+    {
+      "id": "feedback.wrong.1",
+      "text": "اشکالی ندارد. یک بار دیگر گوش کن.",
+      "event": "game.wrong",
+      "screen": "feedback",
+      "file": "voice/feedback_wrong_1.mp3",
+      "group": "feedback.wrong"
+    },
+    {
+      "id": "feedback.wrong.2",
+      "text": "نزدیک بود! دوباره امتحان کن.",
+      "event": "game.wrong",
+      "screen": "feedback",
+      "file": "voice/feedback_wrong_2.mp3",
+      "group": "feedback.wrong"
+    },
+    {
+      "id": "feedback.wrong.3",
+      "text": "این یکی نبود. بیا دوباره گوش بدهیم.",
+      "event": "game.wrong",
+      "screen": "feedback",
+      "file": "voice/feedback_wrong_3.mp3",
+      "group": "feedback.wrong"
+    },
+    {
+      "id": "feedback.wrong.4",
+      "text": "نگران نباش، با هم پیدایش می‌کنیم.",
+      "event": "game.wrong",
+      "screen": "feedback",
+      "file": "voice/feedback_wrong_4.mp3",
+      "group": "feedback.wrong"
+    },
+    {
+      "id": "replay.tip.1",
+      "text": "اگر صدا را خوب نشنیدی، دکمه‌ی آبی را بزن تا دوباره پخش شود.",
+      "event": "game.replay_tip",
+      "screen": "game",
+      "file": "voice/replay_tip_1.mp3",
+      "group": "replay.tip",
+      "note": "بعد از دومین پاسخ اشتباه پشت سر هم"
+    },
+    {
+      "id": "replay.tip.2",
+      "text": "می‌توانی صدا را دوباره بشنوی. دکمه‌ی گوش را لمس کن.",
+      "event": "game.replay_tip",
+      "screen": "game",
+      "file": "voice/replay_tip_2.mp3",
+      "group": "replay.tip",
+      "note": "بعد از دومین پاسخ اشتباه پشت سر هم"
+    },
+    {
+      "id": "idle.nudge.1",
+      "text": "هنوز فکر می‌کنی؟ عجله نکن.",
+      "event": "game.idle",
+      "screen": "game",
+      "file": "voice/idle_nudge_1.mp3",
+      "group": "idle.nudge",
+      "note": "۱۲ ثانیه بی‌پاسخ"
+    },
+    {
+      "id": "idle.nudge.2",
+      "text": "یکی از عکس‌ها را لمس کن.",
+      "event": "game.idle",
+      "screen": "game",
+      "file": "voice/idle_nudge_2.mp3",
+      "group": "idle.nudge",
+      "note": "۱۲ ثانیه بی‌پاسخ"
+    },
+    {
+      "id": "level.complete.1",
+      "text": "مرحله تمام شد! ستاره‌هایت را ببین.",
+      "event": "level.complete",
+      "screen": "result",
+      "file": "voice/level_complete_1.mp3",
+      "group": "level.complete"
+    },
+    {
+      "id": "level.complete.2",
+      "text": "تبریک! این مرحله را بردی.",
+      "event": "level.complete",
+      "screen": "result",
+      "file": "voice/level_complete_2.mp3",
+      "group": "level.complete"
+    },
+    {
+      "id": "level.complete.3",
+      "text": "عالی بود! امتیازهایت را گرفتی.",
+      "event": "level.complete",
+      "screen": "result",
+      "file": "voice/level_complete_3.mp3",
+      "group": "level.complete"
+    },
+    {
+      "id": "result.stars.3",
+      "text": "سه ستاره! فوق‌العاده بودی!",
+      "event": "result.stars3",
+      "screen": "result",
+      "file": "voice/result_stars_3.mp3",
+      "delayMs": 600
+    },
+    {
+      "id": "result.stars.2",
+      "text": "دو ستاره! خیلی خوب بود.",
+      "event": "result.stars2",
+      "screen": "result",
+      "file": "voice/result_stars_2.mp3",
+      "delayMs": 600
+    },
+    {
+      "id": "result.stars.1",
+      "text": "یک ستاره! دفعه‌ی بعد بهتر هم می‌شود.",
+      "event": "result.stars1",
+      "screen": "result",
+      "file": "voice/result_stars_1.mp3",
+      "delayMs": 600
+    },
+    {
+      "id": "level.next.1",
+      "text": "آماده‌ی مرحله‌ی بعد هستی؟",
+      "event": "level.next",
+      "screen": "result",
+      "file": "voice/level_next_1.mp3",
+      "group": "level.next"
+    },
+    {
+      "id": "level.next.2",
+      "text": "برویم سراغ صدای بعدی!",
+      "event": "level.next",
+      "screen": "result",
+      "file": "voice/level_next_2.mp3",
+      "group": "level.next"
+    },
+    {
+      "id": "level.next.3",
+      "text": "مرحله‌ی بعد منتظر توست!",
+      "event": "level.next",
+      "screen": "result",
+      "file": "voice/level_next_3.mp3",
+      "group": "level.next"
+    },
+    {
+      "id": "mode.done",
+      "text": "همه‌ی مرحله‌های این بازی تمام شد! تو یک قهرمان شنیداری هستی.",
+      "event": "mode.done",
+      "screen": "result",
+      "file": "voice/mode_done.mp3"
+    },
+    {
+      "id": "all.done",
+      "text": "باورم نمی‌شود! همه‌ی مرحله‌ها را تمام کردی. گوش‌های تو حرف ندارد!",
+      "event": "all.done",
+      "screen": "result",
+      "file": "voice/all_done.mp3"
+    },
+    {
+      "id": "seq.your_turn",
+      "text": "حالا نوبت توست! عکس‌ها را به ترتیب لمس کن.",
+      "event": "sequence.played",
+      "screen": "game",
+      "file": "voice/seq_your_turn.mp3"
+    },
+    {
+      "id": "session.pause",
+      "text": "بازی را نگه داشتیم. هر وقت آماده بودی، ادامه بده.",
+      "event": "game.paused",
+      "screen": "pause",
+      "file": "voice/session_pause.mp3"
+    },
+    {
+      "id": "session.resume",
+      "text": "خوش برگشتی! بیا ادامه بدهیم.",
+      "event": "game.resumed",
+      "screen": "pause",
+      "file": "voice/session_resume.mp3"
+    },
+    {
+      "id": "session.restart",
+      "text": "از اول شروع می‌کنیم!",
+      "event": "game.restart",
+      "screen": "pause",
+      "file": "voice/session_restart.mp3"
+    },
+    {
+      "id": "session.exit_ask",
+      "text": "می‌خواهی از بازی بیرون بروی؟",
+      "event": "game.exit_ask",
+      "screen": "pause",
+      "file": "voice/session_exit_ask.mp3"
+    },
+    {
+      "id": "session.bye",
+      "text": "خداحافظ دوست من! زود برگرد.",
+      "event": "game.exit",
+      "screen": "pause",
+      "file": "voice/session_bye.mp3"
+    },
+    {
+      "id": "badge.first_step",
+      "text": "مدال اولین قدم مال توست! اولین مرحله را تمام کردی.",
+      "event": "badge.unlocked",
+      "screen": "result",
+      "file": "voice/badge_first_step.mp3"
+    },
+    {
+      "id": "badge.sound_shop",
+      "text": "مدال کارگاه صداها را گرفتی! پنج مرحله را بردی.",
+      "event": "badge.unlocked",
+      "screen": "result",
+      "file": "voice/badge_sound_shop.mp3"
+    },
+    {
+      "id": "badge.nature_friend",
+      "text": "مدال دوست طبیعت مال توست! صدای طبیعت را خوب می‌شناسی.",
+      "event": "badge.unlocked",
+      "screen": "result",
+      "file": "voice/badge_nature_friend.mp3"
+    },
+    {
+      "id": "badge.animal_expert",
+      "text": "مدال کارشناس حیوانات را گرفتی! صدای حیوان‌ها را عالی می‌شناسی.",
+      "event": "badge.unlocked",
+      "screen": "result",
+      "file": "voice/badge_animal_expert.mp3"
+    },
+    {
+      "id": "badge.memory_master",
+      "text": "مدال استاد حافظه مال توست! ترتیب صداها را خوب یادت می‌ماند.",
+      "event": "badge.unlocked",
+      "screen": "result",
+      "file": "voice/badge_memory_master.mp3"
+    },
+    {
+      "id": "badge.sharp_ear",
+      "text": "مدال گوش تیز را گرفتی! ده جواب درست پشت سر هم!",
+      "event": "badge.unlocked",
+      "screen": "result",
+      "file": "voice/badge_sharp_ear.mp3"
+    },
+    {
+      "id": "badge.audio_hero",
+      "text": "مدال قهرمان شنیداری! بزرگ‌ترین مدال بازی مال توست.",
+      "event": "badge.unlocked",
+      "screen": "result",
+      "file": "voice/badge_audio_hero.mp3"
+    },
+    {
+      "id": "find.01.q",
+      "text": "یک صدای قشنگ می‌آید. این صدا از کجا می‌آید؟",
+      "event": "game.after_sound",
+      "screen": "game",
+      "file": "voice/find_01_q.mp3",
+      "note": "پاسخ را لو نمی‌دهد"
+    },
+    {
+      "id": "find.01.hint",
+      "text": "جایی را پیدا کن که درخت‌های زیادی دارد.",
+      "event": "game.wrong",
+      "screen": "game",
+      "file": "voice/find_01_hint.mp3",
+      "note": "بعد از بازخورد اشتباه"
+    },
+    {
+      "id": "find.01.ok",
+      "text": "آفرین! پرنده در جنگل آواز می‌خواند.",
+      "event": "game.correct",
+      "screen": "feedback",
+      "file": "voice/find_01_ok.mp3"
+    },
+    {
+      "id": "find.02.q",
+      "text": "خوب گوش کن! صاحب این صدا کجا زندگی می‌کند؟",
+      "event": "game.after_sound",
+      "screen": "game",
+      "file": "voice/find_02_q.mp3",
+      "note": "پاسخ را لو نمی‌دهد"
+    },
+    {
+      "id": "find.02.hint",
+      "text": "این حیوان علف می‌خورد و به ما شیر می‌دهد. خانه‌اش کجاست؟",
+      "event": "game.wrong",
+      "screen": "game",
+      "file": "voice/find_02_hint.mp3",
+      "note": "بعد از بازخورد اشتباه"
+    },
+    {
+      "id": "find.02.ok",
+      "text": "درسته! گاو در مزرعه زندگی می‌کند.",
+      "event": "game.correct",
+      "screen": "feedback",
+      "file": "voice/find_02_ok.mp3"
+    },
+    {
+      "id": "find.03.q",
+      "text": "این صدا را کجا می‌شنوی؟ خوب فکر کن.",
+      "event": "game.after_sound",
+      "screen": "game",
+      "file": "voice/find_03_q.mp3",
+      "note": "پاسخ را لو نمی‌دهد"
+    },
+    {
+      "id": "find.03.hint",
+      "text": "وقتی مهمان می‌آید، این صدا را می‌شنویم.",
+      "event": "game.wrong",
+      "screen": "game",
+      "file": "voice/find_03_hint.mp3",
+      "note": "بعد از بازخورد اشتباه"
+    },
+    {
+      "id": "find.03.ok",
+      "text": "آفرین! زنگ در مال خانه است.",
+      "event": "game.correct",
+      "screen": "feedback",
+      "file": "voice/find_03_ok.mp3"
+    },
+    {
+      "id": "find.04.q",
+      "text": "گوش کن... این صدا ما را به کجا می‌برد؟",
+      "event": "game.after_sound",
+      "screen": "game",
+      "file": "voice/find_04_q.mp3",
+      "note": "پاسخ را لو نمی‌دهد"
+    },
+    {
+      "id": "find.04.hint",
+      "text": "جایی با آب خیلی زیاد و موج‌های بزرگ.",
+      "event": "game.wrong",
+      "screen": "game",
+      "file": "voice/find_04_hint.mp3",
+      "note": "بعد از بازخورد اشتباه"
+    },
+    {
+      "id": "find.04.ok",
+      "text": "درسته! این صدای موج‌های دریا بود.",
+      "event": "game.correct",
+      "screen": "feedback",
+      "file": "voice/find_04_ok.mp3"
+    },
+    {
+      "id": "find.05.q",
+      "text": "یک چیزی سوت می‌زند! این صدا از کدام اتاق می‌آید؟",
+      "event": "game.after_sound",
+      "screen": "game",
+      "file": "voice/find_05_q.mp3",
+      "note": "پاسخ را لو نمی‌دهد"
+    },
+    {
+      "id": "find.05.hint",
+      "text": "جایی که غذا می‌پزیم و چای درست می‌کنیم.",
+      "event": "game.wrong",
+      "screen": "game",
+      "file": "voice/find_05_hint.mp3",
+      "note": "بعد از بازخورد اشتباه"
+    },
+    {
+      "id": "find.05.ok",
+      "text": "عالی! کتری در آشپزخانه سوت می‌زند.",
+      "event": "game.correct",
+      "screen": "feedback",
+      "file": "voice/find_05_ok.mp3"
+    },
+    {
+      "id": "find.06.q",
+      "text": "صدای آب می‌آید! این آب کجاست؟",
+      "event": "game.after_sound",
+      "screen": "game",
+      "file": "voice/find_06_q.mp3",
+      "note": "پاسخ را لو نمی‌دهد"
+    },
+    {
+      "id": "find.06.hint",
+      "text": "آبی که از روی سنگ‌ها می‌گذرد و جلو می‌رود.",
+      "event": "game.wrong",
+      "screen": "game",
+      "file": "voice/find_06_hint.mp3",
+      "note": "بعد از بازخورد اشتباه"
+    },
+    {
+      "id": "find.06.ok",
+      "text": "آفرین! این صدای آب رودخانه بود.",
+      "event": "game.correct",
+      "screen": "feedback",
+      "file": "voice/find_06_ok.mp3"
+    },
+    {
+      "id": "find.07.q",
+      "text": "آژیر می‌آید! این صدا را بیشتر کجا می‌شنویم؟",
+      "event": "game.after_sound",
+      "screen": "game",
+      "file": "voice/find_07_q.mp3",
+      "note": "پاسخ را لو نمی‌دهد"
+    },
+    {
+      "id": "find.07.hint",
+      "text": "جایی با خیابان، ماشین و ساختمان‌های بلند.",
+      "event": "game.wrong",
+      "screen": "game",
+      "file": "voice/find_07_hint.mp3",
+      "note": "بعد از بازخورد اشتباه"
+    },
+    {
+      "id": "find.07.ok",
+      "text": "درسته! آمبولانس در شهر به کمک مردم می‌رود.",
+      "event": "game.correct",
+      "screen": "feedback",
+      "file": "voice/find_07_ok.mp3"
+    },
+    {
+      "id": "find.08.q",
+      "text": "وای، چه صدای بلندی! این صدا به کجا می‌رود؟",
+      "event": "game.after_sound",
+      "screen": "game",
+      "file": "voice/find_08_q.mp3",
+      "note": "پاسخ را لو نمی‌دهد"
+    },
+    {
+      "id": "find.08.hint",
+      "text": "خیلی بالا، بالاتر از ابرها، پیش ستاره‌ها.",
+      "event": "game.wrong",
+      "screen": "game",
+      "file": "voice/find_08_hint.mp3",
+      "note": "بعد از بازخورد اشتباه"
+    },
+    {
+      "id": "find.08.ok",
+      "text": "آفرین! موشک به فضا پرواز می‌کند.",
+      "event": "game.correct",
+      "screen": "feedback",
+      "file": "voice/find_08_ok.mp3"
+    },
+    {
+      "id": "find.09.q",
+      "text": "صدای وزش می‌آید... این صدا در کدام جا می‌پیچد؟",
+      "event": "game.after_sound",
+      "screen": "game",
+      "file": "voice/find_09_q.mp3",
+      "note": "پاسخ را لو نمی‌دهد"
+    },
+    {
+      "id": "find.09.hint",
+      "text": "جایی تاریک و سنگی در دل کوه.",
+      "event": "game.wrong",
+      "screen": "game",
+      "file": "voice/find_09_hint.mp3",
+      "note": "بعد از بازخورد اشتباه"
+    },
+    {
+      "id": "find.09.ok",
+      "text": "عالی! باد در غار می‌پیچد و صدا می‌کند.",
+      "event": "game.correct",
+      "screen": "feedback",
+      "file": "voice/find_09_ok.mp3"
+    },
+    {
+      "id": "find.10.q",
+      "text": "یک دوست کوچولو صدا می‌کند. او کجاست؟",
+      "event": "game.after_sound",
+      "screen": "game",
+      "file": "voice/find_10_q.mp3",
+      "note": "پاسخ را لو نمی‌دهد"
+    },
+    {
+      "id": "find.10.hint",
+      "text": "جایی سبز با چمن، درخت و یک حوض کوچک.",
+      "event": "game.wrong",
+      "screen": "game",
+      "file": "voice/find_10_hint.mp3",
+      "note": "بعد از بازخورد اشتباه"
+    },
+    {
+      "id": "find.10.ok",
+      "text": "درسته! قورباغه کنار حوض پارک بود.",
+      "event": "game.correct",
+      "screen": "feedback",
+      "file": "voice/find_10_ok.mp3"
+    },
+    {
+      "id": "who.01.q",
+      "text": "خوب گوش کن. این صدا مال کدام حیوان است؟",
+      "event": "game.after_sound",
+      "screen": "game",
+      "file": "voice/who_01_q.mp3",
+      "note": "پاسخ را لو نمی‌دهد"
+    },
+    {
+      "id": "who.01.hint",
+      "text": "این حیوان سبیل دارد و دوست دارد با کاموا بازی کند.",
+      "event": "game.wrong",
+      "screen": "game",
+      "file": "voice/who_01_hint.mp3",
+      "note": "بعد از بازخورد اشتباه"
+    },
+    {
+      "id": "who.01.ok",
+      "text": "آفرین! این صدای گربه بود. میو!",
+      "event": "game.correct",
+      "screen": "feedback",
+      "file": "voice/who_01_ok.mp3"
+    },
+    {
+      "id": "who.02.q",
+      "text": "اوه، چه صدای بلندی! صاحبش کیست؟",
+      "event": "game.after_sound",
+      "screen": "game",
+      "file": "voice/who_02_q.mp3",
+      "note": "پاسخ را لو نمی‌دهد"
+    },
+    {
+      "id": "who.02.hint",
+      "text": "این حیوان یال بزرگی دارد و به او می‌گویند سلطان جنگل.",
+      "event": "game.wrong",
+      "screen": "game",
+      "file": "voice/who_02_hint.mp3",
+      "note": "بعد از بازخورد اشتباه"
+    },
+    {
+      "id": "who.02.ok",
+      "text": "درسته! این غرش شیر بود.",
+      "event": "game.correct",
+      "screen": "feedback",
+      "file": "voice/who_02_ok.mp3"
+    },
+    {
+      "id": "who.03.q",
+      "text": "این صدا را می‌شناسی؟ صاحبش را پیدا کن.",
+      "event": "game.after_sound",
+      "screen": "game",
+      "file": "voice/who_03_q.mp3",
+      "note": "پاسخ را لو نمی‌دهد"
+    },
+    {
+      "id": "who.03.hint",
+      "text": "این پرنده کنار آب زندگی می‌کند و خوب شنا می‌کند.",
+      "event": "game.wrong",
+      "screen": "game",
+      "file": "voice/who_03_hint.mp3",
+      "note": "بعد از بازخورد اشتباه"
+    },
+    {
+      "id": "who.03.ok",
+      "text": "عالی! این صدای اردک بود. کوآک کوآک!",
+      "event": "game.correct",
+      "screen": "feedback",
+      "file": "voice/who_03_ok.mp3"
+    },
+    {
+      "id": "who.04.q",
+      "text": "یک وسیله صدا می‌دهد. کدام است؟",
+      "event": "game.after_sound",
+      "screen": "game",
+      "file": "voice/who_04_q.mp3",
+      "note": "پاسخ را لو نمی‌دهد"
+    },
+    {
+      "id": "who.04.hint",
+      "text": "با این وسیله می‌توانی با مادربزرگ حرف بزنی.",
+      "event": "game.wrong",
+      "screen": "game",
+      "file": "voice/who_04_hint.mp3",
+      "note": "بعد از بازخورد اشتباه"
+    },
+    {
+      "id": "who.04.ok",
+      "text": "آفرین! این صدای تلفن بود.",
+      "event": "game.correct",
+      "screen": "feedback",
+      "file": "voice/who_04_ok.mp3"
+    },
+    {
+      "id": "who.05.q",
+      "text": "صدای یک حیوان خیلی بزرگ! حدس بزن کیست.",
+      "event": "game.after_sound",
+      "screen": "game",
+      "file": "voice/who_05_q.mp3",
+      "note": "پاسخ را لو نمی‌دهد"
+    },
+    {
+      "id": "who.05.hint",
+      "text": "این حیوان خرطوم دراز و گوش‌های بزرگ دارد.",
+      "event": "game.wrong",
+      "screen": "game",
+      "file": "voice/who_05_hint.mp3",
+      "note": "بعد از بازخورد اشتباه"
+    },
+    {
+      "id": "who.05.ok",
+      "text": "درسته! این صدای فیل بود.",
+      "event": "game.correct",
+      "screen": "feedback",
+      "file": "voice/who_05_ok.mp3"
+    },
+    {
+      "id": "who.06.q",
+      "text": "این صدای طبیعت است. فکر می‌کنی چیست؟",
+      "event": "game.after_sound",
+      "screen": "game",
+      "file": "voice/who_06_q.mp3",
+      "note": "پاسخ را لو نمی‌دهد"
+    },
+    {
+      "id": "who.06.hint",
+      "text": "از ابرها می‌آید و زمین را خیس می‌کند.",
+      "event": "game.wrong",
+      "screen": "game",
+      "file": "voice/who_06_hint.mp3",
+      "note": "بعد از بازخورد اشتباه"
+    },
+    {
+      "id": "who.06.ok",
+      "text": "آفرین! این صدای باران بود.",
+      "event": "game.correct",
+      "screen": "feedback",
+      "file": "voice/who_06_ok.mp3"
+    },
+    {
+      "id": "who.07.q",
+      "text": "یک ساز می‌نوازد. کدام ساز است؟",
+      "event": "game.after_sound",
+      "screen": "game",
+      "file": "voice/who_07_q.mp3",
+      "note": "پاسخ را لو نمی‌دهد"
+    },
+    {
+      "id": "who.07.hint",
+      "text": "این ساز سیم دارد و با انگشت نواخته می‌شود.",
+      "event": "game.wrong",
+      "screen": "game",
+      "file": "voice/who_07_hint.mp3",
+      "note": "بعد از بازخورد اشتباه"
+    },
+    {
+      "id": "who.07.ok",
+      "text": "عالی! این صدای گیتار بود.",
+      "event": "game.correct",
+      "screen": "feedback",
+      "file": "voice/who_07_ok.mp3"
+    },
+    {
+      "id": "who.08.q",
+      "text": "یک وسیله‌ی خانه روشن شده. کدام است؟",
+      "event": "game.after_sound",
+      "screen": "game",
+      "file": "voice/who_08_q.mp3",
+      "note": "پاسخ را لو نمی‌دهد"
+    },
+    {
+      "id": "who.08.hint",
+      "text": "این وسیله خاک فرش را جمع می‌کند.",
+      "event": "game.wrong",
+      "screen": "game",
+      "file": "voice/who_08_hint.mp3",
+      "note": "بعد از بازخورد اشتباه"
+    },
+    {
+      "id": "who.08.ok",
+      "text": "درسته! این صدای جاروبرقی بود.",
+      "event": "game.correct",
+      "screen": "feedback",
+      "file": "voice/who_08_ok.mp3"
+    },
+    {
+      "id": "who.09.q",
+      "text": "آژیر! کدام ماشین دارد می‌آید؟",
+      "event": "game.after_sound",
+      "screen": "game",
+      "file": "voice/who_09_q.mp3",
+      "note": "پاسخ را لو نمی‌دهد"
+    },
+    {
+      "id": "who.09.hint",
+      "text": "این ماشین قرمز است، نردبان دارد و آتش را خاموش می‌کند.",
+      "event": "game.wrong",
+      "screen": "game",
+      "file": "voice/who_09_hint.mp3",
+      "note": "بعد از بازخورد اشتباه"
+    },
+    {
+      "id": "who.09.ok",
+      "text": "آفرین! این ماشین آتش‌نشانی بود.",
+      "event": "game.correct",
+      "screen": "feedback",
+      "file": "voice/who_09_ok.mp3"
+    },
+    {
+      "id": "who.10.q",
+      "text": "بیپ بوپ! این صدای چیست؟",
+      "event": "game.after_sound",
+      "screen": "game",
+      "file": "voice/who_10_q.mp3",
+      "note": "پاسخ را لو نمی‌دهد"
+    },
+    {
+      "id": "who.10.hint",
+      "text": "این دوست فلزی راه می‌رود و چراغ‌های رنگی دارد.",
+      "event": "game.wrong",
+      "screen": "game",
+      "file": "voice/who_10_hint.mp3",
+      "note": "بعد از بازخورد اشتباه"
+    },
+    {
+      "id": "who.10.ok",
+      "text": "عالی! این صدای ربات بود.",
+      "event": "game.correct",
+      "screen": "feedback",
+      "file": "voice/who_10_ok.mp3"
+    },
+    {
+      "id": "seq.01.q",
+      "text": "سه صدا پشت سر هم می‌آید. خوب گوش کن و یادت بماند.",
+      "event": "game.level_start",
+      "screen": "game",
+      "file": "voice/seq_01_q.mp3",
+      "note": "پاسخ را لو نمی‌دهد"
+    },
+    {
+      "id": "seq.01.hint",
+      "text": "صدای اول را یادت باشد، بعد دومی، بعد سومی. می‌توانی دوباره گوش کنی.",
+      "event": "game.wrong",
+      "screen": "game",
+      "file": "voice/seq_01_hint.mp3",
+      "note": "بعد از بازخورد اشتباه"
+    },
+    {
+      "id": "seq.01.ok",
+      "text": "آفرین! ترتیب را درست چیدی.",
+      "event": "game.correct",
+      "screen": "feedback",
+      "file": "voice/seq_01_ok.mp3"
+    },
+    {
+      "id": "seq.02.q",
+      "text": "دوباره سه صدا! این بار چه صداهایی می‌آید؟",
+      "event": "game.level_start",
+      "screen": "game",
+      "file": "voice/seq_02_q.mp3",
+      "note": "پاسخ را لو نمی‌دهد"
+    },
+    {
+      "id": "seq.02.hint",
+      "text": "با انگشت‌هایت بشمار: یک، دو، سه.",
+      "event": "game.wrong",
+      "screen": "game",
+      "file": "voice/seq_02_hint.mp3",
+      "note": "بعد از بازخورد اشتباه"
+    },
+    {
+      "id": "seq.02.ok",
+      "text": "عالی! حافظه‌ات خیلی خوب است.",
+      "event": "game.correct",
+      "screen": "feedback",
+      "file": "voice/seq_02_ok.mp3"
+    },
+    {
+      "id": "seq.03.q",
+      "text": "گوش کن و ترتیب صداها را به خاطر بسپار.",
+      "event": "game.level_start",
+      "screen": "game",
+      "file": "voice/seq_03_q.mp3",
+      "note": "پاسخ را لو نمی‌دهد"
+    },
+    {
+      "id": "seq.03.hint",
+      "text": "در ذهنت بگو: اول این، بعد این، بعد این.",
+      "event": "game.wrong",
+      "screen": "game",
+      "file": "voice/seq_03_hint.mp3",
+      "note": "بعد از بازخورد اشتباه"
+    },
+    {
+      "id": "seq.03.ok",
+      "text": "درسته! هر سه سر جایشان هستند.",
+      "event": "game.correct",
+      "screen": "feedback",
+      "file": "voice/seq_03_ok.mp3"
+    },
+    {
+      "id": "seq.04.q",
+      "text": "این بار چهار صدا! کمی سخت‌تر شد.",
+      "event": "game.level_start",
+      "screen": "game",
+      "file": "voice/seq_04_q.mp3",
+      "note": "پاسخ را لو نمی‌دهد"
+    },
+    {
+      "id": "seq.04.hint",
+      "text": "دو صدای اول را یادت باشد، بعد دو صدای بعدی را.",
+      "event": "game.wrong",
+      "screen": "game",
+      "file": "voice/seq_04_hint.mp3",
+      "note": "بعد از بازخورد اشتباه"
+    },
+    {
+      "id": "seq.04.ok",
+      "text": "آفرین! چهار صدا را درست چیدی.",
+      "event": "game.correct",
+      "screen": "feedback",
+      "file": "voice/seq_04_ok.mp3"
+    },
+    {
+      "id": "seq.05.q",
+      "text": "چهار صدای مزرعه! ترتیبشان یادت نرود.",
+      "event": "game.level_start",
+      "screen": "game",
+      "file": "voice/seq_05_q.mp3",
+      "note": "پاسخ را لو نمی‌دهد"
+    },
+    {
+      "id": "seq.05.hint",
+      "text": "فکر کن در مزرعه راه می‌روی و حیوان‌ها را یکی‌یکی می‌بینی.",
+      "event": "game.wrong",
+      "screen": "game",
+      "file": "voice/seq_05_hint.mp3",
+      "note": "بعد از بازخورد اشتباه"
+    },
+    {
+      "id": "seq.05.ok",
+      "text": "عالی! مثل یک کشاورز دقیق گوش دادی.",
+      "event": "game.correct",
+      "screen": "feedback",
+      "file": "voice/seq_05_ok.mp3"
+    },
+    {
+      "id": "seq.06.q",
+      "text": "چهار ساز موسیقی! با دقت گوش کن.",
+      "event": "game.level_start",
+      "screen": "game",
+      "file": "voice/seq_06_q.mp3",
+      "note": "پاسخ را لو نمی‌دهد"
+    },
+    {
+      "id": "seq.06.hint",
+      "text": "هر ساز صدای خودش را دارد: یکی نازک، یکی بم، یکی ضربی.",
+      "event": "game.wrong",
+      "screen": "game",
+      "file": "voice/seq_06_hint.mp3",
+      "note": "بعد از بازخورد اشتباه"
+    },
+    {
+      "id": "seq.06.ok",
+      "text": "درسته! گوش موسیقی تو عالی است.",
+      "event": "game.correct",
+      "screen": "feedback",
+      "file": "voice/seq_06_ok.mp3"
+    },
+    {
+      "id": "seq.07.q",
+      "text": "پنج صدا! یک نفس عمیق بکش و گوش کن.",
+      "event": "game.level_start",
+      "screen": "game",
+      "file": "voice/seq_07_q.mp3",
+      "note": "پاسخ را لو نمی‌دهد"
+    },
+    {
+      "id": "seq.07.hint",
+      "text": "برای هر صدا یک تصویر در ذهنت بساز.",
+      "event": "game.wrong",
+      "screen": "game",
+      "file": "voice/seq_07_hint.mp3",
+      "note": "بعد از بازخورد اشتباه"
+    },
+    {
+      "id": "seq.07.ok",
+      "text": "آفرین! پنج صدا کار سختی بود.",
+      "event": "game.correct",
+      "screen": "feedback",
+      "file": "voice/seq_07_ok.mp3"
+    },
+    {
+      "id": "seq.08.q",
+      "text": "آخرین مرحله! پنج صدای فضایی. تو می‌توانی!",
+      "event": "game.level_start",
+      "screen": "game",
+      "file": "voice/seq_08_q.mp3",
+      "note": "پاسخ را لو نمی‌دهد"
+    },
+    {
+      "id": "seq.08.hint",
+      "text": "عجله نکن. دو بار گوش کن و بعد بچین.",
+      "event": "game.wrong",
+      "screen": "game",
+      "file": "voice/seq_08_hint.mp3",
+      "note": "بعد از بازخورد اشتباه"
+    },
+    {
+      "id": "seq.08.ok",
+      "text": "باورم نمی‌شود! سخت‌ترین مرحله را بردی.",
+      "event": "game.correct",
+      "screen": "feedback",
+      "file": "voice/seq_08_ok.mp3"
+    },
+    {
+      "id": "mission.01.q",
+      "text": "به جنگل رسیدیم! چشم‌هایت را ببند. چند صدای مختلف می‌شنوی؟",
+      "event": "game.after_sound",
+      "screen": "game",
+      "file": "voice/mission_01_q.mp3",
+      "note": "پاسخ را لو نمی‌دهد"
+    },
+    {
+      "id": "mission.01.hint",
+      "text": "صداها روی هم هستند. سعی کن یکی‌یکی جدایشان کنی.",
+      "event": "game.wrong",
+      "screen": "game",
+      "file": "voice/mission_01_hint.mp3",
+      "note": "بعد از بازخورد اشتباه"
+    },
+    {
+      "id": "mission.01.ok",
+      "text": "آفرین! سه صدا بود: پرنده، باد و رودخانه.",
+      "event": "game.correct",
+      "screen": "feedback",
+      "file": "voice/mission_01_ok.mp3"
+    },
+    {
+      "id": "mission.02.q",
+      "text": "صبح بخیر مزرعه! بشمار چند صدا می‌شنوی.",
+      "event": "game.after_sound",
+      "screen": "game",
+      "file": "voice/mission_02_q.mp3",
+      "note": "پاسخ را لو نمی‌دهد"
+    },
+    {
+      "id": "mission.02.hint",
+      "text": "صبح زود حیوان‌های مزرعه بیدار می‌شوند. هر کدام صدای خودش را دارد.",
+      "event": "game.wrong",
+      "screen": "game",
+      "file": "voice/mission_02_hint.mp3",
+      "note": "بعد از بازخورد اشتباه"
+    },
+    {
+      "id": "mission.02.ok",
+      "text": "درسته! چهار صدا بود.",
+      "event": "game.correct",
+      "screen": "feedback",
+      "file": "voice/mission_02_ok.mp3"
+    },
+    {
+      "id": "mission.03.q",
+      "text": "عصر است و ما در خانه‌ایم. چند صدای مختلف می‌شنوی؟",
+      "event": "game.after_sound",
+      "screen": "game",
+      "file": "voice/mission_03_q.mp3",
+      "note": "پاسخ را لو نمی‌دهد"
+    },
+    {
+      "id": "mission.03.hint",
+      "text": "به چیزهایی فکر کن که تیک‌تاک می‌کنند، سوت می‌زنند یا زنگ می‌زنند.",
+      "event": "game.wrong",
+      "screen": "game",
+      "file": "voice/mission_03_hint.mp3",
+      "note": "بعد از بازخورد اشتباه"
+    },
+    {
+      "id": "mission.03.ok",
+      "text": "عالی! سه صدا بود.",
+      "event": "game.correct",
+      "screen": "feedback",
+      "file": "voice/mission_03_ok.mp3"
+    },
+    {
+      "id": "mission.04.q",
+      "text": "وسط شهر شلوغ! خوب گوش کن و بشمار.",
+      "event": "game.after_sound",
+      "screen": "game",
+      "file": "voice/mission_04_q.mp3",
+      "note": "پاسخ را لو نمی‌دهد"
+    },
+    {
+      "id": "mission.04.hint",
+      "text": "شهر صداهای زیادی دارد. دقت کن، دو آژیر با هم فرق دارند.",
+      "event": "game.wrong",
+      "screen": "game",
+      "file": "voice/mission_04_hint.mp3",
+      "note": "بعد از بازخورد اشتباه"
+    },
+    {
+      "id": "mission.04.ok",
+      "text": "آفرین! پنج صدا بود. شهر چقدر شلوغ است!",
+      "event": "game.correct",
+      "screen": "feedback",
+      "file": "voice/mission_04_ok.mp3"
+    },
+    {
+      "id": "mission.05.q",
+      "text": "شب شده و جنگل آرام است. این سخت‌ترین مأموریت است. چند صدا می‌شنوی؟",
+      "event": "game.after_sound",
+      "screen": "game",
+      "file": "voice/mission_05_q.mp3",
+      "note": "پاسخ را لو نمی‌دهد"
+    },
+    {
+      "id": "mission.05.hint",
+      "text": "بعضی صداها خیلی آرام‌اند. با دقت گوش کن.",
+      "event": "game.wrong",
+      "screen": "game",
+      "file": "voice/mission_05_hint.mp3",
+      "note": "بعد از بازخورد اشتباه"
+    },
+    {
+      "id": "mission.05.ok",
+      "text": "فوق‌العاده بود! پنج صدا را شنیدی.",
+      "event": "game.correct",
+      "screen": "feedback",
+      "file": "voice/mission_05_ok.mp3"
+    },
+    {
+      "id": "snd.lion",
+      "text": "این صدای شیر بود. شیر غرش می‌کند!",
+      "event": "sound.named",
+      "screen": "library",
+      "file": "voice/snd_lion.mp3",
+      "note": "بعد از پخش صدا در کتابخانه، یا بعد از پاسخ درست در بازی دسته‌ها"
+    },
+    {
+      "id": "snd.cow",
+      "text": "این صدای گاو بود. گاو ماغ می‌کشد.",
+      "event": "sound.named",
+      "screen": "library",
+      "file": "voice/snd_cow.mp3",
+      "note": "بعد از پخش صدا در کتابخانه، یا بعد از پاسخ درست در بازی دسته‌ها"
+    },
+    {
+      "id": "snd.dog",
+      "text": "این صدای سگ بود. سگ هاپ‌هاپ می‌کند.",
+      "event": "sound.named",
+      "screen": "library",
+      "file": "voice/snd_dog.mp3",
+      "note": "بعد از پخش صدا در کتابخانه، یا بعد از پاسخ درست در بازی دسته‌ها"
+    },
+    {
+      "id": "snd.cat",
+      "text": "این صدای گربه بود. گربه میو میو می‌کند.",
+      "event": "sound.named",
+      "screen": "library",
+      "file": "voice/snd_cat.mp3",
+      "note": "بعد از پخش صدا در کتابخانه، یا بعد از پاسخ درست در بازی دسته‌ها"
+    },
+    {
+      "id": "snd.rabbit",
+      "text": "این صدای خرگوش بود. خرگوش خیلی آرام است.",
+      "event": "sound.named",
+      "screen": "library",
+      "file": "voice/snd_rabbit.mp3",
+      "note": "بعد از پخش صدا در کتابخانه، یا بعد از پاسخ درست در بازی دسته‌ها"
+    },
+    {
+      "id": "snd.bird",
+      "text": "این صدای پرنده بود. پرنده‌ها صبح‌ها آواز می‌خوانند.",
+      "event": "sound.named",
+      "screen": "library",
+      "file": "voice/snd_bird.mp3",
+      "note": "بعد از پخش صدا در کتابخانه، یا بعد از پاسخ درست در بازی دسته‌ها"
+    },
+    {
+      "id": "snd.sheep",
+      "text": "این صدای گوسفند بود. گوسفند بع‌بع می‌کند.",
+      "event": "sound.named",
+      "screen": "library",
+      "file": "voice/snd_sheep.mp3",
+      "note": "بعد از پخش صدا در کتابخانه، یا بعد از پاسخ درست در بازی دسته‌ها"
+    },
+    {
+      "id": "snd.horse",
+      "text": "این صدای اسب بود. اسب شیهه می‌کشد.",
+      "event": "sound.named",
+      "screen": "library",
+      "file": "voice/snd_horse.mp3",
+      "note": "بعد از پخش صدا در کتابخانه، یا بعد از پاسخ درست در بازی دسته‌ها"
+    },
+    {
+      "id": "snd.duck",
+      "text": "این صدای اردک بود. اردک کنار آب زندگی می‌کند.",
+      "event": "sound.named",
+      "screen": "library",
+      "file": "voice/snd_duck.mp3",
+      "note": "بعد از پخش صدا در کتابخانه، یا بعد از پاسخ درست در بازی دسته‌ها"
+    },
+    {
+      "id": "snd.frog",
+      "text": "این صدای قورباغه بود. قورباغه قورقور می‌کند.",
+      "event": "sound.named",
+      "screen": "library",
+      "file": "voice/snd_frog.mp3",
+      "note": "بعد از پخش صدا در کتابخانه، یا بعد از پاسخ درست در بازی دسته‌ها"
+    },
+    {
+      "id": "snd.elephant",
+      "text": "این صدای فیل بود. فیل با خرطومش صدا می‌کند.",
+      "event": "sound.named",
+      "screen": "library",
+      "file": "voice/snd_elephant.mp3",
+      "note": "بعد از پخش صدا در کتابخانه، یا بعد از پاسخ درست در بازی دسته‌ها"
+    },
+    {
+      "id": "snd.rooster",
+      "text": "این صدای خروس بود. خروس صبح زود همه را بیدار می‌کند.",
+      "event": "sound.named",
+      "screen": "library",
+      "file": "voice/snd_rooster.mp3",
+      "note": "بعد از پخش صدا در کتابخانه، یا بعد از پاسخ درست در بازی دسته‌ها"
+    },
+    {
+      "id": "snd.doorbell",
+      "text": "این صدای زنگ در بود. یک نفر پشت در است!",
+      "event": "sound.named",
+      "screen": "library",
+      "file": "voice/snd_doorbell.mp3",
+      "note": "بعد از پخش صدا در کتابخانه، یا بعد از پاسخ درست در بازی دسته‌ها"
+    },
+    {
+      "id": "snd.clock",
+      "text": "این صدای ساعت بود. ساعت تیک‌تاک می‌کند.",
+      "event": "sound.named",
+      "screen": "library",
+      "file": "voice/snd_clock.mp3",
+      "note": "بعد از پخش صدا در کتابخانه، یا بعد از پاسخ درست در بازی دسته‌ها"
+    },
+    {
+      "id": "snd.phone",
+      "text": "این صدای تلفن بود. یک نفر زنگ می‌زند!",
+      "event": "sound.named",
+      "screen": "library",
+      "file": "voice/snd_phone.mp3",
+      "note": "بعد از پخش صدا در کتابخانه، یا بعد از پاسخ درست در بازی دسته‌ها"
+    },
+    {
+      "id": "snd.vacuum",
+      "text": "این صدای جاروبرقی بود. جاروبرقی خانه را تمیز می‌کند.",
+      "event": "sound.named",
+      "screen": "library",
+      "file": "voice/snd_vacuum.mp3",
+      "note": "بعد از پخش صدا در کتابخانه، یا بعد از پاسخ درست در بازی دسته‌ها"
+    },
+    {
+      "id": "snd.kettle",
+      "text": "این صدای کتری بود. آب که جوش بیاید، کتری سوت می‌زند.",
+      "event": "sound.named",
+      "screen": "library",
+      "file": "voice/snd_kettle.mp3",
+      "note": "بعد از پخش صدا در کتابخانه، یا بعد از پاسخ درست در بازی دسته‌ها"
+    },
+    {
+      "id": "snd.washer",
+      "text": "این صدای ماشین لباسشویی بود. لباس‌ها را می‌چرخاند.",
+      "event": "sound.named",
+      "screen": "library",
+      "file": "voice/snd_washer.mp3",
+      "note": "بعد از پخش صدا در کتابخانه، یا بعد از پاسخ درست در بازی دسته‌ها"
+    },
+    {
+      "id": "snd.tap",
+      "text": "این صدای شیر آب بود. آب از شیر می‌ریزد.",
+      "event": "sound.named",
+      "screen": "library",
+      "file": "voice/snd_tap.mp3",
+      "note": "بعد از پخش صدا در کتابخانه، یا بعد از پاسخ درست در بازی دسته‌ها"
+    },
+    {
+      "id": "snd.door",
+      "text": "این صدای در بود. در باز و بسته می‌شود.",
+      "event": "sound.named",
+      "screen": "library",
+      "file": "voice/snd_door.mp3",
+      "note": "بعد از پخش صدا در کتابخانه، یا بعد از پاسخ درست در بازی دسته‌ها"
+    },
+    {
+      "id": "snd.rain",
+      "text": "این صدای باران بود. قطره‌ها روی زمین می‌ریزند.",
+      "event": "sound.named",
+      "screen": "library",
+      "file": "voice/snd_rain.mp3",
+      "note": "بعد از پخش صدا در کتابخانه، یا بعد از پاسخ درست در بازی دسته‌ها"
+    },
+    {
+      "id": "snd.thunder",
+      "text": "این صدای رعد بود. بعد از برق آسمان می‌آید.",
+      "event": "sound.named",
+      "screen": "library",
+      "file": "voice/snd_thunder.mp3",
+      "note": "بعد از پخش صدا در کتابخانه، یا بعد از پاسخ درست در بازی دسته‌ها"
+    },
+    {
+      "id": "snd.wind",
+      "text": "این صدای باد بود. باد بین درخت‌ها می‌پیچد.",
+      "event": "sound.named",
+      "screen": "library",
+      "file": "voice/snd_wind.mp3",
+      "note": "بعد از پخش صدا در کتابخانه، یا بعد از پاسخ درست در بازی دسته‌ها"
+    },
+    {
+      "id": "snd.sea",
+      "text": "این صدای دریا بود. موج‌ها می‌آیند و می‌روند.",
+      "event": "sound.named",
+      "screen": "library",
+      "file": "voice/snd_sea.mp3",
+      "note": "بعد از پخش صدا در کتابخانه، یا بعد از پاسخ درست در بازی دسته‌ها"
+    },
+    {
+      "id": "snd.river",
+      "text": "این صدای رودخانه بود. آب روی سنگ‌ها می‌دود.",
+      "event": "sound.named",
+      "screen": "library",
+      "file": "voice/snd_river.mp3",
+      "note": "بعد از پخش صدا در کتابخانه، یا بعد از پاسخ درست در بازی دسته‌ها"
+    },
+    {
+      "id": "snd.fire",
+      "text": "این صدای آتش بود. چوب‌ها ترق‌ترق می‌کنند.",
+      "event": "sound.named",
+      "screen": "library",
+      "file": "voice/snd_fire.mp3",
+      "note": "بعد از پخش صدا در کتابخانه، یا بعد از پاسخ درست در بازی دسته‌ها"
+    },
+    {
+      "id": "snd.waterfall",
+      "text": "این صدای آبشار بود. آب از بالا پایین می‌ریزد.",
+      "event": "sound.named",
+      "screen": "library",
+      "file": "voice/snd_waterfall.mp3",
+      "note": "بعد از پخش صدا در کتابخانه، یا بعد از پاسخ درست در بازی دسته‌ها"
+    },
+    {
+      "id": "snd.drum",
+      "text": "این صدای طبل بود. بوم بوم بوم!",
+      "event": "sound.named",
+      "screen": "library",
+      "file": "voice/snd_drum.mp3",
+      "note": "بعد از پخش صدا در کتابخانه، یا بعد از پاسخ درست در بازی دسته‌ها"
+    },
+    {
+      "id": "snd.piano",
+      "text": "این صدای پیانو بود. پیانو کلیدهای سیاه و سفید دارد.",
+      "event": "sound.named",
+      "screen": "library",
+      "file": "voice/snd_piano.mp3",
+      "note": "بعد از پخش صدا در کتابخانه، یا بعد از پاسخ درست در بازی دسته‌ها"
+    },
+    {
+      "id": "snd.guitar",
+      "text": "این صدای گیتار بود. گیتار سیم دارد.",
+      "event": "sound.named",
+      "screen": "library",
+      "file": "voice/snd_guitar.mp3",
+      "note": "بعد از پخش صدا در کتابخانه، یا بعد از پاسخ درست در بازی دسته‌ها"
+    },
+    {
+      "id": "snd.violin",
+      "text": "این صدای ویولن بود. ویولن را با آرشه می‌نوازند.",
+      "event": "sound.named",
+      "screen": "library",
+      "file": "voice/snd_violin.mp3",
+      "note": "بعد از پخش صدا در کتابخانه، یا بعد از پاسخ درست در بازی دسته‌ها"
+    },
+    {
+      "id": "snd.flute",
+      "text": "این صدای فلوت بود. فلوت را با فوت می‌نوازند.",
+      "event": "sound.named",
+      "screen": "library",
+      "file": "voice/snd_flute.mp3",
+      "note": "بعد از پخش صدا در کتابخانه، یا بعد از پاسخ درست در بازی دسته‌ها"
+    },
+    {
+      "id": "snd.bell",
+      "text": "این صدای زنگوله بود. جرینگ جرینگ!",
+      "event": "sound.named",
+      "screen": "library",
+      "file": "voice/snd_bell.mp3",
+      "note": "بعد از پخش صدا در کتابخانه، یا بعد از پاسخ درست در بازی دسته‌ها"
+    },
+    {
+      "id": "snd.tambourine",
+      "text": "این صدای دف بود. دف یک ساز گرد ایرانی است.",
+      "event": "sound.named",
+      "screen": "library",
+      "file": "voice/snd_tambourine.mp3",
+      "note": "بعد از پخش صدا در کتابخانه، یا بعد از پاسخ درست در بازی دسته‌ها"
+    },
+    {
+      "id": "snd.hammer",
+      "text": "این صدای چکش بود. نجار با چکش میخ می‌کوبد.",
+      "event": "sound.named",
+      "screen": "library",
+      "file": "voice/snd_hammer.mp3",
+      "note": "بعد از پخش صدا در کتابخانه، یا بعد از پاسخ درست در بازی دسته‌ها"
+    },
+    {
+      "id": "snd.saw",
+      "text": "این صدای اره بود. با اره چوب را می‌برند.",
+      "event": "sound.named",
+      "screen": "library",
+      "file": "voice/snd_saw.mp3",
+      "note": "بعد از پخش صدا در کتابخانه، یا بعد از پاسخ درست در بازی دسته‌ها"
+    },
+    {
+      "id": "snd.ambulance",
+      "text": "این صدای آمبولانس بود. آمبولانس به بیمار کمک می‌کند.",
+      "event": "sound.named",
+      "screen": "library",
+      "file": "voice/snd_ambulance.mp3",
+      "note": "بعد از پخش صدا در کتابخانه، یا بعد از پاسخ درست در بازی دسته‌ها"
+    },
+    {
+      "id": "snd.firetruck",
+      "text": "این صدای ماشین آتش‌نشانی بود. آتش‌نشان‌ها آتش را خاموش می‌کنند.",
+      "event": "sound.named",
+      "screen": "library",
+      "file": "voice/snd_firetruck.mp3",
+      "note": "بعد از پخش صدا در کتابخانه، یا بعد از پاسخ درست در بازی دسته‌ها"
+    },
+    {
+      "id": "snd.police",
+      "text": "این صدای ماشین پلیس بود. پلیس مراقب ماست.",
+      "event": "sound.named",
+      "screen": "library",
+      "file": "voice/snd_police.mp3",
+      "note": "بعد از پخش صدا در کتابخانه، یا بعد از پاسخ درست در بازی دسته‌ها"
+    },
+    {
+      "id": "snd.scissors",
+      "text": "این صدای قیچی بود. قیچی کاغذ را می‌برد.",
+      "event": "sound.named",
+      "screen": "library",
+      "file": "voice/snd_scissors.mp3",
+      "note": "بعد از پخش صدا در کتابخانه، یا بعد از پاسخ درست در بازی دسته‌ها"
+    },
+    {
+      "id": "snd.typing",
+      "text": "این صدای تایپ کردن بود. انگشت‌ها روی دکمه‌ها می‌زنند.",
+      "event": "sound.named",
+      "screen": "library",
+      "file": "voice/snd_typing.mp3",
+      "note": "بعد از پخش صدا در کتابخانه، یا بعد از پاسخ درست در بازی دسته‌ها"
+    },
+    {
+      "id": "snd.rocket",
+      "text": "این صدای موشک بود. موشک به آسمان می‌رود.",
+      "event": "sound.named",
+      "screen": "library",
+      "file": "voice/snd_rocket.mp3",
+      "note": "بعد از پخش صدا در کتابخانه، یا بعد از پاسخ درست در بازی دسته‌ها"
+    },
+    {
+      "id": "snd.robot",
+      "text": "این صدای ربات بود. ربات بیپ بوپ می‌کند.",
+      "event": "sound.named",
+      "screen": "library",
+      "file": "voice/snd_robot.mp3",
+      "note": "بعد از پخش صدا در کتابخانه، یا بعد از پاسخ درست در بازی دسته‌ها"
+    },
+    {
+      "id": "snd.spaceship",
+      "text": "این صدای سفینه بود. سفینه بین ستاره‌ها سفر می‌کند.",
+      "event": "sound.named",
+      "screen": "library",
+      "file": "voice/snd_spaceship.mp3",
+      "note": "بعد از پخش صدا در کتابخانه، یا بعد از پاسخ درست در بازی دسته‌ها"
+    },
+    {
+      "id": "snd.satellite",
+      "text": "این صدای ماهواره بود. ماهواره دور زمین می‌چرخد.",
+      "event": "sound.named",
+      "screen": "library",
+      "file": "voice/snd_satellite.mp3",
+      "note": "بعد از پخش صدا در کتابخانه، یا بعد از پاسخ درست در بازی دسته‌ها"
+    },
+    {
+      "id": "snd.laser",
+      "text": "این صدای لیزر بود. لیزر یک نور باریک است.",
+      "event": "sound.named",
+      "screen": "library",
+      "file": "voice/snd_laser.mp3",
+      "note": "بعد از پخش صدا در کتابخانه، یا بعد از پاسخ درست در بازی دسته‌ها"
+    }
+  ]
+}

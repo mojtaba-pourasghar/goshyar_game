@@ -13,7 +13,8 @@
 // meta.status at the bottom is masked in the published examples and reads "fail" even on a
 // successful call. Reading that one would make every request look broken.
 
-const HOST = "https://partai.gw.isahab.ir/avasho/v2";
+// AVASHO_HOST only exists to point the studio at a local stand-in while testing.
+const HOST = process.env.AVASHO_HOST || "https://partai.gw.isahab.ir/avasho/v2";
 
 export const FAMILIES = {
   short: {

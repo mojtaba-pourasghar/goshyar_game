@@ -1,0 +1,221 @@
+﻿id,file,text,event,screen,group,delay_ms,recorded
+app.splash.welcome,app_splash_welcome.mp3,سلام! من گوش‌یار هستم. بازی کن، گوش بده، کشف کن!,splash.shown,splash,,500,no
+app.intro.1,app_intro_1.mp3,سلام دوست کوچولوی من! من گوش‌یار هستم، یک خرس کوچولو که عاشق صداهاست.,intro.page1,intro,,300,no
+app.intro.2,app_intro_2.mp3,امروز می‌خواهیم با گوش‌هایمان صداهای جالب را پیدا کنیم.,intro.page2,intro,,300,no
+app.intro.3,app_intro_3.mp3,اول خوب گوش بده، بعد عکس درست را لمس کن. آماده‌ای؟ پس بزن بریم!,intro.page3,intro,,300,no
+app.home.greet.1,app_home_greet_1.mp3,سلام دوباره! امروز کدام بازی را دوست داری؟,home.shown,home,home.greet,400,no
+app.home.greet.2,app_home_greet_2.mp3,خوش برگشتی! یک دسته را انتخاب کن.,home.shown,home,home.greet,400,no
+app.home.greet.3,app_home_greet_3.mp3,گوش‌هایت آماده‌اند؟ بیا یک بازی انتخاب کنیم.,home.shown,home,home.greet,400,no
+app.games.hub,app_games_hub.mp3,چهار بازی داریم. هر کدام را دوست داری، لمس کن.,games.shown,games,,300,no
+app.library.hint,app_library_hint.mp3,اینجا خانه‌ی صداهاست. روی هر عکس بزن تا صدایش را بشنوی.,library.shown,library,,300,no
+app.progress.shown,app_progress_shown.mp3,ببین چقدر ستاره جمع کرده‌ای! آفرین به تو.,progress.shown,progress,,300,no
+app.badges.shown,app_badges_shown.mp3,این‌ها مدال‌های تو هستند. مدال‌های کم‌رنگ هنوز منتظر تو هستند!,badges.shown,badges,,300,no
+app.settings.shown,app_settings_shown.mp3,اینجا بزرگ‌ترها صدای من و موسیقی را تنظیم می‌کنند.,settings.shown,settings,,300,no
+app.parent.gate,app_parent_gate.mp3,این بخش برای بزرگ‌ترهاست. لطفاً از یک بزرگ‌تر کمک بگیر.,parent_gate.shown,parent_gate,,0,no
+app.downloads.shown,app_downloads_shown.mp3,این‌ها صداها و تصویرهایی هستند که روی گوشی ذخیره شده‌اند.,downloads.shown,downloads,,300,no
+cat.animals.intro,cat_animals_intro.mp3,بیا به صدای حیوان‌ها گوش بدهیم!,category.opened,category,,0,no
+cat.home.intro,cat_home_intro.mp3,بیا صداهای خانه را پیدا کنیم!,category.opened,category,,0,no
+cat.nature.intro,cat_nature_intro.mp3,بیا به صدای طبیعت گوش بدهیم!,category.opened,category,,0,no
+cat.music.intro,cat_music_intro.mp3,بیا سازها را از صدایشان بشناسیم!,category.opened,category,,0,no
+cat.professions.intro,cat_professions_intro.mp3,بیا ببینیم این صداها مال چه کاری هستند!,category.opened,category,,0,no
+cat.science.intro,cat_science_intro.mp3,بیا به صداهای فضا و علم گوش بدهیم!,category.opened,category,,0,no
+cat.mission,cat_mission.mp3,یک صدا پخش می‌شود. عکس صاحب صدا را لمس کن.,category.start,category_game,,0,no
+cat.complete,cat_complete.mp3,همه‌ی صداهای این دور را پیدا کردی! آفرین!,category.complete,result,,0,no
+who.welcome,who_welcome.mp3,بازی «این صدا مال کیه؟» شروع شد!,mode.opened,level_map,,0,no
+who.mission,who_mission.mp3,یک صدا پخش می‌شود. خوب گوش بده و صاحب صدا را پیدا کن.,mode.first_level,game,,0,no
+find.welcome,find_welcome.mp3,به بازی «صدای مخفی» خوش آمدی!,mode.opened,level_map,,0,no
+find.mission,find_mission.mp3,گوش بده و بگو این صدا از کدام جا می‌آید.,mode.first_level,game,,0,no
+seq.welcome,seq_welcome.mp3,بازی ترتیب صداها! حافظه‌ات را آماده کن.,mode.opened,level_map,,0,no
+seq.mission,seq_mission.mp3,چند صدا پشت سر هم می‌آید. همان ترتیب را با عکس‌ها بچین.,mode.first_level,game,,0,no
+mission.welcome,mission_welcome.mp3,مأموریت شنیداری شروع شد!,mode.opened,level_map,,0,no
+mission.mission,mission_mission.mp3,چشم‌هایت را ببند و خوب گوش کن. چند صدای مختلف می‌شنوی؟,mode.first_level,game,,0,no
+listen.invite.1,listen_invite_1.mp3,هیس! خوب گوش بده.,game.before_sound,game,listen.invite,0,no
+listen.invite.2,listen_invite_2.mp3,گوش‌هایت را تیز کن!,game.before_sound,game,listen.invite,0,no
+listen.invite.3,listen_invite_3.mp3,آماده‌ای؟ صدا می‌آید...,game.before_sound,game,listen.invite,0,no
+listen.invite.4,listen_invite_4.mp3,گوش کن... چه صدایی می‌شنوی؟,game.before_sound,game,listen.invite,0,no
+question.who.1,question_who_1.mp3,این صدا مال کیه؟,game.after_sound,category_game,question.who,0,no
+question.who.2,question_who_2.mp3,کی این صدا را درآورد؟,game.after_sound,category_game,question.who,0,no
+question.who.3,question_who_3.mp3,صاحب این صدا را پیدا کن!,game.after_sound,category_game,question.who,0,no
+feedback.correct.1,feedback_correct_1.mp3,آفرین! درست بود!,game.correct,feedback,feedback.correct,0,no
+feedback.correct.2,feedback_correct_2.mp3,عالی بود!,game.correct,feedback,feedback.correct,0,no
+feedback.correct.3,feedback_correct_3.mp3,ای ول! گوش‌هایت خیلی تیز است!,game.correct,feedback,feedback.correct,0,no
+feedback.correct.4,feedback_correct_4.mp3,درسته! چه خوب گوش دادی!,game.correct,feedback,feedback.correct,0,no
+feedback.correct.5,feedback_correct_5.mp3,همین بود! باریکلا!,game.correct,feedback,feedback.correct,0,no
+feedback.correct.6,feedback_correct_6.mp3,هورا! پیدایش کردی!,game.correct,feedback,feedback.correct,0,no
+feedback.wrong.1,feedback_wrong_1.mp3,اشکالی ندارد. یک بار دیگر گوش کن.,game.wrong,feedback,feedback.wrong,0,no
+feedback.wrong.2,feedback_wrong_2.mp3,نزدیک بود! دوباره امتحان کن.,game.wrong,feedback,feedback.wrong,0,no
+feedback.wrong.3,feedback_wrong_3.mp3,این یکی نبود. بیا دوباره گوش بدهیم.,game.wrong,feedback,feedback.wrong,0,no
+feedback.wrong.4,feedback_wrong_4.mp3,نگران نباش، با هم پیدایش می‌کنیم.,game.wrong,feedback,feedback.wrong,0,no
+replay.tip.1,replay_tip_1.mp3,اگر صدا را خوب نشنیدی، دکمه‌ی آبی را بزن تا دوباره پخش شود.,game.replay_tip,game,replay.tip,0,no
+replay.tip.2,replay_tip_2.mp3,می‌توانی صدا را دوباره بشنوی. دکمه‌ی گوش را لمس کن.,game.replay_tip,game,replay.tip,0,no
+idle.nudge.1,idle_nudge_1.mp3,هنوز فکر می‌کنی؟ عجله نکن.,game.idle,game,idle.nudge,0,no
+idle.nudge.2,idle_nudge_2.mp3,یکی از عکس‌ها را لمس کن.,game.idle,game,idle.nudge,0,no
+level.complete.1,level_complete_1.mp3,مرحله تمام شد! ستاره‌هایت را ببین.,level.complete,result,level.complete,0,no
+level.complete.2,level_complete_2.mp3,تبریک! این مرحله را بردی.,level.complete,result,level.complete,0,no
+level.complete.3,level_complete_3.mp3,عالی بود! امتیازهایت را گرفتی.,level.complete,result,level.complete,0,no
+result.stars.3,result_stars_3.mp3,سه ستاره! فوق‌العاده بودی!,result.stars3,result,,600,no
+result.stars.2,result_stars_2.mp3,دو ستاره! خیلی خوب بود.,result.stars2,result,,600,no
+result.stars.1,result_stars_1.mp3,یک ستاره! دفعه‌ی بعد بهتر هم می‌شود.,result.stars1,result,,600,no
+level.next.1,level_next_1.mp3,آماده‌ی مرحله‌ی بعد هستی؟,level.next,result,level.next,0,no
+level.next.2,level_next_2.mp3,برویم سراغ صدای بعدی!,level.next,result,level.next,0,no
+level.next.3,level_next_3.mp3,مرحله‌ی بعد منتظر توست!,level.next,result,level.next,0,no
+mode.done,mode_done.mp3,همه‌ی مرحله‌های این بازی تمام شد! تو یک قهرمان شنیداری هستی.,mode.done,result,,0,no
+all.done,all_done.mp3,باورم نمی‌شود! همه‌ی مرحله‌ها را تمام کردی. گوش‌های تو حرف ندارد!,all.done,result,,0,no
+seq.your_turn,seq_your_turn.mp3,حالا نوبت توست! عکس‌ها را به ترتیب لمس کن.,sequence.played,game,,0,no
+session.pause,session_pause.mp3,بازی را نگه داشتیم. هر وقت آماده بودی، ادامه بده.,game.paused,pause,,0,no
+session.resume,session_resume.mp3,خوش برگشتی! بیا ادامه بدهیم.,game.resumed,pause,,0,no
+session.restart,session_restart.mp3,از اول شروع می‌کنیم!,game.restart,pause,,0,no
+session.exit_ask,session_exit_ask.mp3,می‌خواهی از بازی بیرون بروی؟,game.exit_ask,pause,,0,no
+session.bye,session_bye.mp3,خداحافظ دوست من! زود برگرد.,game.exit,pause,,0,no
+badge.first_step,badge_first_step.mp3,مدال اولین قدم مال توست! اولین مرحله را تمام کردی.,badge.unlocked,result,,0,no
+badge.sound_shop,badge_sound_shop.mp3,مدال کارگاه صداها را گرفتی! پنج مرحله را بردی.,badge.unlocked,result,,0,no
+badge.nature_friend,badge_nature_friend.mp3,مدال دوست طبیعت مال توست! صدای طبیعت را خوب می‌شناسی.,badge.unlocked,result,,0,no
+badge.animal_expert,badge_animal_expert.mp3,مدال کارشناس حیوانات را گرفتی! صدای حیوان‌ها را عالی می‌شناسی.,badge.unlocked,result,,0,no
+badge.memory_master,badge_memory_master.mp3,مدال استاد حافظه مال توست! ترتیب صداها را خوب یادت می‌ماند.,badge.unlocked,result,,0,no
+badge.sharp_ear,badge_sharp_ear.mp3,مدال گوش تیز را گرفتی! ده جواب درست پشت سر هم!,badge.unlocked,result,,0,no
+badge.audio_hero,badge_audio_hero.mp3,مدال قهرمان شنیداری! بزرگ‌ترین مدال بازی مال توست.,badge.unlocked,result,,0,no
+find.01.q,find_01_q.mp3,یک صدای قشنگ می‌آید. این صدا از کجا می‌آید؟,game.after_sound,game,,0,no
+find.01.hint,find_01_hint.mp3,جایی را پیدا کن که درخت‌های زیادی دارد.,game.wrong,game,,0,no
+find.01.ok,find_01_ok.mp3,آفرین! پرنده در جنگل آواز می‌خواند.,game.correct,feedback,,0,no
+find.02.q,find_02_q.mp3,خوب گوش کن! صاحب این صدا کجا زندگی می‌کند؟,game.after_sound,game,,0,no
+find.02.hint,find_02_hint.mp3,این حیوان علف می‌خورد و به ما شیر می‌دهد. خانه‌اش کجاست؟,game.wrong,game,,0,no
+find.02.ok,find_02_ok.mp3,درسته! گاو در مزرعه زندگی می‌کند.,game.correct,feedback,,0,no
+find.03.q,find_03_q.mp3,این صدا را کجا می‌شنوی؟ خوب فکر کن.,game.after_sound,game,,0,no
+find.03.hint,find_03_hint.mp3,وقتی مهمان می‌آید، این صدا را می‌شنویم.,game.wrong,game,,0,no
+find.03.ok,find_03_ok.mp3,آفرین! زنگ در مال خانه است.,game.correct,feedback,,0,no
+find.04.q,find_04_q.mp3,گوش کن... این صدا ما را به کجا می‌برد؟,game.after_sound,game,,0,no
+find.04.hint,find_04_hint.mp3,جایی با آب خیلی زیاد و موج‌های بزرگ.,game.wrong,game,,0,no
+find.04.ok,find_04_ok.mp3,درسته! این صدای موج‌های دریا بود.,game.correct,feedback,,0,no
+find.05.q,find_05_q.mp3,یک چیزی سوت می‌زند! این صدا از کدام اتاق می‌آید؟,game.after_sound,game,,0,no
+find.05.hint,find_05_hint.mp3,جایی که غذا می‌پزیم و چای درست می‌کنیم.,game.wrong,game,,0,no
+find.05.ok,find_05_ok.mp3,عالی! کتری در آشپزخانه سوت می‌زند.,game.correct,feedback,,0,no
+find.06.q,find_06_q.mp3,صدای آب می‌آید! این آب کجاست؟,game.after_sound,game,,0,no
+find.06.hint,find_06_hint.mp3,آبی که از روی سنگ‌ها می‌گذرد و جلو می‌رود.,game.wrong,game,,0,no
+find.06.ok,find_06_ok.mp3,آفرین! این صدای آب رودخانه بود.,game.correct,feedback,,0,no
+find.07.q,find_07_q.mp3,آژیر می‌آید! این صدا را بیشتر کجا می‌شنویم؟,game.after_sound,game,,0,no
+find.07.hint,find_07_hint.mp3,جایی با خیابان، ماشین و ساختمان‌های بلند.,game.wrong,game,,0,no
+find.07.ok,find_07_ok.mp3,درسته! آمبولانس در شهر به کمک مردم می‌رود.,game.correct,feedback,,0,no
+find.08.q,find_08_q.mp3,وای، چه صدای بلندی! این صدا به کجا می‌رود؟,game.after_sound,game,,0,no
+find.08.hint,find_08_hint.mp3,خیلی بالا، بالاتر از ابرها، پیش ستاره‌ها.,game.wrong,game,,0,no
+find.08.ok,find_08_ok.mp3,آفرین! موشک به فضا پرواز می‌کند.,game.correct,feedback,,0,no
+find.09.q,find_09_q.mp3,صدای وزش می‌آید... این صدا در کدام جا می‌پیچد؟,game.after_sound,game,,0,no
+find.09.hint,find_09_hint.mp3,جایی تاریک و سنگی در دل کوه.,game.wrong,game,,0,no
+find.09.ok,find_09_ok.mp3,عالی! باد در غار می‌پیچد و صدا می‌کند.,game.correct,feedback,,0,no
+find.10.q,find_10_q.mp3,یک دوست کوچولو صدا می‌کند. او کجاست؟,game.after_sound,game,,0,no
+find.10.hint,find_10_hint.mp3,جایی سبز با چمن، درخت و یک حوض کوچک.,game.wrong,game,,0,no
+find.10.ok,find_10_ok.mp3,درسته! قورباغه کنار حوض پارک بود.,game.correct,feedback,,0,no
+who.01.q,who_01_q.mp3,خوب گوش کن. این صدا مال کدام حیوان است؟,game.after_sound,game,,0,no
+who.01.hint,who_01_hint.mp3,این حیوان سبیل دارد و دوست دارد با کاموا بازی کند.,game.wrong,game,,0,no
+who.01.ok,who_01_ok.mp3,آفرین! این صدای گربه بود. میو!,game.correct,feedback,,0,no
+who.02.q,who_02_q.mp3,اوه، چه صدای بلندی! صاحبش کیست؟,game.after_sound,game,,0,no
+who.02.hint,who_02_hint.mp3,این حیوان یال بزرگی دارد و به او می‌گویند سلطان جنگل.,game.wrong,game,,0,no
+who.02.ok,who_02_ok.mp3,درسته! این غرش شیر بود.,game.correct,feedback,,0,no
+who.03.q,who_03_q.mp3,این صدا را می‌شناسی؟ صاحبش را پیدا کن.,game.after_sound,game,,0,no
+who.03.hint,who_03_hint.mp3,این پرنده کنار آب زندگی می‌کند و خوب شنا می‌کند.,game.wrong,game,,0,no
+who.03.ok,who_03_ok.mp3,عالی! این صدای اردک بود. کوآک کوآک!,game.correct,feedback,,0,no
+who.04.q,who_04_q.mp3,یک وسیله صدا می‌دهد. کدام است؟,game.after_sound,game,,0,no
+who.04.hint,who_04_hint.mp3,با این وسیله می‌توانی با مادربزرگ حرف بزنی.,game.wrong,game,,0,no
+who.04.ok,who_04_ok.mp3,آفرین! این صدای تلفن بود.,game.correct,feedback,,0,no
+who.05.q,who_05_q.mp3,صدای یک حیوان خیلی بزرگ! حدس بزن کیست.,game.after_sound,game,,0,no
+who.05.hint,who_05_hint.mp3,این حیوان خرطوم دراز و گوش‌های بزرگ دارد.,game.wrong,game,,0,no
+who.05.ok,who_05_ok.mp3,درسته! این صدای فیل بود.,game.correct,feedback,,0,no
+who.06.q,who_06_q.mp3,این صدای طبیعت است. فکر می‌کنی چیست؟,game.after_sound,game,,0,no
+who.06.hint,who_06_hint.mp3,از ابرها می‌آید و زمین را خیس می‌کند.,game.wrong,game,,0,no
+who.06.ok,who_06_ok.mp3,آفرین! این صدای باران بود.,game.correct,feedback,,0,no
+who.07.q,who_07_q.mp3,یک ساز می‌نوازد. کدام ساز است؟,game.after_sound,game,,0,no
+who.07.hint,who_07_hint.mp3,این ساز سیم دارد و با انگشت نواخته می‌شود.,game.wrong,game,,0,no
+who.07.ok,who_07_ok.mp3,عالی! این صدای گیتار بود.,game.correct,feedback,,0,no
+who.08.q,who_08_q.mp3,یک وسیله‌ی خانه روشن شده. کدام است؟,game.after_sound,game,,0,no
+who.08.hint,who_08_hint.mp3,این وسیله خاک فرش را جمع می‌کند.,game.wrong,game,,0,no
+who.08.ok,who_08_ok.mp3,درسته! این صدای جاروبرقی بود.,game.correct,feedback,,0,no
+who.09.q,who_09_q.mp3,آژیر! کدام ماشین دارد می‌آید؟,game.after_sound,game,,0,no
+who.09.hint,who_09_hint.mp3,این ماشین قرمز است، نردبان دارد و آتش را خاموش می‌کند.,game.wrong,game,,0,no
+who.09.ok,who_09_ok.mp3,آفرین! این ماشین آتش‌نشانی بود.,game.correct,feedback,,0,no
+who.10.q,who_10_q.mp3,بیپ بوپ! این صدای چیست؟,game.after_sound,game,,0,no
+who.10.hint,who_10_hint.mp3,این دوست فلزی راه می‌رود و چراغ‌های رنگی دارد.,game.wrong,game,,0,no
+who.10.ok,who_10_ok.mp3,عالی! این صدای ربات بود.,game.correct,feedback,,0,no
+seq.01.q,seq_01_q.mp3,سه صدا پشت سر هم می‌آید. خوب گوش کن و یادت بماند.,game.level_start,game,,0,no
+seq.01.hint,seq_01_hint.mp3,صدای اول را یادت باشد، بعد دومی، بعد سومی. می‌توانی دوباره گوش کنی.,game.wrong,game,,0,no
+seq.01.ok,seq_01_ok.mp3,آفرین! ترتیب را درست چیدی.,game.correct,feedback,,0,no
+seq.02.q,seq_02_q.mp3,دوباره سه صدا! این بار چه صداهایی می‌آید؟,game.level_start,game,,0,no
+seq.02.hint,seq_02_hint.mp3,با انگشت‌هایت بشمار: یک، دو، سه.,game.wrong,game,,0,no
+seq.02.ok,seq_02_ok.mp3,عالی! حافظه‌ات خیلی خوب است.,game.correct,feedback,,0,no
+seq.03.q,seq_03_q.mp3,گوش کن و ترتیب صداها را به خاطر بسپار.,game.level_start,game,,0,no
+seq.03.hint,seq_03_hint.mp3,در ذهنت بگو: اول این، بعد این، بعد این.,game.wrong,game,,0,no
+seq.03.ok,seq_03_ok.mp3,درسته! هر سه سر جایشان هستند.,game.correct,feedback,,0,no
+seq.04.q,seq_04_q.mp3,این بار چهار صدا! کمی سخت‌تر شد.,game.level_start,game,,0,no
+seq.04.hint,seq_04_hint.mp3,دو صدای اول را یادت باشد، بعد دو صدای بعدی را.,game.wrong,game,,0,no
+seq.04.ok,seq_04_ok.mp3,آفرین! چهار صدا را درست چیدی.,game.correct,feedback,,0,no
+seq.05.q,seq_05_q.mp3,چهار صدای مزرعه! ترتیبشان یادت نرود.,game.level_start,game,,0,no
+seq.05.hint,seq_05_hint.mp3,فکر کن در مزرعه راه می‌روی و حیوان‌ها را یکی‌یکی می‌بینی.,game.wrong,game,,0,no
+seq.05.ok,seq_05_ok.mp3,عالی! مثل یک کشاورز دقیق گوش دادی.,game.correct,feedback,,0,no
+seq.06.q,seq_06_q.mp3,چهار ساز موسیقی! با دقت گوش کن.,game.level_start,game,,0,no
+seq.06.hint,seq_06_hint.mp3,هر ساز صدای خودش را دارد: یکی نازک، یکی بم، یکی ضربی.,game.wrong,game,,0,no
+seq.06.ok,seq_06_ok.mp3,درسته! گوش موسیقی تو عالی است.,game.correct,feedback,,0,no
+seq.07.q,seq_07_q.mp3,پنج صدا! یک نفس عمیق بکش و گوش کن.,game.level_start,game,,0,no
+seq.07.hint,seq_07_hint.mp3,برای هر صدا یک تصویر در ذهنت بساز.,game.wrong,game,,0,no
+seq.07.ok,seq_07_ok.mp3,آفرین! پنج صدا کار سختی بود.,game.correct,feedback,,0,no
+seq.08.q,seq_08_q.mp3,آخرین مرحله! پنج صدای فضایی. تو می‌توانی!,game.level_start,game,,0,no
+seq.08.hint,seq_08_hint.mp3,عجله نکن. دو بار گوش کن و بعد بچین.,game.wrong,game,,0,no
+seq.08.ok,seq_08_ok.mp3,باورم نمی‌شود! سخت‌ترین مرحله را بردی.,game.correct,feedback,,0,no
+mission.01.q,mission_01_q.mp3,به جنگل رسیدیم! چشم‌هایت را ببند. چند صدای مختلف می‌شنوی؟,game.after_sound,game,,0,no
+mission.01.hint,mission_01_hint.mp3,صداها روی هم هستند. سعی کن یکی‌یکی جدایشان کنی.,game.wrong,game,,0,no
+mission.01.ok,mission_01_ok.mp3,آفرین! سه صدا بود: پرنده، باد و رودخانه.,game.correct,feedback,,0,no
+mission.02.q,mission_02_q.mp3,صبح بخیر مزرعه! بشمار چند صدا می‌شنوی.,game.after_sound,game,,0,no
+mission.02.hint,mission_02_hint.mp3,صبح زود حیوان‌های مزرعه بیدار می‌شوند. هر کدام صدای خودش را دارد.,game.wrong,game,,0,no
+mission.02.ok,mission_02_ok.mp3,درسته! چهار صدا بود.,game.correct,feedback,,0,no
+mission.03.q,mission_03_q.mp3,عصر است و ما در خانه‌ایم. چند صدای مختلف می‌شنوی؟,game.after_sound,game,,0,no
+mission.03.hint,mission_03_hint.mp3,به چیزهایی فکر کن که تیک‌تاک می‌کنند، سوت می‌زنند یا زنگ می‌زنند.,game.wrong,game,,0,no
+mission.03.ok,mission_03_ok.mp3,عالی! سه صدا بود.,game.correct,feedback,,0,no
+mission.04.q,mission_04_q.mp3,وسط شهر شلوغ! خوب گوش کن و بشمار.,game.after_sound,game,,0,no
+mission.04.hint,mission_04_hint.mp3,شهر صداهای زیادی دارد. دقت کن، دو آژیر با هم فرق دارند.,game.wrong,game,,0,no
+mission.04.ok,mission_04_ok.mp3,آفرین! پنج صدا بود. شهر چقدر شلوغ است!,game.correct,feedback,,0,no
+mission.05.q,mission_05_q.mp3,شب شده و جنگل آرام است. این سخت‌ترین مأموریت است. چند صدا می‌شنوی؟,game.after_sound,game,,0,no
+mission.05.hint,mission_05_hint.mp3,بعضی صداها خیلی آرام‌اند. با دقت گوش کن.,game.wrong,game,,0,no
+mission.05.ok,mission_05_ok.mp3,فوق‌العاده بود! پنج صدا را شنیدی.,game.correct,feedback,,0,no
+snd.lion,snd_lion.mp3,این صدای شیر بود. شیر غرش می‌کند!,sound.named,library,,0,no
+snd.cow,snd_cow.mp3,این صدای گاو بود. گاو ماغ می‌کشد.,sound.named,library,,0,no
+snd.dog,snd_dog.mp3,این صدای سگ بود. سگ هاپ‌هاپ می‌کند.,sound.named,library,,0,no
+snd.cat,snd_cat.mp3,این صدای گربه بود. گربه میو میو می‌کند.,sound.named,library,,0,no
+snd.rabbit,snd_rabbit.mp3,این صدای خرگوش بود. خرگوش خیلی آرام است.,sound.named,library,,0,no
+snd.bird,snd_bird.mp3,این صدای پرنده بود. پرنده‌ها صبح‌ها آواز می‌خوانند.,sound.named,library,,0,no
+snd.sheep,snd_sheep.mp3,این صدای گوسفند بود. گوسفند بع‌بع می‌کند.,sound.named,library,,0,no
+snd.horse,snd_horse.mp3,این صدای اسب بود. اسب شیهه می‌کشد.,sound.named,library,,0,no
+snd.duck,snd_duck.mp3,این صدای اردک بود. اردک کنار آب زندگی می‌کند.,sound.named,library,,0,no
+snd.frog,snd_frog.mp3,این صدای قورباغه بود. قورباغه قورقور می‌کند.,sound.named,library,,0,no
+snd.elephant,snd_elephant.mp3,این صدای فیل بود. فیل با خرطومش صدا می‌کند.,sound.named,library,,0,no
+snd.rooster,snd_rooster.mp3,این صدای خروس بود. خروس صبح زود همه را بیدار می‌کند.,sound.named,library,,0,no
+snd.doorbell,snd_doorbell.mp3,این صدای زنگ در بود. یک نفر پشت در است!,sound.named,library,,0,no
+snd.clock,snd_clock.mp3,این صدای ساعت بود. ساعت تیک‌تاک می‌کند.,sound.named,library,,0,no
+snd.phone,snd_phone.mp3,این صدای تلفن بود. یک نفر زنگ می‌زند!,sound.named,library,,0,no
+snd.vacuum,snd_vacuum.mp3,این صدای جاروبرقی بود. جاروبرقی خانه را تمیز می‌کند.,sound.named,library,,0,no
+snd.kettle,snd_kettle.mp3,این صدای کتری بود. آب که جوش بیاید، کتری سوت می‌زند.,sound.named,library,,0,no
+snd.washer,snd_washer.mp3,این صدای ماشین لباسشویی بود. لباس‌ها را می‌چرخاند.,sound.named,library,,0,no
+snd.tap,snd_tap.mp3,این صدای شیر آب بود. آب از شیر می‌ریزد.,sound.named,library,,0,no
+snd.door,snd_door.mp3,این صدای در بود. در باز و بسته می‌شود.,sound.named,library,,0,no
+snd.rain,snd_rain.mp3,این صدای باران بود. قطره‌ها روی زمین می‌ریزند.,sound.named,library,,0,no
+snd.thunder,snd_thunder.mp3,این صدای رعد بود. بعد از برق آسمان می‌آید.,sound.named,library,,0,no
+snd.wind,snd_wind.mp3,این صدای باد بود. باد بین درخت‌ها می‌پیچد.,sound.named,library,,0,no
+snd.sea,snd_sea.mp3,این صدای دریا بود. موج‌ها می‌آیند و می‌روند.,sound.named,library,,0,no
+snd.river,snd_river.mp3,این صدای رودخانه بود. آب روی سنگ‌ها می‌دود.,sound.named,library,,0,no
+snd.fire,snd_fire.mp3,این صدای آتش بود. چوب‌ها ترق‌ترق می‌کنند.,sound.named,library,,0,no
+snd.waterfall,snd_waterfall.mp3,این صدای آبشار بود. آب از بالا پایین می‌ریزد.,sound.named,library,,0,no
+snd.drum,snd_drum.mp3,این صدای طبل بود. بوم بوم بوم!,sound.named,library,,0,no
+snd.piano,snd_piano.mp3,این صدای پیانو بود. پیانو کلیدهای سیاه و سفید دارد.,sound.named,library,,0,no
+snd.guitar,snd_guitar.mp3,این صدای گیتار بود. گیتار سیم دارد.,sound.named,library,,0,no
+snd.violin,snd_violin.mp3,این صدای ویولن بود. ویولن را با آرشه می‌نوازند.,sound.named,library,,0,no
+snd.flute,snd_flute.mp3,این صدای فلوت بود. فلوت را با فوت می‌نوازند.,sound.named,library,,0,no
+snd.bell,snd_bell.mp3,این صدای زنگوله بود. جرینگ جرینگ!,sound.named,library,,0,no
+snd.tambourine,snd_tambourine.mp3,این صدای دف بود. دف یک ساز گرد ایرانی است.,sound.named,library,,0,no
+snd.hammer,snd_hammer.mp3,این صدای چکش بود. نجار با چکش میخ می‌کوبد.,sound.named,library,,0,no
+snd.saw,snd_saw.mp3,این صدای اره بود. با اره چوب را می‌برند.,sound.named,library,,0,no
+snd.ambulance,snd_ambulance.mp3,این صدای آمبولانس بود. آمبولانس به بیمار کمک می‌کند.,sound.named,library,,0,no
+snd.firetruck,snd_firetruck.mp3,این صدای ماشین آتش‌نشانی بود. آتش‌نشان‌ها آتش را خاموش می‌کنند.,sound.named,library,,0,no
+snd.police,snd_police.mp3,این صدای ماشین پلیس بود. پلیس مراقب ماست.,sound.named,library,,0,no
+snd.scissors,snd_scissors.mp3,این صدای قیچی بود. قیچی کاغذ را می‌برد.,sound.named,library,,0,no
+snd.typing,snd_typing.mp3,این صدای تایپ کردن بود. انگشت‌ها روی دکمه‌ها می‌زنند.,sound.named,library,,0,no
+snd.rocket,snd_rocket.mp3,این صدای موشک بود. موشک به آسمان می‌رود.,sound.named,library,,0,no
+snd.robot,snd_robot.mp3,این صدای ربات بود. ربات بیپ بوپ می‌کند.,sound.named,library,,0,no
+snd.spaceship,snd_spaceship.mp3,این صدای سفینه بود. سفینه بین ستاره‌ها سفر می‌کند.,sound.named,library,,0,no
+snd.satellite,snd_satellite.mp3,این صدای ماهواره بود. ماهواره دور زمین می‌چرخد.,sound.named,library,,0,no
+snd.laser,snd_laser.mp3,این صدای لیزر بود. لیزر یک نور باریک است.,sound.named,library,,0,no

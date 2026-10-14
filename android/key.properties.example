@@ -1,0 +1,12 @@
+# این فایل را به key.properties تغییر نام دهید و مقدارها را پر کنید.
+# key.properties و فایل keystore هرگز نباید در گیت قرار بگیرند (در .gitignore هستند).
+#
+# ساخت keystore:
+#   keytool -genkey -v -keystore ~/goshyar-release.jks -keyalg RSA -keysize 2048 -validity 10000 -alias goshyar
+#
+# اگر نسخه‌ی قدیمی Java با کلیدی منتشر شده، باید همان کلید را استفاده کنید؛
+# وگرنه اندروید این نسخه را به‌عنوان به‌روزرسانی نصب نمی‌کند.
+storePassword=
+keyPassword=
+keyAlias=goshyar
+storeFile=/absolute/path/to/goshyar-release.jks

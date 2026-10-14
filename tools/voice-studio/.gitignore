@@ -2,3 +2,5 @@ node_modules/
 dist/
 # the token and your local paths live here — never commit it
 voice-studio.config.json
+samples/
+publish/

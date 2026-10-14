@@ -1,0 +1,915 @@
+{
+  "version": 2,
+  "migratedFrom": "goshyar_game@7fd09f8 app/src/main/assets/levels.json",
+  "scoring": {
+    "correctPoints": 20,
+    "firstTryBonus": 5,
+    "pointsPerRank": 500,
+    "stars": {
+      "three": 0,
+      "two": 1
+    }
+  },
+  "categoryPlay": {
+    "rounds": 5,
+    "options": 3
+  },
+  "categories": [
+    {
+      "id": "animals",
+      "title": "حیوانات",
+      "blurb": "صدای حیوان‌های جنگل و مزرعه",
+      "icon": "pets",
+      "color": "#FF8A1F"
+    },
+    {
+      "id": "home",
+      "title": "وسایل خانه",
+      "blurb": "صداهایی که هر روز در خانه می‌شنوی",
+      "icon": "house",
+      "color": "#F25C3B"
+    },
+    {
+      "id": "nature",
+      "title": "طبیعت",
+      "blurb": "باران، باد، دریا و رودخانه",
+      "icon": "eco",
+      "color": "#2FBF71"
+    },
+    {
+      "id": "music",
+      "title": "موسیقی",
+      "blurb": "سازهای شاد و پرصدا",
+      "icon": "music",
+      "color": "#E9478F"
+    },
+    {
+      "id": "professions",
+      "title": "حرفه‌ها",
+      "blurb": "صدای ابزار و ماشین‌های امدادی",
+      "icon": "work",
+      "color": "#3B82F6"
+    },
+    {
+      "id": "science",
+      "title": "فضا و علم",
+      "blurb": "موشک، ربات و سفینه",
+      "icon": "rocket",
+      "color": "#8E44EC"
+    }
+  ],
+  "sounds": [
+    {
+      "id": "lion",
+      "title": "شیر",
+      "category": "animals",
+      "image": "images/sounds/lion.webp",
+      "audio": "audio/sfx/animals_lion.mp3"
+    },
+    {
+      "id": "cow",
+      "title": "گاو",
+      "category": "animals",
+      "image": "images/sounds/cow.webp",
+      "audio": "audio/sfx/animals_cow.mp3"
+    },
+    {
+      "id": "dog",
+      "title": "سگ",
+      "category": "animals",
+      "image": "images/sounds/dog.webp",
+      "audio": "audio/sfx/animals_dog.mp3"
+    },
+    {
+      "id": "cat",
+      "title": "گربه",
+      "category": "animals",
+      "image": "images/sounds/cat.webp",
+      "audio": "audio/sfx/animals_cat.mp3"
+    },
+    {
+      "id": "rabbit",
+      "title": "خرگوش",
+      "category": "animals",
+      "image": "images/sounds/rabbit.webp",
+      "audio": "audio/sfx/animals_rabbit.mp3"
+    },
+    {
+      "id": "bird",
+      "title": "پرنده",
+      "category": "animals",
+      "image": "images/sounds/bird.webp",
+      "audio": "audio/sfx/animals_bird.mp3"
+    },
+    {
+      "id": "sheep",
+      "title": "گوسفند",
+      "category": "animals",
+      "image": "images/sounds/sheep.webp",
+      "audio": "audio/sfx/animals_sheep.mp3"
+    },
+    {
+      "id": "horse",
+      "title": "اسب",
+      "category": "animals",
+      "image": "images/sounds/horse.webp",
+      "audio": "audio/sfx/animals_horse.mp3"
+    },
+    {
+      "id": "duck",
+      "title": "اردک",
+      "category": "animals",
+      "image": "images/sounds/duck.webp",
+      "audio": "audio/sfx/animals_duck.mp3"
+    },
+    {
+      "id": "frog",
+      "title": "قورباغه",
+      "category": "animals",
+      "image": "images/sounds/frog.webp",
+      "audio": "audio/sfx/animals_frog.mp3"
+    },
+    {
+      "id": "elephant",
+      "title": "فیل",
+      "category": "animals",
+      "image": "images/sounds/elephant.webp",
+      "audio": "audio/sfx/animals_elephant.mp3"
+    },
+    {
+      "id": "rooster",
+      "title": "خروس",
+      "category": "animals",
+      "image": "images/sounds/rooster.webp",
+      "audio": "audio/sfx/animals_rooster.mp3"
+    },
+    {
+      "id": "doorbell",
+      "title": "زنگ در",
+      "category": "home",
+      "image": "images/sounds/doorbell.webp",
+      "audio": "audio/sfx/home_doorbell.mp3"
+    },
+    {
+      "id": "clock",
+      "title": "ساعت",
+      "category": "home",
+      "image": "images/sounds/clock.webp",
+      "audio": "audio/sfx/home_clock.mp3"
+    },
+    {
+      "id": "phone",
+      "title": "تلفن",
+      "category": "home",
+      "image": "images/sounds/phone.webp",
+      "audio": "audio/sfx/home_phone.mp3"
+    },
+    {
+      "id": "vacuum",
+      "title": "جاروبرقی",
+      "category": "home",
+      "image": "images/sounds/vacuum.webp",
+      "audio": "audio/sfx/home_vacuum.mp3"
+    },
+    {
+      "id": "kettle",
+      "title": "کتری",
+      "category": "home",
+      "image": "images/sounds/kettle.webp",
+      "audio": "audio/sfx/home_kettle.mp3"
+    },
+    {
+      "id": "washer",
+      "title": "ماشین لباسشویی",
+      "category": "home",
+      "image": "images/sounds/washer.webp",
+      "audio": "audio/sfx/home_washer.mp3"
+    },
+    {
+      "id": "tap",
+      "title": "شیر آب",
+      "category": "home",
+      "image": "images/sounds/tap.webp",
+      "audio": "audio/sfx/home_tap.mp3"
+    },
+    {
+      "id": "door",
+      "title": "در",
+      "category": "home",
+      "image": "images/sounds/door.webp",
+      "audio": "audio/sfx/home_door.mp3"
+    },
+    {
+      "id": "rain",
+      "title": "باران",
+      "category": "nature",
+      "image": "images/sounds/rain.webp",
+      "audio": "audio/sfx/nature_rain.mp3"
+    },
+    {
+      "id": "thunder",
+      "title": "رعد و برق",
+      "category": "nature",
+      "image": "images/sounds/thunder.webp",
+      "audio": "audio/sfx/nature_thunder.mp3"
+    },
+    {
+      "id": "wind",
+      "title": "باد",
+      "category": "nature",
+      "image": "images/sounds/wind.webp",
+      "audio": "audio/sfx/nature_wind.mp3"
+    },
+    {
+      "id": "sea",
+      "title": "دریا",
+      "category": "nature",
+      "image": "images/sounds/sea.webp",
+      "audio": "audio/sfx/nature_sea.mp3"
+    },
+    {
+      "id": "river",
+      "title": "رودخانه",
+      "category": "nature",
+      "image": "images/sounds/river.webp",
+      "audio": "audio/sfx/nature_river.mp3"
+    },
+    {
+      "id": "fire",
+      "title": "آتش",
+      "category": "nature",
+      "image": "images/sounds/fire.webp",
+      "audio": "audio/sfx/nature_fire.mp3"
+    },
+    {
+      "id": "waterfall",
+      "title": "آبشار",
+      "category": "nature",
+      "image": "images/sounds/waterfall.webp",
+      "audio": "audio/sfx/nature_waterfall.mp3"
+    },
+    {
+      "id": "drum",
+      "title": "طبل",
+      "category": "music",
+      "image": "images/sounds/drum.webp",
+      "audio": "audio/sfx/music_drum.mp3"
+    },
+    {
+      "id": "piano",
+      "title": "پیانو",
+      "category": "music",
+      "image": "images/sounds/piano.webp",
+      "audio": "audio/sfx/music_piano.mp3"
+    },
+    {
+      "id": "guitar",
+      "title": "گیتار",
+      "category": "music",
+      "image": "images/sounds/guitar.webp",
+      "audio": "audio/sfx/music_guitar.mp3"
+    },
+    {
+      "id": "violin",
+      "title": "ویولن",
+      "category": "music",
+      "image": "images/sounds/violin.webp",
+      "audio": "audio/sfx/music_violin.mp3"
+    },
+    {
+      "id": "flute",
+      "title": "فلوت",
+      "category": "music",
+      "image": "images/sounds/flute.webp",
+      "audio": "audio/sfx/music_flute.mp3"
+    },
+    {
+      "id": "bell",
+      "title": "زنگوله",
+      "category": "music",
+      "image": "images/sounds/bell.webp",
+      "audio": "audio/sfx/music_bell.mp3"
+    },
+    {
+      "id": "tambourine",
+      "title": "دف",
+      "category": "music",
+      "image": "images/sounds/tambourine.webp",
+      "audio": "audio/sfx/music_tambourine.mp3"
+    },
+    {
+      "id": "hammer",
+      "title": "چکش",
+      "category": "professions",
+      "image": "images/sounds/hammer.webp",
+      "audio": "audio/sfx/prof_hammer.mp3"
+    },
+    {
+      "id": "saw",
+      "title": "اره",
+      "category": "professions",
+      "image": "images/sounds/saw.webp",
+      "audio": "audio/sfx/prof_saw.mp3"
+    },
+    {
+      "id": "ambulance",
+      "title": "آمبولانس",
+      "category": "professions",
+      "image": "images/sounds/ambulance.webp",
+      "audio": "audio/sfx/prof_ambulance.mp3"
+    },
+    {
+      "id": "firetruck",
+      "title": "ماشین آتش‌نشانی",
+      "category": "professions",
+      "image": "images/sounds/firetruck.webp",
+      "audio": "audio/sfx/prof_firetruck.mp3"
+    },
+    {
+      "id": "police",
+      "title": "ماشین پلیس",
+      "category": "professions",
+      "image": "images/sounds/police.webp",
+      "audio": "audio/sfx/prof_police.mp3"
+    },
+    {
+      "id": "scissors",
+      "title": "قیچی",
+      "category": "professions",
+      "image": "images/sounds/scissors.webp",
+      "audio": "audio/sfx/prof_scissors.mp3"
+    },
+    {
+      "id": "typing",
+      "title": "تایپ کردن",
+      "category": "professions",
+      "image": "images/sounds/typing.webp",
+      "audio": "audio/sfx/prof_typing.mp3"
+    },
+    {
+      "id": "rocket",
+      "title": "موشک",
+      "category": "science",
+      "image": "images/sounds/rocket.webp",
+      "audio": "audio/sfx/sci_rocket.mp3"
+    },
+    {
+      "id": "robot",
+      "title": "ربات",
+      "category": "science",
+      "image": "images/sounds/robot.webp",
+      "audio": "audio/sfx/sci_robot.mp3"
+    },
+    {
+      "id": "spaceship",
+      "title": "سفینه فضایی",
+      "category": "science",
+      "image": "images/sounds/spaceship.webp",
+      "audio": "audio/sfx/sci_spaceship.mp3"
+    },
+    {
+      "id": "satellite",
+      "title": "ماهواره",
+      "category": "science",
+      "image": "images/sounds/satellite.webp",
+      "audio": "audio/sfx/sci_satellite.mp3"
+    },
+    {
+      "id": "laser",
+      "title": "لیزر",
+      "category": "science",
+      "image": "images/sounds/laser.webp",
+      "audio": "audio/sfx/sci_laser.mp3"
+    }
+  ],
+  "places": [
+    {
+      "id": "forest",
+      "title": "جنگل",
+      "image": "images/places/forest.webp"
+    },
+    {
+      "id": "cave",
+      "title": "غار",
+      "image": "images/places/cave.webp"
+    },
+    {
+      "id": "river",
+      "title": "رودخانه",
+      "image": "images/places/river.webp"
+    },
+    {
+      "id": "house",
+      "title": "خانه",
+      "image": "images/places/house.webp"
+    },
+    {
+      "id": "farm",
+      "title": "مزرعه",
+      "image": "images/places/farm.webp"
+    },
+    {
+      "id": "sea",
+      "title": "دریا",
+      "image": "images/places/sea.webp"
+    },
+    {
+      "id": "city",
+      "title": "شهر",
+      "image": "images/places/city.webp"
+    },
+    {
+      "id": "kitchen",
+      "title": "آشپزخانه",
+      "image": "images/places/kitchen.webp"
+    },
+    {
+      "id": "park",
+      "title": "پارک",
+      "image": "images/places/park.webp"
+    },
+    {
+      "id": "space",
+      "title": "فضا",
+      "image": "images/places/space.webp"
+    }
+  ],
+  "modes": [
+    {
+      "id": "who_made_sound",
+      "title": "این صدا مال کیه؟",
+      "subtitle": "صاحب صدا را پیدا کن",
+      "icon": "hearing",
+      "color": "#FF8A1F",
+      "scene": "meadow",
+      "voicePrefix": "who",
+      "levels": [
+        {
+          "n": 1,
+          "sound": "cat",
+          "answer": "cat",
+          "options": [
+            "cat",
+            "dog",
+            "bird",
+            "cow"
+          ]
+        },
+        {
+          "n": 2,
+          "sound": "lion",
+          "answer": "lion",
+          "options": [
+            "lion",
+            "rabbit",
+            "cow",
+            "duck"
+          ]
+        },
+        {
+          "n": 3,
+          "sound": "duck",
+          "answer": "duck",
+          "options": [
+            "duck",
+            "rooster",
+            "sheep",
+            "horse"
+          ]
+        },
+        {
+          "n": 4,
+          "sound": "phone",
+          "answer": "phone",
+          "options": [
+            "phone",
+            "doorbell",
+            "clock",
+            "tap"
+          ]
+        },
+        {
+          "n": 5,
+          "sound": "elephant",
+          "answer": "elephant",
+          "options": [
+            "elephant",
+            "horse",
+            "lion",
+            "frog"
+          ]
+        },
+        {
+          "n": 6,
+          "sound": "rain",
+          "answer": "rain",
+          "options": [
+            "rain",
+            "fire",
+            "wind",
+            "river"
+          ]
+        },
+        {
+          "n": 7,
+          "sound": "guitar",
+          "answer": "guitar",
+          "options": [
+            "guitar",
+            "piano",
+            "drum",
+            "flute"
+          ]
+        },
+        {
+          "n": 8,
+          "sound": "vacuum",
+          "answer": "vacuum",
+          "options": [
+            "vacuum",
+            "washer",
+            "kettle",
+            "saw"
+          ]
+        },
+        {
+          "n": 9,
+          "sound": "firetruck",
+          "answer": "firetruck",
+          "options": [
+            "firetruck",
+            "police",
+            "ambulance",
+            "robot"
+          ]
+        },
+        {
+          "n": 10,
+          "sound": "robot",
+          "answer": "robot",
+          "options": [
+            "robot",
+            "laser",
+            "satellite",
+            "typing"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "find_source",
+      "title": "صدای مخفی را پیدا کن",
+      "subtitle": "صدا از کجا می‌آید؟",
+      "icon": "travel_explore",
+      "color": "#7C3AED",
+      "scene": "forest_day",
+      "voicePrefix": "find",
+      "levels": [
+        {
+          "n": 1,
+          "sound": "bird",
+          "answer": "forest",
+          "options": [
+            "forest",
+            "cave",
+            "river",
+            "house"
+          ]
+        },
+        {
+          "n": 2,
+          "sound": "cow",
+          "answer": "farm",
+          "options": [
+            "farm",
+            "sea",
+            "city",
+            "cave"
+          ]
+        },
+        {
+          "n": 3,
+          "sound": "doorbell",
+          "answer": "house",
+          "options": [
+            "house",
+            "forest",
+            "farm",
+            "park"
+          ]
+        },
+        {
+          "n": 4,
+          "sound": "sea",
+          "answer": "sea",
+          "options": [
+            "sea",
+            "kitchen",
+            "cave",
+            "city"
+          ]
+        },
+        {
+          "n": 5,
+          "sound": "kettle",
+          "answer": "kitchen",
+          "options": [
+            "kitchen",
+            "park",
+            "forest",
+            "sea"
+          ]
+        },
+        {
+          "n": 6,
+          "sound": "waterfall",
+          "answer": "river",
+          "options": [
+            "river",
+            "house",
+            "city",
+            "space"
+          ]
+        },
+        {
+          "n": 7,
+          "sound": "ambulance",
+          "answer": "city",
+          "options": [
+            "city",
+            "farm",
+            "cave",
+            "river"
+          ]
+        },
+        {
+          "n": 8,
+          "sound": "rocket",
+          "answer": "space",
+          "options": [
+            "space",
+            "sea",
+            "park",
+            "kitchen"
+          ]
+        },
+        {
+          "n": 9,
+          "sound": "wind",
+          "answer": "cave",
+          "options": [
+            "cave",
+            "kitchen",
+            "house",
+            "farm"
+          ]
+        },
+        {
+          "n": 10,
+          "sound": "frog",
+          "answer": "park",
+          "options": [
+            "park",
+            "space",
+            "city",
+            "cave"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sequence",
+      "title": "ترتیب صداها",
+      "subtitle": "صداها را به ترتیب بچین",
+      "icon": "queue_music",
+      "color": "#0EA5A4",
+      "scene": "meadow",
+      "voicePrefix": "seq",
+      "levels": [
+        {
+          "n": 1,
+          "sequence": [
+            "bell",
+            "bird",
+            "drum"
+          ]
+        },
+        {
+          "n": 2,
+          "sequence": [
+            "drum",
+            "cat",
+            "doorbell"
+          ]
+        },
+        {
+          "n": 3,
+          "sequence": [
+            "piano",
+            "duck",
+            "clock"
+          ]
+        },
+        {
+          "n": 4,
+          "sequence": [
+            "rain",
+            "thunder",
+            "wind",
+            "bell"
+          ]
+        },
+        {
+          "n": 5,
+          "sequence": [
+            "horse",
+            "rooster",
+            "sheep",
+            "cow"
+          ]
+        },
+        {
+          "n": 6,
+          "sequence": [
+            "flute",
+            "guitar",
+            "tambourine",
+            "violin"
+          ]
+        },
+        {
+          "n": 7,
+          "sequence": [
+            "phone",
+            "kettle",
+            "washer",
+            "tap",
+            "door"
+          ]
+        },
+        {
+          "n": 8,
+          "sequence": [
+            "rocket",
+            "robot",
+            "laser",
+            "satellite",
+            "spaceship"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "audio_mission",
+      "title": "مأموریت شنیداری",
+      "subtitle": "چند صدا می‌شنوی؟",
+      "icon": "nights_stay",
+      "color": "#3B4FD8",
+      "scene": "forest_night",
+      "voicePrefix": "mission",
+      "levels": [
+        {
+          "n": 1,
+          "sceneTitle": "جنگل در روز",
+          "scene": "forest_day",
+          "layers": [
+            "bird",
+            "wind",
+            "river"
+          ],
+          "answer": 3,
+          "options": [
+            2,
+            3,
+            4,
+            5
+          ]
+        },
+        {
+          "n": 2,
+          "sceneTitle": "مزرعه صبح",
+          "scene": "farm",
+          "layers": [
+            "rooster",
+            "cow",
+            "sheep",
+            "horse"
+          ],
+          "answer": 4,
+          "options": [
+            2,
+            3,
+            4,
+            5
+          ]
+        },
+        {
+          "n": 3,
+          "sceneTitle": "خانه عصر",
+          "scene": "home",
+          "layers": [
+            "clock",
+            "kettle",
+            "phone"
+          ],
+          "answer": 3,
+          "options": [
+            2,
+            3,
+            4,
+            5
+          ]
+        },
+        {
+          "n": 4,
+          "sceneTitle": "شهر شلوغ",
+          "scene": "city",
+          "layers": [
+            "ambulance",
+            "police",
+            "typing",
+            "doorbell",
+            "door"
+          ],
+          "answer": 5,
+          "options": [
+            3,
+            4,
+            5,
+            6
+          ]
+        },
+        {
+          "n": 5,
+          "sceneTitle": "جنگل شب",
+          "scene": "forest_night",
+          "layers": [
+            "frog",
+            "wind",
+            "river",
+            "thunder",
+            "rain"
+          ],
+          "answer": 5,
+          "options": [
+            3,
+            4,
+            5,
+            6
+          ]
+        }
+      ]
+    }
+  ],
+  "achievements": [
+    {
+      "id": "first_step",
+      "title": "اولین قدم",
+      "desc": "اولین مرحله را کامل کن",
+      "icon": "flag",
+      "rule": "levels>=1"
+    },
+    {
+      "id": "sound_shop",
+      "title": "کارگاه صداها",
+      "desc": "۵ مرحله را موفق تمام کن",
+      "icon": "construction",
+      "rule": "levels>=5"
+    },
+    {
+      "id": "nature_friend",
+      "title": "دوست طبیعت",
+      "desc": "۳ مرحله از دسته طبیعت را ببر",
+      "icon": "eco",
+      "rule": "cat:nature>=3"
+    },
+    {
+      "id": "animal_expert",
+      "title": "کارشناس حیوانات",
+      "desc": "۸ مرحله از دسته حیوانات را ببر",
+      "icon": "pets",
+      "rule": "cat:animals>=8"
+    },
+    {
+      "id": "memory_master",
+      "title": "استاد حافظه",
+      "desc": "۴ مرحله ترتیب صداها را ببر",
+      "icon": "psychology",
+      "rule": "mode:sequence>=4"
+    },
+    {
+      "id": "sharp_ear",
+      "title": "گوش تیزبین",
+      "desc": "۱۰ پاسخ درست پشت سر هم",
+      "icon": "hearing",
+      "rule": "streak>=10"
+    },
+    {
+      "id": "audio_hero",
+      "title": "قهرمان شنیداری",
+      "desc": "تمام مراحل را کامل کن",
+      "icon": "emoji_events",
+      "rule": "levels>=all"
+    }
+  ]
+}

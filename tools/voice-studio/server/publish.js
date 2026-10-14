@@ -9,7 +9,7 @@
 import fs from "node:fs";
 import path from "node:path";
 
-export const AUDIO_BASE = "";   // گوش‌یار bundles its clips; set this only if they are hosted
+export const AUDIO_BASE = "";   // only for the optional FTP host; the main route is Cloudflare (cloudflare/README.md)
 
 const AUDIO_EXT = [".ogg", ".mp3", ".wav"];
 
@@ -17,7 +17,7 @@ const AUDIO_EXT = [".ogg", ".mp3", ".wav"];
  * index.json for the narration: every clip in the output folder, keyed the way the app asks
  * for it. Written into the folder itself, so uploading the folder uploads the index with it.
  */
-export function writeAudioIndex({ outDir, baseUrl = AUDIO_BASE, speaker = "", appAssets = null }) {
+export function writeAudioIndex({ outDir, indexDir = outDir, baseUrl = AUDIO_BASE, speaker = "", appAssets = null }) {
   if (!fs.existsSync(outDir)) throw new Error(`پوشه‌ی خروجی نیست: ${outDir}`);
 
   const files = {};
@@ -44,7 +44,8 @@ export function writeAudioIndex({ outDir, baseUrl = AUDIO_BASE, speaker = "", ap
     files,
   };
   const json = JSON.stringify(index, null, 2);
-  fs.writeFileSync(path.join(outDir, "index.json"), json, "utf8");
+  fs.mkdirSync(indexDir, { recursive: true });
+  fs.writeFileSync(path.join(indexDir, "index.json"), json, "utf8");
 
   // the app carries a copy so the first launch, before any network, knows the shape of things
   if (appAssets && fs.existsSync(path.dirname(appAssets))) {

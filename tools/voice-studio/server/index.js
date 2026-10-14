@@ -13,7 +13,8 @@ import os from "node:os";
 import crypto from "node:crypto";
 import { spawn } from "node:child_process";
 import { fileURLToPath } from "node:url";
-import { readManifest, existingKeys, GROUP_LABELS } from "./manifest.js";
+import { readManifest, existingKeys, setSpoken, GROUP_LABELS } from "./manifest.js";
+import { createRegistry } from "./tts-registry.js";
 import { speak, SPEAKERS, VOICES, RateLimited } from "./avasho.js";
 import { AUDIO_BASE, writeAudioIndex } from "./publish.js";
 import { probe, uploadFiles, audioFilesIn, ftpHint } from "./ftp.js";
@@ -22,15 +23,25 @@ const HERE = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(HERE, "..");
 const CONFIG_FILE = path.join(ROOT, "voice-studio.config.json");
 const PORT = Number(process.env.PORT || 5174);
+// The Flutter project root (two levels up) this studio belongs to.
+const APP = path.resolve(ROOT, "../..");
+// Listening clips (_test-…, _diag-…, _sample-…) stay out of assets/audio/voice, which ships in the APK.
+const SAMPLES = path.join(ROOT, "samples");
+// The index.json the optional FTP upload sends.
+const PUBLISH = path.join(ROOT, "publish");
+// Which clips are TTS (temporary) and which are human recordings — see server/tts-registry.js.
+const registry = createRegistry(path.join(APP, "docs/voice/tts_generated.json"));
 
 // ── config ───────────────────────────────────────────────────────────────────
 const DEFAULTS = {
   token: "",
-  manifestPath: path.resolve(ROOT, "../../app/src/main/res/raw/audio_manifest.txt"),
-  // گوش‌یار ships its narration inside the APK — AudioManagerHelper opens
-  // assets/voice/<key>.mp3 directly — so the clips are written straight there and
-  // travel with the project. Nothing has to be uploaded for the app to speak.
-  outDir: path.resolve(ROOT, "../../app/src/main/assets/voice"),
+  // Every line the app can say, with the file name it plays (lib/data/content_repository.dart).
+  manifestPath: path.join(APP, "assets/content/voice_lines.json"),
+  // The app plays audio/voice/<key>.mp3 from its bundled assets (or a downloaded voice-fa
+  // pack), so clips are written straight there and travel with the project.
+  outDir: path.join(APP, "assets/audio/voice"),
+  // CDN version folder used by «ساخت بسته‌ی Cloudflare» (cloudflare/scripts/build_packs.py).
+  assetVersion: "v1",
   audioBase: AUDIO_BASE,
   speaker: "pune",         // پونه — a warm voice, right for a bear talking to a child
   // 1 is the service's own pace, which for a third-grader runs ahead of the animation on the
@@ -46,8 +57,10 @@ const DEFAULTS = {
   concurrency: 2,
   delayMs: 400,
   retries: 3,
-  convertOgg: false,        // needs ffmpeg on PATH
-  oggBitrate: "24k",
+  // Bring every clip to the app's format: MP3 mono 96 kbps, −16 LUFS, trimmed with a short
+  // lead-in — the same treatment tools/voice/import_recordings.sh gives human recordings.
+  // Needs ffmpeg on PATH. Without it the service's own file is kept.
+  normalize: true,
   schedule: { enabled: false, everySeconds: 300, batchSize: 25 },
 
   // where the finished files are sent. The paths are the real ones on the server, under
@@ -106,7 +119,7 @@ try {
       ftp: { ...DEFAULTS.ftp, ...(saved.ftp || {}) },
     };
     if (normalizeEndpoint(config.endpoint) === "long") {
-      migrated = `نقطه‌ی سرویس از avasho-large به متنِ کوتاه برگشت (جمله‌های درس کوتاه‌اند)`;
+      migrated = `نقطه‌ی سرویس از avasho-large به متنِ کوتاه برگشت (جمله‌های بازی کوتاه‌اند)`;
       config.endpoint = "short";
     }
     if (normalizeSpeaker(config.speaker) !== config.speaker) {
@@ -183,10 +196,15 @@ function snapshot() {
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
-function toOgg(src, dst, bitrate) {
+// The same filter chain as tools/voice/import_recordings.sh, so TTS and recorded clips sound alike.
+const NORMALIZE_FILTER = "silenceremove=start_periods=1:start_threshold=-50dB:start_silence=0.02,"
+  + "areverse,silenceremove=start_periods=1:start_threshold=-50dB:start_silence=0.02,areverse,"
+  + "adelay=80,apad=pad_dur=0.15,loudnorm=I=-16:TP=-1.5:LRA=11";
+
+function normalizeForApp(src, dst) {
   return new Promise((resolve) => {
-    const ff = spawn("ffmpeg", ["-y", "-loglevel", "error", "-i", src,
-      "-c:a", "libvorbis", "-b:a", bitrate, "-ar", "24000", "-ac", "1", dst]);
+    const ff = spawn("ffmpeg", ["-y", "-loglevel", "error", "-i", src, "-ac", "1", "-ar", "44100",
+      "-af", NORMALIZE_FILTER, "-c:a", "libmp3lame", "-b:a", "96k", dst]);
     ff.on("error", () => resolve(false));
     ff.on("close", (code) => resolve(code === 0));
   });
@@ -194,6 +212,9 @@ function toOgg(src, dst, bitrate) {
 
 /** Record one line and write it into the output folder. */
 async function recordOne(line, { force = false } = {}) {
+  if (existingKeys(config.outDir).has(line.key) && !registry.has(line.key)) {
+    return { ok: false, error: "این فایل ضبطِ انسانی است و با صدای ماشینی جایگزین نمی‌شود" };
+  }
   if (force) {
     for (const ext of [".ogg", ".mp3", ".wav"]) {
       const old = path.join(config.outDir, line.key + ext);
@@ -235,21 +256,22 @@ async function recordOne(line, { force = false } = {}) {
       }
 
       fs.mkdirSync(config.outDir, { recursive: true });
-      const target = path.join(config.outDir, line.key + ext);
-      fs.writeFileSync(target, buffer);
-
-      let saved = path.basename(target);
+      let saved = line.key + ext;
       let size = buffer.length;
-      if (config.convertOgg && ext !== ".ogg") {
-        const ogg = path.join(config.outDir, line.key + ".ogg");
-        if (await toOgg(target, ogg, config.oggBitrate)) {
-          fs.unlinkSync(target);
-          saved = path.basename(ogg);
-          size = fs.statSync(ogg).size;
-        } else {
-          say("warn", "ffmpeg اجرا نشد؛ فایل با فرمتِ خودِ سرویس ماند");
-        }
+      const rawFile = path.join(config.outDir, `.${line.key}.raw${ext}`);
+      fs.writeFileSync(rawFile, buffer);
+      const target = path.join(config.outDir, line.key + ".mp3");
+      if (config.normalize && await normalizeForApp(rawFile, target + ".tmp.mp3")) {
+        fs.renameSync(target + ".tmp.mp3", target);
+        fs.unlinkSync(rawFile);
+        saved = path.basename(target);
+        size = fs.statSync(target).size;
+      } else {
+        if (config.normalize) say("warn", "ffmpeg اجرا نشد؛ فایل با فرمتِ خودِ سرویس ماند");
+        fs.renameSync(rawFile, path.join(config.outDir, saved));
+        if (ext !== ".mp3") say("warn", `${saved}: برنامه فقط ${line.key}.mp3 را پخش می‌کند`);
       }
+      registry.mark(line.key, { speaker: config.speaker, speed: Number(config.speed) || 1 });
       return { ok: true, saved, size };
     } catch (err) {
       const limited = err instanceof RateLimited;
@@ -399,7 +421,7 @@ app.get("/api/config", (_req, res) => res.json(publicConfig()));
 
 app.post("/api/config", (req, res) => {
   const body = req.body || {};
-  for (const key of ["manifestPath", "outDir", "audioBase"]) {
+  for (const key of ["manifestPath", "outDir", "audioBase", "assetVersion"]) {
     if (typeof body[key] === "string" && body[key].trim()) config[key] = body[key].trim();
   }
   if (typeof body.speaker === "string" && body.speaker.trim()) {
@@ -411,11 +433,8 @@ app.post("/api/config", (req, res) => {
   for (const key of ["speed", "concurrency", "delayMs", "retries"]) {
     if (body[key] !== undefined && body[key] !== "") config[key] = Number(body[key]);
   }
-  for (const key of ["useVowels", "convertOgg"]) {
+  for (const key of ["useVowels", "normalize"]) {
     if (typeof body[key] === "boolean") config[key] = body[key];
-  }
-  if (typeof body.oggBitrate === "string" && body.oggBitrate.trim()) {
-    config.oggBitrate = body.oggBitrate.trim();
   }
   if (typeof body.token === "string" && body.token.trim()) {
     config.token = body.token.trim();
@@ -445,8 +464,10 @@ app.get("/api/manifest", (_req, res) => {
     const lines = readManifest(config.manifestPath);
     const have = existingKeys(config.outDir);
     const overrides = readOverrides();
+    const tts = registry.keys();
     res.json({
       outDir: config.outDir,
+      ttsFile: registry.file,
       lines: lines.map((l) => {
         const file = have.get(l.key);
         return {
@@ -455,6 +476,7 @@ app.get("/api/manifest", (_req, res) => {
           file: file?.name ?? null,
           size: file?.size ?? 0,
           edited: Object.prototype.hasOwnProperty.call(overrides, l.key),
+          tts: tts.has(l.key),
         };
       }),
     });
@@ -465,21 +487,34 @@ app.get("/api/manifest", (_req, res) => {
 
 app.get("/api/status", (_req, res) => res.json({ ...snapshot(), log: log.slice(-120) }));
 
-// ── the two index.json files the host serves ─────────────────────────────────
+// ── the voice-fa pack for Cloudflare ─────────────────────────────────────────
+// Runs cloudflare/scripts/build_packs.py, which copies the clips into cloudflare/dist with a
+// packs.json (size + sha256 per file) that the app's DownloadManager reads. Uploading is a
+// separate, deliberate step (cloudflare/scripts/upload.sh) that needs your wrangler login.
 app.post("/api/publish/audio", (_req, res) => {
-  try {
-    const index = writeAudioIndex({
-      outDir: config.outDir,
-      baseUrl: config.audioBase,
-      speaker: config.speaker,
-      appAssets: path.resolve(ROOT, "../../app/src/main/assets/voice-index.json"),
-    });
-    say("ok", `فهرستِ صدا ساخته شد: ${index.count} کلیپ، ${Math.round(index.bytes / 1048576)} مگابایت`);
-    res.json(index);
-  } catch (err) {
-    say("error", `فهرستِ صدا ساخته نشد: ${err.message}`);
-    res.status(400).json({ error: err.message });
-  }
+  const version = String(config.assetVersion || "v1").replace(/[^A-Za-z0-9._-]/g, "") || "v1";
+  const py = spawn("python3", ["cloudflare/scripts/build_packs.py", "--version", version,
+    "--voice-dir", config.outDir], { cwd: APP });
+  let out = "";
+  let answered = false;
+  py.stdout.on("data", (d) => { out += d; });
+  py.stderr.on("data", (d) => { out += d; });
+  py.on("error", (err) => {
+    answered = true;
+    res.status(400).json({ error: `python3 اجرا نشد: ${err.message}` });
+  });
+  py.on("close", (code) => {
+    if (answered) return;
+    if (code !== 0) {
+      say("error", `بسته ساخته نشد: ${out.trim().slice(-400)}`);
+      return res.status(400).json({ error: out.trim().slice(-400) || `کد خروج ${code}` });
+    }
+    const voice = out.match(/voice-fa\s+(\d+)/);
+    const count = voice ? Number(voice[1]) : 0;
+    const dir = path.join(APP, "cloudflare/dist/goshyar", version);
+    say("ok", `بسته‌ی voice-fa ساخته شد: ${count} کلیپ → ${dir}`);
+    res.json({ count, version, dir, log: out.trim() });
+  });
 });
 
 
@@ -528,9 +563,9 @@ app.post("/api/diag", async (req, res) => {
       onNote: (note) => say("info", `تست: ${note}`),
     });
 
-    fs.mkdirSync(config.outDir, { recursive: true });
+    fs.mkdirSync(SAMPLES, { recursive: true });
     const name = `_diag-${speaker}${ext}`;
-    fs.writeFileSync(path.join(config.outDir, name), buffer);
+    fs.writeFileSync(path.join(SAMPLES, name), buffer);
     diag.outcome = {
       ok: true, file: name, bytes: buffer.length, ext,
       words: marks ? marks.length : 0,
@@ -623,7 +658,7 @@ app.post("/api/diag/sample", async (req, res) => {
     : `نمونه‌ی گوینده‌ها — ${pairs.length} صدا، سرعتِ ${speed}`);
   res.json({ started: true, items: sampler.items.length });
 
-  fs.mkdirSync(config.outDir, { recursive: true });
+  fs.mkdirSync(SAMPLES, { recursive: true });
   for (const item of sampler.items) {
     if (sampler.controller?.signal.aborted) {
       item.state = "ایستاد";
@@ -643,10 +678,10 @@ app.post("/api/diag/sample", async (req, res) => {
       });
       // one name per voice-and-speed, whatever the container turns out to be
       for (const old of [".ogg", ".mp3", ".wav"]) {
-        const stale = path.join(config.outDir, item.key + old);
+        const stale = path.join(SAMPLES, item.key + old);
         if (old !== ext && fs.existsSync(stale)) fs.unlinkSync(stale);
       }
-      fs.writeFileSync(path.join(config.outDir, item.key + ext), buffer);
+      fs.writeFileSync(path.join(SAMPLES, item.key + ext), buffer);
       item.state = "آماده";
       item.bytes = buffer.length;
       // the fingerprint of the audio itself. Two names that come back with the same one got
@@ -691,7 +726,7 @@ app.post("/api/diag/sample/pick", (req, res) => {
   config.speed = speed;
   saveConfig();
   const voice = VOICES.find((v) => v.name === speaker);
-  say("ok", `گوینده‌ی درس‌ها: ${voice ? voice.label : speaker} (${speaker})، سرعتِ ${speed}`);
+  say("ok", `گوینده‌ی جمله‌ها: ${voice ? voice.label : speaker} (${speaker})، سرعتِ ${speed}`);
   res.json(publicConfig());
 });
 
@@ -699,7 +734,7 @@ app.post("/api/diag/sample/pick", (req, res) => {
 // The manifest is generated from the lesson sources, so an edit typed here would be lost the
 // next time it is rebuilt. It is therefore kept in tools/voice-overrides.json — which goes into
 // git — and the manifest line is patched straight away so the change takes effect now.
-const OVERRIDES = path.resolve(ROOT, "../voice-overrides.json");
+const OVERRIDES = path.resolve(ROOT, "../voice/voice-overrides.json");
 
 function readOverrides() {
   try {
@@ -710,6 +745,7 @@ function readOverrides() {
 }
 
 function patchManifestLine(key, spoken) {
+  if (config.manifestPath.toLowerCase().endsWith(".json")) return setSpoken(config.manifestPath, key, spoken);
   const text = fs.readFileSync(config.manifestPath, "utf8");
   const lines = text.split(/\r?\n/);
   let hit = false;
@@ -750,7 +786,8 @@ app.delete("/api/text/:key", (req, res) => {
   const overrides = readOverrides();
   delete overrides[req.params.key];
   fs.writeFileSync(OVERRIDES, JSON.stringify(overrides, null, 2), "utf8");
-  say("warn", `اصلاحِ متنِ ${req.params.key} برداشته شد — با make_manifest.py به متنِ درس برمی‌گردد`);
+  if (config.manifestPath.toLowerCase().endsWith(".json")) setSpoken(config.manifestPath, req.params.key, null);
+  say("warn", `تلفظِ ویژه‌ی ${req.params.key} برداشته شد — متنِ اصلی خوانده می‌شود`);
   res.json({ ok: true });
 });
 
@@ -886,9 +923,9 @@ app.post("/api/ftp/upload/audio", async (req, res) => {
   if (!files.length) return res.status(400).json({ error: "در پوشه‌ی خروجی کلیپی نیست" });
 
   // the index must describe what is actually there, so it is rebuilt and sent last
+  // index.json is built beside the studio, not in assets/audio/voice, so it never ships in the APK
   const index = writeAudioIndex({
-    outDir: config.outDir, baseUrl: config.audioBase, speaker: config.speaker,
-    appAssets: path.resolve(ROOT, "../../app/src/main/assets/voice-index.json"),
+    outDir: config.outDir, indexDir: PUBLISH, baseUrl: config.audioBase, speaker: config.speaker,
   });
 
   Object.assign(upload, { running: true, stopping: false, what: "صداها",
@@ -920,7 +957,7 @@ app.post("/api/ftp/upload/audio", async (req, res) => {
     if (!outcome.stopped) {
       await uploadFiles({
         settings: config.ftp, remoteDir: config.ftp.audioDir,
-        files: [path.join(config.outDir, "index.json")], skipExisting: false,
+        files: [path.join(PUBLISH, "index.json")], skipExisting: false,
         onStep: () => { upload.done += 1; upload.sent += 1; push("upload", uploadSnapshot()); },
       });
     }
@@ -979,9 +1016,9 @@ app.post("/api/test", async (req, res) => {
       speed: Number(config.speed) || 1, endpoint: config.endpoint,
       onNote: (note) => say("info", `تست: ${note}`),
     });
-    fs.mkdirSync(config.outDir, { recursive: true });
+    fs.mkdirSync(SAMPLES, { recursive: true });
     const name = `_test-${config.speaker}${ext}`;
-    fs.writeFileSync(path.join(config.outDir, name), buffer);
+    fs.writeFileSync(path.join(SAMPLES, name), buffer);
     say("ok", `تستِ صدا ساخته شد: ${name} (${Math.round(buffer.length / 1024)} کیلوبایت)`);
     res.json({ ok: true, file: name, bytes: buffer.length, shape: raw ? JSON.stringify(raw).slice(0, 400) : null });
   } catch (err) {
@@ -992,16 +1029,19 @@ app.post("/api/test", async (req, res) => {
 
 // play a produced file back in the browser
 app.get("/api/audio/:key", (req, res) => {
-  const have = existingKeys(config.outDir);
-  const file = have.get(req.params.key);
+  const dir = req.params.key.startsWith("_") ? SAMPLES : config.outDir;
+  const file = existingKeys(dir).get(req.params.key);
   if (!file) return res.status(404).end();
-  res.sendFile(path.join(config.outDir, file.name));
+  res.sendFile(path.join(dir, file.name));
 });
 
 app.delete("/api/audio/:key", (req, res) => {
   const have = existingKeys(config.outDir);
   const file = have.get(req.params.key);
   if (!file) return res.status(404).end();
+  if (!registry.has(req.params.key)) {
+    return res.status(400).json({ error: "این فایل ضبطِ انسانی است؛ از اینجا پاک نمی‌شود" });
+  }
   fs.unlinkSync(path.join(config.outDir, file.name));
   say("warn", `پاک شد: ${file.name}`);
   res.json({ ok: true });

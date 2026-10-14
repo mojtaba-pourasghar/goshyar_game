@@ -39,12 +39,6 @@ function VoicePicker({ voices, speakers, value, onChange }) {
   );
 }
 
-const GROUPS = [
-  { id: "pages", label: "کتاب، صفحه به صفحه" },
-  { id: "sections", label: "خلاصه‌ی بخش‌ها" },
-  { id: "numbers", label: "واژه‌های عددی" },
-  { id: "phrases", label: "تکه‌های سؤال" },
-];
 
 export default function App() {
   const [config, setConfig] = useState(null);
@@ -234,17 +228,19 @@ export default function App() {
     return <div className="studio"><div className="card">در حال باز شدن…</div></div>;
   }
 
+  // the groups come from the server (server/manifest.js), in the order of voice_lines.json
+  const GROUPS = Object.entries(config.groupLabels || {}).map(([id, label]) => ({ id, label }));
   const todoKeys = (subset) => subset.filter((l) => !l.done).map((l) => l.key);
   const progress = status.total ? Math.round((status.done / status.total) * 100) : 0;
 
   return (
     <div className="studio">
       <div className="top">
-        <span className="owl">🦉</span>
+        <span className="owl">🐻</span>
         <div>
           <h1>استودیوی صداگذاری گوش‌یار</h1>
           <p>
-            متن از <code>audio_manifest.txt</code> · صدای{" "}
+            متن از <code>voice_lines.json</code> · صدای{" "}
             {(config.voices || []).find((v) => v.name === config.speaker)?.label || config.speaker}
             {" "}با سرعتِ {config.speed} · فایل‌ها در <code>{config.outDir}</code>
           </p>
@@ -272,7 +268,7 @@ export default function App() {
         <div className="stat">
           <div className="label">کلِ جمله‌ها</div>
           <div className="value">{fa(counts.total)}</div>
-          <div className="foot">طبق audio_manifest.txt</div>
+          <div className="foot">طبق voice_lines.json</div>
         </div>
         <div className={"stat" + (counts.done ? " on" : "")}>
           <div className="label">ساخته‌شده</div>
@@ -305,7 +301,7 @@ export default function App() {
                    onChange={(e) => setForm({ ...form, outDir: e.target.value })} />
           </div>
           <div>
-            <label>مسیرِ audio_manifest.txt</label>
+            <label>مسیرِ voice_lines.json</label>
             <input type="text" value={form.manifestPath}
                    onChange={(e) => setForm({ ...form, manifestPath: e.target.value })} />
           </div>
@@ -322,7 +318,7 @@ export default function App() {
           <div>
             <label>سرعت <span className="hint">
               {Number(config.speed) === Number(form.speed)
-                ? "۱ سرعتِ خودِ سرویس · ۰٫۹ آرام‌ترِ کلاسی"
+                ? "۱ سرعتِ خودِ سرویس · ۰٫۹ آرام‌تر، مناسبِ کودک"
                 : "ذخیره نشده — «ذخیره‌ی تنظیمات» را بزن"}
             </span></label>
             <input type="number" step="0.1" min="0.5" max="2" value={form.speed}
@@ -332,7 +328,7 @@ export default function App() {
           <div>
             <label>سرویسِ آواشو</label>
             <select value={form.endpoint} onChange={(e) => setForm({ ...form, endpoint: e.target.value })}>
-              <option value="short">avasho — متنِ کوتاه (درست برای جمله‌های درس)</option>
+              <option value="short">avasho — متنِ کوتاه (درست برای جمله‌های بازی)</option>
               <option value="long">avasho-large — متنِ بلند</option>
             </select>
           </div>
@@ -354,12 +350,12 @@ export default function App() {
           <label className="check">
             <input type="checkbox" checked={form.useVowels}
                    onChange={(e) => setForm({ ...form, useVowels: e.target.checked })} />
-            متنِ اعراب‌گذاری‌شده (ستون سوم)
+            متنِ تلفظی (spoken) برای جمله‌هایی که دارند
           </label>
           <label className="check">
-            <input type="checkbox" checked={form.convertOgg}
-                   onChange={(e) => setForm({ ...form, convertOgg: e.target.checked })} />
-            تبدیل به ogg با ffmpeg
+            <input type="checkbox" checked={form.normalize}
+                   onChange={(e) => setForm({ ...form, normalize: e.target.checked })} />
+            آماده‌سازی برای برنامه با ffmpeg (MP3 مونو، بلندی −۱۶ LUFS)
           </label>
         </div>
         <div className="row" style={{ marginTop: 14 }}>
@@ -387,7 +383,7 @@ export default function App() {
           {config.savedAt ? " آخرین ذخیره: " + new Date(config.savedAt).toLocaleTimeString("fa-IR") : ""}
         </p>
         <p className="note">
-          فایل‌ها با نامِ کلید ذخیره می‌شوند (مثلاً <code>p008_01.mp3</code>) در
+          فایل‌ها با همان نامی ذخیره می‌شوند که برنامه پخش می‌کند (مثلاً <code>who_01_q.mp3</code>) در
           <code> {config.outDir}</code>.
         </p>
       </div>
@@ -458,40 +454,37 @@ export default function App() {
       </div>
 
       <div className="card">
-        <h2>📤 انتشار روی هاست <span className="hint">فایل‌ها را خودت آپلود می‌کنی؛ اینجا فقط فهرست ساخته می‌شود</span></h2>
+        <h2>📦 بسته‌ی Cloudflare <span className="hint">بسته‌ی voice-fa برای دانلود در برنامه؛ آپلود با cloudflare/scripts/upload.sh</span></h2>
         <div className="grid">
           <div>
-            <label>آدرسِ پوشه‌ی صداها روی هاست</label>
-            <input type="text" value={form.audioBase || ""}
-                   onChange={(e) => setForm({ ...form, audioBase: e.target.value })} />
+            <label>نسخه‌ی دارایی‌ها روی CDN</label>
+            <input type="text" value={form.assetVersion || "v1"}
+                   onChange={(e) => setForm({ ...form, assetVersion: e.target.value })} />
           </div>
-          
         </div>
         <div className="row" style={{ marginTop: 12 }}>
           <button className="go" disabled={busy} onClick={async () => {
             setBusy(true);
             try {
-              const index = await api("/publish/audio", { method: "POST" });
-              setPublished(index);
+              await save({ assetVersion: form.assetVersion || "v1" });
+              setPublished(await api("/publish/audio", { method: "POST" }));
               setError("");
             } catch (err) { setError(err.message); }
             setBusy(false);
           }}>
-            ساختِ فهرستِ صدا (index.json)
+            ساختِ بسته‌ی voice-fa
           </button>
-          <button className="ghost" disabled={busy} onClick={() => save(form)}>ذخیره‌ی آدرس‌ها</button>
         </div>
         {published && (
           <p className="note">
-            ✓ {fa(published.count)} کلیپ، {fa(Math.round(published.bytes / 1048576))} مگابایت.
-            <code> index.json </code> کنارِ خودِ فایل‌ها ساخته شد و یک نسخه هم در
-            <code> app/src/main/assets/voice-index.json </code> گذاشته شد.
+            ✓ {fa(published.count)} کلیپ در <code>{published.dir}</code> با <code>packs.json</code> آماده شد.
+            برای انتشار: <code>cloudflare/scripts/upload.sh {published.version}</code>
           </p>
         )}
 
         <h2 style={{ marginTop: 20 }}>
-          🚀 آپلود با FTP
-          <span className="hint">
+          🚀 آپلود با FTP (اختیاری)
+          <span className="hint">مسیرِ اصلیِ انتشار Cloudflare است ·{" "}
             {config.ftp?.passwordSet ? "رمز ذخیره شده است" : "رمز هنوز داده نشده"}
           </span>
         </h2>
@@ -740,7 +733,7 @@ export default function App() {
           <h2>🎙 نمونه‌ها <span className="hint">صدا و سرعت را با گوش انتخاب کن، نه با حدس</span></h2>
           <p className="note" style={{ marginTop: 0 }}>
             همان جمله‌ی بالا با هر صدا — یا با چند سرعتِ مختلف — ساخته می‌شود و همین‌جا پخش.
-            هرکدام را پسندیدی، «همین» را بزن تا گوینده و سرعتِ درس‌ها بشود. نمونه‌ها نامشان با
+            هرکدام را پسندیدی، «همین» را بزن تا گوینده و سرعتِ همه‌ی جمله‌ها بشود. نمونه‌ها نامشان با
             <code> _ </code> شروع می‌شود، پس هیچ‌وقت در <code>index.json</code> و روی هاست
             نمی‌روند.
           </p>
@@ -913,7 +906,7 @@ export default function App() {
                         await api(`/text/${l.key}`, { method: "DELETE" });
                         setEditing(null);
                         load();
-                      }}>برگردان به متنِ درس</button>
+                      }}>برگردان به متنِ اصلی</button>
                     )}
                   </span>
                 </span>
@@ -930,15 +923,20 @@ export default function App() {
                     {status.current.includes(l.key)
                       ? <span className="tag">در حال ساخت…</span>
                       : l.done
-                        ? <span className="tag done">{Math.round(l.size / 1024)}KB</span>
+                        ? <span className="tag done" title={l.tts ? "صدای ماشینی، موقت تا ضبطِ گوینده" : "ضبطِ گوینده"}>
+                            {l.tts ? "ماشینی" : "ضبط‌شده"} · {Math.round(l.size / 1024)}KB
+                          </span>
                         : <span className="tag">بی‌فایل</span>}
                     <button className="tiny ghost"
                             onClick={() => setEditing({ key: l.key, spoken: l.spoken })}>متن</button>
-                    <button className="tiny go" disabled={busy || status.running || !config.tokenSet}
-                            onClick={() => generate([l.key], 0, l.done)}>
-                      {l.done ? "از نو" : "بساز"}
-                    </button>
-                    {l.done && (
+                    {/* a human recording is never replaced or deleted from here */}
+                    {(!l.done || l.tts) && (
+                      <button className="tiny go" disabled={busy || status.running || !config.tokenSet}
+                              onClick={() => generate([l.key], 0, l.done)}>
+                        {l.done ? "از نو" : "بساز"}
+                      </button>
+                    )}
+                    {l.done && l.tts && (
                       <button className="tiny ghost" onClick={() => removeFile(l.key)}>پاک</button>
                     )}
                   </span>
