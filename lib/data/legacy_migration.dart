@@ -11,7 +11,7 @@ import 'settings_store.dart';
 /// shared_preferences نمی‌تواند بخواند؛ برای همین MainActivity.kt یک کانال کوچک
 /// برای خواندن فایل‌های «goshyar_progress» و «goshyar_audio» دارد.
 class LegacyMigration {
-  static const _channel = MethodChannel('ir.brandimo.goshyar/legacy');
+  static const _channel = MethodChannel('com.goshyar.app/legacy');
   static const _doneKey = 'goshyar.legacy_migrated';
 
   static Future<void> run(SharedPreferences prefs, ProgressStore progress, SettingsStore settings) async {

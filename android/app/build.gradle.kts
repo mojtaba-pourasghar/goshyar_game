@@ -14,7 +14,7 @@ val keyProperties = Properties().apply {
 }
 
 android {
-    namespace = "ir.brandimo.goshyar"
+    namespace = "com.goshyar.app"
     compileSdk = flutter.compileSdkVersion
     ndkVersion = flutter.ndkVersion
 
@@ -25,7 +25,7 @@ android {
 
     defaultConfig {
         // همان شناسه‌ی نسخه‌ی قدیمی Java، تا این نسخه روی آن به‌روزرسانی شود و داده‌ها بمانند.
-        applicationId = "ir.brandimo.goshyar"
+        applicationId = "com.goshyar.app"
         // Flutter حداقل API 24 را پشتیبانی می‌کند (نسخه‌ی قدیمی 23 بود).
         minSdk = flutter.minSdkVersion
         targetSdk = flutter.targetSdkVersion
