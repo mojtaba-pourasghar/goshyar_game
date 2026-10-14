@@ -165,6 +165,34 @@
       "file": "File:Laser (Gravity Sound).mp3",
       "seconds": 4,
       "start": 0
+    },
+    "lion": {
+      "file": "File:Lionroar.wav",
+      "seconds": 5
+    },
+    "rabbit": {
+      "file": "File:Rabbit oinks and squeaks.wav",
+      "seconds": 4
+    },
+    "fire": {
+      "file": "File:Campfire sound ambience.ogg",
+      "seconds": 5
+    },
+    "bell": {
+      "file": "File:Sleigh bells.wav",
+      "seconds": 4
+    },
+    "hammer": {
+      "file": "File:Carpenter Work Sound.ogg",
+      "seconds": 4
+    },
+    "saw": {
+      "file": "File:WWS Wheelwrightwoodsaw.ogg",
+      "seconds": 5
+    },
+    "satellite": {
+      "file": "File:Sputnik beep.ogg",
+      "seconds": 4
     }
   }
 }

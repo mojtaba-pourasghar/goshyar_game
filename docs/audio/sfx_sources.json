@@ -1,0 +1,38 @@
+{
+  "note": "صدای حیوان‌ها و وسایل که با فایل واقعی جایگزین شده‌اند. صدایی که اینجا نیست هنوز همان صدای سنتزیِ نسخه‌ی قبلی است.",
+  "files": {
+    "cat": {
+      "file": "audio/sfx/animals_cat.mp3",
+      "commons": "File:Felis silvestris catus meows.ogg",
+      "source": "https://commons.wikimedia.org/wiki/File:Felis_silvestris_catus_meows.ogg",
+      "license": "CC BY-SA 3.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+      "author": "Tobias Puderer",
+      "kept": "6.35s + 4s",
+      "via": "tools/sfx/fetch_sounds.py",
+      "at": "2026-10-14T07:59:14+00:00"
+    },
+    "cow": {
+      "file": "audio/sfx/animals_cow.mp3",
+      "commons": "File:Single Cow Moo.ogg",
+      "source": "https://commons.wikimedia.org/wiki/File:Single_Cow_Moo.ogg",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "author": "MichaeltheFox8621",
+      "kept": "0.0s + 4s",
+      "via": "tools/sfx/fetch_sounds.py",
+      "at": "2026-10-14T07:59:05+00:00"
+    },
+    "dog": {
+      "file": "audio/sfx/animals_dog.mp3",
+      "commons": "File:Barking of a dog 2.ogg",
+      "source": "https://commons.wikimedia.org/wiki/File:Barking_of_a_dog_2.ogg",
+      "license": "CC BY-SA 3.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+      "author": "Amada44",
+      "kept": "0.0s + 4s",
+      "via": "tools/sfx/fetch_sounds.py",
+      "at": "2026-10-14T07:59:12+00:00"
+    }
+  }
+}
