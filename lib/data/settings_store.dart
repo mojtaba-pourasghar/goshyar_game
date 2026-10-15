@@ -9,6 +9,9 @@ class SettingsStore extends ChangeNotifier {
 
   final SharedPreferences _prefs;
 
+  /// برای فروشگاه‌های دیگری که همین تنظیمات را به اشتراک می‌گذارند (AccessStore در آزمون‌ها).
+  SharedPreferences get prefs => _prefs;
+
   static String _onKey(AudioChannel c) => 'goshyar.audio.${c.name}.on';
   static String _volKey(AudioChannel c) => 'goshyar.audio.${c.name}.volume';
   static const _subtitlesKey = 'goshyar.subtitles';

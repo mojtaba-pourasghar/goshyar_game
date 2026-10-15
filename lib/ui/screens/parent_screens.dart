@@ -7,16 +7,25 @@ import '../../core/design/theme.dart';
 import '../../core/design/tokens.dart';
 import '../../core/fa.dart';
 import '../../core/narrator.dart';
+import '../../core/platform/native_bridge.dart';
+import '../../data/access_store.dart';
 import '../../data/content_repository.dart';
 import '../../data/progress_store.dart';
 import '../routes.dart';
 import '../widgets/clay.dart';
 import '../widgets/common.dart';
 import '../widgets/icons.dart';
+import '../widgets/paywall.dart';
+
+/// [dashboard]: بعد از پاسخ درست به گزارش والدین می‌رود. [verify]: فقط true برمی‌گرداند
+/// (پیش از خرید یا باز کردن پیوند بیرونی).
+enum ParentGateMode { dashboard, verify }
 
 /// دروازه‌ی والدین: یک ضرب ساده که کودک خردسال معمولاً نمی‌تواند حل کند.
 class ParentGateScreen extends StatefulWidget {
-  const ParentGateScreen({super.key});
+  const ParentGateScreen({super.key, this.mode = ParentGateMode.dashboard});
+
+  final ParentGateMode mode;
 
   @override
   State<ParentGateScreen> createState() => _ParentGateScreenState();
@@ -56,6 +65,10 @@ class _ParentGateScreenState extends State<ParentGateScreen> {
 
   void _check() {
     if (int.tryParse(_entry) == _a * _b) {
+      if (widget.mode == ParentGateMode.verify) {
+        Navigator.of(context).pop(true);
+        return;
+      }
       Navigator.of(context).pushReplacementNamed(Routes.parent);
     } else {
       setState(() {
@@ -186,6 +199,10 @@ class ParentDashboardScreen extends StatelessWidget {
               child: ListView(
                 padding: const EdgeInsets.fromLTRB(GSpace.gutter, GSpace.xs, GSpace.gutter, GSpace.xl),
                 children: [
+                  const _FullVersionCard(),
+                  const SizedBox(height: GSpace.md),
+                  const _NotificationsCard(),
+                  const SizedBox(height: GSpace.md),
                   ClayCard(
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -299,4 +316,106 @@ class ParentDashboardScreen extends StatelessWidget {
       ],
     ),
   );
+}
+
+/// نسخه‌ی کامل: وضعیت خرید، خرید و بازیابی (اینجا دروازه‌ی والدین از قبل گذرانده شده).
+class _FullVersionCard extends StatelessWidget {
+  const _FullVersionCard();
+
+  @override
+  Widget build(BuildContext context) {
+    final access = context.watch<AccessStore>();
+    final String status;
+    if (access.everythingOpen) {
+      status = 'نسخه‌ی آزمایشی (debug): همه‌ی مرحله‌ها باز است.';
+    } else if (access.owned) {
+      status = 'نسخه‌ی کامل خریده شده؛ همه‌ی مرحله‌ها باز است.';
+    } else {
+      status = 'فقط مرحله‌ی اول هر بازی باز است.';
+    }
+    return ClayCard(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text('نسخه‌ی کامل', style: GText.heading.copyWith(color: GColors.purple)),
+          const SizedBox(height: GSpace.xs),
+          Text(status, style: GText.body),
+          if (access.paywall && !access.owned) ...[
+            const SizedBox(height: GSpace.sm),
+            ClayButton(
+              label: 'باز کردن همه — ${access.price}',
+              icon: Icons.lock_open_rounded,
+              color: GColors.green,
+              onTap: () => showPaywall(context, parentVerified: true),
+            ),
+          ],
+        ],
+      ),
+    );
+  }
+}
+
+/// اعلان‌ها (پوشه): در اندروید ۱۳ به بعد باید اجازه داده شود؛ فقط بزرگ‌ترها از اینجا می‌دهند.
+class _NotificationsCard extends StatefulWidget {
+  const _NotificationsCard();
+
+  @override
+  State<_NotificationsCard> createState() => _NotificationsCardState();
+}
+
+class _NotificationsCardState extends State<_NotificationsCard> with WidgetsBindingObserver {
+  bool? _allowed;
+
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addObserver(this);
+    _check();
+  }
+
+  @override
+  void dispose() {
+    WidgetsBinding.instance.removeObserver(this);
+    super.dispose();
+  }
+
+  // پنجره‌ی اجازه‌ی اندروید برنامه را pause می‌کند؛ بعد از برگشتن وضعیت تازه خوانده می‌شود.
+  @override
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    if (state == AppLifecycleState.resumed) _check();
+  }
+
+  Future<void> _check() async {
+    final allowed = await const NativeBridge().notificationsAllowed();
+    if (mounted) setState(() => _allowed = allowed);
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final allowed = _allowed ?? false;
+    return ClayCard(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text('اعلان‌ها', style: GText.heading.copyWith(color: GColors.purple)),
+          const SizedBox(height: GSpace.xs),
+          Text(
+            allowed
+                ? 'اعلان‌ها روشن است؛ خبر مرحله‌ها و بازی‌های تازه می‌رسد.'
+                : 'برای دریافت خبر مرحله‌ها و بازی‌های تازه، اجازه‌ی اعلان بدهید.',
+            style: GText.body,
+          ),
+          if (!allowed) ...[
+            const SizedBox(height: GSpace.sm),
+            ClayButton(
+              label: 'اجازه‌ی اعلان',
+              icon: Icons.notifications_active_rounded,
+              color: GColors.blue,
+              onTap: () => const NativeBridge().requestNotifications(),
+            ),
+          ],
+        ],
+      ),
+    );
+  }
 }

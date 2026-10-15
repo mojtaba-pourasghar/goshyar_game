@@ -5,16 +5,19 @@ import '../../core/design/theme.dart';
 import '../../core/design/tokens.dart';
 import '../../core/fa.dart';
 import '../../core/narrator.dart';
+import '../../data/access_store.dart';
 import '../../data/content_repository.dart';
 import '../../data/progress_store.dart';
 import '../routes.dart';
 import '../widgets/clay.dart';
 import '../widgets/common.dart';
 import '../widgets/icons.dart';
+import '../widgets/paywall.dart';
 import '../widgets/scene.dart';
 import 'game_screen.dart';
 
 /// نقشه‌ی مراحل یک بازی: هر مرحله با ستاره‌هایش؛ مرحله‌ی بعد با تمام شدن قبلی باز می‌شود.
+/// در نسخه‌ی release بدون خرید فقط مرحله‌ی ۱ باز است (AccessStore)؛ مرحله‌های پولی تاج دارند.
 class LevelMapScreen extends StatefulWidget {
   const LevelMapScreen({super.key, required this.modeId});
 
@@ -34,13 +37,19 @@ class _LevelMapScreenState extends State<LevelMapScreen> {
     });
   }
 
-  void _play(int index) =>
-      Navigator.of(context).pushNamed(Routes.game, arguments: GameArgs.level(widget.modeId, index));
+  void _play(int index) {
+    if (context.read<AccessStore>().needsPurchase(index)) {
+      showPaywall(context);
+      return;
+    }
+    Navigator.of(context).pushNamed(Routes.game, arguments: GameArgs.level(widget.modeId, index));
+  }
 
   @override
   Widget build(BuildContext context) {
     final mode = context.read<ContentRepository>().mode(widget.modeId);
     final p = context.watch<ProgressStore>();
+    final access = context.watch<AccessStore>();
     final color = GColors.fromHex(mode.color);
     final next = p.nextLevelIndex(mode);
     final dark = SceneBackground.isDark(mode.scene);
@@ -81,15 +90,17 @@ class _LevelMapScreenState extends State<LevelMapScreen> {
                   itemCount: mode.levels.length,
                   itemBuilder: (context, i) {
                     final level = mode.levels[i];
-                    final unlocked = p.isLevelUnlocked(mode, i);
+                    final premium = access.needsPurchase(i);
+                    final unlocked = access.everythingOpen || (!premium && p.isLevelUnlocked(mode, i));
                     final stars = p.starsFor(mode.id, level.number);
                     return _LevelBubble(
                       number: level.number,
                       stars: stars,
                       unlocked: unlocked,
+                      premium: premium,
                       current: i == next && stars == 0,
                       color: color,
-                      onTap: unlocked ? () => _play(i) : null,
+                      onTap: unlocked ? () => _play(i) : (premium ? () => showPaywall(context) : null),
                     );
                   },
                 ),
@@ -117,6 +128,7 @@ class _LevelBubble extends StatelessWidget {
     required this.number,
     required this.stars,
     required this.unlocked,
+    this.premium = false,
     required this.current,
     required this.color,
     required this.onTap,
@@ -125,6 +137,9 @@ class _LevelBubble extends StatelessWidget {
   final int number;
   final int stars;
   final bool unlocked;
+
+  /// قفلِ خرید (نه قفلِ «اول مرحله‌ی قبل را تمام کن»).
+  final bool premium;
   final bool current;
   final Color color;
   final VoidCallback? onTap;
@@ -133,10 +148,12 @@ class _LevelBubble extends StatelessWidget {
   Widget build(BuildContext context) {
     final label = unlocked
         ? 'مرحله ${faDigits(number)}${stars > 0 ? '، ${faDigits(stars)} ستاره' : ''}'
-        : 'مرحله ${faDigits(number)}، قفل';
+        : premium
+            ? 'مرحله ${faDigits(number)}، با نسخه‌ی کامل باز می‌شود'
+            : 'مرحله ${faDigits(number)}، قفل';
     return Semantics(
       label: label,
-      button: unlocked,
+      button: unlocked || premium,
       child: ExcludeSemantics(
         child: Column(
           children: [
@@ -145,7 +162,11 @@ class _LevelBubble extends StatelessWidget {
                 aspectRatio: 1,
                 child: Pressable(
                   onTap: onTap,
-                  color: unlocked ? (stars > 0 ? GColors.green : color) : const Color(0xFFB9B4CC),
+                  color: unlocked
+                      ? (stars > 0 ? GColors.green : color)
+                      : premium
+                          ? GColors.yellowDark
+                          : const Color(0xFFB9B4CC),
                   depth: 6,
                   child: Container(
                     alignment: Alignment.center,
@@ -155,7 +176,8 @@ class _LevelBubble extends StatelessWidget {
                     ),
                     child: unlocked
                         ? Text(faDigits(number), style: GText.display.copyWith(color: Colors.white, fontSize: 30))
-                        : const Icon(Icons.lock_rounded, color: Colors.white, size: 30),
+                        : Icon(premium ? Icons.workspace_premium_rounded : Icons.lock_rounded,
+                            color: Colors.white, size: 30),
                   ),
                 ),
               ),

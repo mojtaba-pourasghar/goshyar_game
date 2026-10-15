@@ -6,6 +6,8 @@ import 'app.dart';
 import 'core/assets/asset_resolver.dart';
 import 'core/assets/download_manager.dart';
 import 'core/audio/just_audio_service.dart';
+import 'core/billing/billing.dart';
+import 'data/access_store.dart';
 import 'data/content_repository.dart';
 import 'data/legacy_migration.dart';
 import 'data/progress_store.dart';
@@ -22,6 +24,9 @@ Future<void> main() async {
   final settings = SettingsStore(prefs);
   final progress = ProgressStore(prefs, content);
   await LegacyMigration.run(prefs, progress, settings);
+  final access = AccessStore(prefs, const BazaarBilling());
+  // خرید قبلی و قیمت را از بازار می‌گیرد؛ منتظرش نمی‌مانیم تا شروع برنامه کند نشود.
+  access.sync();
 
   runApp(
     GoshyarApp(
@@ -30,6 +35,7 @@ Future<void> main() async {
       downloads: DownloadManager(assets),
       settings: settings,
       progress: progress,
+      access: access,
       audio: JustAudioService(assets, settings),
     ),
   );

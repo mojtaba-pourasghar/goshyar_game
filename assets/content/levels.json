@@ -911,5 +911,14 @@
       "icon": "emoji_events",
       "rule": "levels>=all"
     }
+  ],
+  "otherGames": [
+    {
+      "package": "com.pashmak.app",
+      "title": "پشمک",
+      "subtitle": "نقاشی، قصه، حافظه و بازی‌های شاد با پشمک",
+      "color": "#FF8A1F",
+      "icon": "palette"
+    }
   ]
 }

@@ -7,6 +7,8 @@ import 'core/assets/download_manager.dart';
 import 'core/audio/game_audio.dart';
 import 'core/design/theme.dart';
 import 'core/narrator.dart';
+import 'core/billing/billing.dart';
+import 'data/access_store.dart';
 import 'data/content_repository.dart';
 import 'data/progress_store.dart';
 import 'data/settings_store.dart';
@@ -21,6 +23,7 @@ class GoshyarApp extends StatelessWidget {
     required this.settings,
     required this.progress,
     required this.audio,
+    this.access,
     this.initialRoute = Routes.splash,
   });
 
@@ -30,6 +33,9 @@ class GoshyarApp extends StatelessWidget {
   final SettingsStore settings;
   final ProgressStore progress;
   final GameAudio audio;
+
+  /// پیش‌فرض (آزمون‌ها): بدون پرداخت و با قاعده‌ی همان نسخه‌ای که اجرا می‌شود.
+  final AccessStore? access;
   final String initialRoute;
 
   @override
@@ -43,6 +49,10 @@ class GoshyarApp extends StatelessWidget {
         ChangeNotifierProvider.value(value: downloads),
         ChangeNotifierProvider.value(value: settings),
         ChangeNotifierProvider.value(value: progress),
+        if (access != null)
+          ChangeNotifierProvider.value(value: access!)
+        else
+          ChangeNotifierProvider(create: (_) => AccessStore(settings.prefs, const NoBilling())),
       ],
       child: MaterialApp(
         title: 'گوش‌یار',

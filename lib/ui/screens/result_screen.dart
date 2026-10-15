@@ -5,6 +5,7 @@ import '../../core/assets/asset_resolver.dart';
 import '../../core/design/theme.dart';
 import '../../core/design/tokens.dart';
 import '../../core/narrator.dart';
+import '../../data/access_store.dart';
 import '../../data/content_repository.dart';
 import '../../data/models.dart';
 import '../../data/progress_store.dart';
@@ -13,6 +14,7 @@ import '../widgets/clay.dart';
 import '../widgets/game_widgets.dart';
 import '../widgets/icons.dart';
 import '../widgets/mascot.dart';
+import '../widgets/paywall.dart';
 import 'game_screen.dart';
 
 class ResultArgs {
@@ -97,6 +99,10 @@ class _ResultScreenState extends State<ResultScreen> {
   void _next() {
     final nav = Navigator.of(context);
     final next = _nextIndex;
+    if (next != null && context.read<AccessStore>().needsPurchase(next)) {
+      showPaywall(context);
+      return;
+    }
     if (next != null) {
       nav.pushReplacementNamed(Routes.game, arguments: GameArgs.level(widget.args.game.modeId!, next));
     } else {

@@ -13,6 +13,7 @@ class ContentRepository {
     required this.places,
     required this.modes,
     required this.achievements,
+    required this.otherGames,
     required this.scoring,
     required this.categoryRounds,
     required this.categoryOptions,
@@ -28,6 +29,9 @@ class ContentRepository {
   final Map<String, PlaceItem> places;
   final List<GameMode> modes;
   final List<Achievement> achievements;
+
+  /// بازی‌های دیگر ما در کافه‌بازار (levels.json ← otherGames).
+  final List<OtherGame> otherGames;
   final Scoring scoring;
   final int categoryRounds;
   final int categoryOptions;
@@ -56,6 +60,9 @@ class ContentRepository {
       modes: [for (final m in levels['modes'] as List) GameMode.fromJson(m as Map<String, dynamic>)],
       achievements: [
         for (final a in (levels['achievements'] ?? const []) as List) Achievement.fromJson(a as Map<String, dynamic>),
+      ],
+      otherGames: [
+        for (final g in (levels['otherGames'] ?? const []) as List) OtherGame.fromJson(g as Map<String, dynamic>),
       ],
       scoring: Scoring.fromJson(levels['scoring'] as Map<String, dynamic>?),
       categoryRounds: (play['rounds'] ?? 5) as int,

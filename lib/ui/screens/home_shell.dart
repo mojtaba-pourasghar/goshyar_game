@@ -22,6 +22,8 @@ import 'profile_tab.dart';
 class HomeShell extends StatefulWidget {
   const HomeShell({super.key, this.initialTab = 0});
 
+  static const gamesTab = 1;
+
   final int initialTab;
 
   @override

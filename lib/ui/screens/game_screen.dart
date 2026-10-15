@@ -19,6 +19,7 @@ import '../widgets/clay.dart';
 import '../widgets/game_widgets.dart';
 import '../widgets/mascot.dart';
 import '../widgets/scene.dart';
+import 'home_shell.dart';
 import 'result_screen.dart';
 
 /// ورودی صفحه‌ی بازی: یا یک مرحله از یکی از چهار بازی، یا یک دور بازی دسته‌ها.
@@ -370,6 +371,7 @@ class _GameScreenState extends State<GameScreen> {
       context: context,
       isDismissible: false,
       enableDrag: false,
+      isScrollControlled: true,
       backgroundColor: Colors.transparent,
       builder: (context) => const _PauseSheet(),
     );
@@ -379,7 +381,8 @@ class _GameScreenState extends State<GameScreen> {
       case 'restart':
         Navigator.of(context).pushReplacementNamed(Routes.game, arguments: widget.args);
       case 'exit':
-        Navigator.of(context).pop();
+        // خروج همیشه به صفحه‌ی اول «بازی‌ها» می‌رود، هر جا که بازی از آن شروع شده بود.
+        Navigator.of(context).pushNamedAndRemoveUntil(Routes.home, (_) => false, arguments: HomeShell.gamesTab);
       default:
         _narrator.say('session.resume');
         if (_phase == _Phase.listening) {
@@ -874,10 +877,12 @@ class _PauseSheet extends StatelessWidget {
         padding: const EdgeInsets.all(GSpace.md),
         child: ClayCard(
           padding: const EdgeInsets.all(GSpace.lg),
-          child: Column(
+          // در گوشی‌های کوتاه یا با نوار ناوبری سه‌دکمه‌ای جا کم می‌آمد و دکمه‌ی خروج بریده می‌شد.
+          child: SingleChildScrollView(
+           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              const Mascot(pose: MascotPose.cheer, size: 110),
+              const Mascot(pose: MascotPose.cheer, size: 84),
               Text('بازی متوقف شد', style: GText.title.copyWith(color: GColors.purple)),
               const SizedBox(height: GSpace.md),
               ClayButton(
@@ -902,6 +907,7 @@ class _PauseSheet extends StatelessWidget {
                 onTap: () => Navigator.pop(context, 'exit'),
               ),
             ],
+           ),
           ),
         ),
       ),

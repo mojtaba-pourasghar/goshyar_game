@@ -12,6 +12,17 @@ val keyProperties = Properties().apply {
     val f = rootProject.file("key.properties")
     if (f.exists()) f.inputStream().use { load(it) }
 }
+val hasReleaseKey = !keyProperties.getProperty("storeFile").isNullOrBlank()
+
+// کلید RSA پرداخت بازار و توکن پوشه از android/services.properties (در گیت نیست؛
+// نمونه: services.properties.example). خالی بودنشان ساخت را نمی‌شکند: پرداخت خطای «کلید نیست» می‌دهد
+// و بدون توکن پوشه، SDK اعلان اصلاً در برنامه گذاشته نمی‌شود.
+val serviceProperties = Properties().apply {
+    val f = rootProject.file("services.properties")
+    if (f.exists()) f.inputStream().use { load(it) }
+}
+val bazaarRsa: String = serviceProperties.getProperty("bazaar.rsa", "").trim()
+val pusheToken: String = serviceProperties.getProperty("pushe.token", "").trim()
 
 android {
     namespace = "com.goshyar.app"
@@ -24,7 +35,7 @@ android {
     }
 
     defaultConfig {
-        // همان شناسه‌ی نسخه‌ی قدیمی Java، تا این نسخه روی آن به‌روزرسانی شود و داده‌ها بمانند.
+        // شناسه‌ی تازه؛ نسخه‌ی Java قبلی ir.brandimo.goshyar بود (برنامه‌ی جداگانه حساب می‌شود).
         applicationId = "com.goshyar.app"
         // Flutter حداقل API 24 را پشتیبانی می‌کند (نسخه‌ی قدیمی 23 بود).
         minSdk = flutter.minSdkVersion
@@ -35,10 +46,12 @@ android {
         // flag during build.
         versionCode = flutter.versionCode
         versionName = flutter.versionName
+        manifestPlaceholders["bazaarRsa"] = bazaarRsa
+        manifestPlaceholders["pusheToken"] = pusheToken
     }
 
     signingConfigs {
-        if (keyProperties.isNotEmpty()) {
+        if (hasReleaseKey) {
             create("release") {
                 keyAlias = keyProperties.getProperty("keyAlias")
                 keyPassword = keyProperties.getProperty("keyPassword")
@@ -50,7 +63,7 @@ android {
 
     buildTypes {
         release {
-            signingConfig = if (keyProperties.isNotEmpty()) {
+            signingConfig = if (hasReleaseKey) {
                 signingConfigs.getByName("release")
             } else {
                 signingConfigs.getByName("debug")
@@ -67,4 +80,17 @@ kotlin {
 
 flutter {
     source = "../.."
+}
+
+dependencies {
+    // پرداخت درون‌برنامه‌ای کافه‌بازار
+    implementation("com.github.cafebazaar.Poolakey:poolakey:2.2.0")
+    implementation("androidx.activity:activity-ktx:1.9.3")
+    // اعلان‌های پوشه، فقط وقتی توکن داده شده. فقط هسته، FCM و نمایش اعلان؛ ماژول‌های
+    // datalytics/analytics/sentry بسته‌ی base را عمداً نمی‌گذاریم (برنامه‌ی کودک، داده‌ی کمتر).
+    if (pusheToken.isNotEmpty()) {
+        implementation("co.pushe.plus:core:2.6.4")
+        implementation("co.pushe.plus:fcm:2.6.4")
+        implementation("co.pushe.plus:notification:2.6.4")
+    }
 }

@@ -248,3 +248,22 @@ class VoiceLine {
     delayMs: (j['delayMs'] ?? 0) as int,
   );
 }
+
+/// یک بازی دیگرِ ما در کافه‌بازار (levels.json ← otherGames).
+class OtherGame {
+  const OtherGame({required this.package, required this.title, required this.subtitle, required this.color, required this.icon});
+
+  factory OtherGame.fromJson(Map<String, dynamic> j) => OtherGame(
+        package: j['package'] as String,
+        title: j['title'] as String,
+        subtitle: (j['subtitle'] as String?) ?? '',
+        color: (j['color'] as String?) ?? '#7A5AF8',
+        icon: (j['icon'] as String?) ?? 'games',
+      );
+
+  final String package;
+  final String title;
+  final String subtitle;
+  final String color;
+  final String icon;
+}

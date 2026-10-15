@@ -10,6 +10,7 @@ import '../../data/progress_store.dart';
 import '../routes.dart';
 import '../widgets/clay.dart';
 import '../widgets/icons.dart';
+import '../widgets/other_games.dart';
 
 /// انتخاب بازی و مأموریت: چهار بازی اصلی با پیشرفت هرکدام.
 class GamesTab extends StatelessWidget {
@@ -30,6 +31,8 @@ class GamesTab extends StatelessWidget {
             _ModeCard(mode: content.modes[i], number: i + 1),
             const SizedBox(height: GSpace.md),
           ],
+          const SizedBox(height: GSpace.sm),
+          const OtherGamesSection(),
         ],
       ),
     );

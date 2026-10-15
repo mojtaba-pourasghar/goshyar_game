@@ -38,7 +38,7 @@ abstract final class Routes {
       result => ResultScreen(args: s.arguments! as ResultArgs),
       library => LibraryCategoryScreen(categoryId: s.arguments! as String),
       settings => const SettingsScreen(),
-      parentGate => const ParentGateScreen(),
+      parentGate => ParentGateScreen(mode: (s.arguments as ParentGateMode?) ?? ParentGateMode.dashboard),
       parent => const ParentDashboardScreen(),
       downloads => const DownloadsScreen(),
       _ => const HomeShell(),

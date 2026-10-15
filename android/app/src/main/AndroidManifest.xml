@@ -3,6 +3,8 @@
          مجوزهای ACCESS_NETWORK_STATE و VIBRATE نسخه‌ی قدیمی دیگر لازم نیستند
          (لرزش لمسی Flutter مجوز نمی‌خواهد و نبود اینترنت از خطای درخواست تشخیص داده می‌شود). -->
     <uses-permission android:name="android.permission.INTERNET"/>
+    <!-- اندروید ۱۳ به بعد: نمایش اعلان‌های پوشه. فقط از بخش والدین درخواست می‌شود. -->
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>
 
     <application
         android:label="گوش‌یار"
@@ -31,6 +33,13 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
+        <activity
+            android:name=".PurchaseActivity"
+            android:exported="false"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+        <!-- مقدارها از android/services.properties (در گیت نیست) -->
+        <meta-data android:name="com.goshyar.app.BAZAAR_RSA" android:value="${bazaarRsa}" />
+        <meta-data android:name="pushe_token" android:value="${pusheToken}" />
         <!-- Don't delete the meta-data below.
              This is used by the Flutter tool to generate GeneratedPluginRegistrant.java -->
         <meta-data
@@ -43,6 +52,12 @@
 
          In particular, this is used by the Flutter engine in io.flutter.plugin.text.ProcessTextPlugin. -->
     <queries>
+        <!-- پرداخت و باز کردن صفحه‌ی برنامه‌ها در کافه‌بازار -->
+        <package android:name="com.farsitel.bazaar" />
+        <intent>
+            <action android:name="android.intent.action.VIEW" />
+            <data android:scheme="https" />
+        </intent>
         <intent>
             <action android:name="android.intent.action.PROCESS_TEXT"/>
             <data android:mimeType="text/plain"/>

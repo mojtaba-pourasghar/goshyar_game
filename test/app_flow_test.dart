@@ -5,11 +5,14 @@ import 'package:goshyar/app.dart';
 import 'package:goshyar/core/assets/asset_resolver.dart';
 import 'package:goshyar/core/assets/download_manager.dart';
 import 'package:goshyar/core/audio/game_audio.dart';
+import 'package:goshyar/core/billing/billing.dart';
+import 'package:goshyar/data/access_store.dart';
 import 'package:goshyar/data/content_repository.dart';
 import 'package:goshyar/data/progress_store.dart';
 import 'package:goshyar/data/settings_store.dart';
 import 'package:goshyar/ui/routes.dart';
 import 'package:goshyar/ui/screens/game_screen.dart';
+import 'package:goshyar/ui/screens/games_tab.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'helpers.dart';
@@ -30,14 +33,24 @@ class Harness {
   }
 }
 
-Future<Harness> pumpApp(WidgetTester tester, {Size size = const Size(412, 915), bool introSeen = false}) async {
+/// پیش‌فرض آزمون‌ها: مثل نسخه‌ی release که نسخه‌ی کامل در آن خریده شده، تا قاعده‌ی ترتیب مرحله‌ها
+/// (مرحله‌ی بعد با تمام شدن قبلی) آزموده شود. [paywall]: false یعنی debug (همه باز)؛ [owned]: false
+/// یعنی release بدون خرید (فقط مرحله‌ی ۱).
+Future<Harness> pumpApp(
+  WidgetTester tester, {
+  Size size = const Size(412, 915),
+  bool introSeen = false,
+  bool paywall = true,
+  bool owned = true,
+}) async {
   tester.view.physicalSize = size * 2;
   tester.view.devicePixelRatio = 2;
   addTearDown(tester.view.reset);
 
-  SharedPreferences.setMockInitialValues(
-    introSeen ? {'goshyar.progress.v2': '{"introSeen":true}'} : <String, Object>{},
-  );
+  SharedPreferences.setMockInitialValues({
+    if (introSeen) 'goshyar.progress.v2': '{"introSeen":true}',
+    if (owned) 'goshyar.full.v1': true,
+  });
   final prefs = await SharedPreferences.getInstance();
   final content = loadContent();
   final assets = AssetResolver();
@@ -52,6 +65,7 @@ Future<Harness> pumpApp(WidgetTester tester, {Size size = const Size(412, 915), 
       downloads: DownloadManager(assets),
       settings: settings,
       progress: progress,
+      access: AccessStore(prefs, const NoBilling(), paywall: paywall),
       audio: audio,
     ),
   );
@@ -167,7 +181,46 @@ void main() {
     expect(find.text('بازی متوقف شد'), findsOneWidget);
     await tapText(tester, 'خروج از بازی');
     await wait(tester, 800);
-    expect(find.bySemanticsLabel('مرحله ۱، ۳ ستاره'), findsOneWidget);
+    // خروج به صفحه‌ی اول «بازی‌ها» می‌رود، نه به نقشه‌ی مراحل
+    expect(find.text('بازی‌ها و مأموریت‌ها'), findsOneWidget);
+    expect(find.text('بازی متوقف شد'), findsNothing);
+    await wait(tester, 13000);
+  });
+
+  testWidgets('release بدون خرید: فقط مرحله‌ی ۱ باز؛ مرحله‌ی ۲ برگه‌ی خرید را باز می‌کند', (tester) async {
+    final h = await pumpApp(tester, introSeen: true, owned: false);
+    await tester.tap(find.bySemanticsLabel('شروع'));
+    await wait(tester, 1000);
+    await tapText(tester, 'بازی‌ها');
+    final mode = h.content.mode('who_made_sound');
+    await tapText(tester, '۱. ${mode.title}');
+    expect(find.bySemanticsLabel('مرحله ۱'), findsOneWidget);
+    expect(find.bySemanticsLabel('مرحله ۲، با نسخه‌ی کامل باز می‌شود'), findsOneWidget);
+    await tester.tap(find.bySemanticsLabel('مرحله ۲، با نسخه‌ی کامل باز می‌شود'));
+    await wait(tester, 800);
+    expect(find.text('همه‌ی مرحله‌ها را باز کن'), findsOneWidget);
+    expect(find.text(AccessStore.fallbackPrice), findsOneWidget);
+    // خرید پشت دروازه‌ی والدین است
+    await tapText(tester, 'خرید نسخه‌ی کامل');
+    await wait(tester, 800);
+    expect(find.text('این بخش مخصوص بزرگ‌ترهاست.'), findsOneWidget);
+    await wait(tester, 13000);
+  });
+
+  testWidgets('debug: همه‌ی مرحله‌ها بی‌ترتیب و بی‌خرید باز است', (tester) async {
+    final h = await pumpApp(tester, introSeen: true, paywall: false, owned: false);
+    await tester.tap(find.bySemanticsLabel('شروع'));
+    await wait(tester, 1000);
+    await tapText(tester, 'بازی‌ها');
+    final mode = h.content.mode('who_made_sound');
+    final list = find.descendant(of: find.byType(GamesTab), matching: find.byType(Scrollable)).first;
+    await tester.scrollUntilVisible(find.text('پشمک'), 300, scrollable: list);
+    expect(find.text('بازی‌های دیگر ما'), findsOneWidget);
+    await tester.scrollUntilVisible(find.text('۱. ${mode.title}'), -300, scrollable: list);
+    await tapText(tester, '۱. ${mode.title}');
+    expect(find.bySemanticsLabel('مرحله ۲'), findsOneWidget);
+    expect(find.bySemanticsLabel('مرحله ${'۵'}'), findsOneWidget);
+    expect(find.bySemanticsLabel('مرحله ۲، قفل'), findsNothing);
     await wait(tester, 13000);
   });
 

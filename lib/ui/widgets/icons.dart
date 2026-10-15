@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 /// آیکون برداری است و در هر اندازه‌ای تیز می‌ماند؛ از ایموجی استفاده نمی‌شود.
 IconData iconFor(String name) => switch (name) {
   'pets' => Icons.pets_rounded,
+  'palette' => Icons.palette_rounded,
+  'games' => Icons.sports_esports_rounded,
   'house' => Icons.home_rounded,
   'eco' => Icons.eco_rounded,
   'music' => Icons.music_note_rounded,
