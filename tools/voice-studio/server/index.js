@@ -18,6 +18,7 @@ import { readManifest, existingKeys, setSpoken, GROUP_LABELS } from "./manifest.
 import { createRegistry } from "./tts-registry.js";
 import { speak, SPEAKERS, VOICES, RateLimited } from "./avasho.js";
 import { createSfx } from "./sfx.js";
+import { PUSH_DEFAULTS, sendPush } from "./push.js";
 
 const HERE = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(HERE, "..");
@@ -57,6 +58,8 @@ const DEFAULTS = {
   // Needs ffmpeg on PATH. Without it the service's own file is kept.
   normalize: true,
   schedule: { enabled: false, everySeconds: 300, batchSize: 25 },
+  // ارسال اعلان (server/push.js). توکن وب‌سرویس پوشه همین‌جا ذخیره می‌شود، نه در گیت.
+  push: { ...PUSH_DEFAULTS },
 };
 
 /**
@@ -98,6 +101,7 @@ try {
     config = {
       ...DEFAULTS, ...saved,
       schedule: { ...DEFAULTS.schedule, ...(saved.schedule || {}) },
+      push: { ...DEFAULTS.push, ...(saved.push || {}) },
     };
     if (normalizeEndpoint(config.endpoint) === "long") {
       migrated = `نقطه‌ی سرویس از avasho-large به متنِ کوتاه برگشت (جمله‌های بازی کوتاه‌اند)`;
@@ -420,6 +424,7 @@ const publicConfig = () => ({
   ...config,
   token: undefined,
   tokenSet: Boolean(config.token),
+  push: { ...config.push, apiToken: undefined, apiTokenSet: Boolean(config.push.apiToken) },
   tokenHint: config.token ? `${config.token.slice(0, 6)}…${config.token.slice(-4)}` : "",
   configFile: CONFIG_FILE,
   savedAt,
@@ -455,6 +460,16 @@ app.post("/api/config", (req, res) => {
   if (body.token === "") {
     config.token = "";
     say("info", "توکن پاک شد");
+  }
+  if (body.push) {
+    const next = { ...config.push };
+    for (const key of ["appId", "endpoint"]) {
+      if (typeof body.push[key] === "string" && body.push[key].trim()) next[key] = body.push[key].trim();
+    }
+    if (typeof body.push.apiToken === "string" && body.push.apiToken.trim()) next.apiToken = body.push.apiToken.trim();
+    if (body.push.apiToken === "") next.apiToken = "";
+    config.push = next;
+    say("info", "تنظیمات اعلان ذخیره شد" + (next.apiToken ? "" : " (توکن خالی است)"));
   }
   if (body.schedule) {
     config.schedule = { ...config.schedule, ...body.schedule };
@@ -832,6 +847,22 @@ app.get("/api/events", (req, res) => {
   res.write(`data: ${JSON.stringify({ type: "status", ...snapshot() })}\n\n`);
   listeners.add(res);
   req.on("close", () => listeners.delete(res));
+});
+
+// ── ارسال اعلان (پوشه) ───────────────────────────────────────────────────────
+app.post("/api/push/send", async (req, res) => {
+  const message = {
+    title: req.body?.title, content: req.body?.content,
+    image: req.body?.image || "", url: req.body?.url || "",
+  };
+  try {
+    const out = await sendPush(config.push, message);
+    say(out.ok ? "ok" : "error", `اعلان ${out.ok ? "فرستاده شد" : "نرفت"} — HTTP ${out.status}: ${out.body.slice(0, 300)}`);
+    res.status(out.ok ? 200 : 502).json(out);
+  } catch (err) {
+    say("error", `اعلان: ${err.message}`);
+    res.status(400).json({ error: err.message });
+  }
 });
 
 // ── صدای حیوان‌ها و وسایل: real recordings dropped in by hand ────────────────

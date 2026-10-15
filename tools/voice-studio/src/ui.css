@@ -136,3 +136,7 @@ optgroup option { font-weight: 400; color: var(--ink); }
 label.pick { display: inline-block; margin: 0; padding: 8px 14px; border-radius: 99px; cursor: pointer;
              background: var(--orange); color: #fff; font-weight: 700; font-size: 13px; white-space: nowrap; }
 label.pick.off { opacity: .5; cursor: not-allowed; }
+.push-preview { margin-top: 14px; max-width: 360px; background: #fff; border: 1px solid var(--line); border-radius: 14px;
+                padding: 10px 12px; box-shadow: 0 4px 14px rgba(0,0,0,.08); font-size: 13px; }
+.push-preview .push-head { font-size: 11px; color: var(--muted); margin-bottom: 4px; }
+.push-preview img { width: 100%; border-radius: 10px; margin-top: 8px; aspect-ratio: 2 / 1; object-fit: cover; }

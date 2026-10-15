@@ -23,6 +23,9 @@ flutter run -d chrome           # پیش‌نمایش سریع در مرورگر
 
 ## ساخت خروجی
 
+راهنمای کامل گام‌به‌گام (کلید امضا، کافه‌بازار، پرداخت، اعلان): **[docs/RELEASE.md](docs/RELEASE.md)**.
+در release فقط مرحله‌ی ۱ هر بازی رایگان است؛ در debug همه‌ی مرحله‌ها باز است.
+
 ```bash
 # APK برای نصب مستقیم
 flutter build apk --release
