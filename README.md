@@ -13,6 +13,7 @@
 ## اجرا
 
 نیازمندی‌ها: Flutter 3.47 یا بالاتر (Dart 3.13)، Android SDK (API 36)، JDK 17.
+برنامه روی **اندروید ۱۰ (API 29) و بالاتر** نصب می‌شود (`minSdk = 29` در `android/app/build.gradle.kts`).
 
 ```bash
 cd goshyar_game

@@ -1,4 +1,5 @@
-<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
     <!-- تنها مجوز لازم: دانلود بسته‌های اختیاری دارایی از CDN.
          مجوزهای ACCESS_NETWORK_STATE و VIBRATE نسخه‌ی قدیمی دیگر لازم نیستند
          (لرزش لمسی Flutter مجوز نمی‌خواهد و نبود اینترنت از خطای درخواست تشخیص داده می‌شود). -->
@@ -16,7 +17,7 @@
 
     <application
         android:label="گوش‌یار"
-        android:name="${applicationName}"
+        android:name=".GoshyarApplication"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"
@@ -62,6 +63,20 @@
                 <action android:name="android.intent.action.MY_PACKAGE_REPLACED" />
             </intent-filter>
         </receiver>
+        <!-- WorkManager را خودمان بالا می‌آوریم (GoshyarApplication.kt). راه‌اندازی خودکارش یک
+             ContentProvider است که پیش از اولین خط کد ما اجرا می‌شود؛ هر خطایی آن‌جا پروسه را
+             می‌کشد و همان «برنامه مدام بسته می‌شود» را بی هیچ صفحه‌ای نشان می‌دهد. برداشته شده تا
+             صف خبرها در لحظه‌ی نیاز و داخل try/catch ساخته شود. -->
+        <provider
+            android:name="androidx.startup.InitializationProvider"
+            android:authorities="${applicationId}.androidx-startup"
+            android:exported="false"
+            tools:node="merge">
+            <meta-data
+                android:name="androidx.work.WorkManagerInitializer"
+                android:value="androidx.startup"
+                tools:node="remove" />
+        </provider>
         <!-- Don't delete the meta-data below.
              This is used by the Flutter tool to generate GeneratedPluginRegistrant.java -->
         <meta-data

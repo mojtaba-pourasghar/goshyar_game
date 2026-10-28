@@ -3,7 +3,7 @@ description: "گوش‌یار — بازی آموزشی شنیداری برای 
 publish_to: 'none'
 
 # نسخه‌ی قدیمی اندروید versionCode=1 بود؛ این نسخه باید بالاتر باشد تا روی آن نصب شود.
-version: 2.0.0+2
+version: 2.0.1+3
 
 environment:
   sdk: ^3.13.5

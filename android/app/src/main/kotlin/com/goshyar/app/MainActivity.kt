@@ -24,8 +24,18 @@ class MainActivity : FlutterActivity() {
     private var billing: BazaarBilling? = null
     private var native: MethodChannel? = null
 
+    /**
+     * کانال‌ها در همان لحظه‌ی باز شدن برنامه بسته می‌شوند. خطای بی‌پاسخ این‌جا پیش از هر صفحه‌ای
+     * پروسه را می‌کشد («برنامه مدام بسته می‌شود»)، پس گرفته می‌شود: بدترین حالت، کانالی که
+     * بالا نیامده و Dart برای هر فراخوانی‌اش null می‌گیرد — بازی باز می‌ماند.
+     */
     override fun configureFlutterEngine(flutterEngine: FlutterEngine) {
         super.configureFlutterEngine(flutterEngine)
+        runCatching { registerChannels(flutterEngine) }
+            .onFailure { android.util.Log.e("goshyar", "کانال‌های بومی بالا نیامدند", it) }
+    }
+
+    private fun registerChannels(flutterEngine: FlutterEngine) {
         val messenger = flutterEngine.dartExecutor.binaryMessenger
         billing = BazaarBilling(this).also { MethodChannel(messenger, "com.goshyar.app/billing").setMethodCallHandler(it) }
         native = MethodChannel(messenger, "com.goshyar.app/native").also { channel ->
@@ -67,7 +77,7 @@ class MainActivity : FlutterActivity() {
     }
 
     override fun onDestroy() {
-        billing?.disconnect()
+        runCatching { billing?.disconnect() }
         super.onDestroy()
     }
 
@@ -75,7 +85,7 @@ class MainActivity : FlutterActivity() {
     override fun onNewIntent(intent: Intent) {
         super.onNewIntent(intent)
         setIntent(intent)
-        takeNotice(intent)?.let { native?.invokeMethod("noticeTapped", it) }
+        runCatching { takeNotice(intent)?.let { native?.invokeMethod("noticeTapped", it) } }
     }
 
     /**
@@ -83,7 +93,7 @@ class MainActivity : FlutterActivity() {
      * و این یک انتظار پانزده‌دقیقه‌ای را به هیچ می‌رساند.
      */
     override fun onPause() {
-        NoticeWork.once(applicationContext)
+        runCatching { NoticeWork.once(applicationContext) }
         super.onPause()
     }
 
@@ -93,9 +103,11 @@ class MainActivity : FlutterActivity() {
         if (requestCode != NoticeCenter.PERMISSION_REQUEST) return
         val app = applicationContext
         Thread({ runCatching { NoticeCenter.post(app) } }, "goshyar-notice-post").start()
-        // اعلان حالا روشن است؛ چیز بعدی میان خبر و برنامه‌ی بسته، صرفه‌جویی باتری است.
-        NoticeCenter.askBackgroundOnce(this)
-        native?.invokeMethod("permissionAnswered", NoticeCenter.permitted(this))
+        runCatching {
+            // اعلان حالا روشن است؛ چیز بعدی میان خبر و برنامه‌ی بسته، صرفه‌جویی باتری است.
+            NoticeCenter.askBackgroundOnce(this)
+            native?.invokeMethod("permissionAnswered", NoticeCenter.permitted(this))
+        }
     }
 
     /**

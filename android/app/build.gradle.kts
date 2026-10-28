@@ -35,8 +35,10 @@ android {
     defaultConfig {
         // شناسه‌ی تازه؛ نسخه‌ی Java قبلی ir.brandimo.goshyar بود (برنامه‌ی جداگانه حساب می‌شود).
         applicationId = "com.goshyar.app"
-        // Flutter حداقل API 24 را پشتیبانی می‌کند (نسخه‌ی قدیمی 23 بود).
-        minSdk = flutter.minSdkVersion
+        // اندروید ۱۰ (API 29) و بالاتر. پیش از این flutter.minSdkVersion (API 24) بود؛ با عدد
+        // ثابت، همان چیزی ساخته می‌شود که آزموده شده و نسخه‌ی Flutter دامنه‌ی پشتیبانی را
+        // بی‌خبر جابه‌جا نمی‌کند. برای برگشتن به اندروید ۷، همین عدد را ۲۴ کنید.
+        minSdk = 29
         targetSdk = flutter.targetSdkVersion
         // Uses the version code from pubspec.yaml. When using split APKs, 1000 * ABI_VERSION
         // is added automatically by Flutter. (https://developer.android.com/studio/build/configure-apk-splits#configure-APK-versions)
@@ -65,6 +67,13 @@ android {
             } else {
                 signingConfigs.getByName("debug")
             }
+            // صریح، نه پیش‌فرض: R8 روی کدی که با بازتاب (Poolakey، WorkManager) کار می‌کند
+            // می‌تواند نسخه‌ی release را در همان لحظه‌ی باز شدن بشکند، در حالی که debug سالم است.
+            // اگر روزی روشنش کردید، قاعده‌های نگه‌داری در proguard-rules.pro آماده است — و
+            // خروجی را پیش از فرستادن به بازار روی گوشی واقعی آزمایش کنید.
+            isMinifyEnabled = false
+            isShrinkResources = false
+            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
         }
     }
 }
