@@ -7,6 +7,7 @@ import '../../core/design/tokens.dart';
 import '../../core/fa.dart';
 import '../../core/narrator.dart';
 import '../../data/content_repository.dart';
+import '../../data/notices_store.dart';
 import '../../data/progress_store.dart';
 import '../routes.dart';
 import '../widgets/clay.dart';
@@ -150,6 +151,53 @@ class _BottomBar extends StatelessWidget {
   }
 }
 
+/// زنگوله‌ی خبرها؛ فقط وقتی خبری هست دیده می‌شود، با شمار خبرهای دیده‌نشده.
+class _NoticesBell extends StatelessWidget {
+  const _NoticesBell();
+
+  @override
+  Widget build(BuildContext context) {
+    final store = context.watch<NoticesStore>();
+    if (!store.visible) return const SizedBox.shrink();
+    final unread = store.unread;
+    return Padding(
+      padding: const EdgeInsetsDirectional.only(end: GSpace.xs),
+      child: Stack(
+        clipBehavior: Clip.none,
+        children: [
+          ClayIconButton(
+            icon: unread > 0 ? Icons.notifications_active_rounded : Icons.notifications_rounded,
+            label: unread > 0 ? 'خبرها، ${faDigits(unread)} تازه' : 'خبرها',
+            size: 52,
+            onTap: () => Navigator.of(context).pushNamed(Routes.notices),
+          ),
+          if (unread > 0)
+            PositionedDirectional(
+              top: -4,
+              end: -4,
+              child: IgnorePointer(
+                child: Container(
+                  constraints: const BoxConstraints(minWidth: 22, minHeight: 22),
+                  padding: const EdgeInsets.symmetric(horizontal: 5),
+                  alignment: Alignment.center,
+                  decoration: BoxDecoration(
+                    color: GColors.red,
+                    borderRadius: BorderRadius.circular(GRadius.pill),
+                    border: Border.all(color: Colors.white, width: 2),
+                  ),
+                  child: Text(
+                    faDigits(unread > 9 ? 9 : unread),
+                    style: GText.caption.copyWith(color: Colors.white, fontWeight: FontWeight.w800, height: 1.1),
+                  ),
+                ),
+              ),
+            ),
+        ],
+      ),
+    );
+  }
+}
+
 /// منوی اصلی: سلام به کودک، امتیاز، گوش‌یار و کاشی‌های رنگی دسته‌ها.
 class HomeTab extends StatelessWidget {
   const HomeTab({super.key, required this.onOpenGames});
@@ -181,6 +229,7 @@ class HomeTab extends StatelessWidget {
                   ),
                   ScoreChip(points: progress.points),
                   const SizedBox(width: GSpace.xs),
+                  const _NoticesBell(),
                   ClayIconButton(
                     icon: Icons.settings_rounded,
                     label: 'تنظیمات',

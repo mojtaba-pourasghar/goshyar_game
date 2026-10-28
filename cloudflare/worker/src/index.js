@@ -2,7 +2,8 @@
  * Goshyar asset gateway: serves the game's images and audio from a private R2 bucket.
  *
  * Paths are versioned (/goshyar/v1/...), so every file is immutable and can be cached
- * for a year at the edge and on the device. Only packs.json (the pack index) is short-lived.
+ * for a year at the edge and on the device. Only packs.json (the pack index) and
+ * goshyar/notices.json (signed notices, published by tools/voice-studio) are short-lived.
  * The bucket stays private; this Worker is the only public way in, and it only allows GET/HEAD.
  */
 
@@ -14,6 +15,7 @@ const TYPES = {
   webp: 'image/webp',
   png: 'image/png',
   jpg: 'image/jpeg',
+  jpeg: 'image/jpeg',
   json: 'application/json; charset=utf-8',
 };
 
@@ -52,10 +54,10 @@ export default {
     object.writeHttpMetadata(headers);
     headers.set('Content-Type', TYPES[ext] || 'application/octet-stream');
     headers.set('ETag', object.httpEtag);
-    headers.set(
-      'Cache-Control',
-      key.endsWith('/packs.json') ? 'public, max-age=300' : 'public, max-age=31536000, immutable',
-    );
+    // packs.json and goshyar/notices.json (the signed notices, outside the version folder) change in
+    // place, so they live five minutes. Notice images are named by their sha256 and never change.
+    const shortLived = key.endsWith('/packs.json') || key === 'goshyar/notices.json';
+    headers.set('Cache-Control', shortLived ? 'public, max-age=300' : 'public, max-age=31536000, immutable');
     headers.set('X-Content-Type-Options', 'nosniff');
 
     if (!('body' in object) || !object.body) {

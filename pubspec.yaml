@@ -38,6 +38,8 @@ flutter:
     - assets/audio/ui/
     - assets/audio/voice/
     - assets/audio/music/
+    # کلید عمومی خبرها (notice-key.pub) که استودیو می‌سازد؛ بی آن هیچ خبری پذیرفته نمی‌شود.
+    - assets/notices/
 
   fonts:
     - family: Vazirmatn

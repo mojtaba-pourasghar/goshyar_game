@@ -10,8 +10,10 @@ import 'core/narrator.dart';
 import 'core/billing/billing.dart';
 import 'data/access_store.dart';
 import 'data/content_repository.dart';
+import 'data/notices_store.dart';
 import 'data/progress_store.dart';
 import 'data/settings_store.dart';
+import 'ui/notice_host.dart';
 import 'ui/routes.dart';
 
 class GoshyarApp extends StatelessWidget {
@@ -24,6 +26,7 @@ class GoshyarApp extends StatelessWidget {
     required this.progress,
     required this.audio,
     this.access,
+    this.notices,
     this.initialRoute = Routes.splash,
   });
 
@@ -36,6 +39,9 @@ class GoshyarApp extends StatelessWidget {
 
   /// پیش‌فرض (آزمون‌ها): بدون پرداخت و با قاعده‌ی همان نسخه‌ای که اجرا می‌شود.
   final AccessStore? access;
+
+  /// پیش‌فرض (آزمون‌ها): بی‌کلید، پس هیچ خبری خوانده و نشان داده نمی‌شود.
+  final NoticesStore? notices;
   final String initialRoute;
 
   @override
@@ -53,25 +59,33 @@ class GoshyarApp extends StatelessWidget {
           ChangeNotifierProvider.value(value: access!)
         else
           ChangeNotifierProvider(create: (_) => AccessStore(settings.prefs, const NoBilling())),
+        if (notices != null)
+          ChangeNotifierProvider.value(value: notices!)
+        else
+          ChangeNotifierProvider(create: (_) => NoticesStore(settings.prefs)),
       ],
-      child: MaterialApp(
-        title: 'گوش‌یار',
-        debugShowCheckedModeBanner: false,
-        theme: buildGoshyarTheme(),
-        locale: const Locale('fa', 'IR'),
-        supportedLocales: const [Locale('fa', 'IR')],
-        localizationsDelegates: GlobalMaterialLocalizations.delegates,
-        initialRoute: initialRoute,
-        onGenerateRoute: Routes.generate,
-        navigatorObservers: [AudioRouteObserver(audio)],
-        // متن‌ها با بزرگ‌نمایی سیستم بزرگ می‌شوند ولی نه آن‌قدر که چیدمان بشکند.
-        builder: (context, child) {
-          final mq = MediaQuery.of(context);
-          return MediaQuery(
-            data: mq.copyWith(textScaler: mq.textScaler.clamp(maxScaleFactor: 1.3)),
-            child: child!,
-          );
-        },
+      // خبرها وقتی برنامه باز است: نگاه هر دو دقیقه و کارت خبر روی صفحه (همان MainActivity هوهو ریاضی).
+      child: NoticeHost(
+        builder: (navigatorKey, noticeRoutes) => MaterialApp(
+          title: 'گوش‌یار',
+          debugShowCheckedModeBanner: false,
+          navigatorKey: navigatorKey,
+          theme: buildGoshyarTheme(),
+          locale: const Locale('fa', 'IR'),
+          supportedLocales: const [Locale('fa', 'IR')],
+          localizationsDelegates: GlobalMaterialLocalizations.delegates,
+          initialRoute: initialRoute,
+          onGenerateRoute: Routes.generate,
+          navigatorObservers: [AudioRouteObserver(audio), noticeRoutes],
+          // متن‌ها با بزرگ‌نمایی سیستم بزرگ می‌شوند ولی نه آن‌قدر که چیدمان بشکند.
+          builder: (context, child) {
+            final mq = MediaQuery.of(context);
+            return MediaQuery(
+              data: mq.copyWith(textScaler: mq.textScaler.clamp(maxScaleFactor: 1.3)),
+              child: child!,
+            );
+          },
+        ),
       ),
     );
   }

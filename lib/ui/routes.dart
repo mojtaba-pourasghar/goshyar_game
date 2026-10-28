@@ -6,6 +6,7 @@ import 'screens/game_screen.dart';
 import 'screens/home_shell.dart';
 import 'screens/intro_screen.dart';
 import 'screens/level_map_screen.dart';
+import 'screens/notices_screen.dart';
 import 'screens/library_category_screen.dart';
 import 'screens/parent_screens.dart';
 import 'screens/result_screen.dart';
@@ -26,6 +27,7 @@ abstract final class Routes {
   static const parentGate = '/parent-gate';
   static const parent = '/parent';
   static const downloads = '/downloads';
+  static const notices = '/notices';
 
   static Route<dynamic> generate(RouteSettings s) {
     final Widget page = switch (s.name) {
@@ -41,6 +43,7 @@ abstract final class Routes {
       parentGate => ParentGateScreen(mode: (s.arguments as ParentGateMode?) ?? ParentGateMode.dashboard),
       parent => const ParentDashboardScreen(),
       downloads => const DownloadsScreen(),
+      notices => const NoticesScreen(),
       _ => const HomeShell(),
     };
     return MaterialPageRoute(builder: (_) => page, settings: s);

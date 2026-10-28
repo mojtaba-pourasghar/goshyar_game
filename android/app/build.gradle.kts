@@ -14,15 +14,13 @@ val keyProperties = Properties().apply {
 }
 val hasReleaseKey = !keyProperties.getProperty("storeFile").isNullOrBlank()
 
-// کلید RSA پرداخت بازار و توکن پوشه از android/services.properties (در گیت نیست؛
-// نمونه: services.properties.example). خالی بودنشان ساخت را نمی‌شکند: پرداخت خطای «کلید نیست» می‌دهد
-// و بدون توکن پوشه، SDK اعلان اصلاً در برنامه گذاشته نمی‌شود.
+// کلید RSA پرداخت بازار از android/services.properties (در گیت نیست؛ نمونه:
+// services.properties.example). خالی بودنش ساخت را نمی‌شکند: پرداخت خطای «کلید نیست» می‌دهد.
 val serviceProperties = Properties().apply {
     val f = rootProject.file("services.properties")
     if (f.exists()) f.inputStream().use { load(it) }
 }
 val bazaarRsa: String = serviceProperties.getProperty("bazaar.rsa", "").trim()
-val pusheToken: String = serviceProperties.getProperty("pushe.token", "").trim()
 
 android {
     namespace = "com.goshyar.app"
@@ -47,7 +45,6 @@ android {
         versionCode = flutter.versionCode
         versionName = flutter.versionName
         manifestPlaceholders["bazaarRsa"] = bazaarRsa
-        manifestPlaceholders["pusheToken"] = pusheToken
     }
 
     signingConfigs {
@@ -86,11 +83,7 @@ dependencies {
     // پرداخت درون‌برنامه‌ای کافه‌بازار
     implementation("com.github.cafebazaar.Poolakey:poolakey:2.2.0")
     implementation("androidx.activity:activity-ktx:1.9.3")
-    // اعلان‌های پوشه، فقط وقتی توکن داده شده. فقط هسته، FCM و نمایش اعلان؛ ماژول‌های
-    // datalytics/analytics/sentry بسته‌ی base را عمداً نمی‌گذاریم (برنامه‌ی کودک، داده‌ی کمتر).
-    if (pusheToken.isNotEmpty()) {
-        implementation("co.pushe.plus:core:2.6.4")
-        implementation("co.pushe.plus:fcm:2.6.4")
-        implementation("co.pushe.plus:notification:2.6.4")
-    }
+    // اعلان‌ها بدون هیچ سرویس پوشی: برنامه خودش فایل امضاشده‌ی خبرها را از سرور می‌خواند
+    // (NoticeWork.kt هر ربع ساعت، NoticeAlarm.kt از میان Doze) و خبر تازه را در نوار اعلان می‌گذارد.
+    implementation("androidx.work:work-runtime:2.9.1")
 }

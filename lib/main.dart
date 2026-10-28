@@ -10,6 +10,7 @@ import 'core/billing/billing.dart';
 import 'data/access_store.dart';
 import 'data/content_repository.dart';
 import 'data/legacy_migration.dart';
+import 'data/notices_store.dart';
 import 'data/progress_store.dart';
 import 'data/settings_store.dart';
 
@@ -27,6 +28,10 @@ Future<void> main() async {
   final access = AccessStore(prefs, const BazaarBilling());
   // خرید قبلی و قیمت را از بازار می‌گیرد؛ منتظرش نمی‌مانیم تا شروع برنامه کند نشود.
   access.sync();
+  // خبرهای امضاشده: کار پس‌زمینه‌ی اندروید هماهنگ می‌شود و فایل خبرها خوانده می‌شود، هر دو بی‌انتظار.
+  final notices = NoticesStore(prefs, seal: await NoticesStore.loadSeal(rootBundle));
+  notices.schedule();
+  notices.refresh();
 
   runApp(
     GoshyarApp(
@@ -36,6 +41,7 @@ Future<void> main() async {
       settings: settings,
       progress: progress,
       access: access,
+      notices: notices,
       audio: JustAudioService(assets, settings),
     ),
   );

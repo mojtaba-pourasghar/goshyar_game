@@ -10,6 +10,7 @@ import '../../core/narrator.dart';
 import '../../core/platform/native_bridge.dart';
 import '../../data/access_store.dart';
 import '../../data/content_repository.dart';
+import '../../data/notices_store.dart';
 import '../../data/progress_store.dart';
 import '../routes.dart';
 import '../widgets/clay.dart';
@@ -355,7 +356,8 @@ class _FullVersionCard extends StatelessWidget {
   }
 }
 
-/// اعلان‌ها (پوشه): در اندروید ۱۳ به بعد باید اجازه داده شود؛ فقط بزرگ‌ترها از اینجا می‌دهند.
+/// اعلان‌ها (پوشه و خبرهای امضاشده): در اندروید ۱۳ به بعد باید اجازه داده شود؛ فقط بزرگ‌ترها از
+/// اینجا می‌دهند. خبرها را هم همین‌جا می‌شود خاموش کرد.
 class _NotificationsCard extends StatefulWidget {
   const _NotificationsCard();
 
@@ -365,6 +367,8 @@ class _NotificationsCard extends StatefulWidget {
 
 class _NotificationsCardState extends State<_NotificationsCard> with WidgetsBindingObserver {
   bool? _allowed;
+  bool _background = true;
+  bool _autostart = false;
 
   @override
   void initState() {
@@ -386,13 +390,23 @@ class _NotificationsCardState extends State<_NotificationsCard> with WidgetsBind
   }
 
   Future<void> _check() async {
-    final allowed = await const NativeBridge().notificationsAllowed();
-    if (mounted) setState(() => _allowed = allowed);
+    const bridge = NativeBridge();
+    final allowed = await bridge.notificationsAllowed();
+    final background = await bridge.runsInBackground();
+    final autostart = await bridge.hasAutostart();
+    if (mounted) {
+      setState(() {
+        _allowed = allowed;
+        _background = background;
+        _autostart = autostart;
+      });
+    }
   }
 
   @override
   Widget build(BuildContext context) {
     final allowed = _allowed ?? false;
+    final notices = context.watch<NoticesStore>();
     return ClayCard(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -413,6 +427,72 @@ class _NotificationsCardState extends State<_NotificationsCard> with WidgetsBind
               color: GColors.blue,
               onTap: () => const NativeBridge().requestNotifications(),
             ),
+          ],
+          if (notices.ready) ...[
+            const SizedBox(height: GSpace.sm),
+            SwitchListTile(
+              contentPadding: EdgeInsets.zero,
+              value: notices.enabled,
+              onChanged: notices.setEnabled,
+              title: Text('خبرهای گوش‌یار', style: GText.bodyStrong),
+              subtitle: Text(
+                'زنگوله‌ی صفحه‌ی خانه و اعلان مرحله‌ها و صداهای تازه. فقط یک فایل خوانده می‌شود؛ '
+                'هیچ چیزی از این گوشی فرستاده نمی‌شود.',
+                style: GText.caption,
+              ),
+            ),
+            // اجازه‌ی اعلان به‌تنهایی کافی نیست: برنامه‌ی بسته باید بتواند گاه‌به‌گاه بیدار شود و
+            // فایل خبرها را بخواند. صرفه‌جویی باتری اندروید و «اجرای خودکار» سازنده‌ها جلویش را می‌گیرند.
+            if (notices.enabled && allowed && (!_background || _autostart)) ...[
+              const SizedBox(height: GSpace.xs),
+              Text('دریافت خبر وقتی برنامه بسته است', style: GText.bodyStrong),
+              Text(
+                _background
+                    ? 'روی این گوشی «اجرای خودکار» گوش‌یار را هم روشن کنید؛ وگرنه با بستن برنامه از '
+                          'فهرست برنامه‌های اخیر، خبرها تا باز شدن دوباره‌ی برنامه نمی‌رسند.'
+                    : 'صرفه‌جویی باتری بررسی خبرها را وقتی برنامه بسته است متوقف می‌کند. گوش‌یار را '
+                          '«بدون محدودیت» کنید${_autostart ? ' و «اجرای خودکار» آن را هم روشن کنید' : ''}.',
+                style: GText.caption,
+              ),
+              const SizedBox(height: GSpace.xs),
+              if (!_background)
+                ClayButton(
+                  label: 'بدون محدودیت باتری',
+                  icon: Icons.battery_charging_full_rounded,
+                  color: GColors.green,
+                  expand: false,
+                  onTap: () => const NativeBridge().askBackground(),
+                ),
+              if (_autostart) ...[
+                const SizedBox(height: GSpace.xs),
+                ClayButton(
+                  label: 'اجرای خودکار',
+                  icon: Icons.play_circle_outline_rounded,
+                  color: GColors.blue,
+                  expand: false,
+                  onTap: () => const NativeBridge().openAutostart(),
+                ),
+              ],
+            ],
+            // «آخرین بررسی خبرها» — تنها جایی که می‌گوید چه شد (همان ردیف بخش والدین هوهو ریاضی).
+            if (notices.enabled) ...[
+              const SizedBox(height: GSpace.xs),
+              Text('آخرین بررسی خبرها', style: GText.bodyStrong),
+              Text(
+                notices.lastCheck.isEmpty ? 'هنوز بررسی نشده' : notices.lastCheck,
+                style: GText.caption,
+              ),
+              Text('${faDigits(notices.countHere)} خبر روی دستگاه', style: GText.caption),
+              const SizedBox(height: GSpace.xs),
+              ClayButton(
+                label: 'بررسی کن',
+                icon: Icons.refresh_rounded,
+                color: GColors.blue,
+                expand: false,
+                // فایل روی گوشی کنار گذاشته می‌شود تا هرچه روی سرور است دوباره خوانده شود.
+                onTap: () => notices.refresh(forget: true),
+              ),
+            ],
           ],
         ],
       ),
